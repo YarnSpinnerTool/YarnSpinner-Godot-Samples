@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://c714tigk8bocp"
+path="res://.godot/imported/WeightedSaliency.yarn-3b89dbfa7284461a8e95c0b2d9c2292f.res"
+
+[deps]
+
+source_file="res://samples/custom-saliency/dialogue/WeightedSaliency.yarn"
+dest_files=["res://.godot/imported/WeightedSaliency.yarn-3b89dbfa7284461a8e95c0b2d9c2292f.res"]
+
+[params]
+

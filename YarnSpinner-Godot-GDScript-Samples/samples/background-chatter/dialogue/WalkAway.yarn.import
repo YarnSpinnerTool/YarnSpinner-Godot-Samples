@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://5g277rgb38cs"
+path="res://.godot/imported/WalkAway.yarn-64502dcc346736a14c68fdbfa9a6a803.res"
+
+[deps]
+
+source_file="res://samples/background-chatter/dialogue/WalkAway.yarn"
+dest_files=["res://.godot/imported/WalkAway.yarn-64502dcc346736a14c68fdbfa9a6a803.res"]
+
+[params]
+

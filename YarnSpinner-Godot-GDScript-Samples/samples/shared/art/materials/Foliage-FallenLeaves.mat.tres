@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bh68nq4noc0s"]
+
+[ext_resource type="Texture2D" uid="uid://k8bi6mu0jk00" path="res://samples/shared/art/environment/FoliageSprites/leaves-1.png" id="1_j7pmr"]
+
+[resource]
+resource_name = "Foliage-FallenLeaves"
+transparency = 2
+cull_mode = 2
+albedo_color = Color(0, 0.8301887, 0.054203395, 1)
+albedo_texture = ExtResource("1_j7pmr")
+uv1_scale = Vector3(1, 1, 0)

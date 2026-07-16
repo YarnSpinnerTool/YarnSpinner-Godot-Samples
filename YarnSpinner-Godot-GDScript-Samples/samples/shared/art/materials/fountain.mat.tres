@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://qqd7newqyap1"]
+
+[ext_resource type="Shader" path="res://samples/shared/art/materials/fountain.gdshader" id="1_shader"]
+[ext_resource type="Texture2D" uid="uid://cgic5jl8koqra" path="res://samples/shared/art/textures/fountain.png" id="1_iyaub"]
+
+[resource]
+resource_name = "fountain"
+shader = ExtResource("1_shader")
+shader_parameter/albedo_tex = ExtResource("1_iyaub")
+shader_parameter/scroll_speed = -0.5

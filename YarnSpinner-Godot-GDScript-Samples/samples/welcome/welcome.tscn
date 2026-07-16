@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://bmnsbotu1oujm"]
+
+[ext_resource type="PackedScene" uid="uid://c3xpai64i8w0j" path="res://samples/welcome/Environment.fbx" id="1_s8f2s"]
+[ext_resource type="PackedScene" uid="uid://mfh5uufornuu" path="res://samples/shared/art/environment/FantasyTown/projector-screen.fbx" id="2_7g3mq"]
+[ext_resource type="PackedScene" uid="uid://le6c0y7pc8gt" path="res://samples/shared/scenes/explanation_character.tscn" id="4_oik1v"]
+[ext_resource type="PackedScene" uid="uid://cwyx0udsah02p" path="res://samples/shared/scenes/dialogue.tscn" id="5_7g3mq"]
+[ext_resource type="PackedScene" uid="uid://d1fluul8ky1qb" path="res://samples/shared/art/materials/samples_environment.tscn" id="6_7g3mq"]
+[ext_resource type="Resource" uid="uid://cqiqscscbijsx" path="res://samples/welcome/dialogue/Intro.yarnproject" id="6_n60vi"]
+[ext_resource type="Script" path="res://samples/welcome/scripts/slideshow.gd" id="7_slide"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_7g3mq"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7g3mq"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n60vi"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_7g3mq")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_welcome_ground"]
+size = Vector3(20, 1, 20)
+
+[node name="Welcome" type="Node3D" unique_id=942194094]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1765512604]
+transform = Transform3D(0.86602545, -0.38302214, 0.32139377, 0, 0.64278765, 0.76604441, -0.49999992, -0.66341396, 0.55667046, 0, 0, 0)
+light_energy = 0.71
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_welcome_ground")
+
+[node name="Environment" parent="." unique_id=2059723700 instance=ExtResource("1_s8f2s")]
+
+[node name="projector-screen" parent="." unique_id=1647432055 instance=ExtResource("2_7g3mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4742459, 0, -1.2081587)
+
+[node name="CharacterBody3D" parent="." unique_id=914088189 instance=ExtResource("4_oik1v")]
+transform = Transform3D(0.9979904, 0, 0.063365331, 0, 1, 0, -0.063365331, 0, 0.9979904, -0.27, 0, -0.82)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=207623824]
+transform = Transform3D(-1, -1.954051e-15, -8.742276e-08, 0, 1, -2.2351742e-08, 8.742276e-08, -2.2351742e-08, -1, 0.14, 0.70000005, -1.8000001)
+fov = 35.0
+
+[node name="Dialogue" parent="." unique_id=1497124993 instance=ExtResource("5_7g3mq")]
+
+[node name="YarnDialogueRunner" parent="Dialogue" index="0" unique_id=394517124]
+yarn_project = ExtResource("6_n60vi")
+
+[node name="Slideshow" type="Node" parent="Dialogue/YarnDialogueRunner" index="0" node_paths=PackedStringArray("header_label", "body_label", "image", "slide_panel", "override_presenters") unique_id=611224488]
+script = ExtResource("7_slide")
+header_label = NodePath("../../../SubViewport/Slide/VBox/Header")
+body_label = NodePath("../../../SubViewport/Slide/VBox/Body")
+image = NodePath("../../../SubViewport/Slide/VBox/Image")
+slide_panel = NodePath("../../../SubViewport/Slide")
+override_presenters = [NodePath("../../UILayer/LinePresenter")]
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1845839773]
+disable_3d = true
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport" unique_id=689713268]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.972549, 0.972549, 0.94902, 1)
+
+[node name="Slide" type="MarginContainer" parent="SubViewport" unique_id=479271702]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="VBox" type="VBoxContainer" parent="SubViewport/Slide" unique_id=222448931]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Header" type="Label" parent="SubViewport/Slide/VBox" unique_id=2112408890]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.117647, 0.121569, 0.196078, 1)
+theme_override_font_sizes/font_size = 96
+text = "Header"
+autowrap_mode = 3
+
+[node name="Body" type="Label" parent="SubViewport/Slide/VBox" unique_id=964120553]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.196078, 0.203922, 0.301961, 1)
+theme_override_font_sizes/font_size = 64
+autowrap_mode = 3
+
+[node name="Image" type="TextureRect" parent="SubViewport/Slide/VBox" unique_id=1167312880]
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1167873192]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.7, 0.9, 1.1)
+mesh = SubResource("QuadMesh_7g3mq")
+surface_material_override/0 = SubResource("StandardMaterial3D_n60vi")
+
+[node name="SamplesEnvironment" parent="." unique_id=789525707 instance=ExtResource("6_7g3mq")]
+
+[editable path="Dialogue"]

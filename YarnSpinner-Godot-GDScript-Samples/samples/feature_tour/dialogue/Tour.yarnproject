@@ -1,0 +1,8 @@
+{
+    "projectFileVersion": 3,
+    "sourceFiles": [
+        "**/*.yarn"
+    ],
+    "baseLanguage": "en",
+    "definitions": "Tour.ysls.json"
+}

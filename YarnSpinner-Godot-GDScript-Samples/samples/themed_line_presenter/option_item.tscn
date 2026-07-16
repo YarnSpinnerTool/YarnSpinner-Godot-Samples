@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://c7gq8v46pynm6"]
+
+[ext_resource type="Script" path="res://samples/themed_line_presenter/themed_option_button.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://bqlxe1umv13sa" path="res://samples/themed_line_presenter/art/fonts/PixelifySans-Regular.ttf" id="2_font"]
+[ext_resource type="Texture2D" path="res://samples/themed_line_presenter/art/sprites/Sprites.png" id="3_sprites"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_row"]
+content_margin_left = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_selected"]
+atlas = ExtResource("3_sprites")
+region = Rect2(95, 3, 5, 8)
+
+[node name="OptionItem" type="Button"]
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 0.501961)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/focus = SubResource("StyleBoxEmpty_row")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_row")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_row")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_row")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_row")
+alignment = 0
+script = ExtResource("1_script")
+
+[node name="SelectionIndicator" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -10.5
+offset_right = 13.0
+offset_bottom = 10.5
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_selected")
+expand_mode = 1
+stretch_mode = 5

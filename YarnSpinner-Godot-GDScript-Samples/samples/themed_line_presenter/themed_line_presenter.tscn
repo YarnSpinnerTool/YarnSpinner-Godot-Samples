@@ -1,0 +1,238 @@
+[gd_scene format=3 uid="uid://dyx87l5qvnsm7"]
+
+[ext_resource type="PackedScene" uid="uid://ba6k8q62v3aeg" path="res://samples/shared/scenes/Basic Arena.tscn" id="1_4ix28"]
+[ext_resource type="PackedScene" uid="uid://don7obupokpwf" path="res://samples/shared/scenes/player_character.tscn" id="2_qcuas"]
+[ext_resource type="PackedScene" uid="uid://db6adsx7323jr" path="res://samples/shared/scenes/npc_character.tscn" id="3_qcuas"]
+[ext_resource type="Script" uid="uid://flra500ihbix" path="res://addons/yarn_spinner/dialogue_runner.gd" id="4_runner"]
+[ext_resource type="Script" path="res://samples/themed_line_presenter/themed_line_presenter.gd" id="5_line"]
+[ext_resource type="Script" uid="uid://cogqy630mjgv7" path="res://addons/yarn_spinner/ui/options_presenter.gd" id="6_options"]
+[ext_resource type="Resource" uid="uid://cql1cjrcl4nvg" path="res://samples/themed_line_presenter/dialogue/ThemedLinePresenter.yarnproject" id="7_proj"]
+[ext_resource type="Script" uid="uid://ci0aavprdl4gw" path="res://samples/shared/scripts/simple_follow_camera.gd" id="8_cam"]
+[ext_resource type="Script" uid="uid://bs5qnekrnovvy" path="res://samples/shared/scripts/dialogue_interactable.gd" id="9_interact"]
+[ext_resource type="Script" uid="uid://bj11vnurtp6tm" path="res://samples/shared/scripts/link_opener.gd" id="10_link"]
+[ext_resource type="Script" uid="uid://cawk3ntfrhqtt" path="res://samples/shared/scripts/character_appearance.gd" id="13_appear"]
+[ext_resource type="FontFile" uid="uid://bqlxe1umv13sa" path="res://samples/themed_line_presenter/art/fonts/PixelifySans-Regular.ttf" id="11_font"]
+[ext_resource type="FontFile" uid="uid://btluvjbfed0bp" path="res://samples/themed_line_presenter/art/fonts/PixelifySans-Bold.ttf" id="12_font_bold"]
+[ext_resource type="Texture2D" path="res://samples/themed_line_presenter/art/sprites/panel_background.png" id="14_panel_bg"]
+[ext_resource type="Texture2D" path="res://samples/themed_line_presenter/art/sprites/Sprites.png" id="15_sprites"]
+[ext_resource type="PackedScene" uid="uid://c7gq8v46pynm6" path="res://samples/themed_line_presenter/option_item.tscn" id="16_option_item"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
+size = Vector3(12, 1, 12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_line_panel"]
+content_margin_left = 40.0
+content_margin_top = 23.0
+content_margin_right = 40.0
+content_margin_bottom = 77.0
+texture = ExtResource("14_panel_bg")
+texture_margin_left = 53.0
+texture_margin_top = 53.0
+texture_margin_right = 53.0
+texture_margin_bottom = 53.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_options_panel"]
+content_margin_left = 27.0
+content_margin_top = 16.0
+content_margin_right = 27.0
+content_margin_bottom = 21.0
+texture = ExtResource("14_panel_bg")
+texture_margin_left = 53.0
+texture_margin_top = 53.0
+texture_margin_right = 53.0
+texture_margin_bottom = 53.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_continue_up"]
+atlas = ExtResource("15_sprites")
+region = Rect2(63, 0, 30, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_continue_down"]
+atlas = ExtResource("15_sprites")
+region = Rect2(63, 16, 30, 14)
+
+[node name="ThemedLinePresenter" type="Node3D" unique_id=2122200818]
+
+[node name="BasicArena" parent="." unique_id=1653386484 instance=ExtResource("1_4ix28")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=18591550]
+transform = Transform3D(0.866025, -0.383022, 0.321394, 0, 0.642788, 0.766044, -0.5, -0.663414, 0.55667, 0, 3, 0)
+light_color = Color(1, 0.956863, 0.839216, 1)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=41994728]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=444385817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_ground")
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=1416715622 node_paths=PackedStringArray("target", "camera")]
+script = ExtResource("8_cam")
+target = NodePath("../PlayerCharacter")
+camera = NodePath("Camera3D")
+follow_offset = Vector3(0, 1.76, 1.78)
+look_at_offset = Vector3(0, 0.91, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=299780288]
+fov = 60.0
+near = 0.3
+far = 1000.0
+
+[node name="YarnDialogueRunner" type="Node" parent="." unique_id=1744421215 node_paths=PackedStringArray("presenters")]
+script = ExtResource("4_runner")
+yarn_project = ExtResource("7_proj")
+presenters = [NodePath("../UILayer/LinePresenter"), NodePath("../UILayer/OptionsPresenter")]
+
+[node name="PlayerCharacter" parent="." unique_id=914088189 instance=ExtResource("2_qcuas")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0.9593006)
+is_player_controlled = true
+
+[node name="CharacterAppearance" type="Node" parent="PlayerCharacter"]
+script = ExtResource("13_appear")
+base_color = Color(0.105882354, 0.5176471, 0.4117647, 1)
+fade_color = Color(0.36862746, 0.78431374, 0.5372549, 1)
+mode = 1
+
+[node name="Alice" parent="." unique_id=1372954784 instance=ExtResource("3_qcuas")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.54951835, 1.1920929e-07, -0.90000004)
+
+[node name="DialogueInteractable" type="Node3D" parent="Alice" unique_id=55188488 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("9_interact")
+node_name = "Alice"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="Alice"]
+script = ExtResource("13_appear")
+base_color = Color(0.8117647, 0.3254902, 0.30980393, 1)
+fade_color = Color(0.99607843, 0.42352942, 0.2509804, 1)
+mode = 1
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1276127419]
+
+[node name="LinePresenter" type="PanelContainer" parent="UILayer" unique_id=1904082877 node_paths=PackedStringArray("text_label", "character_label", "character_container", "continue_indicator")]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 133.0
+offset_top = -153.0
+offset_right = -133.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_line_panel")
+script = ExtResource("5_line")
+text_label = NodePath("VBox/TextLabel")
+character_label = NodePath("VBox/CharacterLabel")
+character_container = NodePath("VBox/CharacterLabel")
+continue_indicator = NodePath("ContinueAnchor/ContinueIndicator")
+characters_per_second = 60.0
+justify_text = true
+
+[node name="VBox" type="VBoxContainer" parent="UILayer/LinePresenter" unique_id=1410201483]
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="CharacterLabel" type="Label" parent="UILayer/LinePresenter/VBox" unique_id=2102355992]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("12_font_bold")
+theme_override_font_sizes/font_size = 32
+text = "Character"
+
+[node name="TextLabel" type="RichTextLabel" parent="UILayer/LinePresenter/VBox" unique_id=1923556926]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("11_font")
+theme_override_fonts/bold_font = ExtResource("12_font_bold")
+theme_override_font_sizes/normal_font_size = 33
+theme_override_font_sizes/bold_font_size = 33
+theme_override_font_sizes/italics_font_size = 33
+theme_override_font_sizes/bold_italics_font_size = 33
+bbcode_enabled = true
+text = "Dialogue text goes here..."
+fit_content = true
+
+[node name="ContinueAnchor" type="Control" parent="UILayer/LinePresenter" unique_id=1544687799]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ContinueIndicator" type="TextureButton" parent="UILayer/LinePresenter/ContinueAnchor" unique_id=1544687800]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = 10.0
+offset_right = 20.0
+offset_bottom = 57.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+texture_normal = SubResource("AtlasTexture_continue_up")
+texture_pressed = SubResource("AtlasTexture_continue_down")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LinkOpener" type="Node" parent="UILayer/LinePresenter" unique_id=351884202]
+script = ExtResource("10_link")
+
+[node name="OptionsPresenter" type="PanelContainer" parent="UILayer" unique_id=1202512742 node_paths=PackedStringArray("options_container", "last_line_text", "last_line_container")]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 133.0
+offset_top = -153.0
+offset_right = -133.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_options_panel")
+script = ExtResource("6_options")
+options_container = NodePath("OptionsContainer")
+option_button_scene = ExtResource("16_option_item")
+show_last_line = true
+last_line_text = NodePath("OptionsContainer/LastLine/LastLineLabel")
+last_line_container = NodePath("OptionsContainer/LastLine")
+
+[node name="OptionsContainer" type="VBoxContainer" parent="UILayer/OptionsPresenter" unique_id=239589799]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="LastLine" type="MarginContainer" parent="UILayer/OptionsPresenter/OptionsContainer" unique_id=239589800]
+layout_mode = 2
+theme_override_constants/margin_bottom = 9
+
+[node name="LastLineLabel" type="Label" parent="UILayer/OptionsPresenter/OptionsContainer/LastLine" unique_id=239589801]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("12_font_bold")
+theme_override_font_sizes/font_size = 32
+autowrap_mode = 2
+text = "Last line"
+
+[node name="Hint" type="Label" parent="UILayer" unique_id=1116694513]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 20.0
+offset_right = 360.0
+offset_bottom = 46.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.945098, 0.901961, 0.788235, 1)
+theme_override_colors/font_outline_color = Color(0.180392, 0.117647, 0.0627451, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("12_font_bold")
+theme_override_font_sizes/font_size = 18
+text = "WASD / arrows to move  ·  E to talk to Alice"
+horizontal_alignment = 1
+
+[editable path="BasicArena"]

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://blnx3isy0uwqa"]
+
+[resource]
+resource_name = "water"
+transparency = 1
+depth_draw_mode = 1
+albedo_color = Color(0, 0.45129025, 0.6784314, 0.16470589)
+roughness = 0.029
+uv1_scale = Vector3(1, 1, 0)

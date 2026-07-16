@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://c8crbb2xtxy7"
+path="res://.godot/imported/CallAndResponse.yarn-9895dcbee1b9222545fb0d8976d672d5.res"
+
+[deps]
+
+source_file="res://samples/background-chatter/dialogue/CallAndResponse.yarn"
+dest_files=["res://.godot/imported/CallAndResponse.yarn-9895dcbee1b9222545fb0d8976d672d5.res"]
+
+[params]
+

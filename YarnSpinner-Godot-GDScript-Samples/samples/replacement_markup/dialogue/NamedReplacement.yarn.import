@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://dkmhva27f36nc"
+path="res://.godot/imported/NamedReplacement.yarn-dda8c0a6a8fca285e93a0e97be9ddf7c.res"
+
+[deps]
+
+source_file="res://samples/replacement_markup/dialogue/NamedReplacement.yarn"
+dest_files=["res://.godot/imported/NamedReplacement.yarn-dda8c0a6a8fca285e93a0e97be9ddf7c.res"]
+
+[params]
+

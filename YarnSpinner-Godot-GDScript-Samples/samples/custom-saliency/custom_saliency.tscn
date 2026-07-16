@@ -1,0 +1,224 @@
+[gd_scene load_steps=18 format=3 uid="uid://c5wpwn8c0ek6p"]
+
+[ext_resource type="PackedScene" uid="uid://ba6k8q62v3aeg" path="res://samples/shared/scenes/Basic Arena.tscn" id="1_arena"]
+[ext_resource type="Script" uid="uid://cmsemodlefhjd" path="res://samples/custom-saliency/scripts/custom_saliency.gd" id="2_setup"]
+[ext_resource type="PackedScene" uid="uid://db6adsx7323jr" path="res://samples/shared/scenes/npc_character.tscn" id="3_npc"]
+[ext_resource type="PackedScene" uid="uid://don7obupokpwf" path="res://samples/shared/scenes/player_character.tscn" id="4_player"]
+[ext_resource type="Script" uid="uid://flra500ihbix" path="res://addons/yarn_spinner/dialogue_runner.gd" id="5_runner"]
+[ext_resource type="Script" uid="uid://cged8u182768u" path="res://addons/yarn_spinner/ui/line_presenter.gd" id="6_line"]
+[ext_resource type="Script" uid="uid://cogqy630mjgv7" path="res://addons/yarn_spinner/ui/options_presenter.gd" id="7_options"]
+[ext_resource type="Resource" uid="uid://c8q523pnf80n0" path="res://samples/custom-saliency/dialogue/WeightedSaliency.yarnproject" id="8_proj"]
+[ext_resource type="Script" uid="uid://ci0aavprdl4gw" path="res://samples/shared/scripts/simple_follow_camera.gd" id="9_cam"]
+[ext_resource type="Script" uid="uid://bs5qnekrnovvy" path="res://samples/shared/scripts/dialogue_interactable.gd" id="10_interact"]
+[ext_resource type="Script" uid="uid://cawk3ntfrhqtt" path="res://samples/shared/scripts/character_appearance.gd" id="11_appear"]
+[ext_resource type="Script" uid="uid://bj11vnurtp6tm" path="res://samples/shared/scripts/link_opener.gd" id="12_link"]
+[ext_resource type="Script" uid="uid://dqm2nti42vpla" path="res://addons/yarn_spinner/core/in_memory_variable_storage.gd" id="13_store"]
+[ext_resource type="Texture2D" uid="uid://c4a4wvi35pucw" path="res://addons/yarn_spinner/ui/textures/continue_arrow.png" id="20_arrow"]
+[ext_resource type="PackedScene" uid="uid://dy8bwpmrnwiwb" path="res://addons/yarn_spinner/ui/option_button.tscn" id="21_optbtn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
+size = Vector3(12, 1, 12)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 24.0
+content_margin_top = 14.4
+content_margin_right = 24.0
+content_margin_bottom = 19.2
+bg_color = Color(0, 0, 0, 0.8352941)
+
+[sub_resource type="FontVariation" id="FontVariation_bold_italic"]
+variation_embolden = 0.6
+variation_transform = Transform2D(1, 0, 0.2, 1, 0, 0)
+
+[node name="CustomSaliency" type="Node3D" node_paths=PackedStringArray("dialogue_runner")]
+script = ExtResource("2_setup")
+dialogue_runner = NodePath("YarnDialogueRunner")
+
+[node name="BasicArena" parent="." instance=ExtResource("1_arena")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.383022, 0.321394, 0, 0.642788, 0.766044, -0.5, -0.663414, 0.55667, 0, 3, 0)
+light_color = Color(1, 0.956863, 0.839216, 1)
+light_energy = 1.0
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_ground")
+
+[node name="VariableStorage" type="Node" parent="."]
+script = ExtResource("13_store")
+
+[node name="YarnDialogueRunner" type="Node" parent="." node_paths=PackedStringArray("presenters", "variable_storage")]
+script = ExtResource("5_runner")
+yarn_project = ExtResource("8_proj")
+presenters = [NodePath("../UILayer/LinePresenter"), NodePath("../UILayer/OptionsPresenter")]
+variable_storage = NodePath("../VariableStorage")
+
+[node name="CameraRig" type="Node3D" parent="." node_paths=PackedStringArray("target", "camera")]
+script = ExtResource("9_cam")
+target = NodePath("../PlayerCharacter")
+camera = NodePath("Camera3D")
+follow_offset = Vector3(0, 1.76, 1.78)
+look_at_offset = Vector3(0, 0.91, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+fov = 60.0
+near = 0.3
+far = 1000.0
+
+[node name="Alice" parent="." instance=ExtResource("3_npc")]
+transform = Transform3D(0.5754907, 0, 0.8178084, 0, 1, 0, -0.8178084, 0, 0.5754907, -1.37, 0, -0.1)
+
+[node name="DialogueInteractable" type="Node3D" parent="Alice" node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("10_interact")
+node_name = "Alice"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="Alice"]
+script = ExtResource("11_appear")
+base_color = Color(0.36078432, 0.22352941, 0.72156864, 1)
+fade_color = Color(0.6509804, 0.4627451, 0.90588236, 1)
+mode = 1
+
+[node name="Barry" parent="." instance=ExtResource("3_npc")]
+transform = Transform3D(0.5617658, 0, -0.8272963, 0, 1, 0, 0.8272963, 0, 0.5617658, 1.49, 0, -0.23)
+
+[node name="DialogueInteractable" type="Node3D" parent="Barry" node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("10_interact")
+node_name = "Barry"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="Barry"]
+script = ExtResource("11_appear")
+base_color = Color(1, 0.44705883, 0.26666668, 1)
+fade_color = Color(1, 0.6156863, 0.26666668, 1)
+mode = 1
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("4_player")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.05, 0, 3.47)
+is_player_controlled = true
+
+[node name="CharacterAppearance" type="Node" parent="PlayerCharacter"]
+script = ExtResource("11_appear")
+base_color = Color(0.105882354, 0.5176471, 0.4117647, 1)
+fade_color = Color(0.36862746, 0.78431374, 0.5372549, 1)
+mode = 1
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="LinePresenter" type="PanelContainer" parent="UILayer"]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -48.0
+offset_right = -120.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+script = ExtResource("6_line")
+
+[node name="VBox" type="VBoxContainer" parent="UILayer/LinePresenter"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="CharacterLabel" type="Label" parent="UILayer/LinePresenter/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_bold_italic")
+theme_override_font_sizes/font_size = 19
+text = "Character"
+
+[node name="TextLabel" type="RichTextLabel" parent="UILayer/LinePresenter/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+bbcode_enabled = true
+text = "Dialogue text goes here..."
+fit_content = true
+
+[node name="IndicatorAnchor" type="Control" parent="UILayer/LinePresenter"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ContinueIndicator" type="TextureRect" parent="UILayer/LinePresenter/IndicatorAnchor"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = 16.2
+offset_right = 12.0
+offset_bottom = 28.2
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("20_arrow")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LinkOpener" type="Node" parent="UILayer/LinePresenter"]
+script = ExtResource("12_link")
+
+[node name="OptionsPresenter" type="PanelContainer" parent="UILayer" node_paths=PackedStringArray("last_line_text", "last_line_container")]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -48.0
+offset_right = -120.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+script = ExtResource("7_options")
+option_button_scene = ExtResource("21_optbtn")
+hide_unavailable = true
+show_last_line = true
+last_line_text = NodePath("OptionsContainer/LastLineMargin/LastLine")
+last_line_container = NodePath("OptionsContainer/LastLineMargin")
+
+[node name="OptionsContainer" type="VBoxContainer" parent="UILayer/OptionsPresenter"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="LastLineMargin" type="MarginContainer" parent="UILayer/OptionsPresenter/OptionsContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="LastLine" type="Label" parent="UILayer/OptionsPresenter/OptionsContainer/LastLineMargin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_bold_italic")
+theme_override_font_sizes/font_size = 19
+autowrap_mode = 3
+
+[node name="Hint" type="Label" parent="UILayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 20.0
+offset_right = 360.0
+offset_bottom = 46.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "WASD / arrows to move  ·  E to talk  ·  talk to Alice and Barry, then revisit them"
+horizontal_alignment = 1
+
+[editable path="BasicArena"]

@@ -1,0 +1,193 @@
+[gd_scene load_steps=18 format=3 uid="uid://csowwdr4p4sxf"]
+
+[ext_resource type="PackedScene" uid="uid://ba6k8q62v3aeg" path="res://samples/shared/scenes/Basic Arena.tscn" id="1_arena"]
+[ext_resource type="PackedScene" uid="uid://don7obupokpwf" path="res://samples/shared/scenes/player_character.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://le6c0y7pc8gt" path="res://samples/shared/scenes/explanation_character.tscn" id="3_capsley"]
+[ext_resource type="Script" uid="uid://flra500ihbix" path="res://addons/yarn_spinner/dialogue_runner.gd" id="4_runner"]
+[ext_resource type="Script" uid="uid://cged8u182768u" path="res://addons/yarn_spinner/ui/line_presenter.gd" id="5_line"]
+[ext_resource type="Script" uid="uid://cogqy630mjgv7" path="res://addons/yarn_spinner/ui/options_presenter.gd" id="6_options"]
+[ext_resource type="Resource" uid="uid://bqif0qft1luoy" path="res://samples/node_internals/dialogue/Internals.yarnproject" id="7_proj"]
+[ext_resource type="Script" uid="uid://13gweygcfelau" path="res://samples/node_internals/scripts/command_asset_preloader.gd" id="8_preload"]
+[ext_resource type="Script" uid="uid://ci0aavprdl4gw" path="res://samples/shared/scripts/simple_follow_camera.gd" id="9_cam"]
+[ext_resource type="Script" uid="uid://bs5qnekrnovvy" path="res://samples/shared/scripts/dialogue_interactable.gd" id="10_interact"]
+[ext_resource type="Script" uid="uid://bj11vnurtp6tm" path="res://samples/shared/scripts/link_opener.gd" id="11_link"]
+[ext_resource type="Texture2D" uid="uid://c4a4wvi35pucw" path="res://addons/yarn_spinner/ui/textures/continue_arrow.png" id="20_arrow"]
+[ext_resource type="PackedScene" uid="uid://dy8bwpmrnwiwb" path="res://addons/yarn_spinner/ui/option_button.tscn" id="21_optbtn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
+size = Vector3(12, 1, 12)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 24.0
+content_margin_top = 14.4
+content_margin_right = 24.0
+content_margin_bottom = 19.2
+bg_color = Color(0, 0, 0, 0.8352941)
+
+[sub_resource type="FontVariation" id="FontVariation_bold_italic"]
+variation_embolden = 0.6
+variation_transform = Transform2D(1, 0, 0.2, 1, 0, 0)
+
+[node name="NodeInternals" type="Node3D"]
+
+[node name="BasicArena" parent="." instance=ExtResource("1_arena")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.383022, 0.321394, 0, 0.642788, 0.766044, -0.5, -0.663414, 0.55667, 0, 3, 0)
+light_color = Color(1, 0.956863, 0.839216, 1)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_ground")
+
+[node name="CameraRig" type="Node3D" parent="." node_paths=PackedStringArray("target", "camera")]
+script = ExtResource("9_cam")
+target = NodePath("../PlayerCharacter")
+camera = NodePath("Camera3D")
+follow_offset = Vector3(0, 1.76, 1.78)
+look_at_offset = Vector3(0, 0.91, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+fov = 60.0
+near = 0.3
+far = 1000.0
+
+[node name="YarnDialogueRunner" type="Node" parent="." groups=["yarn_dialogue_runner"] node_paths=PackedStringArray("presenters")]
+script = ExtResource("4_runner")
+yarn_project = ExtResource("7_proj")
+presenters = [NodePath("../UILayer/LinePresenter"), NodePath("../UILayer/OptionsPresenter")]
+
+[node name="CommandAssetPreloader" type="Node" parent="." node_paths=PackedStringArray("dialogue_runner")]
+script = ExtResource("8_preload")
+dialogue_runner = NodePath("../YarnDialogueRunner")
+preload_node_name = "commands"
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("2_player")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.11, 0, 2.01)
+is_player_controlled = true
+
+[node name="Explanation Character" parent="." instance=ExtResource("3_capsley")]
+transform = Transform3D(0.9979904, 0, 0.06336533, 0, 1, 0, -0.06336533, 0, 0.9979904, 1.41, 2.3841858e-07, -1.87)
+
+[node name="DialogueInteractable" type="Node3D" parent="Explanation Character" node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("10_interact")
+node_name = "Start"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="LinePresenter" type="PanelContainer" parent="UILayer"]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -48.0
+offset_right = -120.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+script = ExtResource("5_line")
+
+[node name="VBox" type="VBoxContainer" parent="UILayer/LinePresenter"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="CharacterLabel" type="Label" parent="UILayer/LinePresenter/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_bold_italic")
+theme_override_font_sizes/font_size = 19
+text = "Character"
+
+[node name="TextLabel" type="RichTextLabel" parent="UILayer/LinePresenter/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+bbcode_enabled = true
+text = "Dialogue text goes here..."
+fit_content = true
+
+[node name="IndicatorAnchor" type="Control" parent="UILayer/LinePresenter"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ContinueIndicator" type="TextureRect" parent="UILayer/LinePresenter/IndicatorAnchor"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = 16.2
+offset_right = 12.0
+offset_bottom = 28.2
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("20_arrow")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LinkOpener" type="Node" parent="UILayer/LinePresenter"]
+script = ExtResource("11_link")
+
+[node name="OptionsPresenter" type="PanelContainer" parent="UILayer" node_paths=PackedStringArray("last_line_text", "last_line_container")]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -48.0
+offset_right = -120.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+script = ExtResource("6_options")
+option_button_scene = ExtResource("21_optbtn")
+hide_unavailable = true
+show_last_line = true
+last_line_text = NodePath("OptionsContainer/LastLineMargin/LastLine")
+last_line_container = NodePath("OptionsContainer/LastLineMargin")
+
+[node name="OptionsContainer" type="VBoxContainer" parent="UILayer/OptionsPresenter"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="LastLineMargin" type="MarginContainer" parent="UILayer/OptionsPresenter/OptionsContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="LastLine" type="Label" parent="UILayer/OptionsPresenter/OptionsContainer/LastLineMargin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_bold_italic")
+theme_override_font_sizes/font_size = 19
+autowrap_mode = 3
+
+[node name="Hint" type="Label" parent="UILayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 20.0
+offset_right = 360.0
+offset_bottom = 46.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "WASD / arrows to move  ·  E to talk  ·  watch the output log for the \"preload\""
+horizontal_alignment = 1
+
+[editable path="BasicArena"]

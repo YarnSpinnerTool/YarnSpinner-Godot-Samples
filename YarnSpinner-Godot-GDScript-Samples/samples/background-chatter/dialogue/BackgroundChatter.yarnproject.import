@@ -1,0 +1,17 @@
+[remap]
+
+importer="yarn_spinner.project"
+type="Resource"
+uid="uid://dil4kgv2xt5io"
+path="res://.godot/imported/BackgroundChatter.yarnproject-fbdb785442acfe13cc00beba36dcbc82.res"
+
+[deps]
+
+source_file="res://samples/background-chatter/dialogue/BackgroundChatter.yarnproject"
+dest_files=["res://.godot/imported/BackgroundChatter.yarnproject-fbdb785442acfe13cc00beba36dcbc82.res"]
+
+[params]
+
+ysc_path="ysc"
+generate_ysls=true
+ysls_scan_path="res://"

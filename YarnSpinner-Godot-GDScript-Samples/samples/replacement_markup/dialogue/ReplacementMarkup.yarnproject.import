@@ -1,0 +1,17 @@
+[remap]
+
+importer="yarn_spinner.project"
+type="Resource"
+uid="uid://7jnep0eqvb2n"
+path="res://.godot/imported/ReplacementMarkup.yarnproject-219dcfd8fe57fb775278705b3f75f500.res"
+
+[deps]
+
+source_file="res://samples/replacement_markup/dialogue/ReplacementMarkup.yarnproject"
+dest_files=["res://.godot/imported/ReplacementMarkup.yarnproject-219dcfd8fe57fb775278705b3f75f500.res"]
+
+[params]
+
+ysc_path="ysc"
+generate_ysls=true
+ysls_scan_path="res://"

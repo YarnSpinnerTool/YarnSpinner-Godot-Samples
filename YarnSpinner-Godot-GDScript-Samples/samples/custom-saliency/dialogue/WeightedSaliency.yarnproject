@@ -1,0 +1,8 @@
+{
+    "projectFileVersion": 3,
+    "sourceFiles": [
+        "**/*.yarn"
+    ],
+    "baseLanguage": "en",
+    "definitions": "WeightedSaliency.ysls.json"
+}

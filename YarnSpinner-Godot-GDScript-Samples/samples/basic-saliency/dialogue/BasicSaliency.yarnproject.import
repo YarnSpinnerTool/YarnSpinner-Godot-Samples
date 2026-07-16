@@ -1,0 +1,17 @@
+[remap]
+
+importer="yarn_spinner.project"
+type="Resource"
+uid="uid://c3pj8rgbn5h2b"
+path="res://.godot/imported/BasicSaliency.yarnproject-161a6942d11e32638d8a93dd6f033205.res"
+
+[deps]
+
+source_file="res://samples/basic-saliency/dialogue/BasicSaliency.yarnproject"
+dest_files=["res://.godot/imported/BasicSaliency.yarnproject-161a6942d11e32638d8a93dd6f033205.res"]
+
+[params]
+
+ysc_path="ysc"
+generate_ysls=true
+ysls_scan_path="res://"

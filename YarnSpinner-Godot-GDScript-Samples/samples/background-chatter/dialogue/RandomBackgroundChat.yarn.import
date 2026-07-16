@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://b1rnp4fbug7d8"
+path="res://.godot/imported/RandomBackgroundChat.yarn-e42fd4730d93a7740889533a9bed1242.res"
+
+[deps]
+
+source_file="res://samples/background-chatter/dialogue/RandomBackgroundChat.yarn"
+dest_files=["res://.godot/imported/RandomBackgroundChat.yarn-e42fd4730d93a7740889533a9bed1242.res"]
+
+[params]
+

@@ -1,0 +1,17 @@
+[remap]
+
+importer="yarn_spinner.project"
+type="Resource"
+uid="uid://dktmh3k1bxafu"
+path="res://.godot/imported/InlineExample.yarnproject-c6d665404d2c2f8c8537ba2621fbb837.res"
+
+[deps]
+
+source_file="res://samples/inline_events/dialogue/InlineExample.yarnproject"
+dest_files=["res://.godot/imported/InlineExample.yarnproject-c6d665404d2c2f8c8537ba2621fbb837.res"]
+
+[params]
+
+ysc_path="ysc"
+generate_ysls=true
+ysls_scan_path="res://"

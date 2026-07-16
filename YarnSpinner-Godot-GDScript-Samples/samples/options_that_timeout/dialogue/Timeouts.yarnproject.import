@@ -1,0 +1,17 @@
+[remap]
+
+importer="yarn_spinner.project"
+type="Resource"
+uid="uid://gb6aklr3jook"
+path="res://.godot/imported/Timeouts.yarnproject-73f4b63c6c69cbf617a9d85619678c48.res"
+
+[deps]
+
+source_file="res://samples/options_that_timeout/dialogue/Timeouts.yarnproject"
+dest_files=["res://.godot/imported/Timeouts.yarnproject-73f4b63c6c69cbf617a9d85619678c48.res"]
+
+[params]
+
+ysc_path="ysc"
+generate_ysls=true
+ysls_scan_path="res://"

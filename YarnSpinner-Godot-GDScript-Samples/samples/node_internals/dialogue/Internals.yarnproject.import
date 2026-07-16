@@ -1,0 +1,17 @@
+[remap]
+
+importer="yarn_spinner.project"
+type="Resource"
+uid="uid://bqif0qft1luoy"
+path="res://.godot/imported/Internals.yarnproject-430ab9de31b1c309f7ff66630d852433.res"
+
+[deps]
+
+source_file="res://samples/node_internals/dialogue/Internals.yarnproject"
+dest_files=["res://.godot/imported/Internals.yarnproject-430ab9de31b1c309f7ff66630d852433.res"]
+
+[params]
+
+ysc_path="ysc"
+generate_ysls=true
+ysls_scan_path="res://"

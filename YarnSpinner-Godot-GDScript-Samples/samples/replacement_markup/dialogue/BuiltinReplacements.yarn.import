@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://4jhgh52hgtww"
+path="res://.godot/imported/BuiltinReplacements.yarn-d1bfb9b487807d5db1832bc56710e567.res"
+
+[deps]
+
+source_file="res://samples/replacement_markup/dialogue/BuiltinReplacements.yarn"
+dest_files=["res://.godot/imported/BuiltinReplacements.yarn-d1bfb9b487807d5db1832bc56710e567.res"]
+
+[params]
+

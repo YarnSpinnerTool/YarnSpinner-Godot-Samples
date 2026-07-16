@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://baftehyg67jsa"]
+
+[ext_resource type="Texture2D" uid="uid://ceiwbqbsyyrvn" path="res://samples/shared/art/environment/FoliageSprites/grass-2.png" id="1_p3i0a"]
+
+[resource]
+resource_name = "Foliage-Grass-Green-2"
+transparency = 2
+cull_mode = 2
+albedo_color = Color(0.04049486, 0.6603774, 0.3657519, 1)
+albedo_texture = ExtResource("1_p3i0a")
+uv1_scale = Vector3(1, 1, 0)

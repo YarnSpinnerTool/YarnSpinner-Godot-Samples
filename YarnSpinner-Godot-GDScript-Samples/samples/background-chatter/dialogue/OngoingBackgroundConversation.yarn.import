@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://c85veqgs21ni6"
+path="res://.godot/imported/OngoingBackgroundConversation.yarn-6c004f836843d78846c3fb17b26687cd.res"
+
+[deps]
+
+source_file="res://samples/background-chatter/dialogue/OngoingBackgroundConversation.yarn"
+dest_files=["res://.godot/imported/OngoingBackgroundConversation.yarn-6c004f836843d78846c3fb17b26687cd.res"]
+
+[params]
+

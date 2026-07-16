@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://sexp1vdykibn"
+path="res://.godot/imported/RoamingCharacter.yarn-fab9d1e62aa8d3f38f96aabb881fb124.res"
+
+[deps]
+
+source_file="res://samples/background-chatter/dialogue/RoamingCharacter.yarn"
+dest_files=["res://.godot/imported/RoamingCharacter.yarn-fab9d1e62aa8d3f38f96aabb881fb124.res"]
+
+[params]
+

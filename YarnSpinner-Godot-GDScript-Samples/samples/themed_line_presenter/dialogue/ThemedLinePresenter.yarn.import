@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://dfve3tkceq1fl"
+path="res://.godot/imported/ThemedLinePresenter.yarn-83e0e16bdf485fe1089755f9a7c0887b.res"
+
+[deps]
+
+source_file="res://samples/themed_line_presenter/dialogue/ThemedLinePresenter.yarn"
+dest_files=["res://.godot/imported/ThemedLinePresenter.yarn-83e0e16bdf485fe1089755f9a7c0887b.res"]
+
+[params]
+

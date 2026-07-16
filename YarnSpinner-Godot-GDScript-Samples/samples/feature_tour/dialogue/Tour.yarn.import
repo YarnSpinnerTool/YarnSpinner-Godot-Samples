@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://ccx70up1t5mxw"
+path="res://.godot/imported/Tour.yarn-d950e030c881c9bbae83895cad351b54.res"
+
+[deps]
+
+source_file="res://samples/feature_tour/dialogue/Tour.yarn"
+dest_files=["res://.godot/imported/Tour.yarn-d950e030c881c9bbae83895cad351b54.res"]
+
+[params]
+

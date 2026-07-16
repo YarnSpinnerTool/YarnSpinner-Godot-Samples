@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://rho2g0e8cqoh"
+path="res://.godot/imported/DynamicReplacement.yarn-87c70927d11056232bcba0cad26f37d5.res"
+
+[deps]
+
+source_file="res://samples/replacement_markup/dialogue/DynamicReplacement.yarn"
+dest_files=["res://.godot/imported/DynamicReplacement.yarn-87c70927d11056232bcba0cad26f37d5.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://nh3528kcxwsh"
+path="res://.godot/imported/InlineExample.yarn-bb41e4218885451db74887c8875718a7.res"
+
+[deps]
+
+source_file="res://samples/inline_events/dialogue/InlineExample.yarn"
+dest_files=["res://.godot/imported/InlineExample.yarn-bb41e4218885451db74887c8875718a7.res"]
+
+[params]
+

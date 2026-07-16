@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://5wxpx8af04do"
+path="res://.godot/imported/SpriteReplacer.yarn-97a9c0a80ad4bd68955226e3311d8deb.res"
+
+[deps]
+
+source_file="res://samples/replacement_markup/dialogue/SpriteReplacer.yarn"
+dest_files=["res://.godot/imported/SpriteReplacer.yarn-97a9c0a80ad4bd68955226e3311d8deb.res"]
+
+[params]
+

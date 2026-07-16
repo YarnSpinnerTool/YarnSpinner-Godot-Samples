@@ -1,0 +1,484 @@
+[gd_scene format=3 uid="uid://xys8d75x76q8"]
+
+[ext_resource type="PackedScene" uid="uid://dwbba478b63mt" path="res://samples/feature_tour/feature_toor_room.tscn" id="1_y25vy"]
+[ext_resource type="Material" uid="uid://odgigp7jeiom" path="res://samples/shared/art/materials/skybox.tres" id="2_gh3p0"]
+[ext_resource type="PackedScene" uid="uid://bbxu2hyown07m" path="res://samples/shared/art/environment/prototype/wall-low.fbx" id="3_gh3p0"]
+[ext_resource type="PackedScene" uid="uid://don7obupokpwf" path="res://samples/shared/scenes/player_character.tscn" id="4_6l1mg"]
+[ext_resource type="PackedScene" uid="uid://le6c0y7pc8gt" path="res://samples/shared/scenes/explanation_character.tscn" id="5_ygllq"]
+[ext_resource type="PackedScene" uid="uid://db6adsx7323jr" path="res://samples/shared/scenes/npc_character.tscn" id="6_aayqt"]
+[ext_resource type="Script" uid="uid://flra500ihbix" path="res://addons/yarn_spinner/dialogue_runner.gd" id="7_runner"]
+[ext_resource type="Script" uid="uid://cged8u182768u" path="res://addons/yarn_spinner/ui/line_presenter.gd" id="8_line"]
+[ext_resource type="Script" uid="uid://cogqy630mjgv7" path="res://addons/yarn_spinner/ui/options_presenter.gd" id="9_options"]
+[ext_resource type="Resource" uid="uid://nuhmqa54gs51l" path="res://samples/feature_tour/dialogue/Tour.yarnproject" id="10_proj"]
+[ext_resource type="Script" uid="uid://ci0aavprdl4gw" path="res://samples/shared/scripts/simple_follow_camera.gd" id="11_cam"]
+[ext_resource type="Script" uid="uid://bs5qnekrnovvy" path="res://samples/shared/scripts/dialogue_interactable.gd" id="12_interact"]
+[ext_resource type="Script" uid="uid://cawk3ntfrhqtt" path="res://samples/shared/scripts/character_appearance.gd" id="13_appear"]
+[ext_resource type="Texture2D" uid="uid://c4a4wvi35pucw" path="res://addons/yarn_spinner/ui/textures/continue_arrow.png" id="20_arrow"]
+[ext_resource type="PackedScene" uid="uid://dy8bwpmrnwiwb" path="res://addons/yarn_spinner/ui/option_button.tscn" id="21_optbtn"]
+
+[sub_resource type="Sky" id="Sky_6l1mg"]
+sky_material = ExtResource("2_gh3p0")
+
+[sub_resource type="Environment" id="Environment_ygllq"]
+background_mode = 2
+sky = SubResource("Sky_6l1mg")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
+size = Vector3(5, 1, 49)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 24.0
+content_margin_top = 14.4
+content_margin_right = 24.0
+content_margin_bottom = 19.2
+bg_color = Color(0, 0, 0, 0.8352941)
+
+[sub_resource type="FontVariation" id="FontVariation_bold_italic"]
+variation_embolden = 0.6
+variation_transform = Transform2D(1, 0, 0.2, 1, 0, 0)
+
+[node name="FeatureTour" type="Node3D" unique_id=1249590773]
+
+[node name="Room" parent="." unique_id=1164863257 instance=ExtResource("1_y25vy")]
+
+[node name="wall-cap-entrance" parent="Room" unique_id=910000001 instance=ExtResource("3_gh3p0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 2.4)
+
+[node name="Room2" parent="." unique_id=1375820880 instance=ExtResource("1_y25vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+
+[node name="Room3" parent="." unique_id=1032463957 instance=ExtResource("1_y25vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+
+[node name="Room4" parent="." unique_id=1596765918 instance=ExtResource("1_y25vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21)
+
+[node name="Room5" parent="." unique_id=1105159373 instance=ExtResource("1_y25vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28)
+
+[node name="Room6" parent="." unique_id=906534672 instance=ExtResource("1_y25vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35)
+
+[node name="Room7" parent="." unique_id=707075601 instance=ExtResource("1_y25vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -42)
+
+[node name="wall-cap-exit" parent="Room7" unique_id=836073294 instance=ExtResource("3_gh3p0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -4.4)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=578889554]
+environment = SubResource("Environment_ygllq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=18591550]
+transform = Transform3D(0.909584, -0.265761, 0.319419, 0, 0.76872, 0.639586, -0.41552, -0.581757, 0.699215, 0, 3, 0)
+light_color = Color(1, 0.956863, 0.839216, 1)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=41994728]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=444385817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -22)
+shape = SubResource("BoxShape3D_ground")
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=1416715622 node_paths=PackedStringArray("target", "camera")]
+script = ExtResource("11_cam")
+target = NodePath("../PlayerCharacter")
+camera = NodePath("Camera3D")
+follow_offset = Vector3(0, 1.76, 1.78)
+look_at_offset = Vector3(0, 0.91, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=299780288]
+fov = 60.0
+near = 0.3
+far = 1000.0
+
+[node name="YarnDialogueRunner" type="Node" parent="." unique_id=1744421215 node_paths=PackedStringArray("presenters")]
+script = ExtResource("7_runner")
+yarn_project = ExtResource("10_proj")
+presenters = [NodePath("../UILayer/LinePresenter"), NodePath("../UILayer/OptionsPresenter")]
+ysls_scan_path = "res://samples/feature_tour"
+
+[node name="PlayerCharacter" parent="." unique_id=914088189 instance=ExtResource("4_6l1mg")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 1.5)
+is_player_controlled = true
+
+[node name="Capsley" parent="." unique_id=1322549715 instance=ExtResource("5_ygllq")]
+transform = Transform3D(0.9396926, 0, 0.3420201, 0, 1, 0, -0.3420201, 0, 0.9396926, -1.4, 0, -1.5)
+
+[node name="DialogueInteractable" type="Node3D" parent="Capsley" unique_id=1322549716 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Capsley_Welcome"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="Capsley2" parent="." unique_id=565575895 instance=ExtResource("5_ygllq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, -5.5)
+
+[node name="DialogueInteractable" type="Node3D" parent="Capsley2" unique_id=565575896 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Capsley_Room2"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="Capsley3" parent="." unique_id=257155044 instance=ExtResource("5_ygllq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, -12.5)
+
+[node name="DialogueInteractable" type="Node3D" parent="Capsley3" unique_id=257155045 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Capsley_Room3"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="Capsley4" parent="." unique_id=507856039 instance=ExtResource("5_ygllq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, -19.5)
+
+[node name="DialogueInteractable" type="Node3D" parent="Capsley4" unique_id=507856040 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Capsley_Room4"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="Capsley5" parent="." unique_id=507856041 instance=ExtResource("5_ygllq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, -26.5)
+
+[node name="DialogueInteractable" type="Node3D" parent="Capsley5" unique_id=507856042 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Capsley_Room5"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="Capsley6" parent="." unique_id=507856043 instance=ExtResource("5_ygllq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, -33.5)
+
+[node name="DialogueInteractable" type="Node3D" parent="Capsley6" unique_id=507856044 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Capsley_Room6"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="Capsley7" parent="." unique_id=507856045 instance=ExtResource("5_ygllq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, -40.5)
+
+[node name="DialogueInteractable" type="Node3D" parent="Capsley7" unique_id=507856046 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Capsley_Room7"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="Bob" parent="." unique_id=1547393779 instance=ExtResource("6_aayqt")]
+transform = Transform3D(0.9396926, 0, -0.3420201, 0, 1, 0, 0.3420201, 0, 0.9396926, 1.5, 0, -6.5)
+
+[node name="DialogueInteractable" type="Node3D" parent="Bob" unique_id=1547393780 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Room2_Nodes_and_Lines"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="Bob" unique_id=1547393781]
+script = ExtResource("13_appear")
+base_color = Color(1, 0.584314, 0.184314, 1)
+fade_color = Color(1, 0.835294, 0.396078, 1)
+mode = 1
+
+[node name="Bill" parent="." unique_id=625950801 instance=ExtResource("6_aayqt")]
+transform = Transform3D(0.9396926, 0, 0.3420201, 0, 1, 0, -0.3420201, 0, 0.9396926, -1.5, 0, -6.5)
+
+[node name="DialogueInteractable" type="Node3D" parent="Bill" unique_id=625950802 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Room2_Options_and_Jumps_1"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="Bill" unique_id=625950803]
+script = ExtResource("13_appear")
+base_color = Color(0.105882, 0.517647, 0.411765, 1)
+fade_color = Color(0.368627, 0.784314, 0.537255, 1)
+mode = 1
+
+[node name="Bruce" parent="." unique_id=827977381 instance=ExtResource("6_aayqt")]
+transform = Transform3D(0.9396926, 0, -0.3420201, 0, 1, 0, 0.3420201, 0, 0.9396926, 1.4, 0, -13.5)
+
+[node name="DialogueInteractable" type="Node3D" parent="Bruce" unique_id=827977382 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Room3_Detours_1"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="Bruce" unique_id=827977383]
+script = ExtResource("13_appear")
+base_color = Color(0.811765, 0.32549, 0.309804, 1)
+fade_color = Color(0.996078, 0.423529, 0.25098, 1)
+mode = 1
+
+[node name="VariablesNPC" parent="." unique_id=995516339 instance=ExtResource("6_aayqt")]
+transform = Transform3D(0.9396926, 0, 0.3420201, 0, 1, 0, -0.3420201, 0, 0.9396926, -1.5, 0, -20.5)
+
+[node name="DialogueInteractable" type="Node3D" parent="VariablesNPC" unique_id=995516340 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Room4_Variables_1"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="VariablesNPC" unique_id=995516341]
+script = ExtResource("13_appear")
+base_color = Color(0.403922, 0.580392, 0.85098, 1)
+fade_color = Color(0.8, 0.898039, 0.996078, 1)
+mode = 1
+
+[node name="Sally" parent="." unique_id=1060473254 instance=ExtResource("6_aayqt")]
+transform = Transform3D(0.9396926, 0, -0.3420201, 0, 1, 0, 0.3420201, 0, 0.9396926, 1.5, 0, -20.5)
+
+[node name="DialogueInteractable" type="Node3D" parent="Sally" unique_id=1060473255 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Room4_Variables_2"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="Sally" unique_id=1060473256]
+script = ExtResource("13_appear")
+base_color = Color(0.360784, 0.223529, 0.721569, 1)
+fade_color = Color(0.65098, 0.462745, 0.905882, 1)
+mode = 1
+
+[node name="Mary" parent="." unique_id=1300000001 instance=ExtResource("6_aayqt")]
+transform = Transform3D(0.9396926, 0, 0.3420201, 0, 1, 0, -0.3420201, 0, 0.9396926, -1.6, 0, -27)
+
+[node name="DialogueInteractable" type="Node3D" parent="Mary" unique_id=1300000002 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Room5_IfStatements_1"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="Mary" unique_id=1300000003]
+script = ExtResource("13_appear")
+base_color = Color(0.105882, 0.517647, 0.411765, 1)
+fade_color = Color(0.368627, 0.784314, 0.537255, 1)
+mode = 1
+
+[node name="Thor" parent="." unique_id=1300000004 instance=ExtResource("6_aayqt")]
+transform = Transform3D(0.9396926, 0, -0.3420201, 0, 1, 0, 0.3420201, 0, 0.9396926, 1.6, 0, -27)
+
+[node name="DialogueInteractable" type="Node3D" parent="Thor" unique_id=1300000005 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Room5_ConditionalOptions_1"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="Thor" unique_id=1300000006]
+script = ExtResource("13_appear")
+base_color = Color(0.811765, 0.32549, 0.309804, 1)
+fade_color = Color(0.996078, 0.423529, 0.25098, 1)
+mode = 1
+
+[node name="Ruby" parent="." unique_id=1300000007 instance=ExtResource("6_aayqt")]
+transform = Transform3D(0.9396926, 0, 0.3420201, 0, 1, 0, -0.3420201, 0, 0.9396926, -1.6, 0, -30)
+
+[node name="DialogueInteractable" type="Node3D" parent="Ruby" unique_id=1300000008 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Room5_Enums_1"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="Ruby" unique_id=1300000009]
+script = ExtResource("13_appear")
+base_color = Color(0.360784, 0.223529, 0.721569, 1)
+fade_color = Color(0.65098, 0.462745, 0.905882, 1)
+mode = 1
+
+[node name="Norb" parent="." unique_id=1300000010 instance=ExtResource("6_aayqt")]
+transform = Transform3D(0.9396926, 0, -0.3420201, 0, 1, 0, 0.3420201, 0, 0.9396926, 1.6, 0, -30)
+
+[node name="DialogueInteractable" type="Node3D" parent="Norb" unique_id=1300000011 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Room5_Once_1"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="Norb" unique_id=1300000012]
+script = ExtResource("13_appear")
+base_color = Color(0.962264, 0.078439, 0.049929, 1)
+fade_color = Color(0.292453, 0.067726, 0, 1)
+mode = 1
+
+[node name="Derek" parent="." unique_id=1300000013 instance=ExtResource("6_aayqt")]
+transform = Transform3D(0.9396926, 0, 0.3420201, 0, 1, 0, -0.3420201, 0, 0.9396926, -1.6, 0, -34)
+
+[node name="DialogueInteractable" type="Node3D" parent="Derek" unique_id=1300000014 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Room6_Commands_1"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="Derek" unique_id=1300000015]
+script = ExtResource("13_appear")
+base_color = Color(1, 0.584314, 0.184314, 1)
+fade_color = Color(1, 0.835294, 0.396078, 1)
+mode = 1
+
+[node name="Beryl" parent="." unique_id=1300000016 instance=ExtResource("6_aayqt")]
+transform = Transform3D(0.9396926, 0, -0.3420201, 0, 1, 0, 0.3420201, 0, 0.9396926, 1.6, 0, -34)
+
+[node name="DialogueInteractable" type="Node3D" parent="Beryl" unique_id=1300000017 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Room6_Functions_1"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="Beryl" unique_id=1300000018]
+script = ExtResource("13_appear")
+base_color = Color(0.517647, 0.105882, 0.277455, 1)
+fade_color = Color(0.784314, 0.368627, 0.659349, 1)
+mode = 1
+
+[node name="Reginald" parent="." unique_id=1300000019 instance=ExtResource("6_aayqt")]
+transform = Transform3D(0.9396926, 0, 0.3420201, 0, 1, 0, -0.3420201, 0, 0.9396926, -1.6, 0, -37)
+
+[node name="DialogueInteractable" type="Node3D" parent="Reginald" unique_id=1300000020 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Room6_SmartVariables_1"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="Reginald" unique_id=1300000021]
+script = ExtResource("13_appear")
+base_color = Color(0.30306, 0.735849, 0.225614, 1)
+fade_color = Color(0.574313, 0.784314, 0.368627, 1)
+mode = 1
+
+[node name="Sven" parent="." unique_id=1300000022 instance=ExtResource("6_aayqt")]
+transform = Transform3D(0.9396926, 0, 0.3420201, 0, 1, 0, -0.3420201, 0, 0.9396926, -1.6, 0, -41.5)
+
+[node name="DialogueInteractable" type="Node3D" parent="Sven" unique_id=1300000023 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Room7_LineGroups_1"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="Sven" unique_id=1300000024]
+script = ExtResource("13_appear")
+base_color = Color(0.341176, 0.337255, 0.741176, 1)
+fade_color = Color(0.403922, 0.580392, 0.85098, 1)
+mode = 1
+
+[node name="DrNode" parent="." unique_id=1300000025 instance=ExtResource("6_aayqt")]
+transform = Transform3D(0.9396926, 0, -0.3420201, 0, 1, 0, 0.3420201, 0, 0.9396926, 1.6, 0, -41.5)
+
+[node name="DialogueInteractable" type="Node3D" parent="DrNode" unique_id=1300000026 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("12_interact")
+node_name = "Room7_NodeGroups_1"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="DrNode" unique_id=1300000027]
+script = ExtResource("13_appear")
+base_color = Color(0.403922, 0.580392, 0.85098, 1)
+fade_color = Color(0.8, 0.898039, 0.996078, 1)
+mode = 1
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1276127419]
+
+[node name="LinePresenter" type="PanelContainer" parent="UILayer" unique_id=1904082877]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -48.0
+offset_right = -120.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+script = ExtResource("8_line")
+
+[node name="VBox" type="VBoxContainer" parent="UILayer/LinePresenter" unique_id=1410201483]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="CharacterLabel" type="Label" parent="UILayer/LinePresenter/VBox" unique_id=2102355992]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_bold_italic")
+theme_override_font_sizes/font_size = 19
+text = "Character"
+
+[node name="TextLabel" type="RichTextLabel" parent="UILayer/LinePresenter/VBox" unique_id=1923556926]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+bbcode_enabled = true
+text = "Dialogue text goes here..."
+fit_content = true
+
+[node name="IndicatorAnchor" type="Control" parent="UILayer/LinePresenter"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ContinueIndicator" type="TextureRect" parent="UILayer/LinePresenter/IndicatorAnchor"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = 16.2
+offset_right = 12.0
+offset_bottom = 28.2
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("20_arrow")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="OptionsPresenter" type="PanelContainer" parent="UILayer" unique_id=1202512742 node_paths=PackedStringArray("last_line_text", "last_line_container")]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -48.0
+offset_right = -120.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+script = ExtResource("9_options")
+option_button_scene = ExtResource("21_optbtn")
+hide_unavailable = true
+show_last_line = true
+last_line_text = NodePath("OptionsContainer/LastLineMargin/LastLine")
+last_line_container = NodePath("OptionsContainer/LastLineMargin")
+
+[node name="OptionsContainer" type="VBoxContainer" parent="UILayer/OptionsPresenter" unique_id=239589799]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="LastLineMargin" type="MarginContainer" parent="UILayer/OptionsPresenter/OptionsContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="LastLine" type="Label" parent="UILayer/OptionsPresenter/OptionsContainer/LastLineMargin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_bold_italic")
+theme_override_font_sizes/font_size = 19
+autowrap_mode = 3
+
+[node name="Hint" type="Label" parent="UILayer" unique_id=1116694513]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 20.0
+offset_right = 360.0
+offset_bottom = 46.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "WASD / arrows to move  ·  E to talk  ·  walk through the rooms and chat to everyone"
+horizontal_alignment = 1

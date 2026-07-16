@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://b7syf1vg2s3x7"
+path="res://.godot/imported/TownCrier.yarn-07848e6b18178ee63c3f62f8e7ecf4bd.res"
+
+[deps]
+
+source_file="res://samples/background-chatter/dialogue/TownCrier.yarn"
+dest_files=["res://.godot/imported/TownCrier.yarn-07848e6b18178ee63c3f62f8e7ecf4bd.res"]
+
+[params]
+

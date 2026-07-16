@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://c0qpa4eqmldki"
+path="res://.godot/imported/Timeouts.yarn-a5d0ac1554c28ae03cba4b30b3795db1.res"
+
+[deps]
+
+source_file="res://samples/options_that_timeout/dialogue/Timeouts.yarn"
+dest_files=["res://.godot/imported/Timeouts.yarn-a5d0ac1554c28ae03cba4b30b3795db1.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://dmijl5me67ryf"
+path="res://.godot/imported/InterruptableBackgroundChat.yarn-6d249d7f993c504610c17e566320cb05.res"
+
+[deps]
+
+source_file="res://samples/background-chatter/dialogue/InterruptableBackgroundChat.yarn"
+dest_files=["res://.godot/imported/InterruptableBackgroundChat.yarn-6d249d7f993c504610c17e566320cb05.res"]
+
+[params]
+

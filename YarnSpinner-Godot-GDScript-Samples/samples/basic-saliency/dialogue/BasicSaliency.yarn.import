@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://bhi2pi26hmsb1"
+path="res://.godot/imported/BasicSaliency.yarn-3965c57f5e183ba8c166edfdff7c572f.res"
+
+[deps]
+
+source_file="res://samples/basic-saliency/dialogue/BasicSaliency.yarn"
+dest_files=["res://.godot/imported/BasicSaliency.yarn-3965c57f5e183ba8c166edfdff7c572f.res"]
+
+[params]
+

@@ -1,0 +1,17 @@
+[remap]
+
+importer="yarn_spinner.project"
+type="Resource"
+uid="uid://cql1cjrcl4nvg"
+path="res://.godot/imported/ThemedLinePresenter.yarnproject-382c4025ef3fb4cd0393a07890f55642.res"
+
+[deps]
+
+source_file="res://samples/themed_line_presenter/dialogue/ThemedLinePresenter.yarnproject"
+dest_files=["res://.godot/imported/ThemedLinePresenter.yarnproject-382c4025ef3fb4cd0393a07890f55642.res"]
+
+[params]
+
+ysc_path="ysc"
+generate_ysls=true
+ysls_scan_path="res://"
