@@ -1,0 +1,10 @@
+{
+  "projectFileVersion": 4,
+  "sourceFiles": [
+    "**/*.yarn"
+  ],
+  "baseLanguage": "en",
+  "definitions": [
+    "VoiceOver3D.ysls.json"
+  ]
+}

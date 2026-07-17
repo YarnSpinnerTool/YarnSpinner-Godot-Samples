@@ -10,35 +10,98 @@
 radius = 0.22998047
 height = 0.81220704
 
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_f8jcq"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f8jcq"]
+animation = &"Gesture-LookAround"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_53f85"]
+animation = &"Body-Tilt-Left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ppnlo"]
+animation = &"Body-Tilt-Right"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_1uu5x"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_53f85")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_ppnlo")
+blend_point_1/pos = 1.0
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_nfpeb"]
+filter_enabled = true
+filters = ["PillCharacter/Skeleton3D:Eye-Bottom.L", "PillCharacter/Skeleton3D:Eye-Bottom.R", "PillCharacter/Skeleton3D:Eye-Top.L", "PillCharacter/Skeleton3D:Eye-Top.R"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_f8jcq"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_f8jcq"]
+filter_enabled = true
+filters = ["PillCharacter/Skeleton3D:Eye-Bottom.L", "PillCharacter/Skeleton3D:Eye-Bottom.R", "PillCharacter/Skeleton3D:Eye-Top.L", "PillCharacter/Skeleton3D:Eye-Top.R", "PillCharacter/Skeleton3D:Eyebrow.L", "PillCharacter/Skeleton3D:Eyebrow.R", "PillCharacter/Skeleton3D:Spine_1", "PillCharacter/Skeleton3D:Spine_2", "PillCharacter/Skeleton3D:Spine_3", "PillCharacter/Skeleton3D:Spine_4"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f5336"]
+animation = &"Body-TurnLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pwuf0"]
+animation = &"Body-TurnRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3fcj0"]
+animation = &"Body-LookUp"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_35olw"]
+animation = &"Body-LookDown"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_53f85"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_f5336")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_pwuf0")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_3fcj0")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_35olw")
+blend_point_3/pos = Vector2(0, -1)
+snap = Vector2(0.01, 0.1)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gefrs"]
+animation = &"Idle-Floating"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jpu87"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_jpu87"]
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_axqwb"]
 animation = &"Blink"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jwmc5"]
 animation = &"Walk"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_jpu87"]
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_nfpeb"]
-filter_enabled = true
-filters = ["PillCharacter/Skeleton3D:Eye-Bottom.L", "PillCharacter/Skeleton3D:Eye-Bottom.R", "PillCharacter/Skeleton3D:Eye-Top.L", "PillCharacter/Skeleton3D:Eye-Top.R"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jpu87"]
-animation = &"Idle"
-
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_jwmc5"]
-graph_offset = Vector2(-160.5376, 42.115738)
-nodes/output/position = Vector2(920, 180)
+graph_offset = Vector2(-52.194458, -49.611572)
+nodes/output/position = Vector2(2480, 60)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_jpu87")
-nodes/Idle/position = Vector2(230, 240)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_jwmc5")
-nodes/Animation/position = Vector2(230, 430)
-nodes/Blend2/node = SubResource("AnimationNodeBlend2_jpu87")
-nodes/Blend2/position = Vector2(460, 140)
+nodes/Idle/position = Vector2(-40, -40)
+nodes/_AnimWalk/node = SubResource("AnimationNodeAnimation_jwmc5")
+nodes/_AnimWalk/position = Vector2(230, 430)
+nodes/Walking/node = SubResource("AnimationNodeBlend2_jpu87")
+nodes/Walking/position = Vector2(460, 140)
 nodes/Blink/node = SubResource("AnimationNodeOneShot_nfpeb")
-nodes/Blink/position = Vector2(700, 150)
-"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_axqwb")
-"nodes/Animation 2/position" = Vector2(528.5395, 416.96646)
-node_connections = [&"output", 0, &"Blink", &"Blend2", 0, &"Idle", &"Blend2", 1, &"Animation", &"Blink", 0, &"Blend2", &"Blink", 1, &"Animation 2"]
+nodes/Blink/position = Vector2(900, 130)
+nodes/_AnimBlink/node = SubResource("AnimationNodeAnimation_axqwb")
+nodes/_AnimBlink/position = Vector2(530, 420)
+nodes/Idle-Floating/node = SubResource("AnimationNodeAnimation_gefrs")
+nodes/Idle-Floating/position = Vector2(-70, 160)
+nodes/Floating/node = SubResource("AnimationNodeBlend2_f8jcq")
+nodes/Floating/position = Vector2(180, 0)
+nodes/Gesture_LookAround/node = SubResource("AnimationNodeOneShot_f8jcq")
+nodes/Gesture_LookAround/position = Vector2(1190, -160)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_f8jcq")
+nodes/Animation/position = Vector2(880, -160)
+nodes/HeadTurnTilt/node = SubResource("AnimationNodeBlendSpace2D_53f85")
+nodes/HeadTurnTilt/position = Vector2(1440, 90)
+nodes/Add2/node = SubResource("AnimationNodeAdd2_f8jcq")
+nodes/Add2/position = Vector2(1680, -40)
+nodes/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_1uu5x")
+nodes/BlendSpace1D/position = Vector2(1450, 340)
+node_connections = [&"output", 0, &"Floating", &"Walking", 1, &"_AnimWalk", &"Blink", 0, &"Walking", &"Blink", 1, &"_AnimBlink", &"Floating", 0, &"Idle", &"Floating", 1, &"Idle-Floating", &"Gesture_LookAround", 0, &"Blink", &"Gesture_LookAround", 1, &"Animation", &"Add2", 0, &"Gesture_LookAround", &"Add2", 1, &"HeadTurnTilt"]
 
 [node name="PillCharacter" type="CharacterBody3D" unique_id=914088189]
 script = ExtResource("1_sry8v")
@@ -51,28 +114,35 @@ shape = SubResource("CapsuleShape3D_jwmc5")
 root_node = NodePath("../PillCharacter2")
 tree_root = SubResource("AnimationNodeBlendTree_jwmc5")
 anim_player = NodePath("../PillCharacter2/AnimationPlayer")
-parameters/Blend2/blend_amount = 0.0
+parameters/Walking/blend_amount = 0.0
 parameters/Blink/active = false
 parameters/Blink/internal_active = false
 parameters/Blink/request = 0
+parameters/Floating/blend_amount = 0.0
+parameters/Gesture_LookAround/active = false
+parameters/Gesture_LookAround/internal_active = false
+parameters/Gesture_LookAround/request = 0
+parameters/HeadTurnTilt/blend_position = Vector2(0.145, 0)
+parameters/Add2/add_amount = 1.0
+parameters/BlendSpace1D/blend_position = -0.00055217743
 script = ExtResource("2_nfpeb")
 
 [node name="PillCharacter2" parent="." unique_id=2028345057 instance=ExtResource("2_jlihl")]
 
-[node name="Skeleton3D" parent="PillCharacter2/PillCharacter" parent_id_path=PackedInt32Array(2028345057, 828416499) index="0" unique_id=419014003]
+[node name="Skeleton3D" parent="PillCharacter2/PillCharacter" parent_id_path=PackedInt32Array(2028345057, 1509937039) index="0" unique_id=521415772]
 bones/0/rotation = Quaternion(0, 0.7071068, 0.7071068, 0)
-bones/1/rotation = Quaternion(0.0021003587, 0.7071036, 0.7071037, -0.0021004654)
-bones/2/rotation = Quaternion(-7.607396e-11, -1.1924658e-08, 0.0063794213, 0.99997973)
-bones/3/rotation = Quaternion(2.427231e-17, 6.0522235e-16, 0.007896156, 0.9999689)
-bones/4/rotation = Quaternion(8.991073e-17, 9.569033e-16, 0.00915835, 0.99995816)
-bones/5/rotation = Quaternion(-8.361643e-17, -4.0703626e-15, 0.004586091, 0.9999895)
+bones/1/rotation = Quaternion(0.004854166, 0.70709014, 0.70709014, -0.0048542726)
+bones/2/rotation = Quaternion(-4.253746e-11, -1.1924828e-08, 0.003567106, 0.99999374)
+bones/3/rotation = Quaternion(3.0094996e-18, -2.5172803e-16, -0.00025133402, 1)
+bones/4/rotation = Quaternion(-1.5384039e-18, 2.2027013e-15, -0.00573781, 0.9999836)
+bones/5/rotation = Quaternion(4.998533e-17, -6.5225333e-16, -0.008831012, 0.999961)
 bones/7/rotation = Quaternion(0.7030023, -0.70300215, -0.07607793, 0.07607929)
 bones/8/rotation = Quaternion(0.7030024, 0.70300215, 0.076077305, 0.076078646)
 bones/10/position = Vector3(-0.054763872, 0.09883218, 0.19973081)
 bones/11/position = Vector3(0.05476434, 0.006787456, 0.1997307)
 bones/12/position = Vector3(-0.054763872, 0.0067874216, 0.19973081)
 
-[node name="PillCharacter_Mesh" parent="PillCharacter2/PillCharacter/Skeleton3D" index="0" unique_id=273724583]
+[node name="PillCharacter_Mesh" parent="PillCharacter2/PillCharacter/Skeleton3D" index="0" unique_id=665420319]
 surface_material_override/1 = ExtResource("2_sry8v")
 surface_material_override/2 = ExtResource("4_axqwb")
 

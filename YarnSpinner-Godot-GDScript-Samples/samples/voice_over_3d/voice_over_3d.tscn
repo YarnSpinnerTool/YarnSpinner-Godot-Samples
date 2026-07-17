@@ -3,28 +3,148 @@
 [ext_resource type="PackedScene" uid="uid://dd4yv7jus8gow" path="res://samples/shared/art/materials/samples_environment_nebula.tscn" id="1_ijte8"]
 [ext_resource type="PackedScene" uid="uid://db6adsx7323jr" path="res://samples/shared/scenes/npc_character.tscn" id="2_2lf2e"]
 [ext_resource type="PackedScene" uid="uid://bdovhq5o7dcjv" path="res://samples/shared/art/Character/Attach_Hat_Spacehelmet.fbx" id="3_2lf2e"]
+[ext_resource type="Script" uid="uid://flra500ihbix" path="res://addons/yarn_spinner/dialogue_runner.gd" id="4_a4cr2"]
+[ext_resource type="Resource" uid="uid://jljdh1df88aw" path="res://samples/voice_over_3d/dialogue/VoiceOver3D.yarnproject" id="5_ndk5a"]
+[ext_resource type="Script" uid="uid://cged8u182768u" path="res://addons/yarn_spinner/ui/line_presenter.gd" id="6_q3t8u"]
+[ext_resource type="Script" uid="uid://cogqy630mjgv7" path="res://addons/yarn_spinner/ui/options_presenter.gd" id="7_s6dl7"]
+[ext_resource type="Script" uid="uid://dpqvn6oabxilc" path="res://samples/voice_over/scripts/character_color_presenter.gd" id="8_ndk5a"]
+[ext_resource type="Script" uid="uid://bdkmo17inusa6" path="res://samples/voice_over/scripts/sample_voice_presenter.gd" id="9_34unk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8lhc"]
+content_margin_left = 20.0
+content_margin_top = 15.0
+content_margin_right = 20.0
+content_margin_bottom = 15.0
+bg_color = Color(0.1, 0.1, 0.15, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="VoiceOver3d" type="Node3D" unique_id=304579994]
 
 [node name="SamplesEnvironmentNebula" parent="." unique_id=789525707 instance=ExtResource("1_ijte8")]
 
 [node name="NPCCharacter" parent="." unique_id=914088189 instance=ExtResource("2_2lf2e")]
+motion_mode = 1
+apply_gravity = false
 
-[node name="Skeleton3D" parent="NPCCharacter/PillCharacter2/PillCharacter" parent_id_path=PackedInt32Array(914088189, 2028345057, 828416499) index="0" unique_id=419014003]
-bones/1/rotation = Quaternion(0.0028210662, 0.70710117, 0.70710117, -0.0028211728)
-bones/2/rotation = Quaternion(-8.566009e-11, -1.1924594e-08, 0.007183296, 0.99997425)
-bones/3/rotation = Quaternion(1.2843377e-17, -2.3551463e-16, 0.008086822, 0.9999674)
-bones/4/rotation = Quaternion(6.436256e-17, 5.423855e-16, 0.009055951, 0.999959)
-bones/5/rotation = Quaternion(-5.0402278e-18, -2.026411e-15, 0.0036008784, 0.99999356)
+[node name="AnimationTree" parent="NPCCharacter" index="1" unique_id=1009335546]
+parameters/Floating/blend_amount = 1.0
+parameters/HeadTurnTilt/blend_position = Vector2(0, 0)
+parameters/Add2/add_amount = 0.0
+parameters/BlendSpace1D/blend_position = 0.0
+
+[node name="Skeleton3D" parent="NPCCharacter/PillCharacter2/PillCharacter" parent_id_path=PackedInt32Array(914088189, 2028345057, 1509937039) index="0" unique_id=521415772]
+bones/0/position = Vector3(0, 0.02718097, 0)
+bones/0/rotation = Quaternion(-0.025910782, 0.7066319, 0.7066319, -0.025910782)
+bones/1/position = Vector3(7.8197036e-07, -1.1280634e-17, 7.183587e-10)
+bones/1/rotation = Quaternion(-5.3385087e-08, 0.7071068, 0.7071068, -5.3385087e-08)
+bones/2/rotation = Quaternion(-2.220446e-16, -1.19249e-08, -2.647859e-24, 1)
+bones/3/rotation = Quaternion(0, 0, 0, 1)
+bones/4/rotation = Quaternion(0, 0, 0, 1)
+bones/5/rotation = Quaternion(0, 0, 0, 1)
+bones/7/rotation = Quaternion(0.7030023, -0.70300215, -0.07607792, 0.07607928)
+bones/9/position = Vector3(0.05476434, 0.098832145, 0.1997307)
+bones/10/position = Vector3(-0.054763865, 0.09883212, 0.19973083)
+bones/11/position = Vector3(0.05476435, 0.006787427, 0.1997307)
+bones/12/position = Vector3(-0.054763872, 0.006787438, 0.19973083)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="NPCCharacter/PillCharacter2/PillCharacter/Skeleton3D" index="1" unique_id=807486273]
-transform = Transform3D(0.99925816, -0.03851036, 1.2702522e-07, 0.03851036, 0.9992582, 5.941434e-08, -1.2514516e-07, 6.345565e-08, 0.99999994, -0.004852538, 0.319955, 1.9364482e-08)
+transform = Transform3D(0.9973146, -0.07323754, 1.2680458e-07, 0.07323754, 0.9973146, 9.311862e-09, -1.2714602e-07, -4.440892e-16, 1, -0.023436792, 0.34632158, -8.233491e-17)
 bone_name = "Spine_2"
 bone_idx = 3
 
 [node name="Attach_Hat_Spacehelmet" parent="NPCCharacter/PillCharacter2/PillCharacter/Skeleton3D/BoneAttachment3D" unique_id=1376263347 instance=ExtResource("3_2lf2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32, 0)
 
+[node name="AnimationPlayer" parent="NPCCharacter/SpeakingIndicator" parent_id_path=PackedInt32Array(914088189, 1168795485) index="1" unique_id=1961829490]
+autoplay = &"speaking_indicator/hidden"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=656232983]
+transform = Transform3D(0.9999707, 7.275745e-10, -0.0076619387, 0.00014414778, 0.99982303, 0.018813029, 0.0076605827, -0.018813582, 0.99979365, 0, 0.47816193, 2.011076)
+fov = 53.4
+
+[node name="YarnDialogueRunner" type="Node" parent="." unique_id=1181385288 node_paths=PackedStringArray("presenters")]
+script = ExtResource("4_a4cr2")
+yarn_project = ExtResource("5_ndk5a")
+auto_start = true
+presenters = [NodePath("LinePresenter"), NodePath("OptionsPresenter"), NodePath("CharacterColorPresenter"), NodePath("VoicePresenter")]
+show_selected_option_as_line = true
+ysls_scan_path = "res://samples/voice_over"
+
+[node name="LinePresenter" type="PanelContainer" parent="YarnDialogueRunner" unique_id=841216368]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -200.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p8lhc")
+script = ExtResource("6_q3t8u")
+
+[node name="VBox" type="VBoxContainer" parent="YarnDialogueRunner/LinePresenter" unique_id=1063753583]
+layout_mode = 2
+
+[node name="CharacterLabel" type="Label" parent="YarnDialogueRunner/LinePresenter/VBox" unique_id=761678005]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Character"
+
+[node name="TextLabel" type="RichTextLabel" parent="YarnDialogueRunner/LinePresenter/VBox" unique_id=318781957]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+bbcode_enabled = true
+text = "Dialogue text goes here..."
+fit_content = true
+
+[node name="ContinueIndicator" type="Label" parent="YarnDialogueRunner/LinePresenter/VBox" unique_id=1030615503]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 14
+text = "Press Space to continue..."
+
+[node name="OptionsPresenter" type="PanelContainer" parent="YarnDialogueRunner" unique_id=1076356512]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p8lhc")
+script = ExtResource("7_s6dl7")
+
+[node name="OptionsContainer" type="VBoxContainer" parent="YarnDialogueRunner/OptionsPresenter" unique_id=908086696]
+layout_mode = 2
+
+[node name="CharacterColorPresenter" type="Control" parent="YarnDialogueRunner" unique_id=1244939087]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("8_ndk5a")
+
+[node name="VoicePresenter" type="Control" parent="YarnDialogueRunner" unique_id=1280855668]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("9_34unk")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="YarnDialogueRunner/VoicePresenter" unique_id=495179195]
+
 [editable path="NPCCharacter"]
 [editable path="NPCCharacter/PillCharacter2"]
-[editable path="NPCCharacter/Alert"]
+[editable path="NPCCharacter/SpeakingIndicator/Alert"]

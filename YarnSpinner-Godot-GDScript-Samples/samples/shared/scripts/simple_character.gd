@@ -9,10 +9,10 @@ extends CharacterBody3D
 ## driven from the current speed.
 
 enum Mode {
-	PLAYER_CONTROLLED,      ## reads input each frame
-	EXTERNALLY_CONTROLLED,  ## driven by move_to / commands
-	PATH_FOLLOWING,         ## roams a looping waypoint path
-	INTERACT,               ## paused while interacting
+	PLAYER_CONTROLLED, ## reads input each frame
+	EXTERNALLY_CONTROLLED, ## driven by move_to / commands
+	PATH_FOLLOWING, ## roams a looping waypoint path
+	INTERACT, ## paused while interacting
 }
 
 @export var is_player_controlled := false
@@ -47,7 +47,10 @@ enum Mode {
 @export_group("Animation")
 @export var animation_tree: AnimationTree
 ## blend-tree parameter driven by the current speed factor (0 = idle, 1 = walk)
-@export var walk_blend_parameter := "parameters/Blend2/blend_amount"
+@export var walk_blend_parameter := "parameters/Walking/blend_amount"
+
+## blend-tree parameter driven by commands (0 = standing, 1 = floating)
+@export var float_blend_parameter := "parameters/Floating/blend_amount"
 
 @export_group("Face")
 ## the mesh whose mouth-shape shader material is swapped for expressions
@@ -55,6 +58,11 @@ enum Mode {
 @export var mouth_mesh: MeshInstance3D
 ## maps an expression name to the mouth-shape texture the mouth quad displays
 @export var facial_expressions: Dictionary = _DEFAULT_EXPRESSIONS
+
+const _ANIMATION_PARAMS := {
+	"walk": "parameters/Walking/blend_amount",
+	"float": "parameters/Floating/blend_amount",
+}
 
 const _MOUTH_DIR := "res://samples/shared/art/Character/mouth/"
 const _DEFAULT_EXPRESSIONS := {
@@ -240,7 +248,7 @@ func _apply_gravity(_delta: float) -> void:
 	elif is_on_floor():
 		velocity.y = -0.1
 	else:
-		velocity.y = -gravity
+		velocity.y = - gravity
 
 
 func _update_facing(delta: float) -> void:
@@ -472,3 +480,17 @@ func _run_interaction(target: Node) -> void:
 	if is_inside_tree():
 		mode = previous_mode
 		look_target = previous_look
+
+## Makes this character update an animation tree parameter
+func _yarn_command_set_animation_param(param_name: String, value: float, duration: float = 0, wait: bool = false):
+	if animation_tree == null:
+		return
+
+	if (duration <= 0):
+		animation_tree.set(param_name, value)
+		return
+
+	var tween = create_tween()
+	tween.tween_property(animation_tree, _ANIMATION_PARAMS[param_name], value, duration)
+	
+	await tween.finished
