@@ -36,8 +36,8 @@ parameters/Add2/add_amount = 0.0
 parameters/BlendSpace1D/blend_position = 0.0
 
 [node name="Skeleton3D" parent="NPCCharacter/PillCharacter2/PillCharacter" parent_id_path=PackedInt32Array(914088189, 2028345057, 1509937039) index="0" unique_id=521415772]
-bones/0/position = Vector3(0, 0.02718097, 0)
-bones/0/rotation = Quaternion(-0.025910782, 0.7066319, 0.7066319, -0.025910782)
+bones/0/position = Vector3(0, 0.02425407, 0)
+bones/0/rotation = Quaternion(-0.025914015, 0.70663184, 0.70663184, -0.025914015)
 bones/1/position = Vector3(7.8197036e-07, -1.1280634e-17, 7.183587e-10)
 bones/1/rotation = Quaternion(-5.3385087e-08, 0.7071068, 0.7071068, -5.3385087e-08)
 bones/2/rotation = Quaternion(-2.220446e-16, -1.19249e-08, -2.647859e-24, 1)
@@ -51,7 +51,7 @@ bones/11/position = Vector3(0.05476435, 0.006787427, 0.1997307)
 bones/12/position = Vector3(-0.054763872, 0.006787438, 0.19973083)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="NPCCharacter/PillCharacter2/PillCharacter/Skeleton3D" index="1" unique_id=807486273]
-transform = Transform3D(0.9973146, -0.07323754, 1.2680458e-07, 0.07323754, 0.9973146, 9.311862e-09, -1.2714602e-07, -4.440892e-16, 1, -0.023436792, 0.34632158, -8.233491e-17)
+transform = Transform3D(0.99731374, -0.07324666, 1.2680448e-07, 0.07324666, 0.9973138, 6.8917664e-08, -1.2714602e-07, 5.9604645e-08, 0.99999994, -0.023439713, 0.34339446, 1.9073488e-08)
 bone_name = "Spine_2"
 bone_idx = 3
 
@@ -62,7 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32, 0)
 autoplay = &"speaking_indicator/hidden"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=656232983]
-transform = Transform3D(0.9999707, 7.275745e-10, -0.0076619387, 0.00014414778, 0.99982303, 0.018813029, 0.0076605827, -0.018813582, 0.99979365, 0, 0.47816193, 2.011076)
+transform = Transform3D(0.9999707, 7.275745e-10, -0.0076619387, 0.00014414778, 0.99982303, 0.018813029, 0.0076605827, -0.018813582, 0.99979365, 0, 0.8154736, 2.011076)
 fov = 53.4
 
 [node name="YarnDialogueRunner" type="Node" parent="." unique_id=1181385288 node_paths=PackedStringArray("presenters")]
