@@ -38,8 +38,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.05, 0.05, 0.1, 1)
 
-[node name="YarnDialogueRunner" type="Node" parent="." unique_id=2045027044]
+[node name="YarnDialogueRunner" type="Node" parent="." unique_id=2045027044 node_paths=PackedStringArray("presenters")]
 script = ExtResource("2_runner")
+presenters = [NodePath("LinePresenter"), NodePath("OptionsPresenter"), NodePath("CharacterColorPresenter"), NodePath("VoicePresenter")]
 yarn_project = ExtResource("3_ddm2h")
 show_selected_option_as_line = true
 ysls_scan_path = "res://samples/voice_over"

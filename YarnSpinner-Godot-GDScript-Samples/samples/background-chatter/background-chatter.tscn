@@ -494,8 +494,9 @@ dialogue_runner = NodePath("Runner")
 chatter_node = "Demo_BackgroundConversation"
 saliency = 3
 
-[node name="Runner" type="Node" parent="ChatterGroupManager/Demo_BackgroundConversation" unique_id=1500000002]
+[node name="Runner" type="Node" parent="ChatterGroupManager/Demo_BackgroundConversation" unique_id=1500000002 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
+presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
 auto_discover_commands = false
 
@@ -512,8 +513,9 @@ dialogue_runner = NodePath("Runner")
 chatter_node = "Demo_CallAndResponse"
 saliency = 3
 
-[node name="Runner" type="Node" parent="ChatterGroupManager/Demo_CallAndResponse" unique_id=1500000011]
+[node name="Runner" type="Node" parent="ChatterGroupManager/Demo_CallAndResponse" unique_id=1500000011 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
+presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
 auto_discover_commands = false
 
@@ -529,8 +531,9 @@ dialogue_runner = NodePath("Runner")
 chatter_node = "Demo_Interruption"
 saliency = 3
 
-[node name="Runner" type="Node" parent="ChatterGroupManager/Demo_Interruption" unique_id=1500000021]
+[node name="Runner" type="Node" parent="ChatterGroupManager/Demo_Interruption" unique_id=1500000021 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
+presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
 auto_discover_commands = false
 
@@ -549,8 +552,9 @@ saliency = 3
 out_of_range_behaviour = 2
 out_of_range_node = "Demo_WalkAway_Interrupt"
 
-[node name="Runner" type="Node" parent="ChatterGroupManager/Demo_WalkAway" unique_id=1500000031]
+[node name="Runner" type="Node" parent="ChatterGroupManager/Demo_WalkAway" unique_id=1500000031 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
+presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
 auto_discover_commands = false
 
@@ -568,8 +572,9 @@ dialogue_runner = NodePath("Runner")
 chatter_node = "Demo_Ongoing"
 saliency = 3
 
-[node name="Runner" type="Node" parent="ChatterGroupManager/Demo_Ongoing" unique_id=1500000041]
+[node name="Runner" type="Node" parent="ChatterGroupManager/Demo_Ongoing" unique_id=1500000041 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
+presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
 auto_discover_commands = false
 
@@ -585,8 +590,9 @@ dialogue_runner = NodePath("Runner")
 chatter_node = "CallAndResponse"
 saliency = 3
 
-[node name="Runner" type="Node" parent="ChatterGroupManager/CallAndResponse" unique_id=1500000051]
+[node name="Runner" type="Node" parent="ChatterGroupManager/CallAndResponse" unique_id=1500000051 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
+presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
 auto_discover_commands = false
 
@@ -602,8 +608,9 @@ dialogue_runner = NodePath("Runner")
 chatter_node = "RandomBackgroundChat"
 saliency = 3
 
-[node name="Runner" type="Node" parent="ChatterGroupManager/RandomBackgroundChat" unique_id=1500000061]
+[node name="Runner" type="Node" parent="ChatterGroupManager/RandomBackgroundChat" unique_id=1500000061 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
+presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
 auto_discover_commands = false
 
@@ -622,8 +629,9 @@ saliency = 3
 out_of_range_behaviour = 2
 out_of_range_node = "InterruptableBackgroundChat_WalkAway"
 
-[node name="Runner" type="Node" parent="ChatterGroupManager/InterruptableBackgroundChat" unique_id=1500000071]
+[node name="Runner" type="Node" parent="ChatterGroupManager/InterruptableBackgroundChat" unique_id=1500000071 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
+presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
 auto_discover_commands = false
 
@@ -640,8 +648,9 @@ dialogue_runner = NodePath("Runner")
 chatter_node = "OngoingBackgroundConversation"
 saliency = 3
 
-[node name="Runner" type="Node" parent="ChatterGroupManager/OngoingBackgroundConversation" unique_id=1500000081]
+[node name="Runner" type="Node" parent="ChatterGroupManager/OngoingBackgroundConversation" unique_id=1500000081 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
+presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
 auto_discover_commands = false
 
@@ -657,8 +666,9 @@ dialogue_runner = NodePath("Runner")
 chatter_node = "RoamingCharacter"
 saliency = 3
 
-[node name="Runner" type="Node" parent="ChatterGroupManager/RoamingCharacter" unique_id=1500000091]
+[node name="Runner" type="Node" parent="ChatterGroupManager/RoamingCharacter" unique_id=1500000091 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
+presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
 
 [node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/RoamingCharacter/Runner" unique_id=1500000092]
@@ -673,8 +683,9 @@ dialogue_runner = NodePath("Runner")
 chatter_node = "TownCrier"
 saliency = 3
 
-[node name="Runner" type="Node" parent="ChatterGroupManager/TownCrier" unique_id=1500000101]
+[node name="Runner" type="Node" parent="ChatterGroupManager/TownCrier" unique_id=1500000101 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
+presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
 
 [node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/TownCrier/Runner" unique_id=1500000102]

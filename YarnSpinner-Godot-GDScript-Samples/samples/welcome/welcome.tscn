@@ -47,8 +47,9 @@ fov = 35.0
 
 [node name="Dialogue" parent="." unique_id=1497124993 instance=ExtResource("5_7g3mq")]
 
-[node name="YarnDialogueRunner" parent="Dialogue" index="0" unique_id=394517124]
+[node name="YarnDialogueRunner" parent="Dialogue" index="0" unique_id=394517124 node_paths=PackedStringArray("presenters")]
 yarn_project = ExtResource("6_n60vi")
+presenters = [NodePath("../UILayer/LinePresenter"), NodePath("../UILayer/OptionsPresenter"), NodePath("Slideshow")]
 
 [node name="Slideshow" type="Node" parent="Dialogue/YarnDialogueRunner" index="0" node_paths=PackedStringArray("header_label", "body_label", "image", "slide_panel", "override_presenters") unique_id=611224488]
 script = ExtResource("7_slide")
