@@ -2,6 +2,141 @@
   "commands": [
     {
       "async": false,
+      "definitionName": "_yarn_command_start_slide",
+      "fileName": "slideshow.gd",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "documentation": "the Slideshow to call this command on",
+          "name": "target",
+          "subtype": "Slideshow",
+          "type": "instance"
+        }
+      ],
+      "yarnName": "start_slide"
+    },
+    {
+      "async": false,
+      "definitionName": "_yarn_command_end_slide",
+      "fileName": "slideshow.gd",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "documentation": "the Slideshow to call this command on",
+          "name": "target",
+          "subtype": "Slideshow",
+          "type": "instance"
+        }
+      ],
+      "yarnName": "end_slide"
+    },
+    {
+      "async": false,
+      "definitionName": "_yarn_command_clear_slide",
+      "fileName": "slideshow.gd",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "documentation": "the Slideshow to call this command on",
+          "name": "target",
+          "subtype": "Slideshow",
+          "type": "instance"
+        }
+      ],
+      "yarnName": "clear_slide"
+    },
+    {
+      "async": false,
+      "definitionName": "_yarn_command_pause_path_movement",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "documentation": "the SimpleCharacter to call this command on",
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        }
+      ],
+      "yarnName": "pause_path_movement"
+    },
+    {
+      "async": false,
+      "definitionName": "_yarn_command_resume_path_movement",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "documentation": "the SimpleCharacter to call this command on",
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        }
+      ],
+      "yarnName": "resume_path_movement"
+    },
+    {
+      "async": false,
+      "definitionName": "_yarn_command_set_animation_param",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "documentation": "the SimpleCharacter to call this command on",
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "name": "param_name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "number"
+        },
+        {
+          "defaultValue": "0.0",
+          "name": "duration",
+          "type": "number"
+        },
+        {
+          "defaultValue": "false",
+          "name": "wait",
+          "type": "bool"
+        }
+      ],
+      "yarnName": "set_animation_param"
+    },
+    {
+      "async": false,
+      "definitionName": "auto_opt",
+      "fileName": "timeout_options_presenter.gd",
+      "language": "gdscript",
+      "parameters": [],
+      "yarnName": "auto_opt"
+    },
+    {
+      "async": true,
+      "definitionName": "_yarn_command_move",
+      "fileName": "character.gd",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "documentation": "the ExampleCharacter to call this command on",
+          "name": "target",
+          "subtype": "ExampleCharacter",
+          "type": "instance"
+        },
+        {
+          "name": "destination",
+          "type": "string"
+        }
+      ],
+      "yarnName": "move"
+    },
+    {
+      "async": false,
       "definitionName": "give_item",
       "fileName": "bindings_sample.gd",
       "language": "gdscript",
@@ -65,79 +200,6 @@
       "yarnName": "flash"
     },
     {
-      "async": false,
-      "definitionName": "set_fade_color",
-      "fileName": "fade_effect.gd",
-      "language": "gdscript",
-      "parameters": [],
-      "yarnName": "set_fade_color"
-    },
-    {
-      "async": false,
-      "definitionName": "fade_up",
-      "fileName": "fade_effect.gd",
-      "language": "gdscript",
-      "parameters": [],
-      "yarnName": "fade_up"
-    },
-    {
-      "async": false,
-      "definitionName": "fade_down",
-      "fileName": "fade_effect.gd",
-      "language": "gdscript",
-      "parameters": [],
-      "yarnName": "fade_down"
-    },
-    {
-      "async": false,
-      "definitionName": "_yarn_command_pause_path_movement",
-      "fileName": "simple_character.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the SimpleCharacter to call this command on",
-          "name": "target",
-          "subtype": "SimpleCharacter",
-          "type": "instance"
-        }
-      ],
-      "yarnName": "pause_path_movement"
-    },
-    {
-      "async": false,
-      "definitionName": "_yarn_command_resume_path_movement",
-      "fileName": "simple_character.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the SimpleCharacter to call this command on",
-          "name": "target",
-          "subtype": "SimpleCharacter",
-          "type": "instance"
-        }
-      ],
-      "yarnName": "resume_path_movement"
-    },
-    {
-      "async": true,
-      "definitionName": "_yarn_command_move",
-      "fileName": "character.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the ExampleCharacter to call this command on",
-          "name": "target",
-          "subtype": "ExampleCharacter",
-          "type": "instance"
-        },
-        {
-          "name": "destination",
-          "type": "string"
-        }
-      ],
-      "yarnName": "move"
-    },
-    {
       "async": true,
       "definitionName": "_yarn_command_bounce",
       "fileName": "character.gd",
@@ -192,56 +254,27 @@
     },
     {
       "async": false,
-      "definitionName": "_yarn_command_start_slide",
-      "fileName": "slideshow.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the Slideshow to call this command on",
-          "name": "target",
-          "subtype": "Slideshow",
-          "type": "instance"
-        }
-      ],
-      "yarnName": "start_slide"
-    },
-    {
-      "async": false,
-      "definitionName": "_yarn_command_end_slide",
-      "fileName": "slideshow.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the Slideshow to call this command on",
-          "name": "target",
-          "subtype": "Slideshow",
-          "type": "instance"
-        }
-      ],
-      "yarnName": "end_slide"
-    },
-    {
-      "async": false,
-      "definitionName": "_yarn_command_clear_slide",
-      "fileName": "slideshow.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the Slideshow to call this command on",
-          "name": "target",
-          "subtype": "Slideshow",
-          "type": "instance"
-        }
-      ],
-      "yarnName": "clear_slide"
-    },
-    {
-      "async": false,
-      "definitionName": "auto_opt",
-      "fileName": "timeout_options_presenter.gd",
+      "definitionName": "set_fade_color",
+      "fileName": "fade_effect.gd",
       "language": "gdscript",
       "parameters": [],
-      "yarnName": "auto_opt"
+      "yarnName": "set_fade_color"
+    },
+    {
+      "async": false,
+      "definitionName": "fade_up",
+      "fileName": "fade_effect.gd",
+      "language": "gdscript",
+      "parameters": [],
+      "yarnName": "fade_up"
+    },
+    {
+      "async": false,
+      "definitionName": "fade_down",
+      "fileName": "fade_effect.gd",
+      "language": "gdscript",
+      "parameters": [],
+      "yarnName": "fade_down"
     }
   ],
   "functions": [],

@@ -8,7 +8,8 @@
 [ext_resource type="Script" uid="uid://cged8u182768u" path="res://addons/yarn_spinner/ui/line_presenter.gd" id="6_q3t8u"]
 [ext_resource type="Script" uid="uid://cogqy630mjgv7" path="res://addons/yarn_spinner/ui/options_presenter.gd" id="7_s6dl7"]
 [ext_resource type="Script" uid="uid://dpqvn6oabxilc" path="res://samples/voice_over/scripts/character_color_presenter.gd" id="8_ndk5a"]
-[ext_resource type="Script" uid="uid://bdkmo17inusa6" path="res://samples/voice_over/scripts/sample_voice_presenter.gd" id="9_34unk"]
+[ext_resource type="Script" path="res://addons/yarn_spinner/ui/voice_over_presenter.gd" id="9_34unk"]
+[ext_resource type="Script" uid="uid://djgg62tgdx0hi" path="res://samples/voice_over_3d/scripts/voice_over_3d_sample.gd" id="10_root"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8lhc"]
 content_margin_left = 20.0
@@ -22,6 +23,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="VoiceOver3d" type="Node3D" unique_id=304579994]
+script = ExtResource("10_root")
 
 [node name="SamplesEnvironmentNebula" parent="." unique_id=789525707 instance=ExtResource("1_ijte8")]
 
@@ -35,9 +37,9 @@ parameters/HeadTurnTilt/blend_position = Vector2(0, 0)
 parameters/Add2/add_amount = 0.0
 parameters/BlendSpace1D/blend_position = 0.0
 
-[node name="Skeleton3D" parent="NPCCharacter/PillCharacter2/PillCharacter" parent_id_path=PackedInt32Array(914088189, 2028345057, 1509937039) index="0" unique_id=521415772]
-bones/0/position = Vector3(0, 0.02425407, 0)
-bones/0/rotation = Quaternion(-0.025914015, 0.70663184, 0.70663184, -0.025914015)
+[node name="Skeleton3D" parent="NPCCharacter/PillCharacter2/PillCharacter" parent_id_path=PackedInt32Array(914088189, 2028345057, 1631531952) index="0" unique_id=1205917576]
+bones/0/position = Vector3(0, 0.026571559, 0)
+bones/0/rotation = Quaternion(0.0016290601, 0.707105, 0.707105, 0.0016290601)
 bones/1/position = Vector3(7.8197036e-07, -1.1280634e-17, 7.183587e-10)
 bones/1/rotation = Quaternion(-5.3385087e-08, 0.7071068, 0.7071068, -5.3385087e-08)
 bones/2/rotation = Quaternion(-2.220446e-16, -1.19249e-08, -2.647859e-24, 1)
@@ -51,7 +53,7 @@ bones/11/position = Vector3(0.05476435, 0.006787427, 0.1997307)
 bones/12/position = Vector3(-0.054763872, 0.006787438, 0.19973083)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="NPCCharacter/PillCharacter2/PillCharacter/Skeleton3D" index="1" unique_id=807486273]
-transform = Transform3D(0.99731374, -0.07324666, 1.2680448e-07, 0.07324666, 0.9973138, 6.8917664e-08, -1.2714602e-07, 5.9604645e-08, 0.99999994, -0.023439713, 0.34339446, 1.9073488e-08)
+transform = Transform3D(0.9999893, 0.004607665, 1.2714466e-07, -0.004607665, 0.99998933, 5.90188e-08, -1.2714602e-07, 5.9604645e-08, 0.99999994, 0.0014736709, 0.34656817, 1.9073488e-08)
 bone_name = "Spine_2"
 bone_idx = 3
 
@@ -138,10 +140,11 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("8_ndk5a")
 
-[node name="VoicePresenter" type="Control" parent="YarnDialogueRunner" unique_id=1280855668]
+[node name="VoicePresenter" type="Control" parent="YarnDialogueRunner" unique_id=1280855668 node_paths=PackedStringArray("audio_player")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("9_34unk")
+audio_player = NodePath("AudioPlayer")
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="YarnDialogueRunner/VoicePresenter" unique_id=495179195]
 

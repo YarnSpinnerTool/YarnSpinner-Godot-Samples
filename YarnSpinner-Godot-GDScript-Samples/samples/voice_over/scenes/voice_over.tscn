@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cogqy630mjgv7" path="res://addons/yarn_spinner/ui/options_presenter.gd" id="4_options"]
 [ext_resource type="Script" uid="uid://q487nnd1emgf" path="res://samples/voice_over/scripts/fade_effect.gd" id="5_fade"]
 [ext_resource type="Script" uid="uid://dpqvn6oabxilc" path="res://samples/voice_over/scripts/character_color_presenter.gd" id="6_color"]
-[ext_resource type="Script" uid="uid://bdkmo17inusa6" path="res://samples/voice_over/scripts/sample_voice_presenter.gd" id="7_voice"]
+[ext_resource type="Script" uid="uid://d23fbixt5yo3d" path="res://addons/yarn_spinner/ui/voice_over_presenter.gd" id="7_voice"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 content_margin_left = 20.0
@@ -73,8 +73,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 24
-theme_override_font_sizes/italics_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
 bbcode_enabled = true
 text = "Dialogue text goes here..."
 fit_content = true
@@ -109,10 +109,12 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("6_color")
 
-[node name="VoicePresenter" type="Control" parent="YarnDialogueRunner" unique_id=639498802]
+[node name="VoicePresenter" type="Control" parent="YarnDialogueRunner" unique_id=639498802 node_paths=PackedStringArray("audio_player")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("7_voice")
+audio_player = NodePath("AudioPlayer")
+end_line_when_voice_complete = false
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="YarnDialogueRunner/VoicePresenter" unique_id=224546009]
 

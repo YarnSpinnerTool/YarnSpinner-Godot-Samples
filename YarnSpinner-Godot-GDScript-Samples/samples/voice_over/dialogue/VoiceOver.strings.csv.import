@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dnvq31drnpblf"
+
+[deps]
+
+files=["res://samples/voice_over/dialogue/VoiceOver.strings.en.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.de.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.zh.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.pt_BR.translation"]
+
+source_file="res://samples/voice_over/dialogue/VoiceOver.strings.csv"
+dest_files=["res://samples/voice_over/dialogue/VoiceOver.strings.en.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.de.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.zh.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.pt_BR.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

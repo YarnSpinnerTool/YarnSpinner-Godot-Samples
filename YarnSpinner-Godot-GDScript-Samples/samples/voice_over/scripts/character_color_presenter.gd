@@ -26,7 +26,7 @@ func on_dialogue_completed() -> void:
 	pass
 
 
-func run_line(line: YarnLine, _token: YarnCancellationToken = null) -> Variant:
+func run_line(line: YarnLine, _token: YarnCancellationToken = null) -> void:
 	var color := default_color
 
 	if not line.character_name.is_empty():
@@ -40,9 +40,6 @@ func run_line(line: YarnLine, _token: YarnCancellationToken = null) -> Variant:
 				(label as Label).modulate = color
 			elif label is RichTextLabel:
 				(label as RichTextLabel).modulate = color
-
-	# don't block - let other presenters handle the line
-	return null
 
 
 func run_options(_options: Array[YarnOption], _token: YarnCancellationToken = null) -> int:

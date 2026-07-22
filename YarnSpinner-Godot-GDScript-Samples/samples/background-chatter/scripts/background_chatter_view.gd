@@ -69,16 +69,16 @@ func _fit_label() -> void:
 	_label.size = Vector2(box_width, box_height) * scale
 
 
-func run_line(line: YarnLine, token: YarnCancellationToken = null) -> Variant:
+func run_line(line: YarnLine, token: YarnCancellationToken = null) -> void:
 	var speaker := line.character_name
 	if speaker.is_empty():
 		push_warning("BackgroundChatterView: line %s has no character name" % line.line_id)
-		return null
+		return
 
 	_target = ChatterNPC.find_by_name(get_tree(), speaker)
 	if _target == null:
 		push_warning("BackgroundChatterView: no chatter NPC named '%s'" % speaker)
-		return null
+		return
 
 	var body := line.text_without_character_name
 	_label.text = body
@@ -87,7 +87,7 @@ func run_line(line: YarnLine, token: YarnCancellationToken = null) -> Variant:
 
 	_line_generation += 1
 	_show_line(body, token, _line_generation)
-	return _line_done
+	await _line_done
 
 
 signal _line_done
@@ -136,7 +136,9 @@ func _dismiss(generation: int) -> void:
 
 
 func on_dialogue_completed() -> void:
-	# The chatter stopped (finished or was interrupted); hide any visible line.
+	# The chatter stopped (finished or was interrupted); hide any visible line
+	# and release a run_line still parked on its completion.
 	if _label != null:
 		_label.visible = false
 	_target = null
+	_line_done.emit()

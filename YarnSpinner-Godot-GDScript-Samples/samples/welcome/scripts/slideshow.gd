@@ -76,12 +76,12 @@ func _yarn_command_clear_slide() -> void:
 	_clear_slide()
 
 
-func run_line(line: YarnLine, _token: YarnCancellationToken = null) -> Variant:
+func run_line(line: YarnLine, _token: YarnCancellationToken = null) -> void:
 	# Slide-content lines only matter while a slide is being built; everything
-	# else is left to the normal line presenter. Handled synchronously (return
-	# null) so this presenter never blocks the runner.
+	# else is left to the normal line presenter. Returns immediately, so this
+	# presenter never holds the line open.
 	if line.character_name.is_empty() or not _running_slideshow:
-		return null
+		return
 
 	var text := line.text_without_character_name
 
@@ -92,8 +92,6 @@ func run_line(line: YarnLine, _token: YarnCancellationToken = null) -> Variant:
 			_add_bullet(text)
 		"SlideImage":
 			_set_image(text)
-
-	return null
 
 
 func _set_header(text: String) -> void:
