@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://flra500ihbix" path="res://addons/yarn_spinner/dialogue_runner.gd" id="5_runner"]
 [ext_resource type="Script" uid="uid://cged8u182768u" path="res://addons/yarn_spinner/ui/line_presenter.gd" id="6_line"]
 [ext_resource type="Script" uid="uid://cogqy630mjgv7" path="res://addons/yarn_spinner/ui/options_presenter.gd" id="7_options"]
+[ext_resource type="Script" uid="uid://bk0yeqw5d8l0v" path="res://samples/inline_events/scripts/emotion_preset.gd" id="8_6jdr6"]
 [ext_resource type="Resource" uid="uid://dktmh3k1bxafu" path="res://samples/inline_events/dialogue/InlineExample.yarnproject" id="8_proj"]
 [ext_resource type="Script" uid="uid://ci0aavprdl4gw" path="res://samples/shared/scripts/simple_follow_camera.gd" id="9_cam"]
 [ext_resource type="Script" uid="uid://bs5qnekrnovvy" path="res://samples/shared/scripts/dialogue_interactable.gd" id="10_interact"]
@@ -19,6 +20,22 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(12, 1, 12)
+
+[sub_resource type="Resource" id="Resource_6jdr6"]
+script = ExtResource("8_6jdr6")
+eyebrows = "angry"
+mouth = "frowning"
+base = Color(0.8862745, 0.5019608, 0.49019608, 1)
+fade = Color(0.9411765, 0.23137255, 0, 1)
+metadata/_custom_type_script = "uid://bk0yeqw5d8l0v"
+
+[sub_resource type="Resource" id="Resource_hb5kj"]
+script = ExtResource("8_6jdr6")
+eyebrows = "neutral"
+mouth = "smiling"
+base = Color(0.34117648, 0.3372549, 0.7411765, 1)
+fade = Color(0.40392157, 0.5803922, 0.8509804, 1)
+metadata/_custom_type_script = "uid://bk0yeqw5d8l0v"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 content_margin_left = 24.0
@@ -80,6 +97,10 @@ dialogue_runner = NodePath("../YarnDialogueRunner")
 [node name="EmotionEvent" type="Node" parent="." unique_id=771034502 node_paths=PackedStringArray("dialogue_runner")]
 script = ExtResource("13_emotion")
 dialogue_runner = NodePath("../YarnDialogueRunner")
+emotion_presets = Dictionary[String, ExtResource("8_6jdr6")]({
+"angry": SubResource("Resource_6jdr6"),
+"neutral": SubResource("Resource_hb5kj")
+})
 
 [node name="Alice" parent="." unique_id=914088189 instance=ExtResource("3_npc")]
 transform = Transform3D(0.4497556, 0, -0.8931516, 0, 1, 0, 0.8931516, 0, 0.4497556, 2.41, 0, -0.45)
@@ -99,6 +120,18 @@ mode = 1
 [node name="Player" parent="." unique_id=880827807 instance=ExtResource("4_player")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.11, 0, 3.51)
 is_player_controlled = true
+speed = 3.0
+turn_speed = 500.0
+gravity = 10.0
+apply_gravity = true
+acceleration = 0.2
+deceleration = 0.1
+out_of_bounds_y = -5.0
+path_destination_tolerance = 0.1
+interaction_radius = 1.0
+interaction_offset = Vector3(0, 0, 0.3)
+walk_blend_parameter = "parameters/Walking/blend_amount"
+float_blend_parameter = "parameters/Floating/blend_amount"
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1276127419]
 
@@ -179,7 +212,6 @@ grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 script = ExtResource("7_options")
 option_button_scene = ExtResource("21_optbtn")
-hide_unavailable = true
 show_last_line = true
 last_line_text = NodePath("OptionsContainer/LastLineMargin/LastLine")
 last_line_container = NodePath("OptionsContainer/LastLineMargin")

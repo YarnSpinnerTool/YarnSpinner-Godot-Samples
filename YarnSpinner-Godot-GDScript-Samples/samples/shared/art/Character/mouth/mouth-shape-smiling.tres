@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="LipSyncedTextureGroup" format=3 uid="uid://v4mps5j8bjel"]
+
+[ext_resource type="Script" uid="uid://vh5481vitxph" path="res://samples/shared/scripts/lipsync/lip_synced_texture_group.gd" id="1_mcvrs"]
+[ext_resource type="Texture2D" uid="uid://ccsy2ixx620hx" path="res://samples/shared/art/Character/mouth/MouthShape-Smile-A.png" id="2_dgomu"]
+[ext_resource type="Texture2D" uid="uid://cjc7nel2dd7x1" path="res://samples/shared/art/Character/mouth/MouthShape-Smile-B.png" id="3_gl7c1"]
+[ext_resource type="Texture2D" uid="uid://d1g6hqneoak5c" path="res://samples/shared/art/Character/mouth/MouthShape-Smile-C.png" id="4_xw2g3"]
+[ext_resource type="Texture2D" uid="uid://d38jxoiooeenw" path="res://samples/shared/art/Character/mouth/MouthShape-Smile-D.png" id="5_6a7li"]
+[ext_resource type="Texture2D" uid="uid://ljn0qcf8e238" path="res://samples/shared/art/Character/mouth/MouthShape-Smile-E.png" id="6_53gdk"]
+[ext_resource type="Texture2D" uid="uid://booiixmo43p04" path="res://samples/shared/art/Character/mouth/MouthShape-Smile-F.png" id="7_885km"]
+[ext_resource type="Texture2D" uid="uid://bxwiu2rgpx3k5" path="res://samples/shared/art/Character/mouth/MouthShape-Smile-G.png" id="8_b4egy"]
+[ext_resource type="Texture2D" uid="uid://yxm8tbf6mfcb" path="res://samples/shared/art/Character/mouth/MouthShape-Smile-H.png" id="9_n1gwd"]
+[ext_resource type="Texture2D" uid="uid://tfe22473cyml" path="res://samples/shared/art/Character/mouth/MouthShape-Smile-TH.png" id="10_pcqgh"]
+[ext_resource type="Texture2D" uid="uid://bmr6e8oka6wgl" path="res://samples/shared/art/Character/mouth/MouthShape-Smile-X.png" id="11_v88ky"]
+
+[resource]
+script = ExtResource("1_mcvrs")
+textures = Dictionary[int, Texture2D]({
+0: ExtResource("2_dgomu"),
+1: ExtResource("3_gl7c1"),
+2: ExtResource("4_xw2g3"),
+3: ExtResource("5_6a7li"),
+4: ExtResource("6_53gdk"),
+5: ExtResource("7_885km"),
+6: ExtResource("8_b4egy"),
+7: ExtResource("9_n1gwd"),
+8: ExtResource("10_pcqgh"),
+9: ExtResource("11_v88ky")
+})
+metadata/_custom_type_script = "uid://vh5481vitxph"

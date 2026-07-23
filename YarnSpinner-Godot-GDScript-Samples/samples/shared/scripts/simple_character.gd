@@ -57,21 +57,26 @@ enum Mode {
 ## (auto-found among the descendants if left unset)
 @export var mouth_mesh: MeshInstance3D
 ## maps an expression name to the mouth-shape texture the mouth quad displays
-@export var facial_expressions: Dictionary = _DEFAULT_EXPRESSIONS
+@export var eyebrow_expressions: Dictionary[String, String] = _DEFAULT_EXPRESSIONS
+@export var mouth_expressions: Dictionary[String, LipSyncedTextureGroup] = {}
+
+@export var eyebrows_parameter := "parameters/eyebrows/transition_request"
 
 const _ANIMATION_PARAMS := {
-	"walk": "parameters/Walking/blend_amount",
-	"float": "parameters/Floating/blend_amount",
+	"walking": "parameters/Walking/blend_amount",
+	"floating": "parameters/Floating/blend_amount",
+	"head_turn_tilt": "parameters/HeadTurnTilt/blend_position",
+}
+
+# Maps named expressions to the named transitions that control the eyebrow position.
+const _DEFAULT_EXPRESSIONS := {
+	"neutral": "neutral",
+	"surprised": "out",
+	"angry": "in",
+	"sus": "single"
 }
 
 const _MOUTH_DIR := "res://samples/shared/art/Character/mouth/"
-const _DEFAULT_EXPRESSIONS := {
-	"neutral": _MOUTH_DIR + "MouthShape-Smile-X.png",
-	"smiling": _MOUTH_DIR + "MouthShape-Smile-A.png",
-	"angry": _MOUTH_DIR + "MouthShape-Frown-D.png",
-	"sad": _MOUTH_DIR + "MouthShape-Frown-A.png",
-	"surprised": _MOUTH_DIR + "MouthShape-Frown-X.png",
-}
 
 ## the thing this character should turn to look at (e.g. the player they're
 ## speaking to). when null, the character faces its last movement direction.
@@ -94,7 +99,6 @@ var _move_return_mode := Mode.PLAYER_CONTROLLED
 var _move_return_look: Node3D
 var _mouth_material: ShaderMaterial
 var _mouth_surface := -1
-var _expression_cache: Dictionary = {}
 
 
 func _ready() -> void:
@@ -287,15 +291,29 @@ func _drive_animation() -> void:
 ## Sets the character's facial expression by swapping the mouth quad's shape
 ## texture. Names come from [member facial_expressions], e.g. "neutral",
 ## "angry", "smiling".
-func set_facial_expression(expression: String) -> void:
+func set_eyebrows(expression: String) -> void:
 	if _mouth_material == null:
 		return
-	if not facial_expressions.has(expression):
-		push_warning("SimpleCharacter: unknown facial expression '%s'" % expression)
+	if not eyebrow_expressions.has(expression):
+		push_warning("SimpleCharacter: unknown eyebrow expression '%s'" % expression)
 		return
-	var texture := _expression_texture(expression)
-	if texture != null:
-		_mouth_material.set_shader_parameter("Texture", texture)
+	
+	if animation_tree == null:
+		return ;
+
+	animation_tree.set(eyebrows_parameter, eyebrow_expressions[expression])
+
+func set_mouth(expression: String, mouth_shape: LipSyncedTextureGroup.MouthShape = LipSyncedTextureGroup.MouthShape.X) -> void:
+	if not mouth_expressions.has(expression):
+		printerr("%s has no mouth expression %s" % self.name, expression)
+
+	var expr := mouth_expressions.get(expression) as LipSyncedTextureGroup
+
+	if expr != null:
+		var texture = expr.get_texture(mouth_shape)
+		
+		if texture != null:
+			_mouth_material.set_shader_parameter("Texture", texture)
 
 
 func _setup_mouth() -> void:
@@ -309,15 +327,6 @@ func _setup_mouth() -> void:
 		return
 	_mouth_material = source.duplicate() as ShaderMaterial
 	mouth_mesh.set_surface_override_material(_mouth_surface, _mouth_material)
-
-
-func _expression_texture(expression: String) -> Texture2D:
-	if _expression_cache.has(expression):
-		return _expression_cache[expression]
-	var value: Variant = facial_expressions[expression]
-	var texture: Texture2D = value if value is Texture2D else load(value)
-	_expression_cache[expression] = texture
-	return texture
 
 
 ## Finds the mesh + surface whose material drives the mouth shader, recording
@@ -482,15 +491,42 @@ func _run_interaction(target: Node) -> void:
 		look_target = previous_look
 
 ## Makes this character update an animation tree parameter
-func _yarn_command_set_animation_param(param_name: String, value: float, duration: float = 0, wait: bool = false):
+func _yarn_command_set_animation_param_float(param_name: String, value: String, duration: String = "0", wait: String = "false"):
 	if animation_tree == null:
 		return
 
-	if (duration <= 0):
-		animation_tree.set(param_name, value)
+	var valueFloat = value.to_float()
+
+	var durationFloat = duration.to_float()
+	var waitBool = wait != "false"
+
+	if (durationFloat <= 0):
+		animation_tree.set(_ANIMATION_PARAMS[param_name], valueFloat)
 		return
 
 	var tween = create_tween()
-	tween.tween_property(animation_tree, _ANIMATION_PARAMS[param_name], value, duration)
-	
-	await tween.finished
+	tween.tween_property(animation_tree, _ANIMATION_PARAMS[param_name], valueFloat, durationFloat)
+
+	if waitBool:
+		await tween.finished
+
+func _yarn_command_set_animation_param_vec2(param_name: String, valueX: String, valueY: String, duration: String = "0", wait: String = "false"):
+	if animation_tree == null:
+		return
+
+	var valueXFloat = valueX.to_float()
+	var valueYFloat = valueY.to_float()
+	var valueVec2 = Vector2(valueXFloat, valueYFloat)
+
+	var durationFloat = duration.to_float()
+	var waitBool = wait != "false"
+
+	if (durationFloat <= 0):
+		animation_tree.set(param_name, valueVec2)
+		return
+
+	var tween = create_tween()
+	tween.tween_property(animation_tree, _ANIMATION_PARAMS[param_name], valueVec2, durationFloat)
+
+	if waitBool:
+		await tween.finished

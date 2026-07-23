@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LipSyncedTextureGroup" format=3 uid="uid://cfqavkhgynrm6"]
+
+[ext_resource type="Script" uid="uid://vh5481vitxph" path="res://samples/shared/scripts/lipsync/lip_synced_texture_group.gd" id="1_krw8q"]
+[ext_resource type="Texture2D" uid="uid://bj7kfjiwpr06t" path="res://samples/shared/art/Character/mouth/MouthShape-Frown-A.png" id="2_1sjn4"]
+[ext_resource type="Texture2D" uid="uid://bfo4pcxphl62o" path="res://samples/shared/art/Character/mouth/MouthShape-Frown-B.png" id="3_p8u45"]
+[ext_resource type="Texture2D" uid="uid://pqpvi6odarpm" path="res://samples/shared/art/Character/mouth/MouthShape-Frown-C.png" id="4_0wvos"]
+[ext_resource type="Texture2D" uid="uid://dmr27ktw1bh36" path="res://samples/shared/art/Character/mouth/MouthShape-Frown-D.png" id="5_7ujqm"]
+[ext_resource type="Texture2D" uid="uid://c03hgvvrw8hg2" path="res://samples/shared/art/Character/mouth/MouthShape-Frown-E.png" id="6_td48i"]
+[ext_resource type="Texture2D" uid="uid://dek3k7d1tt8qt" path="res://samples/shared/art/Character/mouth/MouthShape-Frown-F.png" id="7_wsje5"]
+[ext_resource type="Texture2D" uid="uid://bylhgcqq3p3nd" path="res://samples/shared/art/Character/mouth/MouthShape-Frown-X.png" id="8_3p30f"]
+
+[resource]
+script = ExtResource("1_krw8q")
+textures = Dictionary[int, Texture2D]({
+0: ExtResource("2_1sjn4"),
+1: ExtResource("3_p8u45"),
+2: ExtResource("4_0wvos"),
+3: ExtResource("5_7ujqm"),
+4: ExtResource("6_td48i"),
+5: ExtResource("7_wsje5"),
+9: ExtResource("8_3p30f")
+})
+metadata/_custom_type_script = "uid://vh5481vitxph"

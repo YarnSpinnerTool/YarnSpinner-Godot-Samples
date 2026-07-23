@@ -19,38 +19,41 @@ title: Start
 // uses this script. (You can also create declarations in the Inspector,
 // rather than including them in your scripts.)
 
-/// Does Tom know the name of the person he's talking to?
-<<declare $knows_anne_name = false as bool>>
+// /// Does Tom know the name of the person he's talking to?
+// <<declare $knows_anne_name = false as bool>>
 
-// Before we start, wait two seconds to let the player see the environment
-// before starting the dialogue.
+// // Before we start, wait two seconds to let the player see the environment
+// // before starting the dialogue.
 
-<<set_animation_param Tom floating 1>>
+// <<set_animation_param Tom floating 1>>
+<<set_animation_param_float Tom floating 0>>
 
-// <<set_animator_bool Tom Floating true>>
-<<expression Tom frowning>>
-<<face Tom surprised>>
+<<set_animation_param_vec2 Tom head_turn_tilt -1 1 5 wait>>
+
+// // <<set_animator_bool Tom Floating true>>
+// <<expression Tom frowning>>
+// <<face Tom surprised>>
  
-<<set_fade_color 1>>
+// <<set_fade_color 1>>
 
-<<wait 2>>
+// <<wait 2>>
 
-<<fade_up 2>>
+// <<fade_up 2>>
 
-<<wait 1>>
+// <<wait 1>>
 
-<<play_animation Tom Gesture LookAround wait>>
+// <<play_animation Tom Gesture LookAround wait>>
 
-// The start of our conversation!
-Tom: Uh.. hello? #line:tutorial-tom-01 // tentative 
-<<turn Tom 0.5 0.5>>
-<<tilt_forward Tom -0.5 0.5>>
-Tom: Is anyone there? #line:tutorial-tom-02
+// // The start of our conversation!
+// Tom: Uh.. hello? #line:tutorial-tom-01 // tentative 
+// <<turn Tom 0.5 0.5>>
+// <<tilt_forward Tom -0.5 0.5>>
+// Tom: Is anyone there? #line:tutorial-tom-02
 
-<<turn Tom -0.5 0.25>>
-Anne: Hi there! #line:tutorial-anne-01 // chirpy 
-<<turn Tom 0 1>>
-<<tilt_forward Tom 0 1>>
+// <<turn Tom -0.5 0.25>>
+// Anne: Hi there! #line:tutorial-anne-01 // chirpy 
+// <<turn Tom 0 1>>
+// <<tilt_forward Tom 0 1>>
 
 
 // Present a choice to the player: they can either say 'who are you', or

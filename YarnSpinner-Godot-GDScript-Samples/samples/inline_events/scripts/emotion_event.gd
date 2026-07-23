@@ -11,15 +11,13 @@ extends YarnActionMarkupHandlerNode
 
 const _PAUSE_SECONDS := 0.3
 
-const _ANGRY_BASE := Color(0.8867924, 0.5030531, 0.489409)
-const _ANGRY_FADE := Color(0.943, 0.2315789, 0)
-const _NEUTRAL_BASE := Color(0.3411765, 0.3372549, 0.7411765)
-const _NEUTRAL_FADE := Color(0.4039216, 0.5803922, 0.8509804)
+@export var emotion_presets: Dictionary[String, EmotionPreset] = {}
+@export var default_emotion := "neutral"
 
 var _appearance: CharacterAppearance
 var _character: SimpleCharacter
 ## character position -> emotion key
-var _emotions: Dictionary = {}
+var _emotions: Dictionary[int, String] = {}
 ## whoever was last left in a non-neutral emotion (they may no longer be the
 ## current line's speaker by the time the dialogue is stopped)
 var _dirty_character: SimpleCharacter
@@ -33,10 +31,13 @@ func _ready() -> void:
 
 ## A stopped dialogue can land mid-emotion; don't leave the speaker stuck angry.
 func _on_dialogue_cancelled() -> void:
+	var preset = emotion_presets.get(default_emotion) as EmotionPreset
+
 	if _dirty_character != null and is_instance_valid(_dirty_character):
-		_dirty_character.set_facial_expression("neutral")
+		_dirty_character.set_eyebrows(preset.eyebrows)
+		_dirty_character.set_mouth(preset.mouth)
 	if _dirty_appearance != null and is_instance_valid(_dirty_appearance):
-		_dirty_appearance.set_appearance(_NEUTRAL_BASE, _NEUTRAL_FADE)
+		_dirty_appearance.set_appearance(preset.base, preset.fade)
 	_dirty_character = null
 	_dirty_appearance = null
 
@@ -80,21 +81,25 @@ func on_character_will_appear(
 		return Signal()
 
 	var emotion: String = _emotions[character_index]
+
+	var preset = emotion_presets.get(emotion) as EmotionPreset
+
 	if emotion == "neutral":
 		_dirty_character = null
 		_dirty_appearance = null
 	else:
 		_dirty_character = _character
 		_dirty_appearance = _appearance
+
 	if _character != null:
-		_character.set_facial_expression(emotion)
+		_character.set_eyebrows(preset.eyebrows)
+		_character.set_mouth(preset.mouth)
 
 	if _appearance != null:
-		if emotion == "angry":
-			_appearance.set_appearance(_ANGRY_BASE, _ANGRY_FADE)
+		_appearance.set_appearance(preset.base, preset.fade)
+		if emotion != default_emotion:
 			# Hold a brief moment after becoming angry to make the change clear.
 			return get_tree().create_timer(_PAUSE_SECONDS).timeout
-		_appearance.set_appearance(_NEUTRAL_BASE, _NEUTRAL_FADE)
 	return Signal()
 
 
