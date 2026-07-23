@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://vh8u2xkby5bl"]
+
+[ext_resource type="PackedScene" uid="uid://ba6k8q62v3aeg" path="res://samples/shared/scenes/Basic Arena.tscn" id="1_wxc13"]
+[ext_resource type="PackedScene" uid="uid://don7obupokpwf" path="res://samples/shared/scenes/player_character.tscn" id="2_06nmh"]
+[ext_resource type="Script" uid="uid://ci0aavprdl4gw" path="res://samples/shared/scripts/simple_follow_camera.gd" id="3_06nmh"]
+[ext_resource type="PackedScene" uid="uid://hfcnx6eyb3i3" path="res://samples/advanced_saliency/rooms/Scenario Pillar.fbx" id="4_udfqi"]
+[ext_resource type="PackedScene" uid="uid://b40sbfiia4q0s" path="res://samples/shared/art/environment/prototype/wall-corner-low.fbx" id="5_8rsac"]
+[ext_resource type="PackedScene" uid="uid://bbxu2hyown07m" path="res://samples/shared/art/environment/prototype/wall-low.fbx" id="6_dh5og"]
+[ext_resource type="PackedScene" uid="uid://uruqhgptl7a7" path="res://samples/shared/art/environment/prototype/floor-small-square.fbx" id="7_wki07"]
+[ext_resource type="PackedScene" uid="uid://db6adsx7323jr" path="res://samples/shared/scenes/npc_character.tscn" id="8_wki07"]
+[ext_resource type="PackedScene" uid="uid://le6c0y7pc8gt" path="res://samples/shared/scenes/explanation_character.tscn" id="9_li7ae"]
+
+[node name="AdvancedSaliency" type="Node3D" unique_id=2093238238]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1480109522]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="BasicArena" parent="." unique_id=1653386484 instance=ExtResource("1_wxc13")]
+
+[node name="wall-low15" parent="BasicArena/Floor" parent_id_path=PackedInt32Array(1653386484, 1137286337) index="95" unique_id=1623251230]
+visible = false
+
+[node name="wall-low16" parent="BasicArena/Floor" parent_id_path=PackedInt32Array(1653386484, 1137286337) index="96" unique_id=476500463]
+visible = false
+
+[node name="wall-low19" parent="BasicArena/Floor" parent_id_path=PackedInt32Array(1653386484, 1137286337) index="99" unique_id=1973968617]
+visible = false
+
+[node name="BasicArena2" parent="." unique_id=1320992494 instance=ExtResource("1_wxc13")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+
+[node name="wall-low22" parent="BasicArena2/Floor" parent_id_path=PackedInt32Array(1320992494, 1137286337) index="102" unique_id=1234609379]
+visible = false
+
+[node name="wall-low23" parent="BasicArena2/Floor" parent_id_path=PackedInt32Array(1320992494, 1137286337) index="103" unique_id=482601794]
+visible = false
+
+[node name="wall-low26" parent="BasicArena2/Floor" parent_id_path=PackedInt32Array(1320992494, 1137286337) index="106" unique_id=117983098]
+visible = false
+
+[node name="SamplesEnvironment" parent="BasicArena2" index="1" unique_id=789525707]
+process_mode = 4
+
+[node name="PlayerCharacter" parent="." unique_id=914088189 instance=ExtResource("2_06nmh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.017292, 0, 2.2504878)
+is_player_controlled = true
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=1694747818 node_paths=PackedStringArray("target", "camera")]
+script = ExtResource("3_06nmh")
+target = NodePath("../PlayerCharacter")
+camera = NodePath("Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=1022319503]
+fov = 60.0
+near = 0.3
+far = 1000.0
+
+[node name="Scenario Pillar" parent="." unique_id=902649472 instance=ExtResource("4_udfqi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
+
+[node name="Scenario Pillar2" parent="." unique_id=270306382 instance=ExtResource("4_udfqi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+
+[node name="Scenario Pillar3" parent="." unique_id=469230418 instance=ExtResource("4_udfqi")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4, 0, 2)
+
+[node name="Scenario Pillar4" parent="." unique_id=345053938 instance=ExtResource("4_udfqi")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4, 0, -2)
+
+[node name="Corridor" type="Node3D" parent="." unique_id=1801656260]
+
+[node name="wall-corner-low5" parent="Corridor" unique_id=1299261604 instance=ExtResource("5_8rsac")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 0, -6.2)
+
+[node name="wall-corner-low6" parent="Corridor" unique_id=848453900 instance=ExtResource("5_8rsac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99999994, 0, -6.2)
+
+[node name="wall-corner-low7" parent="Corridor" unique_id=1009183913 instance=ExtResource("5_8rsac")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1, 0, -4.7999997)
+
+[node name="wall-corner-low8" parent="Corridor" unique_id=568030005 instance=ExtResource("5_8rsac")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1, 0, -4.7999997)
+
+[node name="wall-low" parent="Corridor" unique_id=1318134659 instance=ExtResource("6_dh5og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, -5.5)
+
+[node name="wall-low2" parent="Corridor" unique_id=122498718 instance=ExtResource("6_dh5og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, -5.5)
+
+[node name="floor-small-square" parent="." unique_id=355321143 instance=ExtResource("7_wki07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="floor-small-square2" parent="." unique_id=1366266238 instance=ExtResource("7_wki07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="Alice" parent="." unique_id=1680985820 instance=ExtResource("8_wki07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 0, -8.3)
+
+[node name="Barry" parent="." unique_id=1802920943 instance=ExtResource("8_wki07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7, 0, -8.3)
+
+[node name="Capsley" parent="." unique_id=1819821593 instance=ExtResource("9_li7ae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0, -3.5)
+
+[editable path="BasicArena"]
+[editable path="BasicArena2"]

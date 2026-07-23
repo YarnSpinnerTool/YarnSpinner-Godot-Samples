@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://bmrp2feugikbg"
+path="res://.godot/imported/Room.yarn-a46074515b26b04b0c30a39995d5723d.res"
+
+[deps]
+
+source_file="res://samples/advanced_saliency/dialogue/Room.yarn"
+dest_files=["res://.godot/imported/Room.yarn-a46074515b26b04b0c30a39995d5723d.res"]
+
+[params]
+

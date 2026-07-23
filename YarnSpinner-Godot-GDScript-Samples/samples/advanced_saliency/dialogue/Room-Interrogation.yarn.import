@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://ceeb75gib7rva"
+path="res://.godot/imported/Room-Interrogation.yarn-d82a2abbf7a3f1976c637003fc0b2a8c.res"
+
+[deps]
+
+source_file="res://samples/advanced_saliency/dialogue/Room-Interrogation.yarn"
+dest_files=["res://.godot/imported/Room-Interrogation.yarn-d82a2abbf7a3f1976c637003fc0b2a8c.res"]
+
+[params]
+

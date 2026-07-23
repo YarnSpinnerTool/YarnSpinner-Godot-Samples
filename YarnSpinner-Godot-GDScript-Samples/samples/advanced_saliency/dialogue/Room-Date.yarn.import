@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://bbwqml182rnsv"
+path="res://.godot/imported/Room-Date.yarn-fdaa51d80f21a7eb71dffd5ddd7fbe14.res"
+
+[deps]
+
+source_file="res://samples/advanced_saliency/dialogue/Room-Date.yarn"
+dest_files=["res://.godot/imported/Room-Date.yarn-fdaa51d80f21a7eb71dffd5ddd7fbe14.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://dswe00qt6dwn5"
+path="res://.godot/imported/Room-Exploration.yarn-a4a526dabc7eb21a455628d4f773ca2b.res"
+
+[deps]
+
+source_file="res://samples/advanced_saliency/dialogue/Room-Exploration.yarn"
+dest_files=["res://.godot/imported/Room-Exploration.yarn-a4a526dabc7eb21a455628d4f773ca2b.res"]
+
+[params]
+
