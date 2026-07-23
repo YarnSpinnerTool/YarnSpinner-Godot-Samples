@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://addons/yarn_spinner/ui/option_item.gd" id="1_item"]
+[ext_resource type="Script" path="res://addons/yarn_spinner/ui/option_button.gd" id="2_button"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_flat"]
+content_margin_left = 32.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+
+[node name="OptionItem" type="Control" node_paths=PackedStringArray("button")]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_item")
+button = NodePath("Button")
+
+[node name="Button" type="Button" parent="." node_paths=PackedStringArray("selection_indicator")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.5, 0.5, 0.5, 0.5)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_flat")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_flat")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_flat")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_flat")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_flat")
+alignment = 0
+script = ExtResource("2_button")
+selection_indicator = NodePath("SelectionIndicator")
+
+[node name="SelectionIndicator" type="Label" parent="Button"]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = -17.0
+offset_bottom = 17.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 19
+text = "●"
+vertical_alignment = 1

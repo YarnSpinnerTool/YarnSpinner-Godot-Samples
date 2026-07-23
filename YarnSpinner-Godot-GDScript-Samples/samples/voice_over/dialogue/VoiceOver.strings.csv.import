@@ -6,10 +6,10 @@ uid="uid://dnvq31drnpblf"
 
 [deps]
 
-files=["res://samples/voice_over/dialogue/VoiceOver.strings.en.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.de.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.zh.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.pt_BR.translation"]
+files=["res://samples/voice_over/dialogue/VoiceOver.strings.en.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.de.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.zh.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.pt_BR.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.es.translation"]
 
 source_file="res://samples/voice_over/dialogue/VoiceOver.strings.csv"
-dest_files=["res://samples/voice_over/dialogue/VoiceOver.strings.en.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.de.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.zh.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.pt_BR.translation"]
+dest_files=["res://samples/voice_over/dialogue/VoiceOver.strings.en.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.de.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.zh.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.pt_BR.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.es.translation"]
 
 [params]
 

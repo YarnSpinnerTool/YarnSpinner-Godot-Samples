@@ -59,21 +59,26 @@ func _register_commands() -> void:
 
 
 ## command: set fade opacity immediately
-func _cmd_set_fade_color(opacity_str: String) -> void:
-	var opacity := float(opacity_str)
+func _cmd_set_fade_color(opacity: float) -> void:
 	color = Color(0, 0, 0, opacity)
 
 
 ## command: fade from black to clear (fade up = reveal scene)
-func _cmd_fade_up(duration_str: String = "1.0") -> Signal:
-	var duration := float(duration_str) if not duration_str.is_empty() else default_duration
-	return _fade(color.a, 0.0, duration)
+func _cmd_fade_up(duration: float = 1.0, wait: bool = true) -> Variant:
+	var finished := _fade(color.a, 0.0, duration)
+	if wait:
+		# returning the Signal makes dialogue hold until the fade ends
+		return finished
+	return null
 
 
 ## command: fade from clear to black (fade down = hide scene)
-func _cmd_fade_down(duration_str: String = "1.0") -> Signal:
-	var duration := float(duration_str) if not duration_str.is_empty() else default_duration
-	return _fade(color.a, 1.0, duration)
+func _cmd_fade_down(duration: float = 1.0, wait: bool = true) -> Variant:
+	var finished := _fade(color.a, 1.0, duration)
+	if wait:
+		# returning the Signal makes dialogue hold until the fade ends
+		return finished
+	return null
 
 
 ## perform a fade animation

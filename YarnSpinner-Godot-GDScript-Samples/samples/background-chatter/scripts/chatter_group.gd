@@ -1,3 +1,4 @@
+@tool
 class_name ChatterGroup
 extends Node3D
 
@@ -30,6 +31,13 @@ enum Saliency {
 ## Whether the primary conversation interrupts this group.
 @export var interrupted_by_primary: bool = true
 
+## show start/stop range spheres in the editor
+@export var show_ranges_in_editor: bool = true:
+	set(value):
+		show_ranges_in_editor = value
+		if Engine.is_editor_hint():
+			_refresh_range_gizmos()
+
 @export_group("Range")
 ## The player must be within this distance for the conversation to start.
 @export var start_radius: float = 6.0
@@ -47,7 +55,33 @@ enum Saliency {
 @export var out_of_range_node: String = ""
 
 
+func _refresh_range_gizmos() -> void:
+	for child in get_children():
+		if child.name.begins_with("_RangeGizmo"):
+			child.queue_free()
+	if not show_ranges_in_editor:
+		return
+	for cfg in [[start_radius, Color(0.3, 0.9, 0.4, 0.12), "_RangeGizmoStart"],
+			[stop_radius, Color(0.9, 0.35, 0.3, 0.08), "_RangeGizmoStop"]]:
+		var mesh := SphereMesh.new()
+		mesh.radius = cfg[0]
+		mesh.height = cfg[0] * 2.0
+		var mat := StandardMaterial3D.new()
+		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		mat.albedo_color = cfg[1]
+		mesh.material = mat
+		var instance := MeshInstance3D.new()
+		instance.name = cfg[2]
+		instance.mesh = mesh
+		add_child(instance)
+
+
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		_refresh_range_gizmos()
+		return
+
 	if dialogue_runner != null:
 		dialogue_runner.saliency_strategy = _map_saliency()
 

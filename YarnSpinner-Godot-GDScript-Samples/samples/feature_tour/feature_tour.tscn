@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://xys8d75x76q8"]
 
-[ext_resource type="PackedScene" uid="uid://dwbba478b63mt" path="res://samples/feature_tour/feature_toor_room.tscn" id="1_y25vy"]
+[ext_resource type="PackedScene" uid="uid://dwbba478b63mt" path="res://samples/feature_tour/feature_tour_room.tscn" id="1_y25vy"]
 [ext_resource type="Material" uid="uid://odgigp7jeiom" path="res://samples/shared/art/materials/skybox.tres" id="2_gh3p0"]
 [ext_resource type="PackedScene" uid="uid://bbxu2hyown07m" path="res://samples/shared/art/environment/prototype/wall-low.fbx" id="3_gh3p0"]
 [ext_resource type="PackedScene" uid="uid://don7obupokpwf" path="res://samples/shared/scenes/player_character.tscn" id="4_6l1mg"]

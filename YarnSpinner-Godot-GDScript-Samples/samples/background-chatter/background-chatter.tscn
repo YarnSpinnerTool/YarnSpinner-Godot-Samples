@@ -5,9 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://don7obupokpwf" path="res://samples/shared/scenes/player_character.tscn" id="3_tdggp"]
 [ext_resource type="PackedScene" uid="uid://db6adsx7323jr" path="res://samples/shared/scenes/npc_character.tscn" id="4_kopbj"]
 [ext_resource type="PackedScene" uid="uid://le6c0y7pc8gt" path="res://samples/shared/scenes/explanation_character.tscn" id="5_bfau5"]
-[ext_resource type="Script" uid="uid://cawk3ntfrhqtt" path="res://samples/shared/scripts/character_appearance.gd" id="18_appear"]
-[ext_resource type="PackedScene" uid="uid://d126jmb40swe2" path="res://samples/shared/art/Character/Attach_Hat_Helmet.fbx" id="19_helmet"]
-[ext_resource type="PackedScene" uid="uid://8ukde85grko6" path="res://samples/shared/art/Character/Attach_Spear.fbx" id="20_spear"]
 [ext_resource type="Script" uid="uid://flra500ihbix" path="res://addons/yarn_spinner/dialogue_runner.gd" id="6_runner"]
 [ext_resource type="Script" uid="uid://cged8u182768u" path="res://addons/yarn_spinner/ui/line_presenter.gd" id="7_line"]
 [ext_resource type="Script" uid="uid://cogqy630mjgv7" path="res://addons/yarn_spinner/ui/options_presenter.gd" id="8_options"]
@@ -15,14 +12,16 @@
 [ext_resource type="Script" uid="uid://ci0aavprdl4gw" path="res://samples/shared/scripts/simple_follow_camera.gd" id="10_cam"]
 [ext_resource type="Script" uid="uid://bs5qnekrnovvy" path="res://samples/shared/scripts/dialogue_interactable.gd" id="11_interact"]
 [ext_resource type="Script" uid="uid://bj11vnurtp6tm" path="res://samples/shared/scripts/link_opener.gd" id="12_link"]
-[ext_resource type="Script" uid="uid://ujh5qftaxt0gh" path="res://samples/background-chatter/scripts/chatter_npc.gd" id="13_npc"]
-[ext_resource type="Script" uid="uid://yp3qzx8bdvdqx" path="res://samples/background-chatter/scripts/background_chatter_view.gd" id="14_view"]
-[ext_resource type="Script" uid="uid://upwwhcqk7w0vi" path="res://samples/background-chatter/scripts/chatter_group.gd" id="15_group"]
-[ext_resource type="Script" uid="uid://fjvghasqflyuh" path="res://samples/background-chatter/scripts/chatter_group_manager.gd" id="16_manager"]
+[ext_resource type="Script" uid="uid://7gsr4704tmnn" path="res://samples/background-chatter/scripts/chatter_npc.gd" id="13_npc"]
+[ext_resource type="Script" uid="uid://bjnjhmpryn37d" path="res://samples/background-chatter/scripts/background_chatter_view.gd" id="14_view"]
+[ext_resource type="Script" uid="uid://bevki15cewm3o" path="res://samples/background-chatter/scripts/chatter_group.gd" id="15_group"]
+[ext_resource type="Script" uid="uid://bohku7vhue33p" path="res://samples/background-chatter/scripts/chatter_group_manager.gd" id="16_manager"]
 [ext_resource type="Script" uid="uid://btuq33ov3elga" path="res://samples/shared/scripts/simple_path.gd" id="17_path"]
-[ext_resource type="ConcavePolygonShape3D" path="res://samples/background-chatter/env_collision.res" id="21_envcol"]
+[ext_resource type="Script" uid="uid://cawk3ntfrhqtt" path="res://samples/shared/scripts/character_appearance.gd" id="18_appear"]
 [ext_resource type="Texture2D" uid="uid://c4a4wvi35pucw" path="res://addons/yarn_spinner/ui/textures/continue_arrow.png" id="20_arrow"]
+[ext_resource type="Shape3D" path="res://samples/background-chatter/env_collision.res" id="21_envcol"]
 [ext_resource type="PackedScene" uid="uid://dy8bwpmrnwiwb" path="res://addons/yarn_spinner/ui/option_button.tscn" id="21_optbtn"]
+[ext_resource type="Script" path="res://samples/background-chatter/scripts/attach_to_nodes.gd" id="31_attach"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(100, 1, 100)
@@ -54,7 +53,7 @@ shape = ExtResource("21_envcol")
 [node name="SamplesEnvironment" parent="." unique_id=789525707 instance=ExtResource("2_hyqe7")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=18591551]
-transform = Transform3D(0.90958384, -0.26576102, 0.31941872, 0, 0.76871963, 0.63958591, -0.41552044, -0.58175701, 0.69921495, 0, 8, 0)
+transform = Transform3D(0.90958387, -0.26576102, 0.31941873, 0, 0.7687196, 0.6395859, -0.41552043, -0.581757, 0.69921494, 0, 8, 0)
 light_color = Color(1, 0.956863, 0.839216, 1)
 shadow_enabled = true
 
@@ -91,8 +90,6 @@ speaker_name = "Player"
 script = ExtResource("10_cam")
 target = NodePath("../PlayerCharacter")
 camera = NodePath("Camera3D")
-follow_offset = Vector3(0, 1.76, 1.78)
-look_at_offset = Vector3(0, 0.91, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=299780289]
 fov = 60.0
@@ -135,7 +132,6 @@ speaker_name = "CallAndResponseA"
 [node name="CharacterAppearance" type="Node" parent="CallAndResponseA" unique_id=200000009]
 script = ExtResource("18_appear")
 base_color = Color(0.096698105, 0.5, 0.40612218, 1)
-mode = 0
 
 [node name="CallAndResponseB" parent="." unique_id=200000010 instance=ExtResource("4_kopbj")]
 transform = Transform3D(0.887815, 0, -0.4602, 0, 1, 0, 0.4602, 0, 0.887815, 8.9, 0, 20.8)
@@ -160,7 +156,6 @@ speaker_name = "InterruptionA"
 [node name="CharacterAppearance" type="Node" parent="InterruptionA" unique_id=200000015]
 script = ExtResource("18_appear")
 base_color = Color(0.766, 0.119496, 0.670458, 1)
-mode = 0
 
 [node name="DialogueInteractable" type="Node3D" parent="InterruptionA" unique_id=200000070 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
 script = ExtResource("11_interact")
@@ -197,7 +192,6 @@ speaker_name = "WalkAway"
 [node name="CharacterAppearance" type="Node" parent="WalkAway" unique_id=200000021]
 script = ExtResource("18_appear")
 base_color = Color(0.142177, 0.614334, 0.669811, 1)
-mode = 0
 
 [node name="OngoingA" parent="." unique_id=200000022 instance=ExtResource("4_kopbj")]
 transform = Transform3D(0.204496, 0, 0.978867, 0, 1, 0, -0.978867, 0, 0.204496, 2.5, 0, 9)
@@ -209,7 +203,6 @@ speaker_name = "OngoingA"
 [node name="CharacterAppearance" type="Node" parent="OngoingA" unique_id=200000024]
 script = ExtResource("18_appear")
 base_color = Color(0.53900003, 0.34755063, 0.14121799, 1)
-mode = 0
 
 [node name="DialogueInteractable" type="Node3D" parent="OngoingA" unique_id=200000072 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
 script = ExtResource("11_interact")
@@ -314,18 +307,6 @@ base_color = Color(0.8117647, 0.3254902, 0.30980393, 1)
 fade_color = Color(0.99607843, 0.42352942, 0.2509804, 1)
 mode = 1
 
-[node name="Skeleton3D" parent="BoredGuard1/PillCharacter2/PillCharacter" parent_id_path=PackedInt32Array(200000043, 2028345057, 828416499) index="0" unique_id=200000050]
-
-[node name="HeadAttachment" type="BoneAttachment3D" parent="BoredGuard1/PillCharacter2/PillCharacter/Skeleton3D" index="1" unique_id=200000051]
-bone_name = "Spine_0"
-bone_idx = 1
-
-[node name="Attach_Hat_Helmet" parent="BoredGuard1/PillCharacter2/PillCharacter/Skeleton3D/HeadAttachment" unique_id=200000052 instance=ExtResource("19_helmet")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-
-[node name="Attach_Spear" parent="BoredGuard1/PillCharacter2/PillCharacter/Skeleton3D/HeadAttachment" unique_id=200000053 instance=ExtResource("20_spear")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.347, 0, 0)
-
 [node name="BoredGuard2" parent="." unique_id=200000046 instance=ExtResource("4_kopbj")]
 transform = Transform3D(0.915592, 0, -0.402108, 0, 1, 0, 0.402108, 0, 0.915592, 6.436, 0, 0.07)
 
@@ -338,18 +319,6 @@ script = ExtResource("18_appear")
 base_color = Color(1, 0.58431375, 0.18431373, 1)
 fade_color = Color(1, 0.8352941, 0.39607844, 1)
 mode = 1
-
-[node name="Skeleton3D" parent="BoredGuard2/PillCharacter2/PillCharacter" parent_id_path=PackedInt32Array(200000046, 2028345057, 828416499) index="0" unique_id=200000060]
-
-[node name="HeadAttachment" type="BoneAttachment3D" parent="BoredGuard2/PillCharacter2/PillCharacter/Skeleton3D" index="1" unique_id=200000061]
-bone_name = "Spine_0"
-bone_idx = 1
-
-[node name="Attach_Hat_Helmet" parent="BoredGuard2/PillCharacter2/PillCharacter/Skeleton3D/HeadAttachment" unique_id=200000062 instance=ExtResource("19_helmet")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-
-[node name="Attach_Spear" parent="BoredGuard2/PillCharacter2/PillCharacter/Skeleton3D/HeadAttachment" unique_id=200000063 instance=ExtResource("20_spear")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.347, 0, 0)
 
 [node name="Capsley" parent="." unique_id=820398884 instance=ExtResource("5_bfau5")]
 transform = Transform3D(0.444635, 0, 0.895712, 0, 1, 0, -0.895712, 0, 0.444635, 2.5, 0, 25)
@@ -446,7 +415,7 @@ speaker_name = "Wanderer"
 script = ExtResource("18_appear")
 base_color = Color(0.009122463, 0.38679248, 0.19028819, 1)
 
-[node name="DialogueInteractable" type="Node3D" parent="Wanderer" node_paths=PackedStringArray("dialogue_runner", "speaking_indicator") unique_id=1600000013]
+[node name="DialogueInteractable" type="Node3D" parent="Wanderer" unique_id=1600000013 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
 script = ExtResource("11_interact")
 node_name = "RoamingCharacterTalkTo"
 dialogue_runner = NodePath("../../PrimaryDialogueRunner")
@@ -463,7 +432,6 @@ speaker_name = "TownCrier"
 [node name="CharacterAppearance" type="Node" parent="TownCrier" unique_id=1600000023]
 script = ExtResource("18_appear")
 base_color = Color(0.5972683, 0.22352938, 0.72156864, 1)
-mode = 0
 
 [node name="DialogueInteractable" type="Node3D" parent="TownCrier" unique_id=1600000022 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
 script = ExtResource("11_interact")
@@ -492,12 +460,11 @@ start_radius = 2.23
 stop_radius = 3.08
 dialogue_runner = NodePath("Runner")
 chatter_node = "Demo_BackgroundConversation"
-saliency = 3
 
 [node name="Runner" type="Node" parent="ChatterGroupManager/Demo_BackgroundConversation" unique_id=1500000002 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
-presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
+presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
 [node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/Demo_BackgroundConversation/Runner" unique_id=1500000003]
@@ -511,12 +478,11 @@ start_radius = 2.23
 stop_radius = 3.08
 dialogue_runner = NodePath("Runner")
 chatter_node = "Demo_CallAndResponse"
-saliency = 3
 
 [node name="Runner" type="Node" parent="ChatterGroupManager/Demo_CallAndResponse" unique_id=1500000011 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
-presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
+presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
 [node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/Demo_CallAndResponse/Runner" unique_id=1500000012]
@@ -529,12 +495,11 @@ start_radius = 2.23
 stop_radius = 3.08
 dialogue_runner = NodePath("Runner")
 chatter_node = "Demo_Interruption"
-saliency = 3
 
 [node name="Runner" type="Node" parent="ChatterGroupManager/Demo_Interruption" unique_id=1500000021 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
-presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
+presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
 [node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/Demo_Interruption/Runner" unique_id=1500000022]
@@ -548,14 +513,13 @@ start_radius = 1.06
 stop_radius = 1.44
 dialogue_runner = NodePath("Runner")
 chatter_node = "Demo_WalkAway"
-saliency = 3
 out_of_range_behaviour = 2
 out_of_range_node = "Demo_WalkAway_Interrupt"
 
 [node name="Runner" type="Node" parent="ChatterGroupManager/Demo_WalkAway" unique_id=1500000031 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
-presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
+presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
 [node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/Demo_WalkAway/Runner" unique_id=1500000032]
@@ -564,18 +528,17 @@ script = ExtResource("14_view")
 [node name="Demo_Ongoing" type="Node3D" parent="ChatterGroupManager" unique_id=1500000040 node_paths=PackedStringArray("dialogue_runner")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95, 0, 9)
 script = ExtResource("15_group")
-interrupted_by_primary = false
 start_immediately_on_enter = true
+interrupted_by_primary = false
 start_radius = 1.06
 stop_radius = 6.55
 dialogue_runner = NodePath("Runner")
 chatter_node = "Demo_Ongoing"
-saliency = 3
 
 [node name="Runner" type="Node" parent="ChatterGroupManager/Demo_Ongoing" unique_id=1500000041 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
-presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
+presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
 [node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/Demo_Ongoing/Runner" unique_id=1500000042]
@@ -588,12 +551,16 @@ start_radius = 4.0
 stop_radius = 6.0
 dialogue_runner = NodePath("Runner")
 chatter_node = "CallAndResponse"
-saliency = 3
+
+[node name="ChatterPoint" type="Node3D" parent="ChatterGroupManager/CallAndResponse" unique_id=655338389 node_paths=PackedStringArray("targets")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3999996, 0, 20.759998)
+script = ExtResource("31_attach")
+targets = [NodePath("../../../CallAndResponseA"), NodePath("../../../CallAndResponseB")]
 
 [node name="Runner" type="Node" parent="ChatterGroupManager/CallAndResponse" unique_id=1500000051 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
-presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
+presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
 [node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/CallAndResponse/Runner" unique_id=1500000052]
@@ -606,12 +573,11 @@ start_radius = 4.0
 stop_radius = 6.0
 dialogue_runner = NodePath("Runner")
 chatter_node = "RandomBackgroundChat"
-saliency = 3
 
 [node name="Runner" type="Node" parent="ChatterGroupManager/RandomBackgroundChat" unique_id=1500000061 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
-presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
+presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
 [node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/RandomBackgroundChat/Runner" unique_id=1500000062]
@@ -625,14 +591,13 @@ start_radius = 0.97
 stop_radius = 1.54
 dialogue_runner = NodePath("Runner")
 chatter_node = "InterruptableBackgroundChat"
-saliency = 3
 out_of_range_behaviour = 2
 out_of_range_node = "InterruptableBackgroundChat_WalkAway"
 
 [node name="Runner" type="Node" parent="ChatterGroupManager/InterruptableBackgroundChat" unique_id=1500000071 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
-presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
+presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
 [node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/InterruptableBackgroundChat/Runner" unique_id=1500000072]
@@ -646,12 +611,16 @@ start_radius = 1.97
 stop_radius = 5.5
 dialogue_runner = NodePath("Runner")
 chatter_node = "OngoingBackgroundConversation"
-saliency = 3
+
+[node name="ChatterPoint" type="Node3D" parent="ChatterGroupManager/OngoingBackgroundConversation" unique_id=523914534 node_paths=PackedStringArray("targets")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09, 0, 34.29)
+script = ExtResource("31_attach")
+targets = [NodePath("../../../BackgroundChatterA"), NodePath("../../../BackgroundChatterB")]
 
 [node name="Runner" type="Node" parent="ChatterGroupManager/OngoingBackgroundConversation" unique_id=1500000081 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
-presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
+presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
 [node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/OngoingBackgroundConversation/Runner" unique_id=1500000082]
@@ -660,16 +629,14 @@ script = ExtResource("14_view")
 [node name="RoamingCharacter" type="Node3D" parent="ChatterGroupManager" unique_id=1500000090 node_paths=PackedStringArray("dialogue_runner")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.708, 0, -3.748)
 script = ExtResource("15_group")
-start_radius = 6.0
 stop_radius = 8.0
 dialogue_runner = NodePath("Runner")
 chatter_node = "RoamingCharacter"
-saliency = 3
 
 [node name="Runner" type="Node" parent="ChatterGroupManager/RoamingCharacter" unique_id=1500000091 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
-presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
+presenters = [NodePath("BackgroundChatterView")]
 
 [node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/RoamingCharacter/Runner" unique_id=1500000092]
 script = ExtResource("14_view")
@@ -681,12 +648,11 @@ start_radius = 4.0
 stop_radius = 6.0
 dialogue_runner = NodePath("Runner")
 chatter_node = "TownCrier"
-saliency = 3
 
 [node name="Runner" type="Node" parent="ChatterGroupManager/TownCrier" unique_id=1500000101 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
-presenters = [NodePath("BackgroundChatterView")]
 yarn_project = ExtResource("9_proj")
+presenters = [NodePath("BackgroundChatterView")]
 
 [node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/TownCrier/Runner" unique_id=1500000102]
 script = ExtResource("14_view")
@@ -728,17 +694,18 @@ size_flags_vertical = 3
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 24
-theme_override_font_sizes/italics_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
 bbcode_enabled = true
 text = "Dialogue text goes here..."
 fit_content = true
 
-[node name="IndicatorAnchor" type="Control" parent="UILayer/LinePresenter"]
+[node name="IndicatorAnchor" type="Control" parent="UILayer/LinePresenter" unique_id=915206807]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ContinueIndicator" type="TextureRect" parent="UILayer/LinePresenter/IndicatorAnchor"]
+[node name="ContinueIndicator" type="TextureRect" parent="UILayer/LinePresenter/IndicatorAnchor" unique_id=510416774]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -771,7 +738,6 @@ grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 script = ExtResource("8_options")
 option_button_scene = ExtResource("21_optbtn")
-hide_unavailable = true
 show_last_line = true
 last_line_text = NodePath("OptionsContainer/LastLineMargin/LastLine")
 last_line_container = NodePath("OptionsContainer/LastLineMargin")
@@ -780,12 +746,12 @@ last_line_container = NodePath("OptionsContainer/LastLineMargin")
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="LastLineMargin" type="MarginContainer" parent="UILayer/OptionsPresenter/OptionsContainer"]
+[node name="LastLineMargin" type="MarginContainer" parent="UILayer/OptionsPresenter/OptionsContainer" unique_id=546944460]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_bottom = 8
 
-[node name="LastLine" type="Label" parent="UILayer/OptionsPresenter/OptionsContainer/LastLineMargin"]
+[node name="LastLine" type="Label" parent="UILayer/OptionsPresenter/OptionsContainer/LastLineMargin" unique_id=369085184]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_bold_italic")

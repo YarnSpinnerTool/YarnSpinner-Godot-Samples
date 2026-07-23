@@ -105,7 +105,7 @@ locale/translation_remaps={
 "res://samples/voice_over_3d/dialogue/audio/en/tutorial-tom-10.wav": PackedStringArray("res://samples/voice_over_3d/dialogue/audio/de/tutorial-tom-10.wav:de", "res://samples/voice_over_3d/dialogue/audio/zh/tutorial-tom-10.wav:zh", "res://samples/voice_over_3d/dialogue/audio/pt_BR/tutorial-tom-10.wav:pt_BR"),
 "res://samples/voice_over_3d/dialogue/audio/en/tutorial-tom-11.wav": PackedStringArray("res://samples/voice_over_3d/dialogue/audio/de/tutorial-tom-11.wav:de", "res://samples/voice_over_3d/dialogue/audio/zh/tutorial-tom-11.wav:zh", "res://samples/voice_over_3d/dialogue/audio/pt_BR/tutorial-tom-11.wav:pt_BR")
 }
-locale/translations=PackedStringArray("res://samples/voice_over/dialogue/VoiceOver.strings.en.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.de.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.zh.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.pt_BR.translation")
+locale/translations=PackedStringArray("res://samples/voice_over/dialogue/VoiceOver.strings.en.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.de.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.zh.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.pt_BR.translation", "res://samples/voice_over/dialogue/VoiceOver.strings.es.translation")
 
 [rendering]
 

@@ -13,6 +13,7 @@ extends Control
 var languages := {
 	"English": "en",
 	"Deutsch": "de",
+	"Español": "es",
 	"中文": "zh",
 	"Portugues (BR)": "pt_BR"
 }
@@ -80,3 +81,6 @@ func _input(event: InputEvent) -> void:
 			KEY_4:
 				TranslationServer.set_locale("pt_BR")
 				print("Switched to Portuguese (BR)")
+			KEY_5:
+				TranslationServer.set_locale("es")
+				print("Switched to Spanish")

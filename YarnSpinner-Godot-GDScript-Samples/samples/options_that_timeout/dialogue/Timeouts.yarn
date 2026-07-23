@@ -38,7 +38,7 @@ Alice: Unlike the default or fallback approaches this one requires a command to 
 title: Alice
 ---
 Alice: This sample shows off three different ways of having an option be selected automatically after a fixed amount of time.
-Alice: To see how this was done check out the custom presenter.
+Alice: To see how this was done check out [link="timeout_options_presenter.gd"]the custom presenter[/link].
 Alice: Which would you like to see?
 
 -> Hidden fallback option?

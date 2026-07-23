@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d1fluul8ky1qb" path="res://samples/shared/art/materials/samples_environment.tscn" id="6_7g3mq"]
 [ext_resource type="Resource" uid="uid://cqiqscscbijsx" path="res://samples/welcome/dialogue/Intro.yarnproject" id="6_n60vi"]
 [ext_resource type="Script" path="res://samples/welcome/scripts/slideshow.gd" id="7_slide"]
+[ext_resource type="AudioStream" path="res://samples/welcome/audio/slideshow-advance.wav" id="30_advance"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_7g3mq"]
 
@@ -51,13 +52,14 @@ fov = 35.0
 yarn_project = ExtResource("6_n60vi")
 presenters = [NodePath("../UILayer/LinePresenter"), NodePath("../UILayer/OptionsPresenter"), NodePath("Slideshow")]
 
-[node name="Slideshow" type="Node" parent="Dialogue/YarnDialogueRunner" index="0" node_paths=PackedStringArray("header_label", "body_label", "image", "slide_panel", "override_presenters") unique_id=611224488]
+[node name="Slideshow" type="Node" parent="Dialogue/YarnDialogueRunner" index="0" node_paths=PackedStringArray("header_label", "body_label", "image", "slide_panel", "override_presenters", "advance_sound") unique_id=611224488]
 script = ExtResource("7_slide")
 header_label = NodePath("../../../SubViewport/Slide/VBox/Header")
 body_label = NodePath("../../../SubViewport/Slide/VBox/Body")
 image = NodePath("../../../SubViewport/Slide/VBox/Image")
 slide_panel = NodePath("../../../SubViewport/Slide")
 override_presenters = [NodePath("../../UILayer/LinePresenter")]
+advance_sound = NodePath("AdvanceSound")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1845839773]
 disable_3d = true
@@ -113,3 +115,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_n60vi")
 [node name="SamplesEnvironment" parent="." unique_id=789525707 instance=ExtResource("6_7g3mq")]
 
 [editable path="Dialogue"]
+[node name="AdvanceSound" type="AudioStreamPlayer" parent="Dialogue/YarnDialogueRunner/Slideshow"]
+stream = ExtResource("30_advance")
+

@@ -8,6 +8,29 @@
 [ext_resource type="Script" uid="uid://q487nnd1emgf" path="res://samples/voice_over/scripts/fade_effect.gd" id="5_fade"]
 [ext_resource type="Script" uid="uid://dpqvn6oabxilc" path="res://samples/voice_over/scripts/character_color_presenter.gd" id="6_color"]
 [ext_resource type="Script" uid="uid://d23fbixt5yo3d" path="res://addons/yarn_spinner/ui/voice_over_presenter.gd" id="7_voice"]
+[ext_resource type="PackedScene" path="res://samples/voice_over/scenes/option_item.tscn" id="20_voitem"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vo_line"]
+content_margin_left = 24.0
+content_margin_top = 14.0
+content_margin_right = 24.0
+content_margin_bottom = 19.0
+bg_color = Color(0, 0, 0, 0.835)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vo_opts"]
+content_margin_left = 24.0
+content_margin_top = 14.0
+content_margin_right = 24.0
+content_margin_bottom = 19.0
+bg_color = Color(0, 0, 0, 0.835)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 content_margin_left = 20.0
@@ -51,31 +74,32 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 50.0
-offset_top = -200.0
-offset_right = -50.0
-offset_bottom = -50.0
+offset_left = 120.0
+offset_top = -48.0
+offset_right = -120.0
+offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+theme_override_styles/panel = SubResource("StyleBoxFlat_vo_line")
 script = ExtResource("3_line")
 
 [node name="VBox" type="VBoxContainer" parent="YarnDialogueRunner/LinePresenter" unique_id=2000570192]
 layout_mode = 2
+theme_override_constants/separation = 14
 
 [node name="CharacterLabel" type="Label" parent="YarnDialogueRunner/LinePresenter/VBox" unique_id=133148741]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 19
 text = "Character"
 
 [node name="TextLabel" type="RichTextLabel" parent="YarnDialogueRunner/LinePresenter/VBox" unique_id=32607439]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
-theme_override_font_sizes/bold_italics_font_size = 24
-theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/bold_italics_font_size = 36
+theme_override_font_sizes/italics_font_size = 36
 bbcode_enabled = true
 text = "Dialogue text goes here..."
 fit_content = true
@@ -86,24 +110,37 @@ size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 14
 text = "Press Space to continue..."
 
-[node name="OptionsPresenter" type="PanelContainer" parent="YarnDialogueRunner" unique_id=354881937]
+[node name="OptionsPresenter" type="PanelContainer" parent="YarnDialogueRunner" unique_id=354881937 node_paths=PackedStringArray("options_container", "last_line_text")]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -100.0
-offset_right = 200.0
-offset_bottom = 100.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -48.0
+offset_right = -120.0
+offset_bottom = -48.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vo_opts")
 script = ExtResource("4_options")
+option_button_scene = ExtResource("20_voitem")
+show_last_line = true
+options_container = NodePath("Layout/OptionsContainer")
+last_line_text = NodePath("Layout/LastLine")
 
-[node name="OptionsContainer" type="VBoxContainer" parent="YarnDialogueRunner/OptionsPresenter" unique_id=2083309892]
+[node name="Layout" type="VBoxContainer" parent="YarnDialogueRunner/OptionsPresenter"]
 layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="LastLine" type="Label" parent="YarnDialogueRunner/OptionsPresenter/Layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+autowrap_mode = 3
+
+[node name="OptionsContainer" type="VBoxContainer" parent="YarnDialogueRunner/OptionsPresenter/Layout" unique_id=2083309892]
+layout_mode = 2
+theme_override_constants/separation = 6
 
 [node name="CharacterColorPresenter" type="Control" parent="YarnDialogueRunner" unique_id=1785130946]
 layout_mode = 3

@@ -24,6 +24,9 @@ extends YarnDialoguePresenter
 ## seconds to wait before restoring the normal views at the end of a slide
 @export var delay_before_showing_new_slide: float = 0.5
 
+## played when a slide begins building
+@export var advance_sound: AudioStreamPlayer
+
 ## folder that slide images are loaded from, keyed by the name in the script
 @export_dir var image_folder: String = "res://samples/welcome/images"
 
@@ -51,6 +54,9 @@ func _yarn_command_start_slide() -> void:
 
 	if slide_panel != null:
 		slide_panel.visible = false
+
+	if advance_sound != null:
+		advance_sound.play()
 
 	_running_slideshow = true
 

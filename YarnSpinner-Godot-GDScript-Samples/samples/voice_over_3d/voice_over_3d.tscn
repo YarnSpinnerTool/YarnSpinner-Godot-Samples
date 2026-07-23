@@ -8,8 +8,21 @@
 [ext_resource type="Script" uid="uid://cged8u182768u" path="res://addons/yarn_spinner/ui/line_presenter.gd" id="6_q3t8u"]
 [ext_resource type="Script" uid="uid://cogqy630mjgv7" path="res://addons/yarn_spinner/ui/options_presenter.gd" id="7_s6dl7"]
 [ext_resource type="Script" uid="uid://dpqvn6oabxilc" path="res://samples/voice_over/scripts/character_color_presenter.gd" id="8_ndk5a"]
-[ext_resource type="Script" path="res://addons/yarn_spinner/ui/voice_over_presenter.gd" id="9_34unk"]
+[ext_resource type="Script" uid="uid://d23fbixt5yo3d" path="res://addons/yarn_spinner/ui/voice_over_presenter.gd" id="9_34unk"]
 [ext_resource type="Script" uid="uid://djgg62tgdx0hi" path="res://samples/voice_over_3d/scripts/voice_over_3d_sample.gd" id="10_root"]
+[ext_resource type="PackedScene" path="res://samples/voice_over/scenes/subtitle_presenter.tscn" id="11_subs"]
+[ext_resource type="PackedScene" path="res://samples/voice_over/scenes/option_item.tscn" id="20_voitem"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vo_line"]
+content_margin_left = 24.0
+content_margin_top = 14.0
+content_margin_right = 24.0
+content_margin_bottom = 19.0
+bg_color = Color(0, 0, 0, 0.835)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8lhc"]
 content_margin_left = 20.0
@@ -17,6 +30,17 @@ content_margin_top = 15.0
 content_margin_right = 20.0
 content_margin_bottom = 15.0
 bg_color = Color(0.1, 0.1, 0.15, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vo_opts"]
+content_margin_left = 24.0
+content_margin_top = 14.0
+content_margin_right = 24.0
+content_margin_bottom = 19.0
+bg_color = Color(0, 0, 0, 0.835)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -38,8 +62,8 @@ parameters/Add2/add_amount = 0.0
 parameters/BlendSpace1D/blend_position = 0.0
 
 [node name="Skeleton3D" parent="NPCCharacter/PillCharacter2/PillCharacter" parent_id_path=PackedInt32Array(914088189, 2028345057, 1631531952) index="0" unique_id=1205917576]
-bones/0/position = Vector3(0, 0.026571559, 0)
-bones/0/rotation = Quaternion(0.0016290601, 0.707105, 0.707105, 0.0016290601)
+bones/0/position = Vector3(0, 0.044116724, 0)
+bones/0/rotation = Quaternion(0.011887664, 0.70700693, 0.7070068, 0.011887664)
 bones/1/position = Vector3(7.8197036e-07, -1.1280634e-17, 7.183587e-10)
 bones/1/rotation = Quaternion(-5.3385087e-08, 0.7071068, 0.7071068, -5.3385087e-08)
 bones/2/rotation = Quaternion(-2.220446e-16, -1.19249e-08, -2.647859e-24, 1)
@@ -53,7 +77,7 @@ bones/11/position = Vector3(0.05476435, 0.006787427, 0.1997307)
 bones/12/position = Vector3(-0.054763872, 0.006787438, 0.19973083)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="NPCCharacter/PillCharacter2/PillCharacter/Skeleton3D" index="1" unique_id=807486273]
-transform = Transform3D(0.9999893, 0.004607665, 1.2714466e-07, -0.004607665, 0.99998933, 5.90188e-08, -1.2714602e-07, 5.9604645e-08, 0.99999994, 0.0014736709, 0.34656817, 1.9073488e-08)
+transform = Transform3D(0.9994348, 0.03361864, 1.3079946e-07, -0.03361864, 0.99943477, 1.14934814e-07, -1.2342073e-07, -2.3841858e-07, 1, 0.010757185, 0.3639359, -7.629396e-08)
 bone_name = "Spine_2"
 bone_idx = 3
 
@@ -81,31 +105,32 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 50.0
-offset_top = -200.0
-offset_right = -50.0
-offset_bottom = -50.0
+offset_left = 120.0
+offset_top = -48.0
+offset_right = -120.0
+offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_p8lhc")
+theme_override_styles/panel = SubResource("StyleBoxFlat_vo_line")
 script = ExtResource("6_q3t8u")
 
 [node name="VBox" type="VBoxContainer" parent="YarnDialogueRunner/LinePresenter" unique_id=1063753583]
 layout_mode = 2
+theme_override_constants/separation = 14
 
 [node name="CharacterLabel" type="Label" parent="YarnDialogueRunner/LinePresenter/VBox" unique_id=761678005]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 19
 text = "Character"
 
 [node name="TextLabel" type="RichTextLabel" parent="YarnDialogueRunner/LinePresenter/VBox" unique_id=318781957]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
-theme_override_font_sizes/bold_italics_font_size = 24
-theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/bold_italics_font_size = 36
+theme_override_font_sizes/italics_font_size = 36
 bbcode_enabled = true
 text = "Dialogue text goes here..."
 fit_content = true
@@ -116,24 +141,37 @@ size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 14
 text = "Press Space to continue..."
 
-[node name="OptionsPresenter" type="PanelContainer" parent="YarnDialogueRunner" unique_id=1076356512]
+[node name="OptionsPresenter" type="PanelContainer" parent="YarnDialogueRunner" unique_id=1076356512 node_paths=PackedStringArray("options_container", "last_line_text")]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -100.0
-offset_right = 200.0
-offset_bottom = 100.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -48.0
+offset_right = -120.0
+offset_bottom = -48.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_p8lhc")
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vo_opts")
 script = ExtResource("7_s6dl7")
+option_button_scene = ExtResource("20_voitem")
+show_last_line = true
+options_container = NodePath("Layout/OptionsContainer")
+last_line_text = NodePath("Layout/LastLine")
 
-[node name="OptionsContainer" type="VBoxContainer" parent="YarnDialogueRunner/OptionsPresenter" unique_id=908086696]
+[node name="Layout" type="VBoxContainer" parent="YarnDialogueRunner/OptionsPresenter"]
 layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="LastLine" type="Label" parent="YarnDialogueRunner/OptionsPresenter/Layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+autowrap_mode = 3
+
+[node name="OptionsContainer" type="VBoxContainer" parent="YarnDialogueRunner/OptionsPresenter/Layout" unique_id=908086696]
+layout_mode = 2
+theme_override_constants/separation = 6
 
 [node name="CharacterColorPresenter" type="Control" parent="YarnDialogueRunner" unique_id=1244939087]
 layout_mode = 3
@@ -147,6 +185,8 @@ script = ExtResource("9_34unk")
 audio_player = NodePath("AudioPlayer")
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="YarnDialogueRunner/VoicePresenter" unique_id=495179195]
+
+[node name="SubtitlePresenter" parent="YarnDialogueRunner" unique_id=1924309090 instance=ExtResource("11_subs")]
 
 [editable path="NPCCharacter"]
 [editable path="NPCCharacter/PillCharacter2"]

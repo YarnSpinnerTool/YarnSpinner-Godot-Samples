@@ -7,7 +7,9 @@ extends YarnAttributeMarkerProcessor
 ## the marker's value).
 
 ## Entity name to display colour. Keys are lowercased for case-insensitive lookup.
-var entities := {
+## entity name -> colour, editable in the inspector like the Unity sample's
+## serialized entities list
+@export var entities: Dictionary[String, Color] = {
 	"player": Color(0.3647059, 0.78039217, 0.53333336),
 	"alice": Color(0.38431373, 0.5294118, 0.7921569),
 	"bob": Color(0.8901961, 0.62352943, 0.25882354),
