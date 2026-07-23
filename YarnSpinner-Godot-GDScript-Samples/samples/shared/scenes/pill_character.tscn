@@ -101,7 +101,7 @@ nodes/Add2/node = SubResource("AnimationNodeAdd2_f8jcq")
 nodes/Add2/position = Vector2(1680, -40)
 nodes/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_1uu5x")
 nodes/BlendSpace1D/position = Vector2(1450, 340)
-node_connections = [&"output", 0, &"Floating", &"Walking", 1, &"_AnimWalk", &"Blink", 0, &"Walking", &"Blink", 1, &"_AnimBlink", &"Floating", 0, &"Idle", &"Floating", 1, &"Idle-Floating", &"Gesture_LookAround", 0, &"Blink", &"Gesture_LookAround", 1, &"Animation", &"Add2", 0, &"Gesture_LookAround", &"Add2", 1, &"HeadTurnTilt"]
+node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"Gesture_LookAround", &"Add2", 1, &"HeadTurnTilt", &"Gesture_LookAround", 0, &"Blink", &"Gesture_LookAround", 1, &"Animation", &"Blink", 0, &"Walking", &"Blink", 1, &"_AnimBlink", &"Walking", 0, &"Floating", &"Walking", 1, &"_AnimWalk", &"Floating", 0, &"Idle", &"Floating", 1, &"Idle-Floating"]
 
 [node name="PillCharacter" type="CharacterBody3D" unique_id=914088189]
 script = ExtResource("1_sry8v")
