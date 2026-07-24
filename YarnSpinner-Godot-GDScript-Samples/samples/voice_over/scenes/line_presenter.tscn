@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" uid="uid://cged8u182768u" path="res://addons/yarn_spinner/ui/line_presenter.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://dbd03k73j2hib" path="res://samples/shared/art/fonts/NotoSansSC-Regular.ttf" id="2_noto"]
+[ext_resource type="Texture2D" uid="uid://c4a4wvi35pucw" path="res://addons/yarn_spinner/ui/textures/continue_arrow.png" id="3_arrow"]
+
+[sub_resource type="FontVariation" id="FontVariation_bolditalic"]
+base_font = ExtResource("2_noto")
+variation_embolden = 0.6
+variation_transform = Transform2D(1, 0, -0.2, 1, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar"]
+content_margin_left = 24.0
+content_margin_top = 14.4
+content_margin_right = 24.0
+content_margin_bottom = 19.2
+bg_color = Color(0, 0, 0, 0.835294)
+
+[node name="LinePresenter" type="Control" node_paths=PackedStringArray("text_label", "character_label", "character_container", "continue_indicator")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_script")
+text_label = NodePath("Panel/VBox/TextLabel")
+character_label = NodePath("Panel/VBox/CharacterLabel")
+character_container = NodePath("Panel/VBox/CharacterLabel")
+continue_indicator = NodePath("ContinueIndicator")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -48.0
+offset_right = -120.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bar")
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="CharacterLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_bolditalic")
+theme_override_font_sizes/font_size = 19
+text = "Character Name"
+
+[node name="TextLabel" type="RichTextLabel" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_noto")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/italics_font_size = 36
+theme_override_font_sizes/bold_italics_font_size = 36
+bbcode_enabled = true
+text = "Here's a big long line of dialogue, ready to be shown to the player."
+fit_content = true
+
+[node name="ContinueIndicator" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -51.0
+offset_right = 12.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("3_arrow")
+expand_mode = 1
+stretch_mode = 5

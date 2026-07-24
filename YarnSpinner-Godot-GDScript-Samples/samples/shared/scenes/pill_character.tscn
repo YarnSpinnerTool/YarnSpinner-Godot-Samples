@@ -15,6 +15,8 @@ height = 0.81220704
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_f8jcq"]
 
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_side"]
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0gkdw"]
 animation = &"Eyebrows-Out"
 
@@ -56,6 +58,8 @@ animation = &"Eyebrows-In"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_f8jcq"]
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_f8jcq"]
+fadein_time = 0.3
+fadeout_time = 0.3
 filter_enabled = true
 filters = ["PillCharacter/Skeleton3D:Eye-Bottom.L", "PillCharacter/Skeleton3D:Eye-Bottom.R", "PillCharacter/Skeleton3D:Eye-Top.L", "PillCharacter/Skeleton3D:Eye-Top.R", "PillCharacter/Skeleton3D:Eyebrow.L", "PillCharacter/Skeleton3D:Eyebrow.R", "PillCharacter/Skeleton3D:Spine_1", "PillCharacter/Skeleton3D:Spine_2", "PillCharacter/Skeleton3D:Spine_3", "PillCharacter/Skeleton3D:Spine_4"]
 
@@ -150,6 +154,8 @@ nodes/Animation/position = Vector2(870, 150)
 nodes/HeadTurnTilt/node = SubResource("AnimationNodeBlendSpace2D_53f85")
 nodes/HeadTurnTilt/position = Vector2(1440, 90)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_f8jcq")
+nodes/AddSide/node = SubResource("AnimationNodeAdd2_side")
+nodes/AddSide/position = Vector2(1900, 340)
 nodes/Add2/position = Vector2(1680, -40)
 nodes/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_1uu5x")
 nodes/BlendSpace1D/position = Vector2(1450, 340)
@@ -169,7 +175,7 @@ nodes/alive/node = SubResource("AnimationNodeTransition_e23kb")
 nodes/alive/position = Vector2(2520, 470)
 "nodes/Animation 5/node" = SubResource("AnimationNodeAnimation_c7lkc")
 "nodes/Animation 5/position" = Vector2(2300, 690)
-node_connections = [&"output", 0, &"alive", &"Walking", 0, &"Floating", &"Walking", 1, &"_AnimWalk", &"Blink", 0, &"Walking", &"Blink", 1, &"_AnimBlink", &"Floating", 0, &"Idle", &"Floating", 1, &"Idle-Floating", &"Gesture_LookAround", 0, &"Blink", &"Gesture_LookAround", 1, &"Animation", &"Add2", 0, &"Gesture_LookAround", &"Add2", 1, &"HeadTurnTilt", &"eyebrows", 0, &"Animation 4", &"eyebrows", 1, &"Eyebrows-In", &"eyebrows", 2, &"Animation 2", &"eyebrows", 3, &"Animation 3", &"Blend2", 0, &"Add2", &"Blend2", 1, &"eyebrows", &"alive", 0, &"Blend2", &"alive", 1, &"Animation 5"]
+node_connections = [&"output", 0, &"alive", &"Walking", 0, &"Floating", &"Walking", 1, &"_AnimWalk", &"Blink", 0, &"Walking", &"Blink", 1, &"_AnimBlink", &"Floating", 0, &"Idle", &"Floating", 1, &"Idle-Floating", &"Gesture_LookAround", 0, &"Blink", &"Gesture_LookAround", 1, &"Animation", &"Add2", 0, &"Gesture_LookAround", &"Add2", 1, &"HeadTurnTilt", &"eyebrows", 0, &"Animation 4", &"eyebrows", 1, &"Eyebrows-In", &"eyebrows", 2, &"Animation 2", &"eyebrows", 3, &"Animation 3", &"Blend2", 0, &"AddSide", &"AddSide", 0, &"Add2", &"AddSide", 1, &"BlendSpace1D", &"Blend2", 1, &"eyebrows", &"alive", 0, &"Blend2", &"alive", 1, &"Animation 5"]
 
 [node name="PillCharacter" type="CharacterBody3D" unique_id=914088189]
 script = ExtResource("1_sry8v")
@@ -196,6 +202,7 @@ parameters/Gesture_LookAround/internal_active = false
 parameters/Gesture_LookAround/request = 0
 parameters/HeadTurnTilt/blend_position = Vector2(-0.003211975, 0.0015456676)
 parameters/Add2/add_amount = 1.0
+parameters/AddSide/add_amount = 1.0
 parameters/BlendSpace1D/blend_position = -0.00055217743
 parameters/eyebrows/current_state = "neutral"
 parameters/eyebrows/transition_request = ""

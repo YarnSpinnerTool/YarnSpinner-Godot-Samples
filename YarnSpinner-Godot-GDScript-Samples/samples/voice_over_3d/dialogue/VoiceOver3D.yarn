@@ -10,73 +10,48 @@ title: Start
 // - Anne: female, 20s-40s, someone who seems to know what's going on.
 //   Bright, confident, doing her best to be helpful.
 
-// This is a "declaration". It tells Yarn Spinner that a variable called
-// "$knows_anne_name" exists, that it is a boolean (true or false) value,
-// and that it starts false. It also includes a note that explains what the
-// variable is for. 
-//
-// This information is visible in the Inspector for the Yarn Project that
-// uses this script. (You can also create declarations in the Inspector,
-// rather than including them in your scripts.)
+/// Does Tom know the name of the person he's talking to?
+<<declare $knows_anne_name = false as bool>>
 
-// /// Does Tom know the name of the person he's talking to?
-// <<declare $knows_anne_name = false as bool>>
+// Set Tom up: floating, a frowning mouth and surprised eyebrows, faded out.
+<<set_animator_bool Tom Floating true>>
+<<expression Tom frowning>>
+<<face Tom surprised>>
 
-// // Before we start, wait two seconds to let the player see the environment
-// // before starting the dialogue.
+<<set_fade_color 1>>
 
-// <<set_animation_param Tom floating 1>>
-<<set_animation_param_float Tom floating 0>>
+// Wait two seconds to let the player see the environment, then fade in.
+<<wait 2>>
+<<fade_up 2>>
+<<wait 1>>
 
-<<set_animation_param_vec2 Tom head_turn_tilt -1 1 5 wait>>
+<<play_animation Tom Gesture LookAround wait>>
 
-// // <<set_animator_bool Tom Floating true>>
-// <<expression Tom frowning>>
-// <<face Tom surprised>>
- 
-// <<set_fade_color 1>>
+// The start of our conversation!
+Tom: Uh.. hello? #line:tutorial-tom-01 // tentative
+<<turn Tom 0.5 0.5>>
+<<tilt_forward Tom -0.5 0.5>>
+Tom: Is anyone there? #line:tutorial-tom-02
 
-// <<wait 2>>
-
-// <<fade_up 2>>
-
-// <<wait 1>>
-
-// <<play_animation Tom Gesture LookAround wait>>
-
-// // The start of our conversation!
-// Tom: Uh.. hello? #line:tutorial-tom-01 // tentative 
-// <<turn Tom 0.5 0.5>>
-// <<tilt_forward Tom -0.5 0.5>>
-// Tom: Is anyone there? #line:tutorial-tom-02
-
-// <<turn Tom -0.5 0.25>>
-// Anne: Hi there! #line:tutorial-anne-01 // chirpy 
-// <<turn Tom 0 1>>
-// <<tilt_forward Tom 0 1>>
-
+<<turn Tom -0.5 0.25>>
+Anne: Hi there! #line:tutorial-anne-01 // chirpy
+<<turn Tom 0 1>>
+<<tilt_forward Tom 0 1>>
 
 // Present a choice to the player: they can either say 'who are you', or
 // 'where am I'. If they choose 'who are you', they'll learn the name of
 // the person they're speaking to.
-
--> Tom: Who are you? #line:tutorial-tom-03 // surprised, emphasis on "you" 
+-> Tom: Who are you? #line:tutorial-tom-03 // surprised, emphasis on "you"
     <<tilt_side Tom -0.5 0.5>>
-    Tom: And where are you? #line:tutorial-tom-04 // emphasis on "where" 
+    Tom: And where are you? #line:tutorial-tom-04 // emphasis on "where"
     <<tilt_forward Tom -0.2 0.25>>
-    Anne: I'm Anne! I'm right here! #line:tutorial-anne-02 // trying to be helpful 
-    // Set the variable $knows_anne_name to 'true'. This is the variable we
-    // declared above. We'll use this value later in this file.
-    //
-    // If this line isn't reached (because the player chooses the other
-    // dialogue option), this will stay at its default value of 'false',
-    // which means the player hasn't learned Anne's name.
+    Anne: I'm Anne! I'm right here! #line:tutorial-anne-02 // trying to be helpful
     <<set $knows_anne_name to true>>
--> Tom: Where am I? #line:tutorial-tom-05 // a little panicked 
+-> Tom: Where am I? #line:tutorial-tom-05 // a little panicked
     <<tilt_forward Tom -0.5 0.5>>
-    Anne: You're floating in a featureless void! #line:tutorial-anne-03 // as though this is a perfectly reasonable explanation 
+    Anne: You're floating in a featureless void! #line:tutorial-anne-03 // as though this is a perfectly reasonable explanation
     <<tilt_side Tom 0.2 0.25>>
-    Tom: I can see that.. #line:tutorial-tom-06 // dubious 
+    Tom: I can see that.. #line:tutorial-tom-06 // dubious
 
 <<tilt_side Tom 0 1>>
 <<tilt_forward Tom 0 1>>
@@ -87,27 +62,21 @@ Anne: Oh, a writer put you here. This is a test conversation for Yarn Spinner! #
 Tom: What's Yarn Spinner? #line:tutorial-tom-08
 
 <<face Tom neutral 0.25>>
-Anne: Don't worry about it! #line:tutorial-anne-05 // breezy 
+Anne: Don't worry about it! #line:tutorial-anne-05 // breezy
 
 <<face Tom angry 0.25>>
 
-// Check to see if the variable was set. The line that Tom says changes
-// depending on whether he knows Anne's name.
+// The line that Tom says changes depending on whether he learned Anne's name.
 <<if $knows_anne_name>>
     Tom: This is weird, Anne. #line:tutorial-tom-09
 <<else>>
     Tom: This is really confusing. #line:tutorial-tom-10
 <<endif>>
 
-Anne: That's ok! This will all go away in a moment. #line:tutorial-anne-06 // reassuring 
+Anne: That's ok! This will all go away in a moment. #line:tutorial-anne-06 // reassuring
 
 <<face Tom surprised 0.1>>
-Tom: What?! #line:tutorial-tom-11 // surprised, confused 
+Tom: What?! #line:tutorial-tom-11 // surprised, confused
 
-// The game suddenly quits. The 'quit' command is custom-defined by a
-// script in this demo, in QuitGameCommand.cs.
 <<fade_down 0>>
-
-
 ===
-

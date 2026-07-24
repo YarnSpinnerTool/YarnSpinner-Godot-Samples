@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://dpqvn6oabxilc" path="res://samples/voice_over/scripts/character_color_presenter.gd" id="6_color"]
 [ext_resource type="Script" uid="uid://d23fbixt5yo3d" path="res://addons/yarn_spinner/ui/voice_over_presenter.gd" id="7_voice"]
 [ext_resource type="PackedScene" path="res://samples/voice_over/scenes/option_item.tscn" id="20_voitem"]
+[ext_resource type="PackedScene" path="res://samples/voice_over/scenes/line_presenter.tscn" id="30_linep"]
+[ext_resource type="PackedScene" path="res://samples/voice_over/scenes/options_presenter.tscn" id="31_optsp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vo_line"]
 content_margin_left = 24.0
@@ -68,90 +70,24 @@ yarn_project = ExtResource("3_ddm2h")
 show_selected_option_as_line = true
 ysls_scan_path = "res://samples/voice_over"
 
-[node name="LinePresenter" type="PanelContainer" parent="YarnDialogueRunner" unique_id=1991175960]
-visible = false
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 120.0
-offset_top = -48.0
-offset_right = -120.0
-offset_bottom = -48.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_vo_line")
-script = ExtResource("3_line")
+[node name="LinePresenter" parent="YarnDialogueRunner" instance=ExtResource("30_linep")]
 
-[node name="VBox" type="VBoxContainer" parent="YarnDialogueRunner/LinePresenter" unique_id=2000570192]
-layout_mode = 2
-theme_override_constants/separation = 14
+[node name="OptionsPresenter" parent="YarnDialogueRunner" instance=ExtResource("31_optsp")]
 
-[node name="CharacterLabel" type="Label" parent="YarnDialogueRunner/LinePresenter/VBox" unique_id=133148741]
-layout_mode = 2
-theme_override_font_sizes/font_size = 19
-text = "Character"
-
-[node name="TextLabel" type="RichTextLabel" parent="YarnDialogueRunner/LinePresenter/VBox" unique_id=32607439]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
-theme_override_font_sizes/bold_italics_font_size = 36
-theme_override_font_sizes/italics_font_size = 36
-bbcode_enabled = true
-text = "Dialogue text goes here..."
-fit_content = true
-
-[node name="ContinueIndicator" type="Label" parent="YarnDialogueRunner/LinePresenter/VBox" unique_id=1884475159]
-layout_mode = 2
-size_flags_horizontal = 8
-theme_override_font_sizes/font_size = 14
-text = "Press Space to continue..."
-
-[node name="OptionsPresenter" type="PanelContainer" parent="YarnDialogueRunner" unique_id=354881937 node_paths=PackedStringArray("options_container", "last_line_text")]
-visible = false
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 120.0
-offset_top = -48.0
-offset_right = -120.0
-offset_bottom = -48.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_vo_opts")
-script = ExtResource("4_options")
-option_button_scene = ExtResource("20_voitem")
-show_last_line = true
-options_container = NodePath("Layout/OptionsContainer")
-last_line_text = NodePath("Layout/LastLine")
-
-[node name="Layout" type="VBoxContainer" parent="YarnDialogueRunner/OptionsPresenter"]
-layout_mode = 2
-theme_override_constants/separation = 14
-
-[node name="LastLine" type="Label" parent="YarnDialogueRunner/OptionsPresenter/Layout"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-autowrap_mode = 3
-
-[node name="OptionsContainer" type="VBoxContainer" parent="YarnDialogueRunner/OptionsPresenter/Layout" unique_id=2083309892]
-layout_mode = 2
-theme_override_constants/separation = 6
-
-[node name="CharacterColorPresenter" type="Control" parent="YarnDialogueRunner" unique_id=1785130946]
+[node name="CharacterColorPresenter" type="Control" parent="YarnDialogueRunner" unique_id=1785130946 node_paths=PackedStringArray("text_labels")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("6_color")
+text_labels = [NodePath("../LinePresenter/Panel/VBox/TextLabel"), NodePath("../OptionsPresenter/Panel/VBox/LastLineMargin/LastLine")]
 
 [node name="VoicePresenter" type="Control" parent="YarnDialogueRunner" unique_id=639498802 node_paths=PackedStringArray("audio_player")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("7_voice")
 audio_player = NodePath("AudioPlayer")
+wait_time_before_start = 0.25
+wait_time_after_complete = 0.5
+fade_out_time_on_interrupt = 0.05
 end_line_when_voice_complete = false
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="YarnDialogueRunner/VoicePresenter" unique_id=224546009]

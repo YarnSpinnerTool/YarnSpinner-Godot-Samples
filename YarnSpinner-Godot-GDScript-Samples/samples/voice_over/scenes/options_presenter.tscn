@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" uid="uid://cogqy630mjgv7" path="res://addons/yarn_spinner/ui/options_presenter.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://dbd03k73j2hib" path="res://samples/shared/art/fonts/NotoSansSC-Regular.ttf" id="2_noto"]
+[ext_resource type="PackedScene" path="res://samples/voice_over/scenes/option_item.tscn" id="3_item"]
+
+[sub_resource type="FontVariation" id="FontVariation_bolditalic"]
+base_font = ExtResource("2_noto")
+variation_embolden = 0.6
+variation_transform = Transform2D(1, 0, -0.2, 1, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar"]
+content_margin_left = 24.0
+content_margin_top = 14.4
+content_margin_right = 24.0
+content_margin_bottom = 19.2
+bg_color = Color(0, 0, 0, 0.835294)
+
+[node name="OptionsPresenter" type="Control" node_paths=PackedStringArray("options_container", "last_line_text", "last_line_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_script")
+option_button_scene = ExtResource("3_item")
+show_last_line = true
+options_container = NodePath("Panel/VBox/OptionsContainer")
+last_line_text = NodePath("Panel/VBox/LastLineMargin/LastLine")
+last_line_container = NodePath("Panel/VBox/LastLineMargin")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -48.0
+offset_right = -120.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bar")
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="LastLineMargin" type="MarginContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="LastLine" type="Label" parent="Panel/VBox/LastLineMargin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_bolditalic")
+theme_override_font_sizes/font_size = 36
+text = "Last line"
+autowrap_mode = 3
+
+[node name="OptionsContainer" type="VBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6

@@ -56,9 +56,13 @@ enum Mode {
 ## the mesh whose mouth-shape shader material is swapped for expressions
 ## (auto-found among the descendants if left unset)
 @export var mouth_mesh: MeshInstance3D
-## maps an expression name to the mouth-shape texture the mouth quad displays
+## Maps an eyebrow expression name to the eyebrows transition state it requests.
 @export var eyebrow_expressions: Dictionary[String, String] = _DEFAULT_EXPRESSIONS
+## Maps a mouth expression name (e.g. "smiling", "frowning") to the group of
+## per-mouth-shape textures used while that expression is active.
 @export var mouth_expressions: Dictionary[String, LipSyncedTextureGroup] = {}
+## The mouth group selected at startup, before any [code]<<expression>>[/code].
+@export var default_mouth_expression := ""
 
 @export var eyebrows_parameter := "parameters/eyebrows/transition_request"
 
@@ -66,10 +70,11 @@ const _ANIMATION_PARAMS := {
 	"walking": "parameters/Walking/blend_amount",
 	"floating": "parameters/Floating/blend_amount",
 	"head_turn_tilt": "parameters/HeadTurnTilt/blend_position",
+	"side_tilt": "parameters/BlendSpace1D/blend_position",
 }
 
 # Maps named expressions to the named transitions that control the eyebrow position.
-const _DEFAULT_EXPRESSIONS := {
+const _DEFAULT_EXPRESSIONS: Dictionary[String, String] = {
 	"neutral": "neutral",
 	"surprised": "out",
 	"angry": "in",
@@ -99,12 +104,27 @@ var _move_return_mode := Mode.PLAYER_CONTROLLED
 var _move_return_look: Node3D
 var _mouth_material: ShaderMaterial
 var _mouth_surface := -1
+## the mouth texture group currently in use (selected by set_mouth / <<expression>>)
+var _current_mouth_group: LipSyncedTextureGroup
+## HeadTurnTilt is a single Vector2 blend position turn and tilt_forwar tween
+## these independently and _drive_animation writes the the combined vector, so two
+## overlapping head commands never overriwte each other's component.
+var _head_x := 0.0
+var _head_y := 0.0
 
 
 func _ready() -> void:
 	if animation_tree == null:
 		animation_tree = get_node_or_null(^"AnimationTree")
 	_setup_mouth()
+	if mouth_expressions.has(default_mouth_expression):
+		_current_mouth_group = mouth_expressions[default_mouth_expression]
+	# Transition nodes dont reliably restore their saved state on scene load;
+	# with no state selected they output nothing and the whole rig freezz
+	# Request the starting states explicitly.
+	if animation_tree != null:
+		animation_tree.set("parameters/alive/transition_request", "alive")
+		animation_tree.set(eyebrows_parameter, "neutral")
 	# The pill model's art faces +Z, so +Z (basis.z) is "forward".
 	_target_facing = global_transform.basis.z
 	_last_grounded_position = global_position
@@ -282,38 +302,51 @@ func _get_facing_direction() -> Vector3:
 func _drive_animation() -> void:
 	if animation_tree != null:
 		animation_tree.set(walk_blend_parameter, current_speed_factor)
+		animation_tree.set(_ANIMATION_PARAMS["head_turn_tilt"], Vector2(_head_x, _head_y))
 
 
 # ---------------------------------------------------------------------------
 # Face
 # ---------------------------------------------------------------------------
 
-## Sets the character's facial expression by swapping the mouth quad's shape
-## texture. Names come from [member facial_expressions], e.g. "neutral",
-## "angry", "smiling".
-func set_eyebrows(expression: String) -> void:
-	if _mouth_material == null:
+## Sets the eyebrow expression by requesting its state on the eyebrows
+## transition node. Names come from [member eyebrow_expressions]
+## (e.g. "neutral", "surprised", "angry", "sus"). [param crossfade] blends
+## into the new state over that many seconds (0 = instant, like Unity's
+## [code]animator.Play[/code] versus [code]CrossFadeInFixedTime[/code]).
+func set_eyebrows(expression: String, crossfade: float = 0.0) -> void:
+	if animation_tree == null:
 		return
 	if not eyebrow_expressions.has(expression):
-		push_warning("SimpleCharacter: unknown eyebrow expression '%s'" % expression)
+		push_warning("SimpleCharacter '%s': unknown eyebrow expression '%s'" % [name, expression])
 		return
-	
-	if animation_tree == null:
-		return ;
-
+	var blend_tree := animation_tree.tree_root as AnimationNodeBlendTree
+	if blend_tree != null:
+		var transition := blend_tree.get_node("eyebrows") as AnimationNodeTransition
+		if transition != null:
+			transition.xfade_time = maxf(crossfade, 0.0)
 	animation_tree.set(eyebrows_parameter, eyebrow_expressions[expression])
 
+
+## Selects the active mouth texture group ("smiling", "frowning", ...) and shows
+## [param mouth_shape] within it (closed by default). Lip sync then pushes
+## successive shapes via [method set_mouth_shape].
 func set_mouth(expression: String, mouth_shape: LipSyncedTextureGroup.MouthShape = LipSyncedTextureGroup.MouthShape.X) -> void:
 	if not mouth_expressions.has(expression):
-		printerr("%s has no mouth expression %s" % self.name, expression)
+		push_warning("SimpleCharacter '%s': no mouth expression '%s'" % [name, expression])
+		return
+	_current_mouth_group = mouth_expressions[expression]
+	set_mouth_shape(mouth_shape)
 
-	var expr := mouth_expressions.get(expression) as LipSyncedTextureGroup
 
-	if expr != null:
-		var texture = expr.get_texture(mouth_shape)
-		
-		if texture != null:
-			_mouth_material.set_shader_parameter("Texture", texture)
+## Shows a single mouth shape within the currently-selected group. Called each
+## frame by the lip-sync presenter; a no-op until a group has been selected.
+func set_mouth_shape(mouth_shape: LipSyncedTextureGroup.MouthShape) -> void:
+	if _mouth_material == null or _current_mouth_group == null:
+		return
+	var texture := _current_mouth_group.get_texture(mouth_shape)
+	if texture != null:
+		_mouth_material.set_shader_parameter("Texture", texture)
 
 
 func _setup_mouth() -> void:
@@ -490,43 +523,81 @@ func _run_interaction(target: Node) -> void:
 		mode = previous_mode
 		look_target = previous_look
 
-## Makes this character update an animation tree parameter
-func _yarn_command_set_animation_param_float(param_name: String, value: String, duration: String = "0", wait: String = "false"):
+# ---------------------------------------------------------------------------
+# Yarn commands (instance commands: <<turn Tom 0.5 0.5>> calls
+# Tom._yarn_command_turn(0.5, 0.5)teh runner coerces the arguments to the
+# declared types!)
+# ---------------------------------------------------------------------------
+
+## [code]<<set_animator_bool Name Floating true>>[/code]: the pill's Floating
+## blend is a 0/1 scalar, so a bool maps straight onto it (mirrors the Unity
+## sample's animator bool huzzah).
+func _yarn_command_set_animator_bool(param_name: String, value: bool) -> void:
+	var key := param_name.to_lower()
+	if animation_tree == null or not _ANIMATION_PARAMS.has(key):
+		return
+	animation_tree.set(_ANIMATION_PARAMS[key], 1.0 if value else 0.0)
+
+
+## [code]<<turn Name amount [time] [wait]>>[/code]: swings the head left/right.
+func _yarn_command_turn(amount: float, time: float = 0.0, wait: bool = false) -> void:
+	await _tween_property("_head_x", amount, time, wait)
+
+
+## [code]<<tilt_forward Name amount [time] [wait]>>[/code]: nods the head.
+## Positive tilts forward (down), negative back (up), matching Unity's
+## Forward Tilt parameter; the blend space's y axis points the other way.
+func _yarn_command_tilt_forward(amount: float, time: float = 0.0, wait: bool = false) -> void:
+	await _tween_property("_head_y", -amount, time, wait)
+
+
+## [code]<<tilt_side Name amount [time] [wait]>>[/code]: tilts the head sideways.
+func _yarn_command_tilt_side(amount: float, time: float = 0.0, wait: bool = false) -> void:
 	if animation_tree == null:
 		return
-
-	var valueFloat = value.to_float()
-
-	var durationFloat = duration.to_float()
-	var waitBool = wait != "false"
-
-	if (durationFloat <= 0):
-		animation_tree.set(_ANIMATION_PARAMS[param_name], valueFloat)
+	if time <= 0.0:
+		animation_tree.set(_ANIMATION_PARAMS["side_tilt"], amount)
 		return
-
-	var tween = create_tween()
-	tween.tween_property(animation_tree, _ANIMATION_PARAMS[param_name], valueFloat, durationFloat)
-
-	if waitBool:
+	var tween := create_tween()
+	tween.tween_property(animation_tree, _ANIMATION_PARAMS["side_tilt"], amount, time) \
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	if wait:
 		await tween.finished
 
-func _yarn_command_set_animation_param_vec2(param_name: String, valueX: String, valueY: String, duration: String = "0", wait: String = "false"):
+
+## [code]<<face Name expression [crossfade]>>[/code]: sets the eyebrow
+## expression, blending over the optional crossfade time.
+func _yarn_command_face(expression: String, crossfade: float = 0.0) -> void:
+	set_eyebrows(expression, crossfade)
+
+
+## [code]<<expression Name group>>[/code]: selects the active mouth group.
+func _yarn_command_expression(expression: String) -> void:
+	set_mouth(expression)
+
+
+## [code]<<play_animation Name Gesture LookAround [wait]>>[/code]: fires the
+## look-around anim. The pill has a single gesturethe layer/state args are
+## accepted for parity with the Unity sample's command signature
+func _yarn_command_play_animation(_layer: String, _state: String, wait: bool = false) -> void:
 	if animation_tree == null:
 		return
+	animation_tree.set("parameters/Gesture_LookAround/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	if wait:
+		await get_tree().process_frame
+		while is_inside_tree() and animation_tree.get("parameters/Gesture_LookAround/active"):
+			await get_tree().process_frame
 
-	var valueXFloat = valueX.to_float()
-	var valueYFloat = valueY.to_float()
-	var valueVec2 = Vector2(valueXFloat, valueYFloat)
 
-	var durationFloat = duration.to_float()
-	var waitBool = wait != "false"
-
-	if (durationFloat <= 0):
-		animation_tree.set(param_name, valueVec2)
+## Tweens a float property of this node to [param target] over [param time],
+## optionally awaiting completion. Used for the head components so overlapping
+## turn/tilt commands never fight over the shared HeadTurnTilt vector.
+func _tween_property(property: String, target: float, time: float, wait: bool) -> void:
+	if time <= 0.0:
+		set(property, target)
 		return
-
-	var tween = create_tween()
-	tween.tween_property(animation_tree, _ANIMATION_PARAMS[param_name], valueVec2, durationFloat)
-
-	if waitBool:
+	var tween := create_tween()
+	tween.tween_property(self, NodePath(property), target, time) \
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	if wait:
 		await tween.finished

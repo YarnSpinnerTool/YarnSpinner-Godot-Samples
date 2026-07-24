@@ -52,11 +52,6 @@ mouth_expressions = Dictionary[String, ExtResource("2_k17ec")]({
 })
 
 [node name="AnimationTree" parent="." index="1" unique_id=1009335546]
-parameters/eyebrows/current_state = ""
-parameters/eyebrows/current_index = -1
-parameters/Blend2/blend_amount = 0.0
-parameters/alive/current_state = ""
-parameters/alive/current_index = -1
 
 [node name="Skeleton3D" parent="PillCharacter2/PillCharacter" parent_id_path=PackedInt32Array(2028345057, 1509937039) index="0" unique_id=521415772]
 bones/0/rotation = Quaternion(0, 0.70710677, 0.70710677, 0)

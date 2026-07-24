@@ -64,8 +64,8 @@ func _cmd_set_fade_color(opacity: float) -> void:
 
 
 ## command: fade from black to clear (fade up = reveal scene)
-func _cmd_fade_up(duration: float = 1.0, wait: bool = true) -> Variant:
-	var finished := _fade(color.a, 0.0, duration)
+func _cmd_fade_up(duration: float = 1.0, wait: bool = false) -> Variant:
+	var finished := _fade(1.0, 0.0, duration)
 	if wait:
 		# returning the Signal makes dialogue hold until the fade ends
 		return finished
@@ -73,8 +73,8 @@ func _cmd_fade_up(duration: float = 1.0, wait: bool = true) -> Variant:
 
 
 ## command: fade from clear to black (fade down = hide scene)
-func _cmd_fade_down(duration: float = 1.0, wait: bool = true) -> Variant:
-	var finished := _fade(color.a, 1.0, duration)
+func _cmd_fade_down(duration: float = 1.0, wait: bool = false) -> Variant:
+	var finished := _fade(0.0, 1.0, duration)
 	if wait:
 		# returning the Signal makes dialogue hold until the fade ends
 		return finished

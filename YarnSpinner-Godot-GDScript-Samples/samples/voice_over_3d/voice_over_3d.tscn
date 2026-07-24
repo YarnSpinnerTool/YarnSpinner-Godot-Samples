@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bjuu3nwvdg5v3"]
 
 [ext_resource type="PackedScene" uid="uid://dd4yv7jus8gow" path="res://samples/shared/art/materials/samples_environment_nebula.tscn" id="1_ijte8"]
-[ext_resource type="PackedScene" uid="uid://db6adsx7323jr" path="res://samples/shared/scenes/npc_character.tscn" id="2_2lf2e"]
+[ext_resource type="PackedScene" uid="uid://bbj41hxggtbc1" path="res://samples/shared/scenes/pill_character.tscn" id="2_2lf2e"]
 [ext_resource type="PackedScene" uid="uid://bdovhq5o7dcjv" path="res://samples/shared/art/Character/Attach_Hat_Spacehelmet.fbx" id="3_2lf2e"]
 [ext_resource type="Script" uid="uid://flra500ihbix" path="res://addons/yarn_spinner/dialogue_runner.gd" id="4_a4cr2"]
 [ext_resource type="Resource" uid="uid://jljdh1df88aw" path="res://samples/voice_over_3d/dialogue/VoiceOver3D.yarnproject" id="5_ndk5a"]
@@ -12,6 +12,11 @@
 [ext_resource type="Script" uid="uid://djgg62tgdx0hi" path="res://samples/voice_over_3d/scripts/voice_over_3d_sample.gd" id="10_root"]
 [ext_resource type="PackedScene" path="res://samples/voice_over/scenes/subtitle_presenter.tscn" id="11_subs"]
 [ext_resource type="PackedScene" path="res://samples/voice_over/scenes/option_item.tscn" id="20_voitem"]
+[ext_resource type="Script" path="res://samples/shared/scripts/lipsync/lip_sync_presenter.gd" id="21_lip"]
+[ext_resource type="Script" uid="uid://q487nnd1emgf" path="res://samples/voice_over/scripts/fade_effect.gd" id="22_fade"]
+[ext_resource type="Script" path="res://samples/shared/scripts/debug_look_at_mouse.gd" id="24_dbglook"]
+[ext_resource type="PackedScene" path="res://samples/voice_over/scenes/line_presenter.tscn" id="30_linep"]
+[ext_resource type="PackedScene" path="res://samples/voice_over/scenes/options_presenter.tscn" id="31_optsp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vo_line"]
 content_margin_left = 24.0
@@ -51,17 +56,20 @@ script = ExtResource("10_root")
 
 [node name="SamplesEnvironmentNebula" parent="." unique_id=789525707 instance=ExtResource("1_ijte8")]
 
-[node name="NPCCharacter" parent="." unique_id=914088189 instance=ExtResource("2_2lf2e")]
+[node name="Tom" parent="." unique_id=914088189 instance=ExtResource("2_2lf2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.17)
 motion_mode = 1
 apply_gravity = false
+default_mouth_expression = "frowning"
 
-[node name="AnimationTree" parent="NPCCharacter" index="1" unique_id=1009335546]
+[node name="AnimationTree" parent="Tom" index="1" unique_id=1009335546]
 parameters/Floating/blend_amount = 1.0
 parameters/HeadTurnTilt/blend_position = Vector2(0, 0)
-parameters/Add2/add_amount = 0.0
+parameters/Add2/add_amount = 1.0
+parameters/AddSide/add_amount = 1.0
 parameters/BlendSpace1D/blend_position = 0.0
 
-[node name="Skeleton3D" parent="NPCCharacter/PillCharacter2/PillCharacter" parent_id_path=PackedInt32Array(914088189, 2028345057, 1631531952) index="0" unique_id=1205917576]
+[node name="Skeleton3D" parent="Tom/PillCharacter2/PillCharacter" parent_id_path=PackedInt32Array(914088189, 2028345057, 1631531952) index="0" unique_id=1205917576]
 bones/0/position = Vector3(0, 0.044116724, 0)
 bones/0/rotation = Quaternion(0.011887664, 0.70700693, 0.7070068, 0.011887664)
 bones/1/position = Vector3(7.8197036e-07, -1.1280634e-17, 7.183587e-10)
@@ -76,118 +84,69 @@ bones/10/position = Vector3(-0.054763865, 0.09883212, 0.19973083)
 bones/11/position = Vector3(0.05476435, 0.006787427, 0.1997307)
 bones/12/position = Vector3(-0.054763872, 0.006787438, 0.19973083)
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="NPCCharacter/PillCharacter2/PillCharacter/Skeleton3D" index="1" unique_id=807486273]
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Tom/PillCharacter2/PillCharacter/Skeleton3D" index="1" unique_id=807486273]
 transform = Transform3D(0.9994348, 0.03361864, 1.3079946e-07, -0.03361864, 0.99943477, 1.14934814e-07, -1.2342073e-07, -2.3841858e-07, 1, 0.010757185, 0.3639359, -7.629396e-08)
 bone_name = "Spine_2"
 bone_idx = 3
 
-[node name="Attach_Hat_Spacehelmet" parent="NPCCharacter/PillCharacter2/PillCharacter/Skeleton3D/BoneAttachment3D" unique_id=1376263347 instance=ExtResource("3_2lf2e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32, 0)
-
-[node name="AnimationPlayer" parent="NPCCharacter/SpeakingIndicator" parent_id_path=PackedInt32Array(914088189, 1168795485) index="1" unique_id=1961829490]
-autoplay = &"speaking_indicator/hidden"
+[node name="Attach_Hat_Spacehelmet" parent="Tom/PillCharacter2/PillCharacter/Skeleton3D/BoneAttachment3D" unique_id=1376263347 instance=ExtResource("3_2lf2e")]
+transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0, -0.37, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=656232983]
-transform = Transform3D(0.9999707, 7.275745e-10, -0.0076619387, 0.00014414778, 0.99982303, 0.018813029, 0.0076605827, -0.018813582, 0.99979365, 0, 0.8154736, 2.011076)
-fov = 53.4
+transform = Transform3D(1, 0, 0, 0, 0.998166, 0.060537, 0, -0.060537, 0.998166, 0, 0.75, 1.11)
+fov = 60.0
 
 [node name="YarnDialogueRunner" type="Node" parent="." unique_id=1181385288 node_paths=PackedStringArray("presenters")]
 script = ExtResource("4_a4cr2")
 yarn_project = ExtResource("5_ndk5a")
 auto_start = true
-presenters = [NodePath("LinePresenter"), NodePath("OptionsPresenter"), NodePath("CharacterColorPresenter"), NodePath("VoicePresenter")]
+presenters = [NodePath("LinePresenter"), NodePath("OptionsPresenter"), NodePath("CharacterColorPresenter"), NodePath("VoicePresenter"), NodePath("LipSyncPresenter")]
 show_selected_option_as_line = true
 ysls_scan_path = "res://samples/voice_over"
 
-[node name="LinePresenter" type="PanelContainer" parent="YarnDialogueRunner" unique_id=841216368]
-visible = false
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 120.0
-offset_top = -48.0
-offset_right = -120.0
-offset_bottom = -48.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_vo_line")
-script = ExtResource("6_q3t8u")
+[node name="LinePresenter" parent="YarnDialogueRunner" instance=ExtResource("30_linep")]
 
-[node name="VBox" type="VBoxContainer" parent="YarnDialogueRunner/LinePresenter" unique_id=1063753583]
-layout_mode = 2
-theme_override_constants/separation = 14
+[node name="OptionsPresenter" parent="YarnDialogueRunner" instance=ExtResource("31_optsp")]
 
-[node name="CharacterLabel" type="Label" parent="YarnDialogueRunner/LinePresenter/VBox" unique_id=761678005]
-layout_mode = 2
-theme_override_font_sizes/font_size = 19
-text = "Character"
-
-[node name="TextLabel" type="RichTextLabel" parent="YarnDialogueRunner/LinePresenter/VBox" unique_id=318781957]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
-theme_override_font_sizes/bold_italics_font_size = 36
-theme_override_font_sizes/italics_font_size = 36
-bbcode_enabled = true
-text = "Dialogue text goes here..."
-fit_content = true
-
-[node name="ContinueIndicator" type="Label" parent="YarnDialogueRunner/LinePresenter/VBox" unique_id=1030615503]
-layout_mode = 2
-size_flags_horizontal = 8
-theme_override_font_sizes/font_size = 14
-text = "Press Space to continue..."
-
-[node name="OptionsPresenter" type="PanelContainer" parent="YarnDialogueRunner" unique_id=1076356512 node_paths=PackedStringArray("options_container", "last_line_text")]
-visible = false
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 120.0
-offset_top = -48.0
-offset_right = -120.0
-offset_bottom = -48.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_vo_opts")
-script = ExtResource("7_s6dl7")
-option_button_scene = ExtResource("20_voitem")
-show_last_line = true
-options_container = NodePath("Layout/OptionsContainer")
-last_line_text = NodePath("Layout/LastLine")
-
-[node name="Layout" type="VBoxContainer" parent="YarnDialogueRunner/OptionsPresenter"]
-layout_mode = 2
-theme_override_constants/separation = 14
-
-[node name="LastLine" type="Label" parent="YarnDialogueRunner/OptionsPresenter/Layout"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-autowrap_mode = 3
-
-[node name="OptionsContainer" type="VBoxContainer" parent="YarnDialogueRunner/OptionsPresenter/Layout" unique_id=908086696]
-layout_mode = 2
-theme_override_constants/separation = 6
-
-[node name="CharacterColorPresenter" type="Control" parent="YarnDialogueRunner" unique_id=1244939087]
+[node name="CharacterColorPresenter" type="Control" parent="YarnDialogueRunner" unique_id=1244939087 node_paths=PackedStringArray("text_labels")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("8_ndk5a")
+text_labels = [NodePath("../LinePresenter/Panel/VBox/TextLabel"), NodePath("../OptionsPresenter/Panel/VBox/LastLineMargin/LastLine")]
 
 [node name="VoicePresenter" type="Control" parent="YarnDialogueRunner" unique_id=1280855668 node_paths=PackedStringArray("audio_player")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("9_34unk")
 audio_player = NodePath("AudioPlayer")
+wait_time_before_start = 0.25
+wait_time_after_complete = 0.5
+fade_out_time_on_interrupt = 0.05
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="YarnDialogueRunner/VoicePresenter" unique_id=495179195]
 
+[node name="LipSyncPresenter" type="Node" parent="YarnDialogueRunner" node_paths=PackedStringArray("voice_presenter")]
+script = ExtResource("21_lip")
+voice_presenter = NodePath("../VoicePresenter")
+
 [node name="SubtitlePresenter" parent="YarnDialogueRunner" unique_id=1924309090 instance=ExtResource("11_subs")]
 
-[editable path="NPCCharacter"]
-[editable path="NPCCharacter/PillCharacter2"]
-[editable path="NPCCharacter/SpeakingIndicator/Alert"]
+[node name="FadeLayer" type="CanvasLayer" parent="."]
+
+[node name="FadeEffect" type="ColorRect" parent="FadeLayer" node_paths=PackedStringArray("dialogue_runner")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("22_fade")
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+
+[editable path="Tom"]
+[editable path="Tom/PillCharacter2"]
+
+[node name="DebugLookAtMouse" type="Node" parent="." node_paths=PackedStringArray("character")]
+script = ExtResource("24_dbglook")
+character = NodePath("../Tom")
