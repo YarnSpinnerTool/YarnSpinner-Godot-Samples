@@ -14,6 +14,8 @@
 [ext_resource type="Script" uid="uid://g12s4wotljtn" path="res://samples/replacement_markup/scripts/replacement_markup_setup.gd" id="12_setup"]
 [ext_resource type="Texture2D" uid="uid://c4a4wvi35pucw" path="res://addons/yarn_spinner/ui/textures/continue_arrow.png" id="20_arrow"]
 [ext_resource type="PackedScene" uid="uid://dy8bwpmrnwiwb" path="res://addons/yarn_spinner/ui/option_button.tscn" id="21_optbtn"]
+[ext_resource type="PackedScene" path="res://samples/shared/ui/line_presenter.tscn" id="90_coreline"]
+[ext_resource type="PackedScene" path="res://samples/shared/ui/options_presenter.tscn" id="91_coreopts"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(12, 1, 12)
@@ -131,101 +133,12 @@ is_player_controlled = true
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1276127420]
 
-[node name="LinePresenter" type="PanelContainer" parent="UILayer" unique_id=1904082878]
-visible = false
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 120.0
-offset_top = -48.0
-offset_right = -120.0
-offset_bottom = -48.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
-script = ExtResource("5_line")
+[node name="LinePresenter" parent="UILayer" instance=ExtResource("90_coreline")]
 
-[node name="VBox" type="VBoxContainer" parent="UILayer/LinePresenter" unique_id=1410201484]
-layout_mode = 2
-theme_override_constants/separation = 14
-
-[node name="CharacterLabel" type="Label" parent="UILayer/LinePresenter/VBox" unique_id=2102355993]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = SubResource("FontVariation_bold_italic")
-theme_override_font_sizes/font_size = 19
-text = "Character"
-
-[node name="TextLabel" type="RichTextLabel" parent="UILayer/LinePresenter/VBox" unique_id=1923556927]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
-theme_override_font_sizes/italics_font_size = 24
-theme_override_font_sizes/bold_italics_font_size = 24
-bbcode_enabled = true
-text = "Dialogue text goes here..."
-fit_content = true
-
-[node name="IndicatorAnchor" type="Control" parent="UILayer/LinePresenter"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="ContinueIndicator" type="TextureRect" parent="UILayer/LinePresenter/IndicatorAnchor"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -12.0
-offset_top = 16.2
-offset_right = 12.0
-offset_bottom = 28.2
-grow_horizontal = 2
-mouse_filter = 2
-texture = ExtResource("20_arrow")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="LinkOpener" type="Node" parent="UILayer/LinePresenter" unique_id=351884203]
+[node name="LinkOpener" type="Node" parent="UILayer/LinePresenter"]
 script = ExtResource("11_link")
 
-[node name="OptionsPresenter" type="PanelContainer" parent="UILayer" unique_id=1202512743 node_paths=PackedStringArray("last_line_text", "last_line_container")]
-visible = false
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 120.0
-offset_top = -48.0
-offset_right = -120.0
-offset_bottom = -48.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
-script = ExtResource("6_options")
-option_button_scene = ExtResource("21_optbtn")
-hide_unavailable = true
-show_last_line = true
-last_line_text = NodePath("OptionsContainer/LastLineMargin/LastLine")
-last_line_container = NodePath("OptionsContainer/LastLineMargin")
-
-[node name="OptionsContainer" type="VBoxContainer" parent="UILayer/OptionsPresenter" unique_id=239589800]
-layout_mode = 2
-theme_override_constants/separation = 6
-
-[node name="LastLineMargin" type="MarginContainer" parent="UILayer/OptionsPresenter/OptionsContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_bottom = 8
-
-[node name="LastLine" type="Label" parent="UILayer/OptionsPresenter/OptionsContainer/LastLineMargin"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = SubResource("FontVariation_bold_italic")
-theme_override_font_sizes/font_size = 19
-autowrap_mode = 3
+[node name="OptionsPresenter" parent="UILayer" instance=ExtResource("91_coreopts")]
 
 [node name="Hint" type="Label" parent="UILayer" unique_id=1116694514]
 anchors_preset = 5

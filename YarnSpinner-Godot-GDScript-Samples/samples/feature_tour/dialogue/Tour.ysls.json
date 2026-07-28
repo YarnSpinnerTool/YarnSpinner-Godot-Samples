@@ -77,7 +77,7 @@
     },
     {
       "async": false,
-      "definitionName": "_yarn_command_set_animation_param",
+      "definitionName": "_yarn_command_set_animator_bool",
       "fileName": "simple_character.gd",
       "language": "gdscript",
       "parameters": [
@@ -93,11 +93,30 @@
         },
         {
           "name": "value",
+          "type": "bool"
+        }
+      ],
+      "yarnName": "set_animator_bool"
+    },
+    {
+      "async": false,
+      "definitionName": "_yarn_command_turn",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "documentation": "the SimpleCharacter to call this command on",
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "name": "amount",
           "type": "number"
         },
         {
           "defaultValue": "0.0",
-          "name": "duration",
+          "name": "time",
           "type": "number"
         },
         {
@@ -106,7 +125,131 @@
           "type": "bool"
         }
       ],
-      "yarnName": "set_animation_param"
+      "yarnName": "turn"
+    },
+    {
+      "async": false,
+      "definitionName": "_yarn_command_tilt_forward",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "documentation": "the SimpleCharacter to call this command on",
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "name": "amount",
+          "type": "number"
+        },
+        {
+          "defaultValue": "0.0",
+          "name": "time",
+          "type": "number"
+        },
+        {
+          "defaultValue": "false",
+          "name": "wait",
+          "type": "bool"
+        }
+      ],
+      "yarnName": "tilt_forward"
+    },
+    {
+      "async": false,
+      "definitionName": "_yarn_command_tilt_side",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "documentation": "the SimpleCharacter to call this command on",
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "name": "amount",
+          "type": "number"
+        },
+        {
+          "defaultValue": "0.0",
+          "name": "time",
+          "type": "number"
+        },
+        {
+          "defaultValue": "false",
+          "name": "wait",
+          "type": "bool"
+        }
+      ],
+      "yarnName": "tilt_side"
+    },
+    {
+      "async": false,
+      "definitionName": "_yarn_command_face",
+      "fileName": "character.gd",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "documentation": "the ExampleCharacter to call this command on",
+          "name": "target",
+          "subtype": "ExampleCharacter",
+          "type": "instance"
+        },
+        {
+          "name": "target_name",
+          "type": "string"
+        }
+      ],
+      "yarnName": "face"
+    },
+    {
+      "async": false,
+      "definitionName": "_yarn_command_expression",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "documentation": "the SimpleCharacter to call this command on",
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "name": "expression",
+          "type": "string"
+        }
+      ],
+      "yarnName": "expression"
+    },
+    {
+      "async": false,
+      "definitionName": "_yarn_command_play_animation",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "documentation": "the SimpleCharacter to call this command on",
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "name": "_layer",
+          "type": "string"
+        },
+        {
+          "name": "_state",
+          "type": "string"
+        },
+        {
+          "defaultValue": "false",
+          "name": "wait",
+          "type": "bool"
+        }
+      ],
+      "yarnName": "play_animation"
     },
     {
       "async": false,
@@ -235,22 +378,11 @@
     },
     {
       "async": false,
-      "definitionName": "_yarn_command_face",
-      "fileName": "character.gd",
+      "definitionName": "start_level",
+      "fileName": "level_god.gd",
       "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the ExampleCharacter to call this command on",
-          "name": "target",
-          "subtype": "ExampleCharacter",
-          "type": "instance"
-        },
-        {
-          "name": "target_name",
-          "type": "string"
-        }
-      ],
-      "yarnName": "face"
+      "parameters": [],
+      "yarnName": "start_level"
     },
     {
       "async": false,

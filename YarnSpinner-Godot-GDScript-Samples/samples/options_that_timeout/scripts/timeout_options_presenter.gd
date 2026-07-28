@@ -25,6 +25,8 @@ enum TimeoutMode { NONE, HIDDEN_FALLBACK, VISIBLE_DEFAULT, LAST_HIGHLIGHTED }
 @export var fade_down_duration: float = 0.1
 ## container the option buttons are added to
 @export var options_container: Container
+## Scene instantiated per option (the Unity sample uses the stock Option Item).
+@export var option_button_scene: PackedScene = preload("res://samples/shared/ui/option_item.tscn")
 ## the countdown bar shown while a timed group is up
 @export var timeout_bar: TimeoutBar
 
@@ -213,20 +215,28 @@ func _create_buttons(mode: TimeoutMode, default_index: int) -> void:
 		if mode == TimeoutMode.HIDDEN_FALLBACK and i == default_index:
 			continue
 
-		var button := Button.new()
-		button.text = option.get_plain_text()
-		button.custom_minimum_size = Vector2(0, 80)
-		button.add_theme_font_size_override("font_size", 40)
-
+		var item: Control
 		var index := i
-		button.pressed.connect(func(): _select(index))
-		button.focus_entered.connect(func(): _last_highlighted_index = index)
+		if option_button_scene != null:
+			var opt_item := option_button_scene.instantiate() as YarnOptionItem
+			opt_item.option_selected.connect(func(idx: int): _select(idx))
+			item = opt_item
+		else:
+			var button := Button.new()
+			button.text = option.get_plain_text()
+			button.pressed.connect(func(): _select(index))
+			item = button
 
 		if options_container != null:
-			options_container.add_child(button)
+			options_container.add_child(item)
 		else:
-			add_child(button)
-		_buttons.append(button)
+			add_child(item)
+		if item is YarnOptionItem:
+			(item as YarnOptionItem).setup(option, i)
+			(item as YarnOptionItem).button.focus_entered.connect(func(): _last_highlighted_index = index)
+		elif item is Button:
+			(item as Button).focus_entered.connect(func(): _last_highlighted_index = index)
+		_buttons.append(item)
 
 
 func _clear_buttons() -> void:

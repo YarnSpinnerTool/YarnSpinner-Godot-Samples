@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cawpghtc3e0lp"]
+
+[ext_resource type="Script" uid="uid://d1gd6hr1th5qv" path="res://samples/phone_chat/scripts/chat_option_button.gd" id="1_btn"]
+[ext_resource type="Texture2D" uid="uid://dnen8japs45ii" path="res://samples/phone_chat/sprites/option-notselected.png" id="2_normal"]
+[ext_resource type="Texture2D" uid="uid://crfg4a81k8ia1" path="res://samples/phone_chat/sprites/option-selected.png" id="3_selected"]
+[ext_resource type="Texture2D" uid="uid://cmtfr1tj0i5f1" path="res://samples/phone_chat/sprites/option-pressed.png" id="4_pressed"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_normal"]
+content_margin_left = 24.0
+content_margin_top = 9.0
+content_margin_right = 24.0
+content_margin_bottom = 9.0
+texture = ExtResource("2_normal")
+texture_margin_left = 23.0
+texture_margin_right = 23.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pressed"]
+content_margin_left = 24.0
+content_margin_top = 9.0
+content_margin_right = 24.0
+content_margin_bottom = 9.0
+texture = ExtResource("4_pressed")
+texture_margin_left = 28.0
+texture_margin_right = 23.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_selected"]
+content_margin_left = 24.0
+content_margin_top = 9.0
+content_margin_right = 24.0
+content_margin_bottom = 9.0
+texture = ExtResource("3_selected")
+texture_margin_left = 28.0
+texture_margin_right = 23.0
+
+[node name="ChatOptionButton" type="Button" unique_id=930992274]
+custom_minimum_size = Vector2(0, 36)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxTexture_normal")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pressed")
+theme_override_styles/hover = SubResource("StyleBoxTexture_selected")
+theme_override_styles/focus = SubResource("StyleBoxTexture_selected")
+text_overrun_behavior = 3
+script = ExtResource("1_btn")

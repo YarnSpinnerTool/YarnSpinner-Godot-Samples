@@ -5,51 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://bdovhq5o7dcjv" path="res://samples/shared/art/Character/Attach_Hat_Spacehelmet.fbx" id="3_2lf2e"]
 [ext_resource type="Script" uid="uid://flra500ihbix" path="res://addons/yarn_spinner/dialogue_runner.gd" id="4_a4cr2"]
 [ext_resource type="Resource" uid="uid://jljdh1df88aw" path="res://samples/voice_over_3d/dialogue/VoiceOver3D.yarnproject" id="5_ndk5a"]
-[ext_resource type="Script" uid="uid://cged8u182768u" path="res://addons/yarn_spinner/ui/line_presenter.gd" id="6_q3t8u"]
-[ext_resource type="Script" uid="uid://cogqy630mjgv7" path="res://addons/yarn_spinner/ui/options_presenter.gd" id="7_s6dl7"]
 [ext_resource type="Script" uid="uid://dpqvn6oabxilc" path="res://samples/voice_over/scripts/character_color_presenter.gd" id="8_ndk5a"]
 [ext_resource type="Script" uid="uid://d23fbixt5yo3d" path="res://addons/yarn_spinner/ui/voice_over_presenter.gd" id="9_34unk"]
 [ext_resource type="Script" uid="uid://djgg62tgdx0hi" path="res://samples/voice_over_3d/scripts/voice_over_3d_sample.gd" id="10_root"]
 [ext_resource type="PackedScene" path="res://samples/voice_over/scenes/subtitle_presenter.tscn" id="11_subs"]
-[ext_resource type="PackedScene" path="res://samples/voice_over/scenes/option_item.tscn" id="20_voitem"]
-[ext_resource type="Script" path="res://samples/shared/scripts/lipsync/lip_sync_presenter.gd" id="21_lip"]
+[ext_resource type="Script" uid="uid://bq7kiqf0fo7gv" path="res://samples/shared/scripts/lipsync/lip_sync_presenter.gd" id="21_lip"]
 [ext_resource type="Script" uid="uid://q487nnd1emgf" path="res://samples/voice_over/scripts/fade_effect.gd" id="22_fade"]
-[ext_resource type="Script" path="res://samples/shared/scripts/debug_look_at_mouse.gd" id="24_dbglook"]
+[ext_resource type="Script" uid="uid://vrkwjw0l0e7e" path="res://samples/shared/scripts/debug_look_at_mouse.gd" id="24_dbglook"]
 [ext_resource type="PackedScene" path="res://samples/voice_over/scenes/line_presenter.tscn" id="30_linep"]
 [ext_resource type="PackedScene" path="res://samples/voice_over/scenes/options_presenter.tscn" id="31_optsp"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vo_line"]
-content_margin_left = 24.0
-content_margin_top = 14.0
-content_margin_right = 24.0
-content_margin_bottom = 19.0
-bg_color = Color(0, 0, 0, 0.835)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8lhc"]
-content_margin_left = 20.0
-content_margin_top = 15.0
-content_margin_right = 20.0
-content_margin_bottom = 15.0
-bg_color = Color(0.1, 0.1, 0.15, 0.9)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vo_opts"]
-content_margin_left = 24.0
-content_margin_top = 14.0
-content_margin_right = 24.0
-content_margin_bottom = 19.0
-bg_color = Color(0, 0, 0, 0.835)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
 
 [node name="VoiceOver3d" type="Node3D" unique_id=304579994]
 script = ExtResource("10_root")
@@ -65,27 +29,24 @@ default_mouth_expression = "frowning"
 [node name="AnimationTree" parent="Tom" index="1" unique_id=1009335546]
 parameters/Floating/blend_amount = 1.0
 parameters/HeadTurnTilt/blend_position = Vector2(0, 0)
-parameters/Add2/add_amount = 1.0
-parameters/AddSide/add_amount = 1.0
 parameters/BlendSpace1D/blend_position = 0.0
 
-[node name="Skeleton3D" parent="Tom/PillCharacter2/PillCharacter" parent_id_path=PackedInt32Array(914088189, 2028345057, 1631531952) index="0" unique_id=1205917576]
-bones/0/position = Vector3(0, 0.044116724, 0)
-bones/0/rotation = Quaternion(0.011887664, 0.70700693, 0.7070068, 0.011887664)
+[node name="Skeleton3D" parent="Tom/PillCharacter2/PillCharacter" parent_id_path=PackedInt32Array(914088189, 2028345057, 814969920) index="0" unique_id=1513559045]
+bones/0/position = Vector3(0, 0.021194499, 0)
+bones/0/rotation = Quaternion(-0.025690962, 0.70663995, 0.70663995, -0.025690962)
 bones/1/position = Vector3(7.8197036e-07, -1.1280634e-17, 7.183587e-10)
-bones/1/rotation = Quaternion(-5.3385087e-08, 0.7071068, 0.7071068, -5.3385087e-08)
-bones/2/rotation = Quaternion(-2.220446e-16, -1.19249e-08, -2.647859e-24, 1)
-bones/3/rotation = Quaternion(0, 0, 0, 1)
-bones/4/rotation = Quaternion(0, 0, 0, 1)
+bones/1/rotation = Quaternion(-5.33851e-08, 0.7071068, 0.7071068, -5.33851e-08)
+bones/2/rotation = Quaternion(8.3578215e-08, -1.7344794e-08, 6.2270686e-16, 1)
+bones/3/rotation = Quaternion(-2.256804e-07, 2.5364645e-08, 7.4505815e-09, 1)
+bones/4/rotation = Quaternion(1.394362e-07, -1.1862687e-10, -7.247246e-15, 1)
 bones/5/rotation = Quaternion(0, 0, 0, 1)
-bones/7/rotation = Quaternion(0.7030023, -0.70300215, -0.07607792, 0.07607928)
-bones/9/position = Vector3(0.05476434, 0.098832145, 0.1997307)
-bones/10/position = Vector3(-0.054763865, 0.09883212, 0.19973083)
-bones/11/position = Vector3(0.05476435, 0.006787427, 0.1997307)
-bones/12/position = Vector3(-0.054763872, 0.006787438, 0.19973083)
+bones/9/position = Vector3(0.05476434, 0.098832116, 0.1997307)
+bones/10/position = Vector3(-0.054763865, 0.09883209, 0.19973084)
+bones/11/position = Vector3(0.05476435, 0.006787408, 0.1997307)
+bones/12/position = Vector3(-0.054763872, 0.0067874193, 0.19973084)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Tom/PillCharacter2/PillCharacter/Skeleton3D" index="1" unique_id=807486273]
-transform = Transform3D(0.9994348, 0.03361864, 1.3079946e-07, -0.03361864, 0.99943477, 1.14934814e-07, -1.2342073e-07, -2.3841858e-07, 1, 0.010757185, 0.3639359, -7.629396e-08)
+transform = Transform3D(0.99736, -0.072617054, 1.459565e-07, 0.072617054, 0.99735993, 2.9558367e-07, -1.6703557e-07, -2.8420436e-07, 1, -0.023238234, 0.3403496, 2.6745031e-08)
 bone_name = "Spine_2"
 bone_idx = 3
 
@@ -104,9 +65,9 @@ presenters = [NodePath("LinePresenter"), NodePath("OptionsPresenter"), NodePath(
 show_selected_option_as_line = true
 ysls_scan_path = "res://samples/voice_over"
 
-[node name="LinePresenter" parent="YarnDialogueRunner" instance=ExtResource("30_linep")]
+[node name="LinePresenter" parent="YarnDialogueRunner" unique_id=1471523590 instance=ExtResource("30_linep")]
 
-[node name="OptionsPresenter" parent="YarnDialogueRunner" instance=ExtResource("31_optsp")]
+[node name="OptionsPresenter" parent="YarnDialogueRunner" unique_id=1896700655 instance=ExtResource("31_optsp")]
 
 [node name="CharacterColorPresenter" type="Control" parent="YarnDialogueRunner" unique_id=1244939087 node_paths=PackedStringArray("text_labels")]
 layout_mode = 3
@@ -125,15 +86,15 @@ fade_out_time_on_interrupt = 0.05
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="YarnDialogueRunner/VoicePresenter" unique_id=495179195]
 
-[node name="LipSyncPresenter" type="Node" parent="YarnDialogueRunner" node_paths=PackedStringArray("voice_presenter")]
+[node name="LipSyncPresenter" type="Node" parent="YarnDialogueRunner" unique_id=509392529 node_paths=PackedStringArray("voice_presenter")]
 script = ExtResource("21_lip")
 voice_presenter = NodePath("../VoicePresenter")
 
 [node name="SubtitlePresenter" parent="YarnDialogueRunner" unique_id=1924309090 instance=ExtResource("11_subs")]
 
-[node name="FadeLayer" type="CanvasLayer" parent="."]
+[node name="FadeLayer" type="CanvasLayer" parent="." unique_id=251828363]
 
-[node name="FadeEffect" type="ColorRect" parent="FadeLayer" node_paths=PackedStringArray("dialogue_runner")]
+[node name="FadeEffect" type="ColorRect" parent="FadeLayer" unique_id=1059640923 node_paths=PackedStringArray("dialogue_runner")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -144,9 +105,9 @@ color = Color(0, 0, 0, 0)
 script = ExtResource("22_fade")
 dialogue_runner = NodePath("../../YarnDialogueRunner")
 
-[editable path="Tom"]
-[editable path="Tom/PillCharacter2"]
-
-[node name="DebugLookAtMouse" type="Node" parent="." node_paths=PackedStringArray("character")]
+[node name="DebugLookAtMouse" type="Node" parent="." unique_id=502569634 node_paths=PackedStringArray("character")]
 script = ExtResource("24_dbglook")
 character = NodePath("../Tom")
+
+[editable path="Tom"]
+[editable path="Tom/PillCharacter2"]

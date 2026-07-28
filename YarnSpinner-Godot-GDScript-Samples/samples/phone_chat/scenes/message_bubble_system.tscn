@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://samples/phone_chat/scripts/chat_bubble.gd" id="1_bubble"]
+
+[node name="MessageBubbleSystem" type="MarginContainer" node_paths=PackedStringArray("label")]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_bottom = 6
+script = ExtResource("1_bubble")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.36, 0.36, 0.42, 1)
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+autowrap_mode = 3

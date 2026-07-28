@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://d36pa5gk4arao"]
+
+[ext_resource type="Script" uid="uid://flra500ihbix" path="res://addons/yarn_spinner/dialogue_runner.gd" id="1_runner"]
+[ext_resource type="Resource" uid="uid://4o8eu4ccxapv" path="res://samples/phone_chat/dialogue/PhoneChat.yarnproject" id="2_proj"]
+[ext_resource type="Script" uid="uid://d4mrponkmpm7t" path="res://samples/phone_chat/scripts/chat_dialogue_presenter.gd" id="3_chat"]
+[ext_resource type="PackedScene" path="res://samples/phone_chat/scenes/message_bubble_a.tscn" id="4_a"]
+[ext_resource type="PackedScene" path="res://samples/phone_chat/scenes/message_bubble_b.tscn" id="5_b"]
+[ext_resource type="PackedScene" path="res://samples/phone_chat/scenes/message_bubble_system.tscn" id="6_sys"]
+[ext_resource type="PackedScene" uid="uid://cawpghtc3e0lp" path="res://samples/phone_chat/scenes/chat_option_button.tscn" id="7_btn"]
+[ext_resource type="Texture2D" uid="uid://bdkn535fhavnf" path="res://samples/phone_chat/sprites/bg-lightmode.png" id="8_bg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phone"]
+bg_color = Color(0.863, 0.863, 0.914, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 16
+
+[node name="PhoneChat" type="Control" unique_id=1777978906]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=2058968383]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.173, 0.227, 0.165, 1)
+
+[node name="Phone" type="Panel" parent="." unique_id=1695514847]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -270.0
+offset_right = 180.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_phone")
+
+[node name="Screen" type="TextureRect" parent="Phone" unique_id=2106200050]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_bg")
+expand_mode = 1
+
+[node name="Layout" type="VBoxContainer" parent="Phone" unique_id=1758898044]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 16.0
+offset_right = -12.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="Scroll" type="ScrollContainer" parent="Phone/Layout" unique_id=1842028719]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Messages" type="VBoxContainer" parent="Phone/Layout/Scroll" unique_id=209447498]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+alignment = 2
+
+[node name="Options" type="VBoxContainer" parent="Phone/Layout/Scroll/Messages" unique_id=782655440]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="YarnDialogueRunner" type="Node" parent="." unique_id=791861612 node_paths=PackedStringArray("presenters")]
+script = ExtResource("1_runner")
+yarn_project = ExtResource("2_proj")
+auto_start = true
+presenters = [NodePath("ChatPresenter")]
+show_selected_option_as_line = true
+
+[node name="ChatPresenter" type="Node" parent="YarnDialogueRunner" unique_id=1765992349 node_paths=PackedStringArray("bubble_container", "options_container", "scroll_container")]
+script = ExtResource("3_chat")
+bubble_scenes = Dictionary[String, PackedScene]({
+"A": ExtResource("4_a"),
+"B": ExtResource("5_b"),
+"System": ExtResource("6_sys")
+})
+default_bubble_scene = ExtResource("5_b")
+options_button_scene = ExtResource("7_btn")
+bubble_container = NodePath("../../Phone/Layout/Scroll/Messages")
+options_container = NodePath("../../Phone/Layout/Scroll/Messages/Options")
+scroll_container = NodePath("../../Phone/Layout/Scroll")

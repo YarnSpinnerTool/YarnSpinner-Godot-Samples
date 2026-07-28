@@ -104,6 +104,158 @@ _subresources={
 "use_external/fallback_path": "res://samples/shared/art/materials/colormap-variation-b.mat.tres",
 "use_external/path": "uid://pyseaqt4afes"
 }
+},
+"nodes": {
+"PATH:Pub/bar": {
+"generate/physics": true
+},
+"PATH:Pub/bar_1": {
+"generate/physics": true
+},
+"PATH:Pub/barrel": {
+"generate/physics": true
+},
+"PATH:Pub/barrelLarge": {
+"generate/physics": true
+},
+"PATH:Pub/barrelLarge_1": {
+"generate/physics": true
+},
+"PATH:Pub/barrelLarge_2": {
+"generate/physics": true
+},
+"PATH:Pub/bottleFlat": {
+"generate/physics": true
+},
+"PATH:Pub/bottleFlat_1": {
+"generate/physics": true
+},
+"PATH:Pub/bottleFlat_2": {
+"generate/physics": true
+},
+"PATH:Pub/bottleFlat_3": {
+"generate/physics": true
+},
+"PATH:Pub/bottleTall": {
+"generate/physics": true
+},
+"PATH:Pub/bottleTall_1": {
+"generate/physics": true
+},
+"PATH:Pub/bottleTall_2": {
+"generate/physics": true
+},
+"PATH:Pub/bottleWide": {
+"generate/physics": true
+},
+"PATH:Pub/bottleWide_1": {
+"generate/physics": true
+},
+"PATH:Pub/dart": {
+"generate/physics": true
+},
+"PATH:Pub/dart_1": {
+"generate/physics": true
+},
+"PATH:Pub/dart_2": {
+"generate/physics": true
+},
+"PATH:Pub/dart_3": {
+"generate/physics": true
+},
+"PATH:Pub/dart_4": {
+"generate/physics": true
+},
+"PATH:Pub/dartboard": {
+"generate/physics": true
+},
+"PATH:Pub/glass": {
+"generate/physics": true
+},
+"PATH:Pub/glassCocktail": {
+"generate/physics": true
+},
+"PATH:Pub/glassCocktail/lemon": {
+"generate/physics": true
+},
+"PATH:Pub/glassCocktail/straw": {
+"generate/physics": true
+},
+"PATH:Pub/glass_1": {
+"generate/physics": true
+},
+"PATH:Pub/glass_2": {
+"generate/physics": true
+},
+"PATH:Pub/glass_3": {
+"generate/physics": true
+},
+"PATH:Pub/glass_4": {
+"generate/physics": true
+},
+"PATH:Pub/glass_5": {
+"generate/physics": true
+},
+"PATH:Pub/glass_6": {
+"generate/physics": true
+},
+"PATH:Pub/glass_7": {
+"generate/physics": true
+},
+"PATH:Pub/glass_wine": {
+"generate/physics": true
+},
+"PATH:Pub/mug": {
+"generate/physics": true
+},
+"PATH:Pub/mug/mug_001": {
+"generate/physics": true
+},
+"PATH:Pub/stallStool": {
+"generate/physics": true
+},
+"PATH:Pub/stallStool_1": {
+"generate/physics": true
+},
+"PATH:Pub/stallStool_2": {
+"generate/physics": true
+},
+"PATH:Pub/stallStool_3": {
+"generate/physics": true
+},
+"PATH:Pub/stallStool_4": {
+"generate/physics": true
+},
+"PATH:Pub/wallShelf": {
+"generate/physics": true
+},
+"PATH:Pub/wallShelf_1": {
+"generate/physics": true
+},
+"PATH:Pub/wallWood": {
+"generate/physics": true
+},
+"PATH:Pub/wallWoodCorner": {
+"generate/physics": true
+},
+"PATH:Pub/wallWoodCorner_1": {
+"generate/physics": true
+},
+"PATH:Pub/wallWoodWindowShutters": {
+"generate/physics": true
+},
+"PATH:Pub/wallWoodWindowShutters_1": {
+"generate/physics": true
+},
+"PATH:Pub/wallWood_1": {
+"generate/physics": true
+},
+"PATH:Pub/wallWood_2": {
+"generate/physics": true
+},
+"PATH:Pub/wallWood_3": {
+"generate/physics": true
+}
 }
 }
 fbx/importer=0

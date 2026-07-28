@@ -16,6 +16,10 @@ enum Mode {
 }
 
 @export var is_player_controlled := false
+## Stand where you're placed! This'll skip movement physics (gravity, sliding,
+## etc) while keeping teh facing and animation. For staged characters
+## that are positioned by script, like Unity's SetPositionAndRotation! Basically. Almost.
+@export var hold_position := false
 
 @export_group("Movement")
 @export var speed := 3.0
@@ -149,6 +153,10 @@ func _begin_path() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if hold_position:
+		_update_facing(delta)
+		_drive_animation()
+		return
 	if mode == Mode.PLAYER_CONTROLLED and is_player_controlled:
 		_apply_player_input(delta)
 	elif mode == Mode.PATH_FOLLOWING:

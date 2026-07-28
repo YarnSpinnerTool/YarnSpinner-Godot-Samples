@@ -1,0 +1,12 @@
+{
+    "projectFileVersion": 4,
+    "sourceFiles": [
+        "PhoneChat.yarn"
+    ],
+    "excludeFiles": [],
+    "baseLanguage": "en",
+    "localisation": {},
+    "definitions": null,
+    "compilerOptions": {},
+    "editorOptions": {}
+}

@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://samples/phone_chat/scripts/chat_bubble.gd" id="1_bubble"]
+[ext_resource type="Script" path="res://samples/phone_chat/scripts/typing_dots.gd" id="2_dots"]
+[ext_resource type="Texture2D" uid="uid://caq5f3vhe16jh" path="res://samples/phone_chat/sprites/bubble_blue_left.png" id="3_tex"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b"]
+texture = ExtResource("3_tex")
+texture_margin_left = 42.0
+texture_margin_top = 28.0
+texture_margin_right = 42.0
+texture_margin_bottom = 32.0
+content_margin_left = 34.0
+content_margin_top = 18.0
+content_margin_right = 34.0
+content_margin_bottom = 20.0
+
+[node name="MessageBubbleB" type="MarginContainer" node_paths=PackedStringArray("label", "typing_indicator")]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 18
+script = ExtResource("1_bubble")
+max_text_width = 300.0
+label = NodePath("Align/Panel/Label")
+typing_indicator = NodePath("Align/Panel/TypingDots")
+
+[node name="Align" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 0
+
+[node name="Panel" type="PanelContainer" parent="Align"]
+custom_minimum_size = Vector2(88, 62)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_b")
+
+[node name="Label" type="Label" parent="Align/Panel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 19
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TypingDots" type="HBoxContainer" parent="Align/Panel"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+alignment = 1
+script = ExtResource("2_dots")
+
+[node name="Dot1" type="Label" parent="Align/Panel/TypingDots"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.85)
+theme_override_font_sizes/font_size = 13
+vertical_alignment = 1
+text = "●"
+
+[node name="Dot2" type="Label" parent="Align/Panel/TypingDots"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.85)
+theme_override_font_sizes/font_size = 13
+vertical_alignment = 1
+text = "●"
+
+[node name="Dot3" type="Label" parent="Align/Panel/TypingDots"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.85)
+theme_override_font_sizes/font_size = 13
+vertical_alignment = 1
+text = "●"

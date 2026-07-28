@@ -6,8 +6,8 @@
 
 [sub_resource type="FontVariation" id="FontVariation_bolditalic"]
 base_font = ExtResource("2_noto")
-variation_embolden = 0.6
-variation_transform = Transform2D(1, 0, -0.2, 1, 0, 0)
+variation_embolden = 0.35
+variation_transform = Transform2D(1, 0, -0.18, 1, 0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar"]
 content_margin_left = 24.0
@@ -17,6 +17,7 @@ content_margin_bottom = 19.2
 bg_color = Color(0, 0, 0, 0.835294)
 
 [node name="OptionsPresenter" type="Control" node_paths=PackedStringArray("options_container", "last_line_text", "last_line_container")]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

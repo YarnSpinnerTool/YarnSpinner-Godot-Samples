@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the LICENSE.md file
+# This Source Code is subject to the terms of the LICENSE.md file
 # located in the root of this project.
 
 extends Camera2D

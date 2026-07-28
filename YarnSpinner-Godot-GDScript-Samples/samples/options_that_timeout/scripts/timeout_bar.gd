@@ -60,5 +60,7 @@ func reset() -> void:
 
 
 func _set_width(w: float) -> void:
-	bar.custom_minimum_size.x = w
-	bar.size.x = w
+	# The bar is horizontally centred, so it shrinks symmetrically inward
+	# toward the middle, matching the Unity sample's centre-pivot bar.
+	bar.offset_left = -w * 0.5
+	bar.offset_right = w * 0.5

@@ -13,6 +13,17 @@
 [ext_resource type="Script" uid="uid://bj11vnurtp6tm" path="res://samples/shared/scripts/link_opener.gd" id="11_link"]
 [ext_resource type="Script" uid="uid://cawk3ntfrhqtt" path="res://samples/shared/scripts/character_appearance.gd" id="12_appear"]
 [ext_resource type="Texture2D" uid="uid://c4a4wvi35pucw" path="res://addons/yarn_spinner/ui/textures/continue_arrow.png" id="20_arrow"]
+[ext_resource type="PackedScene" path="res://samples/options_that_timeout/scenes/line_presenter.tscn" id="90_line"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tobar"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0, 0, 0, 0.698039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tofill"]
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(12, 1, 12)
@@ -95,8 +106,26 @@ mode = 1
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
-[node name="LinePresenter" type="PanelContainer" parent="UILayer" node_paths=PackedStringArray("text_label", "character_label")]
+[node name="LinePresenter" parent="UILayer" instance=ExtResource("90_line")]
+
+[node name="LinkOpener" type="Node" parent="UILayer/LinePresenter"]
+script = ExtResource("11_link")
+
+[node name="OptionsPresenter" type="Control" parent="UILayer" node_paths=PackedStringArray("options_container", "timeout_bar")]
 visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("6_options")
+auto_select_duration = 5.0
+options_container = NodePath("Panel/VBox/OptionsContainer")
+timeout_bar = NodePath("Panel/VBox/TimeoutBar")
+
+[node name="Panel" type="PanelContainer" parent="UILayer/OptionsPresenter"]
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -107,108 +136,36 @@ offset_right = -120.0
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
-script = ExtResource("5_line")
-text_label = NodePath("VBox/TextLabel")
-character_label = NodePath("VBox/CharacterLabel")
+theme_override_styles/panel = SubResource("StyleBoxFlat_tobar")
 
-[node name="VBox" type="VBoxContainer" parent="UILayer/LinePresenter"]
+[node name="VBox" type="VBoxContainer" parent="UILayer/OptionsPresenter/Panel"]
 layout_mode = 2
-theme_override_constants/separation = 14
+theme_override_constants/separation = 6
 
-[node name="CharacterLabel" type="Label" parent="UILayer/LinePresenter/VBox"]
+[node name="OptionsContainer" type="VBoxContainer" parent="UILayer/OptionsPresenter/Panel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = SubResource("FontVariation_bold_italic")
-theme_override_font_sizes/font_size = 19
-text = "Character"
+theme_override_constants/separation = 6
 
-[node name="TextLabel" type="RichTextLabel" parent="UILayer/LinePresenter/VBox"]
+[node name="TimeoutBar" type="Control" parent="UILayer/OptionsPresenter/Panel/VBox" node_paths=PackedStringArray("bar")]
+custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
-theme_override_font_sizes/italics_font_size = 24
-theme_override_font_sizes/bold_italics_font_size = 24
-bbcode_enabled = true
-text = "Dialogue text goes here..."
-fit_content = true
+script = ExtResource("7_bar")
+bar = NodePath("Fill")
 
-[node name="IndicatorAnchor" type="Control" parent="UILayer/LinePresenter"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="ContinueIndicator" type="TextureRect" parent="UILayer/LinePresenter/IndicatorAnchor"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -12.0
-offset_top = 16.2
-offset_right = 12.0
-offset_bottom = 28.2
-grow_horizontal = 2
-mouse_filter = 2
-texture = ExtResource("20_arrow")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="LinkOpener" type="Node" parent="UILayer/LinePresenter"]
-script = ExtResource("11_link")
-
-[node name="OptionsPresenter" type="PanelContainer" parent="UILayer" node_paths=PackedStringArray("options_container", "timeout_bar")]
-visible = false
+[node name="Fill" type="Panel" parent="UILayer/OptionsPresenter/Panel/VBox/TimeoutBar"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -450.0
-offset_top = -220.0
-offset_right = 450.0
-offset_bottom = 220.0
+offset_left = -444.0
+offset_top = -9.0
+offset_right = 444.0
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
-script = ExtResource("6_options")
-auto_select_duration = 5.0
-options_container = NodePath("VBox/OptionsContainer")
-timeout_bar = NodePath("VBox/TimeoutBar")
-
-[node name="VBox" type="VBoxContainer" parent="UILayer/OptionsPresenter"]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="OptionsContainer" type="VBoxContainer" parent="UILayer/OptionsPresenter/VBox"]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="TimeoutBar" type="Control" parent="UILayer/OptionsPresenter/VBox" node_paths=PackedStringArray("bar")]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-script = ExtResource("7_bar")
-bar = NodePath("Fill")
-
-[node name="Track" type="Panel" parent="UILayer/OptionsPresenter/VBox/TimeoutBar"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bartrack")
-
-[node name="Fill" type="Panel" parent="UILayer/OptionsPresenter/VBox/TimeoutBar"]
-custom_minimum_size = Vector2(820, 20)
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -10.0
-offset_bottom = 10.0
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_barfill")
+theme_override_styles/panel = SubResource("StyleBoxFlat_tofill")
 
 [node name="Hint" type="Label" parent="UILayer"]
 anchors_preset = 5

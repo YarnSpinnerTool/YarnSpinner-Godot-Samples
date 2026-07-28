@@ -89,6 +89,92 @@ _subresources={
 "use_external/fallback_path": "res://samples/shared/art/materials/office-poster-1.mat.tres",
 "use_external/path": "uid://b2mnstg106eqd"
 }
+},
+"nodes": {
+"PATH:Office/book_3": {
+"generate/physics": true
+},
+"PATH:Office/book_4": {
+"generate/physics": true
+},
+"PATH:Office/bookshelf": {
+"generate/physics": true
+},
+"PATH:Office/bookshelf/bookshelf_books_1": {
+"generate/physics": true
+},
+"PATH:Office/bookshelf/bookshelf_books_2": {
+"generate/physics": true
+},
+"PATH:Office/bookshelf/bookshelf_books_3": {
+"generate/physics": true
+},
+"PATH:Office/bookshelf_1": {
+"generate/physics": true
+},
+"PATH:Office/bookshelf_1/bookshelf_books_1_1": {
+"generate/physics": true
+},
+"PATH:Office/bookshelf_1/bookshelf_books_2_1": {
+"generate/physics": true
+},
+"PATH:Office/bookshelf_1/bookshelf_books_3_1": {
+"generate/physics": true
+},
+"PATH:Office/door_sliding/door": {
+"generate/physics": true
+},
+"PATH:Office/papersheet_1": {
+"generate/physics": true
+},
+"PATH:Office/papersheet_2": {
+"generate/physics": true
+},
+"PATH:Office/poster": {
+"generate/physics": true
+},
+"PATH:Office/potplant": {
+"generate/physics": true
+},
+"PATH:Office/potplant_1": {
+"generate/physics": true
+},
+"PATH:Office/potplant_2": {
+"generate/physics": true
+},
+"PATH:Office/stall_short": {
+"generate/physics": true
+},
+"PATH:Office/wall": {
+"generate/physics": true
+},
+"PATH:Office/wall_1": {
+"generate/physics": true
+},
+"PATH:Office/wall_2": {
+"generate/physics": true
+},
+"PATH:Office/wall_3": {
+"generate/physics": true
+},
+"PATH:Office/wall_4": {
+"generate/physics": true
+},
+"PATH:Office/wall_5": {
+"generate/physics": true
+},
+"PATH:Office/wall_corner": {
+"generate/physics": true
+},
+"PATH:Office/wall_corner_1": {
+"generate/physics": true
+},
+"PATH:Office/wall_doorway": {
+"generate/physics": true
+},
+"PATH:Office/whiteboard": {
+"generate/physics": true
+}
 }
 }
 fbx/importer=0

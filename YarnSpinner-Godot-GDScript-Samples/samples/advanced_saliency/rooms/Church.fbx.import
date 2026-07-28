@@ -54,6 +54,89 @@ _subresources={
 "use_external/fallback_path": "res://samples/shared/art/materials/stainedglass.mat.tres",
 "use_external/path": "uid://csoxi1f0b8xk"
 }
+},
+"nodes": {
+"PATH:Church/Stained_Glass": {
+"generate/physics": true
+},
+"PATH:Church/Stained_Glass/glow_square/glow_square_1/Skeleton3D/glow_square_mesh": {
+"generate/physics": true
+},
+"PATH:Church/candle": {
+"generate/physics": true
+},
+"PATH:Church/candle_1": {
+"generate/physics": true
+},
+"PATH:Church/candle_2": {
+"generate/physics": true
+},
+"PATH:Church/flag_banner_short": {
+"generate/physics": true
+},
+"PATH:Church/flag_banner_short_1": {
+"generate/physics": true
+},
+"PATH:Church/stairsFull": {
+"generate/physics": true
+},
+"PATH:Church/stairsFullCornerOuter": {
+"generate/physics": true
+},
+"PATH:Church/stairsFullCornerOuter_1": {
+"generate/physics": true
+},
+"PATH:Church/stallBench": {
+"generate/physics": true
+},
+"PATH:Church/stallBench_1": {
+"generate/physics": true
+},
+"PATH:Church/stallBench_2": {
+"generate/physics": true
+},
+"PATH:Church/stallBench_3": {
+"generate/physics": true
+},
+"PATH:Church/stallBench_4": {
+"generate/physics": true
+},
+"PATH:Church/stallBench_5": {
+"generate/physics": true
+},
+"PATH:Church/stall_short": {
+"generate/physics": true
+},
+"PATH:Church/wallWood": {
+"generate/physics": true
+},
+"PATH:Church/wallWoodCornerDiagonal": {
+"generate/physics": true
+},
+"PATH:Church/wallWoodCornerDiagonal_1": {
+"generate/physics": true
+},
+"PATH:Church/wallWoodWindowRound": {
+"generate/physics": true
+},
+"PATH:Church/wallWoodWindowRound_1": {
+"generate/physics": true
+},
+"PATH:Church/wallWood_1": {
+"generate/physics": true
+},
+"PATH:Church/wallWood_2": {
+"generate/physics": true
+},
+"PATH:Church/wallWood_3": {
+"generate/physics": true
+},
+"PATH:Church/wallWood_4": {
+"generate/physics": true
+},
+"PATH:Church/wallWood_5": {
+"generate/physics": true
+}
 }
 }
 fbx/importer=0

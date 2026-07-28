@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="RoomLayout" format=3 uid="uid://cskunb5y6rv57"]
+
+[ext_resource type="Script" uid="uid://dg3i08gxs5oer" path="res://samples/advanced_saliency/scripts/room_layout.gd" id="1_layout"]
+[ext_resource type="Script" uid="uid://cumuixnarkmsl" path="res://samples/advanced_saliency/scripts/character_spawn.gd" id="2_spawn"]
+[ext_resource type="PackedScene" path="res://samples/advanced_saliency/rooms/office_room.tscn" id="3_env"]
+
+[sub_resource type="Resource" id="Resource_primary"]
+script = ExtResource("2_spawn")
+position = Vector3(-0.6, 0, 0.4)
+rotation_degrees = 90
+metadata/_custom_type_script = "uid://cumuixnarkmsl"
+
+[sub_resource type="Resource" id="Resource_secondary"]
+script = ExtResource("2_spawn")
+position = Vector3(1, 0, 0.4)
+rotation_degrees = -90
+metadata/_custom_type_script = "uid://cumuixnarkmsl"
+
+[resource]
+script = ExtResource("1_layout")
+primary = SubResource("Resource_primary")
+secondary = SubResource("Resource_secondary")
+environment_scene = ExtResource("3_env")
+metadata/_custom_type_script = "uid://dg3i08gxs5oer"

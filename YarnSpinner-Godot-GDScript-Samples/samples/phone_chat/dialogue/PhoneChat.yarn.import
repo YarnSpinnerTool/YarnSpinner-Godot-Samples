@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://bnmowrl4eddrb"
+path="res://.godot/imported/PhoneChat.yarn-802bac45b904a360669b1d089808c246.res"
+
+[deps]
+
+source_file="res://samples/phone_chat/dialogue/PhoneChat.yarn"
+dest_files=["res://.godot/imported/PhoneChat.yarn-802bac45b904a360669b1d089808c246.res"]
+
+[params]
+

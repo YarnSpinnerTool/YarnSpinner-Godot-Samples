@@ -59,6 +59,161 @@ _subresources={
 "use_external/fallback_path": "res://samples/shared/art/materials/fountain.mat.tres",
 "use_external/path": "uid://qqd7newqyap1"
 }
+},
+"nodes": {
+"PATH:Mansion/benchParkLong": {
+"generate/physics": true
+},
+"PATH:Mansion/fountainSquareDetail": {
+"generate/physics": true
+},
+"PATH:Mansion/fountainWater": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLarge": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLargeCurved": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLargeCurved_1": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLargeCurved_2": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLargeCurved_3": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLargeEnd": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLargeEnd_1": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLarge_1": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLarge_10": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLarge_11": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLarge_12": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLarge_13": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLarge_2": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLarge_3": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLarge_4": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLarge_5": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLarge_6": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLarge_7": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLarge_8": {
+"generate/physics": true
+},
+"PATH:Mansion/hedgeLarge_9": {
+"generate/physics": true
+},
+"PATH:Mansion/roof": {
+"generate/physics": true
+},
+"PATH:Mansion/roofCorner": {
+"generate/physics": true
+},
+"PATH:Mansion/roofCornerRound": {
+"generate/physics": true
+},
+"PATH:Mansion/roofCornerRound_1": {
+"generate/physics": true
+},
+"PATH:Mansion/roofCorner_1": {
+"generate/physics": true
+},
+"PATH:Mansion/roofWindow": {
+"generate/physics": true
+},
+"PATH:Mansion/roof_1": {
+"generate/physics": true
+},
+"PATH:Mansion/roof_2": {
+"generate/physics": true
+},
+"PATH:Mansion/roof_3": {
+"generate/physics": true
+},
+"PATH:Mansion/roof_4": {
+"generate/physics": true
+},
+"PATH:Mansion/treeHighRound": {
+"generate/physics": true
+},
+"PATH:Mansion/treeHighRound_1": {
+"generate/physics": true
+},
+"PATH:Mansion/tree_small": {
+"generate/physics": true
+},
+"PATH:Mansion/tree_small_1": {
+"generate/physics": true
+},
+"PATH:Mansion/wall": {
+"generate/physics": true
+},
+"PATH:Mansion/wallCorner": {
+"generate/physics": true
+},
+"PATH:Mansion/wallCornerDiagonal": {
+"generate/physics": true
+},
+"PATH:Mansion/wallCornerDiagonal_1": {
+"generate/physics": true
+},
+"PATH:Mansion/wallCorner_1": {
+"generate/physics": true
+},
+"PATH:Mansion/wallDoor": {
+"generate/physics": true
+},
+"PATH:Mansion/wallDoor/door_001": {
+"generate/physics": true
+},
+"PATH:Mansion/wallWindowStone": {
+"generate/physics": true
+},
+"PATH:Mansion/wallWindowStone_1": {
+"generate/physics": true
+},
+"PATH:Mansion/wallWindowStone_2": {
+"generate/physics": true
+},
+"PATH:Mansion/wallWindowStone_3": {
+"generate/physics": true
+},
+"PATH:Mansion/wallWindowStone_4": {
+"generate/physics": true
+},
+"PATH:Mansion/wall_1": {
+"generate/physics": true
+},
+"PATH:Mansion/wall_2": {
+"generate/physics": true
+}
 }
 }
 fbx/importer=0

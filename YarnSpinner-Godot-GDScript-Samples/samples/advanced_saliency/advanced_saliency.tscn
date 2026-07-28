@@ -1,107 +1,495 @@
 [gd_scene format=3 uid="uid://vh8u2xkby5bl"]
 
-[ext_resource type="PackedScene" uid="uid://ba6k8q62v3aeg" path="res://samples/shared/scenes/Basic Arena.tscn" id="1_wxc13"]
-[ext_resource type="PackedScene" uid="uid://don7obupokpwf" path="res://samples/shared/scenes/player_character.tscn" id="2_06nmh"]
-[ext_resource type="Script" uid="uid://ci0aavprdl4gw" path="res://samples/shared/scripts/simple_follow_camera.gd" id="3_06nmh"]
-[ext_resource type="PackedScene" uid="uid://hfcnx6eyb3i3" path="res://samples/advanced_saliency/rooms/Scenario Pillar.fbx" id="4_udfqi"]
-[ext_resource type="PackedScene" uid="uid://b40sbfiia4q0s" path="res://samples/shared/art/environment/prototype/wall-corner-low.fbx" id="5_8rsac"]
-[ext_resource type="PackedScene" uid="uid://bbxu2hyown07m" path="res://samples/shared/art/environment/prototype/wall-low.fbx" id="6_dh5og"]
-[ext_resource type="PackedScene" uid="uid://uruqhgptl7a7" path="res://samples/shared/art/environment/prototype/floor-small-square.fbx" id="7_wki07"]
-[ext_resource type="PackedScene" uid="uid://db6adsx7323jr" path="res://samples/shared/scenes/npc_character.tscn" id="8_wki07"]
-[ext_resource type="PackedScene" uid="uid://le6c0y7pc8gt" path="res://samples/shared/scenes/explanation_character.tscn" id="9_li7ae"]
+[ext_resource type="PackedScene" uid="uid://ba6k8q62v3aeg" path="res://samples/shared/scenes/Basic Arena.tscn" id="1_arena"]
+[ext_resource type="PackedScene" uid="uid://don7obupokpwf" path="res://samples/shared/scenes/player_character.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://db6adsx7323jr" path="res://samples/shared/scenes/npc_character.tscn" id="3_npc"]
+[ext_resource type="PackedScene" uid="uid://le6c0y7pc8gt" path="res://samples/shared/scenes/explanation_character.tscn" id="4_expl"]
+[ext_resource type="Script" uid="uid://ci0aavprdl4gw" path="res://samples/shared/scripts/simple_follow_camera.gd" id="5_cam"]
+[ext_resource type="Script" uid="uid://bs5qnekrnovvy" path="res://samples/shared/scripts/dialogue_interactable.gd" id="6_interact"]
+[ext_resource type="PackedScene" uid="uid://hfcnx6eyb3i3" path="res://samples/advanced_saliency/rooms/Scenario Pillar.fbx" id="7_pillar"]
+[ext_resource type="PackedScene" uid="uid://uruqhgptl7a7" path="res://samples/shared/art/environment/prototype/floor-small-square.fbx" id="8_floorsq"]
+[ext_resource type="PackedScene" uid="uid://bbxu2hyown07m" path="res://samples/shared/art/environment/prototype/wall-low.fbx" id="9_walllow"]
+[ext_resource type="Script" uid="uid://morf8q4wn34j" path="res://samples/advanced_saliency/scripts/the_room_variable_storage.gd" id="10_storage"]
+[ext_resource type="Script" uid="uid://flra500ihbix" path="res://addons/yarn_spinner/dialogue_runner.gd" id="11_runner"]
+[ext_resource type="Resource" uid="uid://dkbeqnbkvwh0w" path="res://samples/advanced_saliency/AdvancedSaliency.yarnproject" id="12_proj"]
+[ext_resource type="Script" uid="uid://bvtlunqdxekwe" path="res://samples/advanced_saliency/scripts/level_god.gd" id="14_god"]
+[ext_resource type="Script" uid="uid://f5kj881dj4m5" path="res://samples/advanced_saliency/scripts/value_updater.gd" id="15_vu"]
+[ext_resource type="Script" uid="uid://c1usuphc2akps" path="res://samples/advanced_saliency/scripts/button_bump.gd" id="16_bump"]
+[ext_resource type="Script" uid="uid://cawk3ntfrhqtt" path="res://samples/shared/scripts/character_appearance.gd" id="17_appear"]
+[ext_resource type="PackedScene" uid="uid://dx60pwuh00fn7" path="res://samples/shared/art/environment/prototype/column.fbx" id="18_col"]
+[ext_resource type="PackedScene" uid="uid://cvgtdtm2qg83y" path="res://samples/shared/art/environment/prototype/column-low.fbx" id="19_collow"]
+[ext_resource type="PackedScene" uid="uid://bqxatdak4rs6r" path="res://samples/shared/art/environment/prototype/floor-thick.fbx" id="20_floorthick"]
+[ext_resource type="PackedScene" uid="uid://u6drektef4kh" path="res://samples/shared/art/environment/prototype/stairs-small.fbx" id="21_stairs"]
+[ext_resource type="PackedScene" uid="uid://vjxl7nxew6qa" path="res://samples/shared/art/environment/prototype/shape-cube-half.fbx" id="22_cube"]
+[ext_resource type="PackedScene" uid="uid://c846edmn0wmdt" path="res://samples/shared/art/environment/prototype/shape-cylinder.fbx" id="23_cyl"]
+[ext_resource type="PackedScene" uid="uid://brtmfppggxrdn" path="res://samples/shared/art/environment/prototype/target-b-round.fbx" id="24_target"]
+[ext_resource type="PackedScene" uid="uid://b7q7fbyhy02y6" path="res://samples/shared/art/environment/prototype/wall.fbx" id="25_wall"]
+[ext_resource type="PackedScene" uid="uid://cn7f5sxbgptym" path="res://samples/shared/art/environment/FantasyTown/cup-coffee.fbx" id="26_cup"]
+[ext_resource type="Resource" uid="uid://cskunb5y6rv57" path="res://samples/advanced_saliency/layouts/Office.tres" id="27_lo"]
+[ext_resource type="Script" uid="uid://dg3i08gxs5oer" path="res://samples/advanced_saliency/scripts/room_layout.gd" id="28_a22ux"]
+[ext_resource type="Resource" uid="uid://cdr5l017noxcm" path="res://samples/advanced_saliency/layouts/Pub.tres" id="28_lp"]
+[ext_resource type="Resource" uid="uid://dpfglqsh4x5wd" path="res://samples/advanced_saliency/layouts/Church.tres" id="29_lc"]
+[ext_resource type="Resource" uid="uid://x734y4wr3hgj" path="res://samples/advanced_saliency/layouts/Mansion.tres" id="30_lm"]
+[ext_resource type="Script" uid="uid://b8c0l88ktas3g" path="res://samples/advanced_saliency/scripts/advanced_saliency_sample.gd" id="31_root"]
+[ext_resource type="PackedScene" path="res://samples/shared/ui/line_presenter.tscn" id="90_coreline"]
+[ext_resource type="PackedScene" path="res://samples/shared/ui/options_presenter.tscn" id="91_coreopts"]
+[ext_resource type="Script" uid="uid://bj11vnurtp6tm" path="res://samples/shared/scripts/link_opener.gd" id="92_link"]
 
-[node name="AdvancedSaliency" type="Node3D" unique_id=2093238238]
+[sub_resource type="ProceduralSkyMaterial" id="Sky_mat"]
+sky_top_color = Color(0.388, 0.722, 0.953, 1)
+sky_horizon_color = Color(0.18, 0.518, 0.984, 1)
+sky_curve = 0.02
+ground_bottom_color = Color(0.18, 0.518, 0.984, 1)
+ground_horizon_color = Color(0.18, 0.518, 0.984, 1)
+sun_angle_max = 5.0
+sun_curve = 0.1
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1480109522]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+[sub_resource type="Sky" id="Sky_room"]
+sky_material = SubResource("Sky_mat")
+
+[sub_resource type="Environment" id="Environment_room"]
+background_mode = 2
+sky = SubResource("Sky_room")
+ambient_light_source = 2
+ambient_light_color = Color(0.212, 0.227, 0.259, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_sign"]
+shading_mode = 0
+
+[sub_resource type="QuadMesh" id="Quad_sign"]
+material = SubResource("Mat_sign")
+size = Vector2(1, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_button"]
+size = Vector3(1.0278552, 0.5, 0.9218435)
+
+[node name="AdvancedSaliency" type="Node3D" unique_id=1693811957]
+script = ExtResource("31_root")
+
+[node name="SamplesEnvironment" type="WorldEnvironment" parent="." unique_id=1614915095]
+environment = SubResource("Environment_room")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1093468506]
+transform = Transform3D(0.8660254, -0.3830222, 0.3213938, 0, 0.6427876, 0.7660444, -0.5, -0.6634139, 0.5566704, 0, 3, 0)
+light_color = Color(1, 0.956863, 0.839216, 1)
 shadow_enabled = true
+shadow_blur = 0.1
+directional_shadow_max_distance = 60.0
 
-[node name="BasicArena" parent="." unique_id=1653386484 instance=ExtResource("1_wxc13")]
+[node name="ScenarioRoom" parent="." unique_id=903538447 instance=ExtResource("1_arena")]
 
-[node name="wall-low15" parent="BasicArena/Floor" parent_id_path=PackedInt32Array(1653386484, 1137286337) index="95" unique_id=1623251230]
+[node name="SetupRoom" parent="." unique_id=1261651804 instance=ExtResource("1_arena")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Void" parent="." unique_id=32554326 instance=ExtResource("1_arena")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.05, 0, -10.23)
+
+[node name="wall-low" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="81" unique_id=1127050098]
 visible = false
 
-[node name="wall-low16" parent="BasicArena/Floor" parent_id_path=PackedInt32Array(1653386484, 1137286337) index="96" unique_id=476500463]
+[node name="wall-low2" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="82" unique_id=1503868834]
 visible = false
 
-[node name="wall-low19" parent="BasicArena/Floor" parent_id_path=PackedInt32Array(1653386484, 1137286337) index="99" unique_id=1973968617]
+[node name="wall-low3" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="83" unique_id=1895524687]
 visible = false
 
-[node name="BasicArena2" parent="." unique_id=1320992494 instance=ExtResource("1_wxc13")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
-
-[node name="wall-low22" parent="BasicArena2/Floor" parent_id_path=PackedInt32Array(1320992494, 1137286337) index="102" unique_id=1234609379]
+[node name="wall-low4" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="84" unique_id=447524776]
 visible = false
 
-[node name="wall-low23" parent="BasicArena2/Floor" parent_id_path=PackedInt32Array(1320992494, 1137286337) index="103" unique_id=482601794]
+[node name="wall-low5" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="85" unique_id=254427295]
 visible = false
 
-[node name="wall-low26" parent="BasicArena2/Floor" parent_id_path=PackedInt32Array(1320992494, 1137286337) index="106" unique_id=117983098]
+[node name="wall-low6" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="86" unique_id=688439706]
 visible = false
 
-[node name="SamplesEnvironment" parent="BasicArena2" index="1" unique_id=789525707]
-process_mode = 4
+[node name="wall-low7" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="87" unique_id=1620029450]
+visible = false
 
-[node name="PlayerCharacter" parent="." unique_id=914088189 instance=ExtResource("2_06nmh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.017292, 0, 2.2504878)
+[node name="wall-low8" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="88" unique_id=721846766]
+visible = false
+
+[node name="wall-low9" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="89" unique_id=535394718]
+visible = false
+
+[node name="wall-low10" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="90" unique_id=853857730]
+visible = false
+
+[node name="wall-low11" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="91" unique_id=407796549]
+visible = false
+
+[node name="wall-low12" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="92" unique_id=18932560]
+visible = false
+
+[node name="wall-low13" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="93" unique_id=187499536]
+visible = false
+
+[node name="wall-low14" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="94" unique_id=999219677]
+visible = false
+
+[node name="wall-low15" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="95" unique_id=1623251230]
+visible = false
+
+[node name="wall-low16" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="96" unique_id=476500463]
+visible = false
+
+[node name="wall-low17" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="97" unique_id=1613269461]
+visible = false
+
+[node name="wall-low18" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="98" unique_id=1570909421]
+visible = false
+
+[node name="wall-low19" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="99" unique_id=1973968617]
+visible = false
+
+[node name="wall-low20" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="100" unique_id=1129037232]
+visible = false
+
+[node name="wall-low21" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="101" unique_id=828748830]
+visible = false
+
+[node name="wall-low22" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="102" unique_id=1234609379]
+visible = false
+
+[node name="wall-low23" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="103" unique_id=482601794]
+visible = false
+
+[node name="wall-low24" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="104" unique_id=517993962]
+visible = false
+
+[node name="wall-low25" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="105" unique_id=1764797509]
+visible = false
+
+[node name="wall-low26" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="106" unique_id=117983098]
+visible = false
+
+[node name="wall-low27" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="107" unique_id=920768264]
+visible = false
+
+[node name="wall-low28" parent="Void/Floor" parent_id_path=PackedInt32Array(32554326, 1137286337) index="108" unique_id=579777773]
+visible = false
+
+[node name="Bridge" type="Node3D" parent="." unique_id=1297298092]
+
+[node name="floor5" parent="Bridge" unique_id=1662833642 instance=ExtResource("8_floorsq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="floor6" parent="Bridge" unique_id=365611939 instance=ExtResource("8_floorsq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="floor7" parent="Bridge" unique_id=2134978425 instance=ExtResource("8_floorsq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+
+[node name="wallR5" parent="Bridge" unique_id=239165906 instance=ExtResource("9_walllow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 5)
+
+[node name="wallR6" parent="Bridge" unique_id=852205815 instance=ExtResource("9_walllow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 6)
+
+[node name="wallR7" parent="Bridge" unique_id=1825552579 instance=ExtResource("9_walllow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 7)
+
+[node name="wallL5" parent="Bridge" unique_id=456067221 instance=ExtResource("9_walllow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 5)
+
+[node name="wallL6" parent="Bridge" unique_id=1312300547 instance=ExtResource("9_walllow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 6)
+
+[node name="wallL7" parent="Bridge" unique_id=722773744 instance=ExtResource("9_walllow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 7)
+
+[node name="Player" parent="." unique_id=1211929987 instance=ExtResource("2_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.47)
 is_player_controlled = true
 
-[node name="CameraRig" type="Node3D" parent="." unique_id=1694747818 node_paths=PackedStringArray("target", "camera")]
-script = ExtResource("3_06nmh")
-target = NodePath("../PlayerCharacter")
+[node name="CameraRig" type="Node3D" parent="." unique_id=1907950494 node_paths=PackedStringArray("target", "camera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.76, 17.25)
+script = ExtResource("5_cam")
+target = NodePath("../Player")
 camera = NodePath("Camera3D")
 
-[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=1022319503]
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=582524168]
 fov = 60.0
 near = 0.3
 far = 1000.0
 
-[node name="Scenario Pillar" parent="." unique_id=902649472 instance=ExtResource("4_udfqi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
+[node name="PillarPrimary" parent="." unique_id=1975022556 instance=ExtResource("7_pillar")]
+transform = Transform3D(-1, 0, 1.224647e-16, 0, 1, 0, -1.224647e-16, 0, -1, -3.81, 0, 14.568)
 
-[node name="Scenario Pillar2" parent="." unique_id=270306382 instance=ExtResource("4_udfqi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+[node name="ValueUpdater" type="Node" parent="PillarPrimary" unique_id=1791811485 node_paths=PackedStringArray("label", "storage")]
+script = ExtResource("15_vu")
+label = NodePath("../Label")
+storage = NodePath("../../TheRoomVariableStorage")
 
-[node name="Scenario Pillar3" parent="." unique_id=469230418 instance=ExtResource("4_udfqi")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4, 0, 2)
+[node name="SignPlate" type="MeshInstance3D" parent="PillarPrimary" unique_id=411314427]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -0.1085, 0.812, -0.003)
+mesh = SubResource("Quad_sign")
 
-[node name="Scenario Pillar4" parent="." unique_id=345053938 instance=ExtResource("4_udfqi")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4, 0, -2)
+[node name="Label" type="Label3D" parent="PillarPrimary" unique_id=2030844108]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -0.109, 0.812, -0.003)
+pixel_size = 0.0011
+double_sided = false
+modulate = Color(0, 0, 0, 1)
+text = "The Primary role is played by Alice"
+font_size = 72
+autowrap_mode = 3
+width = 1000.0
 
-[node name="Corridor" type="Node3D" parent="." unique_id=1801656260]
+[node name="ButtonBump" type="Area3D" parent="PillarPrimary" unique_id=891266077 node_paths=PackedStringArray("updater")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.841, 0.083, -0.029)
+script = ExtResource("16_bump")
+updater = NodePath("../ValueUpdater")
 
-[node name="wall-corner-low5" parent="Corridor" unique_id=1299261604 instance=ExtResource("5_8rsac")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 0, -6.2)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PillarPrimary/ButtonBump" unique_id=1850283955]
+shape = SubResource("BoxShape3D_button")
 
-[node name="wall-corner-low6" parent="Corridor" unique_id=848453900 instance=ExtResource("5_8rsac")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99999994, 0, -6.2)
+[node name="PillarSecondary" parent="." unique_id=450903862 instance=ExtResource("7_pillar")]
+transform = Transform3D(-1, 0, 1.224647e-16, 0, 1, 0, -1.224647e-16, 0, -1, -3.81, 0, 11.11)
 
-[node name="wall-corner-low7" parent="Corridor" unique_id=1009183913 instance=ExtResource("5_8rsac")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1, 0, -4.7999997)
+[node name="ValueUpdater" type="Node" parent="PillarSecondary" unique_id=1825059282 node_paths=PackedStringArray("label", "storage")]
+script = ExtResource("15_vu")
+observation = 1
+label = NodePath("../Label")
+storage = NodePath("../../TheRoomVariableStorage")
 
-[node name="wall-corner-low8" parent="Corridor" unique_id=568030005 instance=ExtResource("5_8rsac")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1, 0, -4.7999997)
+[node name="SignPlate" type="MeshInstance3D" parent="PillarSecondary" unique_id=6728997]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -0.1085, 0.812, -0.003)
+mesh = SubResource("Quad_sign")
 
-[node name="wall-low" parent="Corridor" unique_id=1318134659 instance=ExtResource("6_dh5og")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, -5.5)
+[node name="Label" type="Label3D" parent="PillarSecondary" unique_id=2061096628]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -0.109, 0.812, -0.003)
+pixel_size = 0.0011
+double_sided = false
+modulate = Color(0, 0, 0, 1)
+text = "The Secondary role is played by Barry"
+font_size = 72
+autowrap_mode = 3
+width = 1000.0
 
-[node name="wall-low2" parent="Corridor" unique_id=122498718 instance=ExtResource("6_dh5og")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, -5.5)
+[node name="ButtonBump" type="Area3D" parent="PillarSecondary" unique_id=1965794225 node_paths=PackedStringArray("updater")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.841, 0.083, -0.029)
+script = ExtResource("16_bump")
+updater = NodePath("../ValueUpdater")
 
-[node name="floor-small-square" parent="." unique_id=355321143 instance=ExtResource("7_wki07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PillarSecondary/ButtonBump" unique_id=673578547]
+shape = SubResource("BoxShape3D_button")
 
-[node name="floor-small-square2" parent="." unique_id=1366266238 instance=ExtResource("7_wki07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+[node name="PillarRoom" parent="." unique_id=807506857 instance=ExtResource("7_pillar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.911, 0, 14.568)
 
-[node name="Alice" parent="." unique_id=1680985820 instance=ExtResource("8_wki07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 0, -8.3)
+[node name="ValueUpdater" type="Node" parent="PillarRoom" unique_id=1941704075 node_paths=PackedStringArray("label", "storage")]
+script = ExtResource("15_vu")
+observation = 2
+label = NodePath("../Label")
+storage = NodePath("../../TheRoomVariableStorage")
 
-[node name="Barry" parent="." unique_id=1802920943 instance=ExtResource("8_wki07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7, 0, -8.3)
+[node name="SignPlate" type="MeshInstance3D" parent="PillarRoom" unique_id=88685496]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -0.1085, 0.812, -0.003)
+mesh = SubResource("Quad_sign")
 
-[node name="Capsley" parent="." unique_id=1819821593 instance=ExtResource("9_li7ae")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0, -3.5)
+[node name="Label" type="Label3D" parent="PillarRoom" unique_id=1582801815]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -0.109, 0.812, -0.003)
+pixel_size = 0.0011
+double_sided = false
+modulate = Color(0, 0, 0, 1)
+text = "It is set inside a Office"
+font_size = 72
+autowrap_mode = 3
+width = 1000.0
 
-[editable path="BasicArena"]
-[editable path="BasicArena2"]
+[node name="ButtonBump" type="Area3D" parent="PillarRoom" unique_id=717660372 node_paths=PackedStringArray("updater")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.841, 0.083, -0.029)
+script = ExtResource("16_bump")
+updater = NodePath("../ValueUpdater")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PillarRoom/ButtonBump" unique_id=1430658701]
+shape = SubResource("BoxShape3D_button")
+
+[node name="PillarScenario" parent="." unique_id=651096639 instance=ExtResource("7_pillar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.911, 0, 11.11)
+
+[node name="ValueUpdater" type="Node" parent="PillarScenario" unique_id=531874079 node_paths=PackedStringArray("label", "storage")]
+script = ExtResource("15_vu")
+observation = 3
+label = NodePath("../Label")
+storage = NodePath("../../TheRoomVariableStorage")
+
+[node name="SignPlate" type="MeshInstance3D" parent="PillarScenario" unique_id=1881019074]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -0.1085, 0.812, -0.003)
+mesh = SubResource("Quad_sign")
+
+[node name="Label" type="Label3D" parent="PillarScenario" unique_id=841271636]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -0.109, 0.812, -0.003)
+pixel_size = 0.0011
+double_sided = false
+modulate = Color(0, 0, 0, 1)
+text = "It will be a Interrogation scene"
+font_size = 72
+autowrap_mode = 3
+width = 1000.0
+
+[node name="ButtonBump" type="Area3D" parent="PillarScenario" unique_id=1918421776 node_paths=PackedStringArray("updater")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.841, 0.083, -0.029)
+script = ExtResource("16_bump")
+updater = NodePath("../ValueUpdater")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PillarScenario/ButtonBump" unique_id=1102771719]
+shape = SubResource("BoxShape3D_button")
+
+[node name="Alice" parent="." unique_id=1429222963 instance=ExtResource("3_npc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.205, 0, -6.436)
+hold_position = true
+
+[node name="Appearance" type="Node" parent="Alice" unique_id=722501529]
+script = ExtResource("17_appear")
+base_color = Color(0.36078432, 0.22352941, 0.72156864, 1)
+fade_color = Color(0.6509804, 0.4627451, 0.90588236, 1)
+mode = 1
+
+[node name="DialogueInteractable" type="Node3D" parent="Alice" unique_id=1361263905 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("6_interact")
+node_name = "Alice"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="Barry" parent="." unique_id=1935194627 instance=ExtResource("3_npc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.41, 0, -6.48)
+hold_position = true
+
+[node name="Appearance" type="Node" parent="Barry" unique_id=22742026]
+script = ExtResource("17_appear")
+base_color = Color(1, 0.44705883, 0.26666668, 1)
+fade_color = Color(1, 0.6156863, 0.26666668, 1)
+mode = 1
+
+[node name="DialogueInteractable" type="Node3D" parent="Barry" unique_id=1934567257 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("6_interact")
+node_name = "Barry"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="George" parent="." unique_id=846958032 instance=ExtResource("3_npc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.41, 0, -7.811)
+hold_position = true
+
+[node name="Appearance" type="Node" parent="George" unique_id=671020990]
+script = ExtResource("17_appear")
+base_color = Color(0.8117647, 0.3254902, 0.30980393, 1)
+fade_color = Color(0.99607843, 0.42352942, 0.2509804, 1)
+mode = 1
+
+[node name="DialogueInteractable" type="Node3D" parent="George" unique_id=1783234845 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("6_interact")
+node_name = "George"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="Liz" parent="." unique_id=2142240118 instance=ExtResource("3_npc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.655, 0, -7.941)
+hold_position = true
+
+[node name="Appearance" type="Node" parent="Liz" unique_id=179309860]
+script = ExtResource("17_appear")
+base_color = Color(0.23718406, 0.5028942, 0.7735849, 1)
+fade_color = Color(0.62091047, 0.82037824, 1.0235848, 1)
+mode = 1
+
+[node name="DialogueInteractable" type="Node3D" parent="Liz" unique_id=2093249140 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("6_interact")
+node_name = "Liz"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="Explainer" parent="." unique_id=1540266929 instance=ExtResource("4_expl")]
+transform = Transform3D(0.9848078, 0, 0.1736482, 0, 1, 0, -0.1736482, 0, 0.9848078, 1.45, 0, 8.52)
+
+[node name="DialogueInteractable" type="Node3D" parent="Explainer" unique_id=1721031490 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("6_interact")
+node_name = "RoomSetup"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="Desk" type="Node3D" parent="." unique_id=680107130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.068, 0, -10.232)
+
+[node name="top" parent="Desk" unique_id=130024369 instance=ExtResource("22_cube")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 0.6, 0.444, 0.475, 0.244)
+
+[node name="leg1" parent="Desk" unique_id=2079605123 instance=ExtResource("23_cyl")]
+transform = Transform3D(0.1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0.8923, 0, -0.002799988)
+
+[node name="leg2" parent="Desk" unique_id=274155098 instance=ExtResource("23_cyl")]
+transform = Transform3D(0.1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0.894, 0, 0.4928)
+
+[node name="leg3" parent="Desk" unique_id=1839951388 instance=ExtResource("23_cyl")]
+transform = Transform3D(0.1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, -0.003999949, 0, 0.4920001)
+
+[node name="leg4" parent="Desk" unique_id=861055021 instance=ExtResource("23_cyl")]
+transform = Transform3D(0.1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Darts" type="Node3D" parent="." unique_id=1175437823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2, 0, -10)
+
+[node name="wall" parent="Darts" unique_id=571338034 instance=ExtResource("25_wall")]
+
+[node name="target" parent="Darts" unique_id=1320455871 instance=ExtResource("24_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1619999, 0.492, 0.04822722)
+
+[node name="Crucifix" type="Node3D" parent="." unique_id=856104338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.28, 0, -8.71)
+
+[node name="column" parent="Crucifix" unique_id=1104593693 instance=ExtResource("18_col")]
+
+[node name="arm1" parent="Crucifix" unique_id=1518449464 instance=ExtResource("19_collow")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.09336472, 0.682, -0.04055756)
+
+[node name="arm2" parent="Crucifix" unique_id=155963111 instance=ExtResource("19_collow")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.6016353, 0.682, -0.04055756)
+
+[node name="Mezzanine" type="Node3D" parent="." unique_id=195616093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4, 0, -12.9)
+
+[node name="stairs-small" parent="Mezzanine" unique_id=543129625 instance=ExtResource("21_stairs")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
+
+[node name="floor-thick" parent="Mezzanine" unique_id=1748252143 instance=ExtResource("20_floorthick")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.001, 0.811, 0.01000002)
+
+[node name="cup1" parent="." unique_id=1987837915 instance=ExtResource("26_cup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.3, 0.575, -9.9)
+
+[node name="cup2" parent="." unique_id=914265083 instance=ExtResource("26_cup")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 9.68, 0.575, -10.05)
+
+[node name="TheRoomVariableStorage" type="Node" parent="." unique_id=482230163]
+script = ExtResource("10_storage")
+
+[node name="YarnDialogueRunner" type="Node" parent="." unique_id=935149459 node_paths=PackedStringArray("presenters", "variable_storage")]
+script = ExtResource("11_runner")
+yarn_project = ExtResource("12_proj")
+presenters = [NodePath("../UILayer/LinePresenter"), NodePath("../UILayer/OptionsPresenter")]
+variable_storage = NodePath("../TheRoomVariableStorage")
+ysls_scan_path = "res://samples/advanced_saliency"
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1238751418]
+
+[node name="LinePresenter" parent="UILayer" unique_id=1325326939 instance=ExtResource("90_coreline")]
+
+[node name="LinkOpener" type="Node" parent="UILayer/LinePresenter" unique_id=1838012937]
+script = ExtResource("92_link")
+
+[node name="OptionsPresenter" parent="UILayer" unique_id=1431030447 instance=ExtResource("91_coreopts")]
+
+[node name="LevelGod" type="Node3D" parent="." unique_id=691455038 node_paths=PackedStringArray("room_anchor", "variable_storage", "dialogue_runner")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68174, 0.6539953, -1.206384)
+script = ExtResource("14_god")
+layouts = Dictionary[String, ExtResource("28_a22ux")]({
+"Church": ExtResource("29_lc"),
+"Mansion": ExtResource("30_lm"),
+"Office": ExtResource("27_lo"),
+"Pub": ExtResource("28_lp")
+})
+room_anchor = NodePath("../ScenarioRoom")
+variable_storage = NodePath("../TheRoomVariableStorage")
+dialogue_runner = NodePath("../YarnDialogueRunner")
+
+[editable path="Void"]

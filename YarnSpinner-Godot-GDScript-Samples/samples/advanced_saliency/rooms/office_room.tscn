@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" uid="uid://xgxuqwqf7yoq" path="res://samples/advanced_saliency/rooms/Office.fbx" id="1_fbx"]
+
+[node name="Office" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_fbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.259, 0.58308214, 0.704)

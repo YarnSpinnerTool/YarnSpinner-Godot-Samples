@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="RoomLayout" format=3 uid="uid://dpfglqsh4x5wd"]
+
+[ext_resource type="Script" uid="uid://dg3i08gxs5oer" path="res://samples/advanced_saliency/scripts/room_layout.gd" id="1_layout"]
+[ext_resource type="Script" uid="uid://cumuixnarkmsl" path="res://samples/advanced_saliency/scripts/character_spawn.gd" id="2_spawn"]
+[ext_resource type="PackedScene" uid="uid://bms04n2utyl72" path="res://samples/advanced_saliency/rooms/Church.fbx" id="3_env"]
+
+[sub_resource type="Resource" id="Resource_primary"]
+script = ExtResource("2_spawn")
+position = Vector3(0.8074927, 0.5, 0.5240355)
+rotation_degrees = -16.56
+metadata/_custom_type_script = "uid://cumuixnarkmsl"
+
+[sub_resource type="Resource" id="Resource_secondary"]
+script = ExtResource("2_spawn")
+position = Vector3(-2.2, 0, 1.9)
+rotation_degrees = 153.73
+metadata/_custom_type_script = "uid://cumuixnarkmsl"
+
+[resource]
+script = ExtResource("1_layout")
+primary = SubResource("Resource_primary")
+secondary = SubResource("Resource_secondary")
+environment_scene = ExtResource("3_env")
+metadata/_custom_type_script = "uid://dg3i08gxs5oer"
