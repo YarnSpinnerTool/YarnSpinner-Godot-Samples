@@ -31,7 +31,7 @@ enum TimeoutMode { NONE, HIDDEN_FALLBACK, VISIBLE_DEFAULT, LAST_HIGHLIGHTED }
 @export var timeout_bar: TimeoutBar
 
 var _options: Array[YarnOption] = []
-var _buttons: Array[Button] = []
+var _buttons: Array[Control] = []
 var _last_highlighted_index: int = -1
 var _selected_index: int = -1
 var _is_showing := false
@@ -104,8 +104,9 @@ func run_options(options: Array[YarnOption], _token: YarnCancellationToken = nul
 
 	# Focus the first selectable button so "last highlighted" has a sensible
 	# starting value and keyboard users can act immediately.
-	for button in _buttons:
-		if not button.disabled:
+	for item in _buttons:
+		var button := (item as YarnOptionItem).button if item is YarnOptionItem else item as Button
+		if button != null and not button.disabled:
 			button.grab_focus()
 			break
 
