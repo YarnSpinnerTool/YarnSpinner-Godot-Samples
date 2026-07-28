@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://db6adsx7323jr" path="res://samples/shared/scenes/npc_character.tscn" id="4_kopbj"]
 [ext_resource type="PackedScene" uid="uid://le6c0y7pc8gt" path="res://samples/shared/scenes/explanation_character.tscn" id="5_bfau5"]
 [ext_resource type="Script" uid="uid://flra500ihbix" path="res://addons/yarn_spinner/dialogue_runner.gd" id="6_runner"]
-[ext_resource type="Script" uid="uid://cged8u182768u" path="res://addons/yarn_spinner/ui/line_presenter.gd" id="7_line"]
-[ext_resource type="Script" uid="uid://cogqy630mjgv7" path="res://addons/yarn_spinner/ui/options_presenter.gd" id="8_options"]
 [ext_resource type="Resource" uid="uid://dil4kgv2xt5io" path="res://samples/background-chatter/dialogue/BackgroundChatter.yarnproject" id="9_proj"]
 [ext_resource type="Script" uid="uid://ci0aavprdl4gw" path="res://samples/shared/scripts/simple_follow_camera.gd" id="10_cam"]
 [ext_resource type="Script" uid="uid://bs5qnekrnovvy" path="res://samples/shared/scripts/dialogue_interactable.gd" id="11_interact"]
@@ -18,9 +16,7 @@
 [ext_resource type="Script" uid="uid://bohku7vhue33p" path="res://samples/background-chatter/scripts/chatter_group_manager.gd" id="16_manager"]
 [ext_resource type="Script" uid="uid://btuq33ov3elga" path="res://samples/shared/scripts/simple_path.gd" id="17_path"]
 [ext_resource type="Script" uid="uid://cawk3ntfrhqtt" path="res://samples/shared/scripts/character_appearance.gd" id="18_appear"]
-[ext_resource type="Texture2D" uid="uid://c4a4wvi35pucw" path="res://addons/yarn_spinner/ui/textures/continue_arrow.png" id="20_arrow"]
 [ext_resource type="Shape3D" path="res://samples/background-chatter/env_collision.res" id="21_envcol"]
-[ext_resource type="PackedScene" uid="uid://dy8bwpmrnwiwb" path="res://addons/yarn_spinner/ui/option_button.tscn" id="21_optbtn"]
 [ext_resource type="Script" path="res://samples/background-chatter/scripts/attach_to_nodes.gd" id="31_attach"]
 [ext_resource type="PackedScene" path="res://samples/shared/ui/line_presenter.tscn" id="90_coreline"]
 [ext_resource type="PackedScene" path="res://samples/shared/ui/options_presenter.tscn" id="91_coreopts"]
@@ -30,17 +26,6 @@ size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_invisible_wall"]
 size = Vector3(1, 1, 4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
-content_margin_left = 24.0
-content_margin_top = 14.4
-content_margin_right = 24.0
-content_margin_bottom = 19.2
-bg_color = Color(0, 0, 0, 0.8352941)
-
-[sub_resource type="FontVariation" id="FontVariation_bold_italic"]
-variation_embolden = 0.6
-variation_transform = Transform2D(1, 0, 0.2, 1, 0, 0)
 
 [node name="BackgroundChatter" type="Node3D" unique_id=1590418657]
 
@@ -661,12 +646,12 @@ script = ExtResource("14_view")
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1276127419]
 
-[node name="LinePresenter" parent="UILayer" instance=ExtResource("90_coreline")]
+[node name="LinePresenter" parent="UILayer" unique_id=1872063650 instance=ExtResource("90_coreline")]
 
-[node name="LinkOpener" type="Node" parent="UILayer/LinePresenter"]
+[node name="LinkOpener" type="Node" parent="UILayer/LinePresenter" unique_id=242298758]
 script = ExtResource("12_link")
 
-[node name="OptionsPresenter" parent="UILayer" instance=ExtResource("91_coreopts")]
+[node name="OptionsPresenter" parent="UILayer" unique_id=1968587870 instance=ExtResource("91_coreopts")]
 
 [node name="Hint" type="Label" parent="UILayer" unique_id=1116694513]
 anchors_preset = 5
