@@ -35,10 +35,13 @@ func _ready() -> void:
 	call_deferred("_register_commands")
 
 
+var _commands_registered := false
+
+
 func _register_commands() -> void:
-	if dialogue_runner == null:
+	if dialogue_runner == null or _commands_registered:
 		return
-	var library := dialogue_runner.get_library()
+	_commands_registered = true
 	var handlers := {
 		"preload_command_assets": _preload_command_assets,
 		"clear_preload": _clear_preload,
@@ -47,8 +50,7 @@ func _register_commands() -> void:
 		"character_avatar": _character_avatar,
 	}
 	for command_name: String in handlers:
-		if not library.has_command(command_name):
-			dialogue_runner.add_command(command_name, handlers[command_name])
+		dialogue_runner.add_command(command_name, handlers[command_name])
 
 
 # this command does the actual "preloading". it reaches into the compiled

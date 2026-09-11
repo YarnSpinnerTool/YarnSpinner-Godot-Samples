@@ -185,6 +185,6 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
 theme_override_font_sizes/font_size = 14
-text = "Press 1-4 to switch languages during dialogue
-1: English  2: German  3: Chinese  4: Portuguese"
+text = "Press 1-5 to switch languages during dialogue
+1: English  2: German  3: Chinese  4: Portuguese  5: Spanish (text only)"
 horizontal_alignment = 1

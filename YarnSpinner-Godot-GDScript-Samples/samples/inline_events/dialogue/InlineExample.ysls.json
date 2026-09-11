@@ -1,14 +1,57 @@
 {
   "commands": [
     {
-      "async": false,
-      "definitionName": "move",
+      "async": true,
+      "definitionName": "_cmd_wait",
+      "documentation": "Pauses the dialogue for the given number of seconds.",
+      "fileName": "dialogue_runner.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 37,
+          "line": 1701
+        },
+        "start": {
+          "character": 0,
+          "line": 1698
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "How long to wait, in seconds.",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "number"
+        }
+      ],
+      "yarnName": "wait"
+    },
+    {
+      "async": true,
+      "definitionName": "_command_move",
+      "documentation": "<<move marker>>: walks the player to the named scene marker.",
       "fileName": "move_event.gd",
       "language": "gdscript",
-      "parameters": [],
+      "location": {
+        "end": {
+          "character": 68,
+          "line": 101
+        },
+        "start": {
+          "character": 0,
+          "line": 96
+        }
+      },
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "marker_name",
+          "type": "string"
+        }
+      ],
       "yarnName": "move"
     }
   ],
   "functions": [],
-  "version": 1
+  "version": 2
 }

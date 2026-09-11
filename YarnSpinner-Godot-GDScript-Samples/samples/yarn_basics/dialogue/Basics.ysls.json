@@ -1,14 +1,58 @@
 {
   "commands": [
     {
+      "async": true,
+      "definitionName": "_cmd_wait",
+      "documentation": "Pauses the dialogue for the given number of seconds.",
+      "fileName": "dialogue_runner.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 37,
+          "line": 1701
+        },
+        "start": {
+          "character": 0,
+          "line": 1698
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "How long to wait, in seconds.",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "number"
+        }
+      ],
+      "yarnName": "wait"
+    },
+    {
       "async": false,
-      "definitionName": "shake",
+      "definitionName": "_shake_camera",
+      "documentation": "Custom command: <<shake>>\nShakes the entire UI layer with a flash effect",
       "fileName": "yarn_basics_sample.gd",
       "language": "gdscript",
-      "parameters": [],
+      "location": {
+        "end": {
+          "character": 69,
+          "line": 68
+        },
+        "start": {
+          "character": 0,
+          "line": 48
+        }
+      },
+      "parameters": [
+        {
+          "defaultValue": "1.0",
+          "isParamsArray": false,
+          "name": "_intensity",
+          "type": "string"
+        }
+      ],
       "yarnName": "shake"
     }
   ],
   "functions": [],
-  "version": 1
+  "version": 2
 }

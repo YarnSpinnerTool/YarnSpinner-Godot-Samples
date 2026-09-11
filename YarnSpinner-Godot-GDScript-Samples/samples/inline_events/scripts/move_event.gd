@@ -30,19 +30,23 @@ func _ready() -> void:
 	call_deferred("_register_command")
 
 
+var _command_registered := false
+
+
 func _register_command() -> void:
-	if dialogue_runner != null and not dialogue_runner.get_library().has_command("move"):
+	if dialogue_runner != null and not _command_registered:
+		_command_registered = true
 		dialogue_runner.add_command("move", _command_move)
 
 
 func on_prepare_for_line(line: Variant, _text_control: Control = null) -> void:
 	_movements = {}
 
-	var yarn_line := line as YarnLine
-	if yarn_line == null:
+	var markup := line as YarnMarkupParseResult
+	if markup == null:
 		return
 
-	for attribute in yarn_line.markup_attributes:
+	for attribute in markup.attributes:
 		if attribute.name != "move":
 			continue
 		var marker_name := attribute.try_get_string_property("name")
@@ -56,19 +60,34 @@ func on_prepare_for_line(line: Variant, _text_control: Control = null) -> void:
 func on_character_will_appear(
 	character_index: int,
 	_line: Variant,
-	_cancellation_token: Variant = null
+	cancellation_token: Variant = null
 ) -> Signal:
 	if player_character == null or not _movements.has(character_index):
 		return Signal()
+	var token := cancellation_token as YarnCancellationToken
+	if token != null and token.is_hurry_up_requested:
+		return Signal()
+	var target_position: Vector3 = _movements[character_index]
+	var offset := player_character.global_position - target_position
+	if Vector2(offset.x, offset.z).length() <= 0.05:
+		return Signal()
 	# Drive the (coroutine) walk separately and pause the typewriter on a real
 	# signal, as returning a coroutine's own await wouldn't surface as a Signal.
-	_run_walk(_movements[character_index])
+	_run_walk(target_position, token)
 	return _walk_finished
 
 
-func _run_walk(target_position: Vector3) -> void:
+func _run_walk(target_position: Vector3, token: YarnCancellationToken) -> void:
+	var release := func() -> void:
+		_walk_finished.emit()
+	if token != null:
+		token.hurry_up_requested.connect(release, CONNECT_ONE_SHOT)
 	await player_character.move_to(target_position)
-	_walk_finished.emit()
+	if token == null:
+		_walk_finished.emit.call_deferred()
+	elif token.hurry_up_requested.is_connected(release):
+		token.hurry_up_requested.disconnect(release)
+		_walk_finished.emit.call_deferred()
 
 
 func on_line_display_complete() -> void:

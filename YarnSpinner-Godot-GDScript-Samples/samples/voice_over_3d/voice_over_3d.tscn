@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://dpqvn6oabxilc" path="res://samples/voice_over/scripts/character_color_presenter.gd" id="8_ndk5a"]
 [ext_resource type="Script" uid="uid://d23fbixt5yo3d" path="res://addons/yarn_spinner/ui/voice_over_presenter.gd" id="9_34unk"]
 [ext_resource type="Script" uid="uid://djgg62tgdx0hi" path="res://samples/voice_over_3d/scripts/voice_over_3d_sample.gd" id="10_root"]
-[ext_resource type="PackedScene" path="res://samples/voice_over/scenes/subtitle_presenter.tscn" id="11_subs"]
 [ext_resource type="Script" uid="uid://bq7kiqf0fo7gv" path="res://samples/shared/scripts/lipsync/lip_sync_presenter.gd" id="21_lip"]
 [ext_resource type="Script" uid="uid://q487nnd1emgf" path="res://samples/voice_over/scripts/fade_effect.gd" id="22_fade"]
 [ext_resource type="Script" uid="uid://vrkwjw0l0e7e" path="res://samples/shared/scripts/debug_look_at_mouse.gd" id="24_dbglook"]
@@ -89,8 +88,6 @@ fade_out_time_on_interrupt = 0.05
 [node name="LipSyncPresenter" type="Node" parent="YarnDialogueRunner" unique_id=509392529 node_paths=PackedStringArray("voice_presenter")]
 script = ExtResource("21_lip")
 voice_presenter = NodePath("../VoicePresenter")
-
-[node name="SubtitlePresenter" parent="YarnDialogueRunner" unique_id=1924309090 instance=ExtResource("11_subs")]
 
 [node name="FadeLayer" type="CanvasLayer" parent="." unique_id=251828363]
 

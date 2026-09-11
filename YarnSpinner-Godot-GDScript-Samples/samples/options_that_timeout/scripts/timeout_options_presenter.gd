@@ -76,7 +76,9 @@ func _arm_last_highlighted() -> void:
 	_auto_opt_armed = true
 
 
-func run_options(options: Array[YarnOption], _token: YarnCancellationToken = null) -> int:
+func run_options(options: Array[YarnOption], token: YarnCancellationToken = null) -> int:
+	if token != null and token.is_next_content_requested:
+		return -1
 	_options = options
 	_last_highlighted_index = -1
 	_selected_index = -1
@@ -120,8 +122,17 @@ func run_options(options: Array[YarnOption], _token: YarnCancellationToken = nul
 	# then already emitted (and recorded) the choice, so don't await an
 	# emission that has been and gone, same as the built-in presenter.
 	var index: int = _selected_index
-	if index < 0:
+	if index < 0 and token != null and token.is_next_content_requested:
+		index = -1
+	elif index < 0:
+		var release := func() -> void:
+			if _is_showing:
+				_selection_made.emit(-1)
+		if token != null:
+			token.next_content_requested.connect(release, CONNECT_ONE_SHOT)
 		index = await _selection_made
+		if token != null and token.next_content_requested.is_connected(release):
+			token.next_content_requested.disconnect(release)
 
 	_is_showing = false
 	_auto_opt_armed = false

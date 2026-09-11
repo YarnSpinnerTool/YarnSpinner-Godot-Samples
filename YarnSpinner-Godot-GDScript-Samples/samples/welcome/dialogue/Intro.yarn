@@ -18,7 +18,7 @@ SlideImage: code-1
 
 Capsley: In case you haven't seen it, this is what [b]Yarn[/b] looks like
 Capsley: For a full syntax guide please see the [link="docs.yarnspinner.dev/write-yarn-scripts/scripting-fundamentals" external=true]website[/link].
-Capsely: The Yarn file for this sample is [link="b7d73fefd4204491eb9898889427a0f6"]here[/link].
+Capsely: The Yarn file for this sample is [link="Intro.yarn"]here[/link].
 
 <<clear_slide>>
 <<start_slide>>

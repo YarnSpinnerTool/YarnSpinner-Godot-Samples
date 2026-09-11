@@ -238,7 +238,7 @@ Guide: You've visited this node {$visit_count} time(s).
 // --- FUNCTIONS IN EXPRESSIONS ---
 // You can use functions anywhere you'd use a value
 Guide: Functions work in math too:
-Guide: Your score is {10 * 5}!
+Guide: Your score is {floor(10.7) * 5}!
 
 <<jump Menu>>
 ===

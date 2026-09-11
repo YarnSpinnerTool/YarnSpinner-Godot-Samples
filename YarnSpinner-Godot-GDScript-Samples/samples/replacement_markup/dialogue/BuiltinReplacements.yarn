@@ -12,8 +12,8 @@ Anika: you can even define [custom]custom[/custom] markers for [fancy]fancy[/fan
 Anika: You can see these in the demo tags markup palette inside the sample.
 
 Player: Is that all?
-Anika: nope, we also have support for TMP styles.
-Anika: If you have a defined [style=h2]style[/style] in a stylesheet we can pass it through to TMP.
+Anika: nope, we also have support for styles.
+Anika: If you have a defined [style=h2]style[/style] in a style marker processor we can pass it through to the text label.
 Player: that is cool.
 Anika: yeah I think so.
 ===

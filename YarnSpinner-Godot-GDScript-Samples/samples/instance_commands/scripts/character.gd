@@ -2,7 +2,6 @@
 # Commands defined here are called directly on the character node.
 # e.g., <<move mae center>> calls mae._yarn_command_move("center")
 
-class_name ExampleCharacter
 extends Node2D
 
 ## Movement speed in pixels per second
@@ -39,7 +38,7 @@ func _draw() -> void:
 # YARN INSTANCE COMMANDS
 # =============================================================================
 # These methods follow the _yarn_command_* naming convention.
-# When registered with register_instance_command(), they can be called from
+# The dialogue runner registers them automatically, so they can be called from
 # Yarn with <<command_name target args>> syntax.
 
 ## Moves this character to a destination node.
@@ -87,8 +86,8 @@ func _yarn_command_set_color(color_name: String) -> void:
 
 
 ## Makes this character face another character or waypoint.
-## Usage in Yarn: <<face mae bob>>
-func _yarn_command_face(target_name: String) -> void:
+## Usage in Yarn: <<look_at mae bob>>
+func _yarn_command_look_at(target_name: String) -> void:
 	var target := _find_destination(target_name)
 	if target == null:
 		push_warning("Character '%s': can't face '%s' - not found" % [name, target_name])

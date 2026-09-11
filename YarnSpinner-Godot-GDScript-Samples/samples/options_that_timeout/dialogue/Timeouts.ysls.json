@@ -1,14 +1,51 @@
 {
   "commands": [
     {
+      "async": true,
+      "definitionName": "_cmd_wait",
+      "documentation": "Pauses the dialogue for the given number of seconds.",
+      "fileName": "dialogue_runner.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 37,
+          "line": 1701
+        },
+        "start": {
+          "character": 0,
+          "line": 1698
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "How long to wait, in seconds.",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "number"
+        }
+      ],
+      "yarnName": "wait"
+    },
+    {
       "async": false,
-      "definitionName": "auto_opt",
+      "definitionName": "_arm_last_highlighted",
+      "documentation": "Yarn command [code]<<auto_opt>>[/code]: arm last-highlighted mode for the\nnext option group. Registered on the runner in [method on_dialogue_started].",
       "fileName": "timeout_options_presenter.gd",
       "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 23,
+          "line": 75
+        },
+        "start": {
+          "character": 0,
+          "line": 74
+        }
+      },
       "parameters": [],
       "yarnName": "auto_opt"
     }
   ],
   "functions": [],
-  "version": 1
+  "version": 2
 }

@@ -83,21 +83,21 @@ func _ready() -> void:
 		return
 
 	if dialogue_runner != null:
-		dialogue_runner.saliency_strategy = _map_saliency()
+		dialogue_runner.set_content_saliency_strategy(_map_saliency())
 
 
-func _map_saliency() -> YarnDialogueRunner.SaliencyStrategyType:
+func _map_saliency() -> YarnSaliencyStrategy:
 	match saliency:
 		Saliency.RANDOM:
-			return YarnDialogueRunner.SaliencyStrategyType.RANDOM
+			return YarnSaliencyStrategy.YarnRandomSaliencyStrategy.new()
 		Saliency.FIRST:
-			return YarnDialogueRunner.SaliencyStrategyType.FIRST
+			return YarnSaliencyStrategy.YarnFirstSaliencyStrategy.new()
 		Saliency.BEST:
-			return YarnDialogueRunner.SaliencyStrategyType.BEST
+			return YarnSaliencyStrategy.YarnBestSaliencyStrategy.new()
 		Saliency.BEST_LEAST_RECENT:
-			return YarnDialogueRunner.SaliencyStrategyType.BEST_LEAST_RECENT
+			return YarnSaliencyStrategy.YarnBestLeastRecentlyViewedSaliencyStrategy.new()
 		_:
-			return YarnDialogueRunner.SaliencyStrategyType.RANDOM_BEST_LEAST_RECENT
+			return YarnSaliencyStrategy.YarnRandomBestLeastRecentlyViewedSaliencyStrategy.new()
 
 
 func is_running() -> bool:

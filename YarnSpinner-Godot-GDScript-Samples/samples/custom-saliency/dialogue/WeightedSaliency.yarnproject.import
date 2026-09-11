@@ -14,4 +14,4 @@ dest_files=["res://.godot/imported/WeightedSaliency.yarnproject-52f9a6ada6fd73e3
 
 ysc_path="ysc"
 generate_ysls=true
-ysls_scan_path="res://"
+ysls_scan_path=""

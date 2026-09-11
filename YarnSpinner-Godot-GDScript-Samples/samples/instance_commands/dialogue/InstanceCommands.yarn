@@ -7,7 +7,7 @@ Mae: Here I am at the center.
 <<bounce bob>>
 Bob: Hey Mae! I just bounced!
 
-<<face mae bob>>
+<<look_at mae bob>>
 Mae: Let me turn to face you.
 
 What should we do next?

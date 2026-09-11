@@ -1,5 +1,32 @@
 {
-  "commands": [],
+  "commands": [
+    {
+      "async": true,
+      "definitionName": "_cmd_wait",
+      "documentation": "Pauses the dialogue for the given number of seconds.",
+      "fileName": "dialogue_runner.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 37,
+          "line": 1701
+        },
+        "start": {
+          "character": 0,
+          "line": 1698
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "How long to wait, in seconds.",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "number"
+        }
+      ],
+      "yarnName": "wait"
+    }
+  ],
   "functions": [],
-  "version": 1
+  "version": 2
 }

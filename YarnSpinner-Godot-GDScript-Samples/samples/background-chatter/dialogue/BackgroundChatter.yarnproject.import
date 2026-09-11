@@ -14,4 +14,4 @@ dest_files=["res://.godot/imported/BackgroundChatter.yarnproject-fbdb785442acfe1
 
 ysc_path="ysc"
 generate_ysls=true
-ysls_scan_path="res://"
+ysls_scan_path=""

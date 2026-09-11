@@ -32,7 +32,7 @@ func _ready() -> void:
 	# connect signals
 	start_button.pressed.connect(_on_start_pressed)
 	language_menu.item_selected.connect(_on_language_selected)
-	# note: dialogue_completed signal is connected in the scene file
+	dialogue_runner.dialogue_completed.connect(_on_dialogue_completed)
 
 	# set initial locale
 	TranslationServer.set_locale("en")

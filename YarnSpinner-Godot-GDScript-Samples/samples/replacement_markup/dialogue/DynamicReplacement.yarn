@@ -10,6 +10,6 @@ Bob: [obscurity = {$obscurity}]Why hello there, it's nice to meet you friend.[/o
     <<set $obscurity += 1>>
 => Player: Hey Bob, nice to meet you <<if $obscurity > 2>>
     Alice: See, practice makes perfect!
-    Bob: Check out the Dynamic Replacement replacement processor to see how this was done.
+    Bob: Check out obscurity_markup_processor.gd to see how this was done.
 
 ===

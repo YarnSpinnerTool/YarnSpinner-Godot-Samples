@@ -1,282 +1,30 @@
 {
   "commands": [
     {
-      "async": false,
-      "definitionName": "_yarn_command_start_slide",
-      "fileName": "slideshow.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the Slideshow to call this command on",
-          "name": "target",
-          "subtype": "Slideshow",
-          "type": "instance"
-        }
-      ],
-      "yarnName": "start_slide"
-    },
-    {
-      "async": false,
-      "definitionName": "_yarn_command_end_slide",
-      "fileName": "slideshow.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the Slideshow to call this command on",
-          "name": "target",
-          "subtype": "Slideshow",
-          "type": "instance"
-        }
-      ],
-      "yarnName": "end_slide"
-    },
-    {
-      "async": false,
-      "definitionName": "_yarn_command_clear_slide",
-      "fileName": "slideshow.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the Slideshow to call this command on",
-          "name": "target",
-          "subtype": "Slideshow",
-          "type": "instance"
-        }
-      ],
-      "yarnName": "clear_slide"
-    },
-    {
-      "async": false,
-      "definitionName": "_yarn_command_pause_path_movement",
-      "fileName": "simple_character.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the SimpleCharacter to call this command on",
-          "name": "target",
-          "subtype": "SimpleCharacter",
-          "type": "instance"
-        }
-      ],
-      "yarnName": "pause_path_movement"
-    },
-    {
-      "async": false,
-      "definitionName": "_yarn_command_resume_path_movement",
-      "fileName": "simple_character.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the SimpleCharacter to call this command on",
-          "name": "target",
-          "subtype": "SimpleCharacter",
-          "type": "instance"
-        }
-      ],
-      "yarnName": "resume_path_movement"
-    },
-    {
-      "async": false,
-      "definitionName": "_yarn_command_set_animator_bool",
-      "fileName": "simple_character.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the SimpleCharacter to call this command on",
-          "name": "target",
-          "subtype": "SimpleCharacter",
-          "type": "instance"
-        },
-        {
-          "name": "param_name",
-          "type": "string"
-        },
-        {
-          "name": "value",
-          "type": "bool"
-        }
-      ],
-      "yarnName": "set_animator_bool"
-    },
-    {
-      "async": false,
-      "definitionName": "_yarn_command_turn",
-      "fileName": "simple_character.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the SimpleCharacter to call this command on",
-          "name": "target",
-          "subtype": "SimpleCharacter",
-          "type": "instance"
-        },
-        {
-          "name": "amount",
-          "type": "number"
-        },
-        {
-          "defaultValue": "0.0",
-          "name": "time",
-          "type": "number"
-        },
-        {
-          "defaultValue": "false",
-          "name": "wait",
-          "type": "bool"
-        }
-      ],
-      "yarnName": "turn"
-    },
-    {
-      "async": false,
-      "definitionName": "_yarn_command_tilt_forward",
-      "fileName": "simple_character.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the SimpleCharacter to call this command on",
-          "name": "target",
-          "subtype": "SimpleCharacter",
-          "type": "instance"
-        },
-        {
-          "name": "amount",
-          "type": "number"
-        },
-        {
-          "defaultValue": "0.0",
-          "name": "time",
-          "type": "number"
-        },
-        {
-          "defaultValue": "false",
-          "name": "wait",
-          "type": "bool"
-        }
-      ],
-      "yarnName": "tilt_forward"
-    },
-    {
-      "async": false,
-      "definitionName": "_yarn_command_tilt_side",
-      "fileName": "simple_character.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the SimpleCharacter to call this command on",
-          "name": "target",
-          "subtype": "SimpleCharacter",
-          "type": "instance"
-        },
-        {
-          "name": "amount",
-          "type": "number"
-        },
-        {
-          "defaultValue": "0.0",
-          "name": "time",
-          "type": "number"
-        },
-        {
-          "defaultValue": "false",
-          "name": "wait",
-          "type": "bool"
-        }
-      ],
-      "yarnName": "tilt_side"
-    },
-    {
-      "async": false,
-      "definitionName": "_yarn_command_face",
-      "fileName": "character.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the ExampleCharacter to call this command on",
-          "name": "target",
-          "subtype": "ExampleCharacter",
-          "type": "instance"
-        },
-        {
-          "name": "target_name",
-          "type": "string"
-        }
-      ],
-      "yarnName": "face"
-    },
-    {
-      "async": false,
-      "definitionName": "_yarn_command_expression",
-      "fileName": "simple_character.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the SimpleCharacter to call this command on",
-          "name": "target",
-          "subtype": "SimpleCharacter",
-          "type": "instance"
-        },
-        {
-          "name": "expression",
-          "type": "string"
-        }
-      ],
-      "yarnName": "expression"
-    },
-    {
-      "async": false,
-      "definitionName": "_yarn_command_play_animation",
-      "fileName": "simple_character.gd",
-      "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the SimpleCharacter to call this command on",
-          "name": "target",
-          "subtype": "SimpleCharacter",
-          "type": "instance"
-        },
-        {
-          "name": "_layer",
-          "type": "string"
-        },
-        {
-          "name": "_state",
-          "type": "string"
-        },
-        {
-          "defaultValue": "false",
-          "name": "wait",
-          "type": "bool"
-        }
-      ],
-      "yarnName": "play_animation"
-    },
-    {
-      "async": false,
-      "definitionName": "auto_opt",
-      "fileName": "timeout_options_presenter.gd",
-      "language": "gdscript",
-      "parameters": [],
-      "yarnName": "auto_opt"
-    },
-    {
       "async": true,
-      "definitionName": "_yarn_command_move",
-      "fileName": "character.gd",
+      "definitionName": "_cmd_wait",
+      "documentation": "Pauses the dialogue for the given number of seconds.",
+      "fileName": "dialogue_runner.gd",
       "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 37,
+          "line": 1701
+        },
+        "start": {
+          "character": 0,
+          "line": 1698
+        }
+      },
       "parameters": [
         {
-          "documentation": "the ExampleCharacter to call this command on",
-          "name": "target",
-          "subtype": "ExampleCharacter",
-          "type": "instance"
-        },
-        {
-          "name": "destination",
-          "type": "string"
+          "documentation": "How long to wait, in seconds.",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "number"
         }
       ],
-      "yarnName": "move"
+      "yarnName": "wait"
     },
     {
       "async": false,
@@ -343,15 +91,484 @@
       "yarnName": "flash"
     },
     {
-      "async": true,
-      "definitionName": "_yarn_command_bounce",
-      "fileName": "character.gd",
+      "async": false,
+      "definitionName": "_cmd_set_fade_color",
+      "documentation": "command: set fade opacity immediately",
+      "fileName": "fade_effect.gd",
       "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 32,
+          "line": 62
+        },
+        "start": {
+          "character": 0,
+          "line": 61
+        }
+      },
       "parameters": [
         {
-          "documentation": "the ExampleCharacter to call this command on",
+          "isParamsArray": false,
+          "name": "opacity",
+          "type": "number"
+        }
+      ],
+      "yarnName": "set_fade_color"
+    },
+    {
+      "async": false,
+      "definitionName": "_cmd_fade_up",
+      "documentation": "command: fade from black to clear (fade up = reveal scene)",
+      "fileName": "fade_effect.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 12,
+          "line": 71
+        },
+        "start": {
+          "character": 0,
+          "line": 66
+        }
+      },
+      "parameters": [
+        {
+          "defaultValue": "1.0",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "number"
+        },
+        {
+          "defaultValue": "false",
+          "isParamsArray": false,
+          "name": "wait",
+          "type": "bool"
+        }
+      ],
+      "yarnName": "fade_up"
+    },
+    {
+      "async": false,
+      "definitionName": "_cmd_fade_down",
+      "documentation": "command: fade from clear to black (fade down = hide scene)",
+      "fileName": "fade_effect.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 12,
+          "line": 80
+        },
+        "start": {
+          "character": 0,
+          "line": 75
+        }
+      },
+      "parameters": [
+        {
+          "defaultValue": "1.0",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "number"
+        },
+        {
+          "defaultValue": "false",
+          "isParamsArray": false,
+          "name": "wait",
+          "type": "bool"
+        }
+      ],
+      "yarnName": "fade_down"
+    },
+    {
+      "async": false,
+      "definitionName": "_yarn_command_pause_path_movement",
+      "documentation": "Yarn command `<<pause_path_movement Name>>` (the roaming chatter pauses on\nevery line).",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 22,
+          "line": 463
+        },
+        "start": {
+          "character": 0,
+          "line": 459
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "isParamsArray": false,
           "name": "target",
-          "subtype": "ExampleCharacter",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        }
+      ],
+      "yarnName": "pause_path_movement"
+    },
+    {
+      "async": false,
+      "definitionName": "_yarn_command_resume_path_movement",
+      "documentation": "Yarn command `<<resume_path_movement Name>>`: resumes roaming after a line.",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 23,
+          "line": 471
+        },
+        "start": {
+          "character": 0,
+          "line": 467
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        }
+      ],
+      "yarnName": "resume_path_movement"
+    },
+    {
+      "async": false,
+      "definitionName": "_yarn_command_set_animator_bool",
+      "documentation": "[code]<<set_animator_bool Name Floating true>>[/code]: the pill's Floating\nblend is a 0/1 scalar, so a bool maps straight onto it (mirrors the Unity\nsample's animator bool huzzah).",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 66,
+          "line": 546
+        },
+        "start": {
+          "character": 0,
+          "line": 542
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "isParamsArray": false,
+          "name": "param_name",
+          "type": "string"
+        },
+        {
+          "isParamsArray": false,
+          "name": "value",
+          "type": "bool"
+        }
+      ],
+      "yarnName": "set_animator_bool"
+    },
+    {
+      "async": true,
+      "definitionName": "_yarn_command_turn",
+      "documentation": "[code]<<turn Name amount [time] [wait]>>[/code]: swings the head left/right.",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 53,
+          "line": 551
+        },
+        "start": {
+          "character": 0,
+          "line": 550
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "isParamsArray": false,
+          "name": "amount",
+          "type": "number"
+        },
+        {
+          "defaultValue": "0.0",
+          "isParamsArray": false,
+          "name": "time",
+          "type": "number"
+        },
+        {
+          "defaultValue": "false",
+          "isParamsArray": false,
+          "name": "wait",
+          "type": "bool"
+        }
+      ],
+      "yarnName": "turn"
+    },
+    {
+      "async": true,
+      "definitionName": "_yarn_command_tilt_forward",
+      "documentation": "[code]<<tilt_forward Name amount [time] [wait]>>[/code]: nods the head.\nPositive tilts forward (down), negative back (up), matching Unity's\nForward Tilt parameter; the blend space's y axis points the other way.",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 54,
+          "line": 558
+        },
+        "start": {
+          "character": 0,
+          "line": 557
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "isParamsArray": false,
+          "name": "amount",
+          "type": "number"
+        },
+        {
+          "defaultValue": "0.0",
+          "isParamsArray": false,
+          "name": "time",
+          "type": "number"
+        },
+        {
+          "defaultValue": "false",
+          "isParamsArray": false,
+          "name": "wait",
+          "type": "bool"
+        }
+      ],
+      "yarnName": "tilt_forward"
+    },
+    {
+      "async": true,
+      "definitionName": "_yarn_command_tilt_side",
+      "documentation": "[code]<<tilt_side Name amount [time] [wait]>>[/code]: tilts the head sideways.",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 22,
+          "line": 572
+        },
+        "start": {
+          "character": 0,
+          "line": 562
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "isParamsArray": false,
+          "name": "amount",
+          "type": "number"
+        },
+        {
+          "defaultValue": "0.0",
+          "isParamsArray": false,
+          "name": "time",
+          "type": "number"
+        },
+        {
+          "defaultValue": "false",
+          "isParamsArray": false,
+          "name": "wait",
+          "type": "bool"
+        }
+      ],
+      "yarnName": "tilt_side"
+    },
+    {
+      "async": false,
+      "definitionName": "_yarn_command_face",
+      "documentation": "[code]<<face Name expression [crossfade]>>[/code]: sets the eyebrow\nexpression, blending over the optional crossfade time.",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 36,
+          "line": 578
+        },
+        "start": {
+          "character": 0,
+          "line": 577
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "isParamsArray": false,
+          "name": "expression",
+          "type": "string"
+        },
+        {
+          "defaultValue": "0.0",
+          "isParamsArray": false,
+          "name": "crossfade",
+          "type": "number"
+        }
+      ],
+      "yarnName": "face"
+    },
+    {
+      "async": false,
+      "definitionName": "_yarn_command_expression",
+      "documentation": "[code]<<expression Name group>>[/code]: selects the active mouth group.",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 22,
+          "line": 583
+        },
+        "start": {
+          "character": 0,
+          "line": 582
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "isParamsArray": false,
+          "name": "expression",
+          "type": "string"
+        }
+      ],
+      "yarnName": "expression"
+    },
+    {
+      "async": true,
+      "definitionName": "_yarn_command_play_animation",
+      "documentation": "[code]<<play_animation Name Gesture LookAround [wait]>>[/code]: fires the\nlook-around anim. The pill has a single gesturethe layer/state args are\naccepted for parity with the Unity sample's command signature",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 33,
+          "line": 596
+        },
+        "start": {
+          "character": 0,
+          "line": 589
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "isParamsArray": false,
+          "name": "_layer",
+          "type": "string"
+        },
+        {
+          "isParamsArray": false,
+          "name": "_state",
+          "type": "string"
+        },
+        {
+          "defaultValue": "false",
+          "isParamsArray": false,
+          "name": "wait",
+          "type": "bool"
+        }
+      ],
+      "yarnName": "play_animation"
+    },
+    {
+      "async": true,
+      "definitionName": "_yarn_command_move",
+      "documentation": "Moves this character to a destination node.\nUsage in Yarn: <<move mae waypoint_center>>\nReturns a Signal so dialogue waits for movement to complete.",
+      "fileName": "character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 22,
+          "line": 61
+        },
+        "start": {
+          "character": 0,
+          "line": 46
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the Character node the runner will search for to run this command upon.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "Character",
+          "type": "instance"
+        },
+        {
+          "isParamsArray": false,
+          "name": "destination",
+          "type": "string"
+        }
+      ],
+      "yarnName": "move"
+    },
+    {
+      "async": true,
+      "definitionName": "_yarn_command_bounce",
+      "documentation": "Makes this character bounce (jump up and down).\nUsage in Yarn: <<bounce bob>>\nNote: We use \"bounce\" not \"jump\" because <<jump>> is a built-in Yarn command.\nReturns a Signal so dialogue waits for the bounce to complete.",
+      "fileName": "character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 22,
+          "line": 75
+        },
+        "start": {
+          "character": 0,
+          "line": 68
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the Character node the runner will search for to run this command upon.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "Character",
           "type": "instance"
         }
       ],
@@ -360,16 +577,29 @@
     {
       "async": false,
       "definitionName": "_yarn_command_set_color",
+      "documentation": "Changes this character's color.\nUsage in Yarn: <<set_color mae red>>\nHappens instantly, no wait.",
       "fileName": "character.gd",
       "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 65,
+          "line": 84
+        },
+        "start": {
+          "character": 0,
+          "line": 81
+        }
+      },
       "parameters": [
         {
-          "documentation": "the ExampleCharacter to call this command on",
+          "documentation": "The name of the Character node the runner will search for to run this command upon.",
+          "isParamsArray": false,
           "name": "target",
-          "subtype": "ExampleCharacter",
+          "subtype": "Character",
           "type": "instance"
         },
         {
+          "isParamsArray": false,
           "name": "color_name",
           "type": "string"
         }
@@ -378,37 +608,129 @@
     },
     {
       "async": false,
-      "definitionName": "start_level",
+      "definitionName": "_yarn_command_look_at",
+      "documentation": "Makes this character face another character or waypoint.\nUsage in Yarn: <<look_at mae bob>>",
+      "fileName": "character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 62,
+          "line": 102
+        },
+        "start": {
+          "character": 0,
+          "line": 89
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the Character node the runner will search for to run this command upon.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "Character",
+          "type": "instance"
+        },
+        {
+          "isParamsArray": false,
+          "name": "target_name",
+          "type": "string"
+        }
+      ],
+      "yarnName": "look_at"
+    },
+    {
+      "async": false,
+      "definitionName": "_start_slide",
+      "fileName": "slideshow.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 26,
+          "line": 72
+        },
+        "start": {
+          "character": 0,
+          "line": 57
+        }
+      },
+      "parameters": [],
+      "yarnName": "start_slide"
+    },
+    {
+      "async": true,
+      "definitionName": "_end_slide",
+      "fileName": "slideshow.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 27,
+          "line": 89
+        },
+        "start": {
+          "character": 0,
+          "line": 75
+        }
+      },
+      "parameters": [],
+      "yarnName": "end_slide"
+    },
+    {
+      "async": false,
+      "definitionName": "_clear_slide",
+      "fileName": "slideshow.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 15,
+          "line": 164
+        },
+        "start": {
+          "character": 0,
+          "line": 161
+        }
+      },
+      "parameters": [],
+      "yarnName": "clear_slide"
+    },
+    {
+      "async": false,
+      "definitionName": "_arm_last_highlighted",
+      "documentation": "Yarn command [code]<<auto_opt>>[/code]: arm last-highlighted mode for the\nnext option group. Registered on the runner in [method on_dialogue_started].",
+      "fileName": "timeout_options_presenter.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 23,
+          "line": 75
+        },
+        "start": {
+          "character": 0,
+          "line": 74
+        }
+      },
+      "parameters": [],
+      "yarnName": "auto_opt"
+    },
+    {
+      "async": false,
+      "definitionName": "spawn_level",
+      "documentation": "Tears down the old room and builds the configured one.",
       "fileName": "level_god.gd",
       "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 36,
+          "line": 60
+        },
+        "start": {
+          "character": 0,
+          "line": 35
+        }
+      },
       "parameters": [],
       "yarnName": "start_level"
-    },
-    {
-      "async": false,
-      "definitionName": "set_fade_color",
-      "fileName": "fade_effect.gd",
-      "language": "gdscript",
-      "parameters": [],
-      "yarnName": "set_fade_color"
-    },
-    {
-      "async": false,
-      "definitionName": "fade_up",
-      "fileName": "fade_effect.gd",
-      "language": "gdscript",
-      "parameters": [],
-      "yarnName": "fade_up"
-    },
-    {
-      "async": false,
-      "definitionName": "fade_down",
-      "fileName": "fade_effect.gd",
-      "language": "gdscript",
-      "parameters": [],
-      "yarnName": "fade_down"
     }
   ],
   "functions": [],
-  "version": 1
+  "version": 2
 }

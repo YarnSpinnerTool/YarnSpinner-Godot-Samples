@@ -14,4 +14,4 @@ dest_files=["res://.godot/imported/PhoneChat.yarnproject-014dfdb1fc82009df326bf1
 
 ysc_path="ysc"
 generate_ysls=true
-ysls_scan_path="res://"
+ysls_scan_path=""

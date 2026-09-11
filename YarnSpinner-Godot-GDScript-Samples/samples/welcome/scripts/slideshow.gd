@@ -31,19 +31,31 @@ extends YarnDialoguePresenter
 @export_dir var image_folder: String = "res://samples/welcome/images"
 
 var _running_slideshow: bool = false
+var _commands_registered: bool = false
 
 
 func _ready() -> void:
 	_clear_slide()
 	if slide_panel != null:
 		slide_panel.visible = false
+	_register_commands.call_deferred()
+
+
+func _register_commands() -> void:
+	if _commands_registered or dialogue_runner == null:
+		return
+	_commands_registered = true
+	dialogue_runner.add_command("start_slide", _start_slide)
+	dialogue_runner.add_command("end_slide", _end_slide)
+	dialogue_runner.add_command("clear_slide", _clear_slide)
 
 
 func on_dialogue_started() -> void:
+	_register_commands()
 	_clear_slide()
 
 
-func _yarn_command_start_slide() -> void:
+func _start_slide() -> void:
 	if _running_slideshow:
 		push_warning("slideshow: start_slide called while a slide was already being built")
 
@@ -61,7 +73,7 @@ func _yarn_command_start_slide() -> void:
 	_running_slideshow = true
 
 
-func _yarn_command_end_slide() -> void:
+func _end_slide() -> void:
 	if not _running_slideshow:
 		push_warning("slideshow: end_slide called while a slide was not being built")
 
@@ -76,10 +88,6 @@ func _yarn_command_end_slide() -> void:
 		slide_panel.visible = true
 
 	_running_slideshow = false
-
-
-func _yarn_command_clear_slide() -> void:
-	_clear_slide()
 
 
 func run_line(line: YarnLine, _token: YarnCancellationToken = null) -> void:

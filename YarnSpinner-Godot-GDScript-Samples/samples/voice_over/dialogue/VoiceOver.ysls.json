@@ -1,30 +1,121 @@
 {
   "commands": [
     {
+      "async": true,
+      "definitionName": "_cmd_wait",
+      "documentation": "Pauses the dialogue for the given number of seconds.",
+      "fileName": "dialogue_runner.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 37,
+          "line": 1701
+        },
+        "start": {
+          "character": 0,
+          "line": 1698
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "How long to wait, in seconds.",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "number"
+        }
+      ],
+      "yarnName": "wait"
+    },
+    {
       "async": false,
-      "definitionName": "set_fade_color",
+      "definitionName": "_cmd_set_fade_color",
+      "documentation": "command: set fade opacity immediately",
       "fileName": "fade_effect.gd",
       "language": "gdscript",
-      "parameters": [],
+      "location": {
+        "end": {
+          "character": 32,
+          "line": 62
+        },
+        "start": {
+          "character": 0,
+          "line": 61
+        }
+      },
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "opacity",
+          "type": "number"
+        }
+      ],
       "yarnName": "set_fade_color"
     },
     {
       "async": false,
-      "definitionName": "fade_up",
+      "definitionName": "_cmd_fade_up",
+      "documentation": "command: fade from black to clear (fade up = reveal scene)",
       "fileName": "fade_effect.gd",
       "language": "gdscript",
-      "parameters": [],
+      "location": {
+        "end": {
+          "character": 12,
+          "line": 71
+        },
+        "start": {
+          "character": 0,
+          "line": 66
+        }
+      },
+      "parameters": [
+        {
+          "defaultValue": "1.0",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "number"
+        },
+        {
+          "defaultValue": "false",
+          "isParamsArray": false,
+          "name": "wait",
+          "type": "bool"
+        }
+      ],
       "yarnName": "fade_up"
     },
     {
       "async": false,
-      "definitionName": "fade_down",
+      "definitionName": "_cmd_fade_down",
+      "documentation": "command: fade from clear to black (fade down = hide scene)",
       "fileName": "fade_effect.gd",
       "language": "gdscript",
-      "parameters": [],
+      "location": {
+        "end": {
+          "character": 12,
+          "line": 80
+        },
+        "start": {
+          "character": 0,
+          "line": 75
+        }
+      },
+      "parameters": [
+        {
+          "defaultValue": "1.0",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "number"
+        },
+        {
+          "defaultValue": "false",
+          "isParamsArray": false,
+          "name": "wait",
+          "type": "bool"
+        }
+      ],
       "yarnName": "fade_down"
     }
   ],
   "functions": [],
-  "version": 1
+  "version": 2
 }

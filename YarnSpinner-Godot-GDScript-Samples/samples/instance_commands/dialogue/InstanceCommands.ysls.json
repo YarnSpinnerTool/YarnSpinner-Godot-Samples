@@ -2,17 +2,56 @@
   "commands": [
     {
       "async": true,
-      "definitionName": "_yarn_command_move",
-      "fileName": "character.gd",
+      "definitionName": "_cmd_wait",
+      "documentation": "Pauses the dialogue for the given number of seconds.",
+      "fileName": "dialogue_runner.gd",
       "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 37,
+          "line": 1701
+        },
+        "start": {
+          "character": 0,
+          "line": 1698
+        }
+      },
       "parameters": [
         {
-          "documentation": "the ExampleCharacter to call this command on",
+          "documentation": "How long to wait, in seconds.",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "number"
+        }
+      ],
+      "yarnName": "wait"
+    },
+    {
+      "async": true,
+      "definitionName": "_yarn_command_move",
+      "documentation": "Moves this character to a destination node.\nUsage in Yarn: <<move mae waypoint_center>>\nReturns a Signal so dialogue waits for movement to complete.",
+      "fileName": "character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 22,
+          "line": 61
+        },
+        "start": {
+          "character": 0,
+          "line": 46
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the Character node the runner will search for to run this command upon.",
+          "isParamsArray": false,
           "name": "target",
-          "subtype": "ExampleCharacter",
+          "subtype": "Character",
           "type": "instance"
         },
         {
+          "isParamsArray": false,
           "name": "destination",
           "type": "string"
         }
@@ -22,13 +61,25 @@
     {
       "async": true,
       "definitionName": "_yarn_command_bounce",
+      "documentation": "Makes this character bounce (jump up and down).\nUsage in Yarn: <<bounce bob>>\nNote: We use \"bounce\" not \"jump\" because <<jump>> is a built-in Yarn command.\nReturns a Signal so dialogue waits for the bounce to complete.",
       "fileName": "character.gd",
       "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 22,
+          "line": 75
+        },
+        "start": {
+          "character": 0,
+          "line": 68
+        }
+      },
       "parameters": [
         {
-          "documentation": "the ExampleCharacter to call this command on",
+          "documentation": "The name of the Character node the runner will search for to run this command upon.",
+          "isParamsArray": false,
           "name": "target",
-          "subtype": "ExampleCharacter",
+          "subtype": "Character",
           "type": "instance"
         }
       ],
@@ -37,16 +88,29 @@
     {
       "async": false,
       "definitionName": "_yarn_command_set_color",
+      "documentation": "Changes this character's color.\nUsage in Yarn: <<set_color mae red>>\nHappens instantly, no wait.",
       "fileName": "character.gd",
       "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 65,
+          "line": 84
+        },
+        "start": {
+          "character": 0,
+          "line": 81
+        }
+      },
       "parameters": [
         {
-          "documentation": "the ExampleCharacter to call this command on",
+          "documentation": "The name of the Character node the runner will search for to run this command upon.",
+          "isParamsArray": false,
           "name": "target",
-          "subtype": "ExampleCharacter",
+          "subtype": "Character",
           "type": "instance"
         },
         {
+          "isParamsArray": false,
           "name": "color_name",
           "type": "string"
         }
@@ -55,24 +119,37 @@
     },
     {
       "async": false,
-      "definitionName": "_yarn_command_face",
+      "definitionName": "_yarn_command_look_at",
+      "documentation": "Makes this character face another character or waypoint.\nUsage in Yarn: <<look_at mae bob>>",
       "fileName": "character.gd",
       "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 62,
+          "line": 102
+        },
+        "start": {
+          "character": 0,
+          "line": 89
+        }
+      },
       "parameters": [
         {
-          "documentation": "the ExampleCharacter to call this command on",
+          "documentation": "The name of the Character node the runner will search for to run this command upon.",
+          "isParamsArray": false,
           "name": "target",
-          "subtype": "ExampleCharacter",
+          "subtype": "Character",
           "type": "instance"
         },
         {
+          "isParamsArray": false,
           "name": "target_name",
           "type": "string"
         }
       ],
-      "yarnName": "face"
+      "yarnName": "look_at"
     }
   ],
   "functions": [],
-  "version": 1
+  "version": 2
 }

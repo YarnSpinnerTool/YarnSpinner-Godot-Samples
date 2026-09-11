@@ -32,6 +32,10 @@ func _ready() -> void:
 ## A stopped dialogue can land mid-emotion; don't leave the speaker stuck angry.
 func _on_dialogue_cancelled() -> void:
 	var preset = emotion_presets.get(default_emotion) as EmotionPreset
+	if preset == null:
+		_dirty_character = null
+		_dirty_appearance = null
+		return
 
 	if _dirty_character != null and is_instance_valid(_dirty_character):
 		_dirty_character.set_eyebrows(preset.eyebrows)
@@ -46,13 +50,11 @@ func on_prepare_for_line(line: Variant, _text_control: Control = null) -> void:
 	_appearance = null
 	_emotions = {}
 
-	var yarn_line := line as YarnLine
-	if yarn_line == null:
+	var markup := line as YarnMarkupParseResult
+	if markup == null:
 		return
 
-	# The [character] attribute is folded into character_name during line
-	# processing, so read the speaker from there rather than the markup.
-	var character_name := yarn_line.character_name
+	var character_name := markup.get_character_name()
 	if character_name.is_empty():
 		push_warning("EmotionEvent: line has no character")
 		return
@@ -64,7 +66,7 @@ func on_prepare_for_line(line: Variant, _text_control: Control = null) -> void:
 	_appearance = _find_appearance(target)
 	_character = target as SimpleCharacter
 
-	for attribute in yarn_line.markup_attributes:
+	for attribute in markup.attributes:
 		if attribute.name != "emotion":
 			continue
 		var emotion := attribute.try_get_string_property("emotion")
@@ -75,7 +77,7 @@ func on_prepare_for_line(line: Variant, _text_control: Control = null) -> void:
 func on_character_will_appear(
 	character_index: int,
 	_line: Variant,
-	_cancellation_token: Variant = null
+	cancellation_token: Variant = null
 ) -> Signal:
 	if not _emotions.has(character_index):
 		return Signal()
@@ -83,6 +85,9 @@ func on_character_will_appear(
 	var emotion: String = _emotions[character_index]
 
 	var preset = emotion_presets.get(emotion) as EmotionPreset
+	if preset == null:
+		push_warning("EmotionEvent: no preset for emotion %s" % emotion)
+		return Signal()
 
 	if emotion == "neutral":
 		_dirty_character = null
@@ -97,7 +102,8 @@ func on_character_will_appear(
 
 	if _appearance != null:
 		_appearance.set_appearance(preset.base, preset.fade)
-		if emotion != default_emotion:
+		var token := cancellation_token as YarnCancellationToken
+		if emotion != default_emotion and (token == null or not token.is_hurry_up_requested):
 			# Hold a brief moment after becoming angry to make the change clear.
 			return get_tree().create_timer(_PAUSE_SECONDS).timeout
 	return Signal()

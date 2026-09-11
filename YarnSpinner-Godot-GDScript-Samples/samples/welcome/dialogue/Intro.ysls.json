@@ -1,51 +1,86 @@
 {
   "commands": [
     {
-      "async": false,
-      "definitionName": "_yarn_command_start_slide",
-      "fileName": "slideshow.gd",
+      "async": true,
+      "definitionName": "_cmd_wait",
+      "documentation": "Pauses the dialogue for the given number of seconds.",
+      "fileName": "dialogue_runner.gd",
       "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 37,
+          "line": 1701
+        },
+        "start": {
+          "character": 0,
+          "line": 1698
+        }
+      },
       "parameters": [
         {
-          "documentation": "the Slideshow to call this command on",
-          "name": "target",
-          "subtype": "Slideshow",
-          "type": "instance"
+          "documentation": "How long to wait, in seconds.",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "number"
         }
       ],
-      "yarnName": "start_slide"
+      "yarnName": "wait"
     },
     {
       "async": false,
-      "definitionName": "_yarn_command_end_slide",
+      "definitionName": "_start_slide",
       "fileName": "slideshow.gd",
       "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the Slideshow to call this command on",
-          "name": "target",
-          "subtype": "Slideshow",
-          "type": "instance"
+      "location": {
+        "end": {
+          "character": 26,
+          "line": 72
+        },
+        "start": {
+          "character": 0,
+          "line": 57
         }
-      ],
+      },
+      "parameters": [],
+      "yarnName": "start_slide"
+    },
+    {
+      "async": true,
+      "definitionName": "_end_slide",
+      "fileName": "slideshow.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 27,
+          "line": 89
+        },
+        "start": {
+          "character": 0,
+          "line": 75
+        }
+      },
+      "parameters": [],
       "yarnName": "end_slide"
     },
     {
       "async": false,
-      "definitionName": "_yarn_command_clear_slide",
+      "definitionName": "_clear_slide",
       "fileName": "slideshow.gd",
       "language": "gdscript",
-      "parameters": [
-        {
-          "documentation": "the Slideshow to call this command on",
-          "name": "target",
-          "subtype": "Slideshow",
-          "type": "instance"
+      "location": {
+        "end": {
+          "character": 15,
+          "line": 164
+        },
+        "start": {
+          "character": 0,
+          "line": 161
         }
-      ],
+      },
+      "parameters": [],
       "yarnName": "clear_slide"
     }
   ],
   "functions": [],
-  "version": 1
+  "version": 2
 }

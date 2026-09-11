@@ -398,7 +398,7 @@ func _find_mouth_mesh(node: Node) -> MeshInstance3D:
 ## else (say, an interaction ending) takes the mode back mid-stride - it must
 ## not restore a stale mode afterwards.
 func move_to(target_position: Vector3) -> void:
-	if global_position.distance_to(target_position) <= 0.0001:
+	if _horizontal_distance_to(target_position) <= 0.0001:
 		return
 
 	_move_id += 1
@@ -409,7 +409,7 @@ func move_to(target_position: Vector3) -> void:
 	look_target = null
 	mode = Mode.EXTERNALLY_CONTROLLED
 
-	while global_position.distance_to(target_position) > 0.05 and is_inside_tree():
+	while _horizontal_distance_to(target_position) > 0.05 and is_inside_tree():
 		if walk != _move_id:
 			return
 		if mode != Mode.EXTERNALLY_CONTROLLED:
@@ -431,6 +431,11 @@ func move_to(target_position: Vector3) -> void:
 	if mode == Mode.EXTERNALLY_CONTROLLED:
 		look_target = _move_return_look
 		mode = _move_return_mode
+
+
+func _horizontal_distance_to(target_position: Vector3) -> float:
+	var offset := global_position - target_position
+	return Vector2(offset.x, offset.z).length()
 
 
 ## True if this character has a path to roam.

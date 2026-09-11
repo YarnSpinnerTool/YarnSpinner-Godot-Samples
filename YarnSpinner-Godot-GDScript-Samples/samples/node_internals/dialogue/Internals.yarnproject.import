@@ -14,4 +14,4 @@ dest_files=["res://.godot/imported/Internals.yarnproject-430ab9de31b1c309f7ff666
 
 ysc_path="ysc"
 generate_ysls=true
-ysls_scan_path="res://"
+ysls_scan_path=""

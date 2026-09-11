@@ -14,4 +14,4 @@ dest_files=["res://.godot/imported/Bindings.yarnproject-2981e9a6ae67fa19441accb2
 
 ysc_path="ysc"
 generate_ysls=true
-ysls_scan_path="res://"
+ysls_scan_path=""

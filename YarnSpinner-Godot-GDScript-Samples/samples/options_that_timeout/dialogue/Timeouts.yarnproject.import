@@ -14,4 +14,4 @@ dest_files=["res://.godot/imported/Timeouts.yarnproject-73f4b63c6c69cbf617a9d856
 
 ysc_path="ysc"
 generate_ysls=true
-ysls_scan_path="res://"
+ysls_scan_path=""
