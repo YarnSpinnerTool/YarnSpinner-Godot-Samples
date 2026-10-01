@@ -5,8 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://db6adsx7323jr" path="res://samples/shared/scenes/npc_character.tscn" id="3_npc"]
 [ext_resource type="PackedScene" uid="uid://don7obupokpwf" path="res://samples/shared/scenes/player_character.tscn" id="4_player"]
 [ext_resource type="Script" uid="uid://flra500ihbix" path="res://addons/yarn_spinner/dialogue_runner.gd" id="5_runner"]
-[ext_resource type="Script" uid="uid://cged8u182768u" path="res://addons/yarn_spinner/ui/line_presenter.gd" id="6_line"]
-[ext_resource type="Script" uid="uid://cogqy630mjgv7" path="res://addons/yarn_spinner/ui/options_presenter.gd" id="7_options"]
 [ext_resource type="Script" uid="uid://bk0yeqw5d8l0v" path="res://samples/inline_events/scripts/emotion_preset.gd" id="8_6jdr6"]
 [ext_resource type="Resource" uid="uid://dktmh3k1bxafu" path="res://samples/inline_events/dialogue/InlineExample.yarnproject" id="8_proj"]
 [ext_resource type="Script" uid="uid://ci0aavprdl4gw" path="res://samples/shared/scripts/simple_follow_camera.gd" id="9_cam"]
@@ -15,8 +13,6 @@
 [ext_resource type="Script" uid="uid://bj11vnurtp6tm" path="res://samples/shared/scripts/link_opener.gd" id="12_link"]
 [ext_resource type="Script" uid="uid://u41qg6xtvvok" path="res://samples/inline_events/scripts/emotion_event.gd" id="13_emotion"]
 [ext_resource type="Script" uid="uid://sprh3eata4mq" path="res://samples/inline_events/scripts/move_event.gd" id="14_move"]
-[ext_resource type="Texture2D" uid="uid://c4a4wvi35pucw" path="res://addons/yarn_spinner/ui/textures/continue_arrow.png" id="20_arrow"]
-[ext_resource type="PackedScene" uid="uid://dy8bwpmrnwiwb" path="res://addons/yarn_spinner/ui/option_button.tscn" id="21_optbtn"]
 [ext_resource type="PackedScene" path="res://samples/shared/ui/line_presenter.tscn" id="90_coreline"]
 [ext_resource type="PackedScene" path="res://samples/shared/ui/options_presenter.tscn" id="91_coreopts"]
 
@@ -38,17 +34,6 @@ mouth = "smiling"
 base = Color(0.34117648, 0.3372549, 0.7411765, 1)
 fade = Color(0.40392157, 0.5803922, 0.8509804, 1)
 metadata/_custom_type_script = "uid://bk0yeqw5d8l0v"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
-content_margin_left = 24.0
-content_margin_top = 14.4
-content_margin_right = 24.0
-content_margin_bottom = 19.2
-bg_color = Color(0, 0, 0, 0.8352941)
-
-[sub_resource type="FontVariation" id="FontVariation_bold_italic"]
-variation_embolden = 0.6
-variation_transform = Transform2D(1, 0, 0.2, 1, 0, 0)
 
 [node name="InlineEvents" type="Node3D" unique_id=2032772925]
 
@@ -96,9 +81,8 @@ script = ExtResource("14_move")
 player_character = NodePath("../Player")
 dialogue_runner = NodePath("../YarnDialogueRunner")
 
-[node name="EmotionEvent" type="Node" parent="." unique_id=771034502 node_paths=PackedStringArray("dialogue_runner")]
+[node name="EmotionEvent" type="Node" parent="." unique_id=771034502]
 script = ExtResource("13_emotion")
-dialogue_runner = NodePath("../YarnDialogueRunner")
 emotion_presets = Dictionary[String, ExtResource("8_6jdr6")]({
 "angry": SubResource("Resource_6jdr6"),
 "neutral": SubResource("Resource_hb5kj")
@@ -158,5 +142,7 @@ theme_override_colors/font_color = Color(0.85, 0.85, 0.9, 1)
 theme_override_font_sizes/font_size = 18
 text = "WASD / arrows to move  ·  E to talk to Alice"
 horizontal_alignment = 1
+
+[connection signal="dialogue_cancelled" from="YarnDialogueRunner" to="EmotionEvent" method="_on_dialogue_cancelled"]
 
 [editable path="BasicArena"]

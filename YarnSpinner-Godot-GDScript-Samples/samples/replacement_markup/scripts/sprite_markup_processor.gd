@@ -13,7 +13,7 @@ const SPRITE_CELL := 46
 var buff := Color(0.0, 0.7320416, 1.0)
 ## Colour for harmful effects.
 var debuff := Color(1.0, 0.64280593, 0.0)
-## Rendered icon size in pixels; the setup script matches it to the font size.
+## Rendered icon size in pixels.
 var icon_size := 32
 
 # Sheet column and tint for each handled marker.
@@ -44,8 +44,8 @@ func process_replacement_marker(
 
 	# Bold brackets around everything, the effect colour on the icon and the
 	# wrapped text.
-	var prefix := "[b][lb][color=#%s]%s" % [colour.to_html(false), image]
-	var suffix := "[/color][rb][/b]"
+	var prefix := YarnMarkupParser.brackets_to_tags("[b][lb][color=#%s]%s" % [colour.to_html(false), image])
+	var suffix := YarnMarkupParser.brackets_to_tags("[/color][rb][/b]")
 
 	child_builder[0] = "%s%s%s" % [prefix, child_builder[0], suffix]
 

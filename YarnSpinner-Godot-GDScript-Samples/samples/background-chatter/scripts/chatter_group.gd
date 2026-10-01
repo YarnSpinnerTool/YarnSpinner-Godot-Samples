@@ -1,6 +1,6 @@
 @tool
 class_name ChatterGroup
-extends Node3D
+extends AttachToNodes
 
 ## A single ambient conversation: owns a [YarnDialogueRunner] (with its own
 ## [BackgroundChatterView] presenter) that plays near the player.

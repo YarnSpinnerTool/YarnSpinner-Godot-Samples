@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="YarnCommandBinding" format=3 uid="uid://jhsqwaxkmq6i"]
+
+[ext_resource type="Script" uid="uid://dir7con1xbeia" path="res://addons/yarn_spinner/core/command_binding.gd" id="1_binding"]
+
+[resource]
+script = ExtResource("1_binding")
+yarn_name = "fade_out"
+target_node = NodePath("../UILayer/ScreenEffects")
+method_name = "fade_out"

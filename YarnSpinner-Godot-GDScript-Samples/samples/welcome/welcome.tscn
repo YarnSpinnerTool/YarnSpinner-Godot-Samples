@@ -8,8 +8,15 @@
 [ext_resource type="Resource" uid="uid://cqiqscscbijsx" path="res://samples/welcome/dialogue/Intro.yarnproject" id="6_n60vi"]
 [ext_resource type="Script" path="res://samples/welcome/scripts/slideshow.gd" id="7_slide"]
 [ext_resource type="AudioStream" path="res://samples/welcome/audio/slideshow-advance.wav" id="30_advance"]
+[ext_resource type="Script" uid="uid://bj11vnurtp6tm" path="res://samples/shared/scripts/link_opener.gd" id="31_link"]
+[ext_resource type="Script" uid="uid://c5e6x50a6q1p" path="res://addons/yarn_spinner/binding_loader.gd" id="32_loader"]
+[ext_resource type="Script" uid="uid://dir7con1xbeia" path="res://addons/yarn_spinner/core/command_binding.gd" id="33_binding"]
+[ext_resource type="Resource" uid="uid://cohwafq0wkrbb" path="res://samples/welcome/bindings/start_slide.tres" id="34_start"]
+[ext_resource type="Resource" uid="uid://ds3cmdg8qalhk" path="res://samples/welcome/bindings/end_slide.tres" id="35_end"]
+[ext_resource type="Resource" uid="uid://uwphtwbxdkkg" path="res://samples/welcome/bindings/clear_slide.tres" id="36_clear"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_7g3mq"]
+size = Vector2(1.08, 0.9)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_7g3mq"]
 viewport_path = NodePath("SubViewport")
@@ -37,10 +44,10 @@ shape = SubResource("BoxShape3D_welcome_ground")
 [node name="Environment" parent="." unique_id=2059723700 instance=ExtResource("1_s8f2s")]
 
 [node name="projector-screen" parent="." unique_id=1647432055 instance=ExtResource("2_7g3mq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4742459, 0, -1.2081587)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4742459, 0, 1.2081587)
 
 [node name="CharacterBody3D" parent="." unique_id=914088189 instance=ExtResource("4_oik1v")]
-transform = Transform3D(0.9979904, 0, 0.063365331, 0, 1, 0, -0.063365331, 0, 0.9979904, -0.27, 0, -0.82)
+transform = Transform3D(-0.9979907, 0, -0.06335986, 0, 1, 0, 0.06335986, 0, -0.9979907, 0.27, 0, 0.82)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=207623824]
 transform = Transform3D(-1, -1.954051e-15, -8.742276e-08, 0, 1, -2.2351742e-08, 8.742276e-08, -2.2351742e-08, -1, 0.14, 0.70000005, -1.8000001)
@@ -61,8 +68,14 @@ slide_panel = NodePath("../../../SubViewport/Slide")
 override_presenters = [NodePath("../../UILayer/LinePresenter")]
 advance_sound = NodePath("AdvanceSound")
 
+[node name="YarnBindingLoader" type="Node" parent="." unique_id=1730562214 node_paths=PackedStringArray("dialogue_runner")]
+script = ExtResource("32_loader")
+dialogue_runner = NodePath("../Dialogue/YarnDialogueRunner")
+bindings = Array[ExtResource("33_binding")]([ExtResource("34_start"), ExtResource("35_end"), ExtResource("36_clear")])
+
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1845839773]
 disable_3d = true
+size = Vector2i(1200, 1000)
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport" unique_id=689713268]
 anchors_preset = 15
@@ -108,13 +121,16 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1167873192]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.7, 0.9, 1.1)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.4742459, 0.945, 1.12)
 mesh = SubResource("QuadMesh_7g3mq")
 surface_material_override/0 = SubResource("StandardMaterial3D_n60vi")
 
 [node name="SamplesEnvironment" parent="." unique_id=789525707 instance=ExtResource("6_7g3mq")]
 
-[editable path="Dialogue"]
 [node name="AdvanceSound" type="AudioStreamPlayer" parent="Dialogue/YarnDialogueRunner/Slideshow"]
 stream = ExtResource("30_advance")
 
+[node name="LinkOpener" type="Node" parent="Dialogue/UILayer/LinePresenter"]
+script = ExtResource("31_link")
+
+[editable path="Dialogue"]

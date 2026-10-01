@@ -1,27 +1,8 @@
 {
-  "projectFileVersion": 4,
-  "sourceFiles": [
-    "**/*.yarn"
-  ],
-  "localisation": {
-    "en": {
-      "assets": "audio/en"
-    },
-    "de": {
-      "strings": "VoiceOver-de.csv",
-      "assets": "audio/de"
-    },
-    "zh": {
-      "strings": "VoiceOver-zh.csv",
-      "assets": "audio/zh"
-    },
-    "pt_BR": {
-      "strings": "VoiceOver-pt_BR.csv",
-      "assets": "audio/pt_BR"
-    }
-  },
-  "baseLanguage": "en",
-  "definitions": [
-    "VoiceOver3D.ysls.json"
-  ]
+    "projectFileVersion": 4,
+    "sourceFiles": [
+        "**/*.yarn"
+    ],
+    "baseLanguage": "en",
+    "definitions": "VoiceOver3D.ysls.json"
 }

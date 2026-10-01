@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="YarnCommandBinding" format=3 uid="uid://ds3cmdg8qalhk"]
+
+[ext_resource type="Script" uid="uid://dir7con1xbeia" path="res://addons/yarn_spinner/core/command_binding.gd" id="1_binding"]
+
+[resource]
+script = ExtResource("1_binding")
+resource_name = "end_slide"
+yarn_name = "end_slide"
+target_node = NodePath("../Dialogue/YarnDialogueRunner/Slideshow")
+method_name = "end_slide"

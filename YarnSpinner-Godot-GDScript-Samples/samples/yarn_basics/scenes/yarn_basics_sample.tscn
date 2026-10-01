@@ -5,6 +5,9 @@
 [ext_resource type="Resource" uid="uid://b6egkjo14sykk" path="res://samples/yarn_basics/dialogue/Basics.yarnproject" id="3_cgxnv"]
 [ext_resource type="Script" uid="uid://cged8u182768u" path="res://addons/yarn_spinner/ui/line_presenter.gd" id="3_line"]
 [ext_resource type="Script" uid="uid://cogqy630mjgv7" path="res://addons/yarn_spinner/ui/options_presenter.gd" id="4_options"]
+[ext_resource type="Script" uid="uid://c5e6x50a6q1p" path="res://addons/yarn_spinner/binding_loader.gd" id="5_loader"]
+[ext_resource type="Script" uid="uid://dir7con1xbeia" path="res://addons/yarn_spinner/core/command_binding.gd" id="6_binding"]
+[ext_resource type="Resource" uid="uid://dqo362uq7rbbj" path="res://samples/yarn_basics/bindings/shake.tres" id="7_shake"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 content_margin_left = 40.0
@@ -17,14 +20,24 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[node name="YarnBasicsSample" type="Node2D" unique_id=860895190]
+[node name="YarnBasicsSample" type="Node2D" unique_id=860895190 node_paths=PackedStringArray("dialogue_runner", "ui_layer", "background", "start_button", "restart_button")]
 script = ExtResource("1_main")
+dialogue_runner = NodePath("YarnDialogueRunner")
+ui_layer = NodePath("UILayer")
+background = NodePath("UILayer/Background")
+start_button = NodePath("UILayer/UI/StartButton")
+restart_button = NodePath("UILayer/UI/RestartButton")
 
-[node name="YarnDialogueRunner" type="Node" parent="." unique_id=113657643]
+[node name="YarnDialogueRunner" type="Node" parent="." unique_id=113657643 node_paths=PackedStringArray("presenters")]
 script = ExtResource("2_runner")
 yarn_project = ExtResource("3_cgxnv")
+presenters = [NodePath("../UILayer/LinePresenter"), NodePath("../UILayer/OptionsPresenter")]
 show_selected_option_as_line = true
-ysls_scan_path = "res://samples/yarn_basics"
+
+[node name="YarnBindingLoader" type="Node" parent="." unique_id=1288147305 node_paths=PackedStringArray("dialogue_runner")]
+script = ExtResource("5_loader")
+dialogue_runner = NodePath("../YarnDialogueRunner")
+bindings = Array[ExtResource("6_binding")]([ExtResource("7_shake")])
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1803291823]
 
@@ -36,7 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.05, 0.07, 0.1, 1)
 
-[node name="LinePresenter" type="PanelContainer" parent="UILayer" unique_id=590131497]
+[node name="LinePresenter" type="PanelContainer" parent="UILayer" unique_id=590131497 node_paths=PackedStringArray("text_label", "character_label", "character_container", "continue_indicator")]
 visible = false
 anchors_preset = 12
 anchor_top = 1.0
@@ -50,6 +63,10 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 script = ExtResource("3_line")
+text_label = NodePath("VBox/TextLabel")
+character_label = NodePath("VBox/CharacterLabel")
+character_container = NodePath("VBox/CharacterLabel")
+continue_indicator = NodePath("VBox/ContinueIndicator")
 
 [node name="VBox" type="VBoxContainer" parent="UILayer/LinePresenter" unique_id=861534386]
 layout_mode = 2
@@ -80,7 +97,7 @@ theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
 theme_override_font_sizes/font_size = 16
 text = "Click or press Space to continue..."
 
-[node name="OptionsPresenter" type="PanelContainer" parent="UILayer" unique_id=1334238045]
+[node name="OptionsPresenter" type="PanelContainer" parent="UILayer" unique_id=1334238045 node_paths=PackedStringArray("options_container")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -95,6 +112,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 script = ExtResource("4_options")
+options_container = NodePath("OptionsContainer")
 
 [node name="OptionsContainer" type="VBoxContainer" parent="UILayer/OptionsPresenter" unique_id=656297899]
 layout_mode = 2
@@ -188,3 +206,7 @@ theme_override_colors/font_color = Color(0.4, 0.4, 0.45, 1)
 theme_override_font_sizes/font_size = 12
 text = "Read the Basics.yarn file to see how each feature is written"
 horizontal_alignment = 1
+
+[connection signal="dialogue_completed" from="YarnDialogueRunner" to="." method="_on_dialogue_complete"]
+[connection signal="pressed" from="UILayer/UI/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="UILayer/UI/RestartButton" to="." method="_on_restart_pressed"]

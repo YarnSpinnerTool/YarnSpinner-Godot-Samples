@@ -1,14 +1,8 @@
 {
-    "projectFileVersion": 3,
+    "projectFileVersion": 4,
     "sourceFiles": [
-        "InstanceCommands.yarn"
+        "**/*.yarn"
     ],
     "baseLanguage": "en",
-    "definitions": "InstanceCommands.ysls.json",
-    "editorOptions": {
-        "yarnScriptEditor": {
-            "characterColourMode": "uniform",
-            "defaultCharacterColour": "#000000"
-        }
-    }
+    "definitions": "InstanceCommands.ysls.json"
 }

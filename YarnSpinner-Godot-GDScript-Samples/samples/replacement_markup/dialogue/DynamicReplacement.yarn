@@ -1,6 +1,6 @@
 ﻿title: Bob
 ---
-/// tracks how much of Bobs speech we understand. The more we talk to him the more we learn of how he speaks
+/// tracks how much of Bob's speech we understand. The more we talk to him the more we learn of how he speaks
 <<declare $obscurity = 0>>
 
 Bob: [obscurity = {$obscurity}]Why hello there, it's nice to meet you friend.[/obscurity]
@@ -10,6 +10,6 @@ Bob: [obscurity = {$obscurity}]Why hello there, it's nice to meet you friend.[/o
     <<set $obscurity += 1>>
 => Player: Hey Bob, nice to meet you <<if $obscurity > 2>>
     Alice: See, practice makes perfect!
-    Bob: Check out obscurity_markup_processor.gd to see how this was done.
+    Bob: Check out the [link="obscurity_markup_processor.gd"]Dynamic Replacement[/link] replacement processor to see how this was done.
 
 ===

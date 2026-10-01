@@ -7,13 +7,7 @@ extends YarnAttributeMarkerProcessor
 ## the marker's value).
 
 ## Entity name to display colour. Keys are lowercased for case-insensitive lookup.
-## entity name -> colour, editable in the inspector like the Unity sample's
-## serialized entities list
-@export var entities: Dictionary[String, Color] = {
-	"player": Color(0.3647059, 0.78039217, 0.53333336),
-	"alice": Color(0.38431373, 0.5294118, 0.7921569),
-	"bob": Color(0.8901961, 0.62352943, 0.25882354),
-}
+var entities: Dictionary[String, Color] = {}
 
 
 func process_replacement_marker(
@@ -30,8 +24,8 @@ func process_replacement_marker(
 	var key := entity.to_lower()
 	if entities.has(key):
 		var colour: Color = entities[key]
-		var prefix := "[color=#%s][b]" % colour.to_html(false)
-		var suffix := "[/b][/color]"
+		var prefix := YarnMarkupParser.brackets_to_tags("[color=#%s][b]" % colour.to_html(false))
+		var suffix := YarnMarkupParser.brackets_to_tags("[/b][/color]")
 		child_builder[0] = "%s%s%s" % [prefix, child_builder[0], suffix]
 		# The wrapped tags add no visible characters.
 		invisible = prefix.length() + suffix.length()

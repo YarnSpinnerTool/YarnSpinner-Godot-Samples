@@ -1,4 +1,50 @@
 {
+  "Functions": [
+    {
+      "DefinitionName": "get_health",
+      "Documentation": "Returns the player's current health.\nBound as: {player_health()} or <<if player_health() < 50>>",
+      "FileName": "player.gd",
+      "Language": "gdscript",
+      "Location": {
+        "end": {
+          "character": 14,
+          "line": 22
+        },
+        "start": {
+          "character": 0,
+          "line": 21
+        }
+      },
+      "Parameters": [],
+      "ReturnType": "number",
+      "YarnName": "player_health"
+    },
+    {
+      "DefinitionName": "has_item",
+      "Documentation": "Checks if the player has a specific item.\nBound as: {has_item(\"key\")} or <<if has_item(\"sword\")>>",
+      "FileName": "player.gd",
+      "Language": "gdscript",
+      "Location": {
+        "end": {
+          "character": 30,
+          "line": 28
+        },
+        "start": {
+          "character": 0,
+          "line": 27
+        }
+      },
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "item_name",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "bool",
+      "YarnName": "has_item"
+    }
+  ],
   "commands": [
     {
       "async": true,
@@ -9,11 +55,11 @@
       "location": {
         "end": {
           "character": 37,
-          "line": 1701
+          "line": 1702
         },
         "start": {
           "character": 0,
-          "line": 1698
+          "line": 1699
         }
       },
       "parameters": [
@@ -28,69 +74,224 @@
     },
     {
       "async": false,
-      "definitionName": "give_item",
-      "fileName": "bindings_sample.gd",
+      "definitionName": "add_item",
+      "documentation": "Adds an item to the player's inventory.\nBound as: <<give_item \"sword\">>",
+      "fileName": "player.gd",
       "language": "gdscript",
-      "parameters": [],
+      "location": {
+        "end": {
+          "character": 41,
+          "line": 37
+        },
+        "start": {
+          "character": 0,
+          "line": 35
+        }
+      },
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "item_name",
+          "type": "string"
+        }
+      ],
       "yarnName": "give_item"
     },
     {
       "async": false,
-      "definitionName": "heal",
-      "fileName": "bindings_sample.gd",
+      "definitionName": "modify_health",
+      "documentation": "Heals or damages the player.\nBound as: <<heal 25>> or <<heal -10>> for damage",
+      "fileName": "player.gd",
       "language": "gdscript",
-      "parameters": [],
+      "location": {
+        "end": {
+          "character": 36,
+          "line": 45
+        },
+        "start": {
+          "character": 0,
+          "line": 42
+        }
+      },
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "amount",
+          "type": "string"
+        }
+      ],
       "yarnName": "heal"
     },
     {
       "async": false,
       "definitionName": "shake",
-      "fileName": "bindings_sample.gd",
+      "documentation": "Shakes the camera (dialogue does NOT wait).\nBound as: <<shake 0.5>>",
+      "fileName": "camera_effects.gd",
       "language": "gdscript",
-      "parameters": [],
+      "location": {
+        "end": {
+          "character": 56,
+          "line": 18
+        },
+        "start": {
+          "character": 0,
+          "line": 12
+        }
+      },
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "intensity",
+          "type": "string"
+        }
+      ],
       "yarnName": "shake"
     },
     {
-      "async": false,
+      "async": true,
       "definitionName": "shake_and_wait",
-      "fileName": "bindings_sample.gd",
+      "documentation": "Shakes the camera and WAITS for completion.\nBound as: <<shake_and_wait 0.5 1.0>>\nReturns a Signal so dialogue pauses until shake finishes.",
+      "fileName": "camera_effects.gd",
       "language": "gdscript",
-      "parameters": [],
+      "location": {
+        "end": {
+          "character": 22,
+          "line": 41
+        },
+        "start": {
+          "character": 0,
+          "line": 24
+        }
+      },
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "intensity",
+          "type": "string"
+        },
+        {
+          "defaultValue": "0.5",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "string"
+        }
+      ],
       "yarnName": "shake_and_wait"
     },
     {
-      "async": false,
-      "definitionName": "zoom",
-      "fileName": "bindings_sample.gd",
+      "async": true,
+      "definitionName": "zoom_to",
+      "documentation": "Zooms the camera in or out (async - dialogue waits).\nBound as: <<zoom 1.5 0.5>>",
+      "fileName": "camera_effects.gd",
       "language": "gdscript",
-      "parameters": [],
+      "location": {
+        "end": {
+          "character": 22,
+          "line": 53
+        },
+        "start": {
+          "character": 0,
+          "line": 46
+        }
+      },
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "target_zoom",
+          "type": "string"
+        },
+        {
+          "defaultValue": "0.3",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "string"
+        }
+      ],
       "yarnName": "zoom"
     },
     {
-      "async": false,
+      "async": true,
       "definitionName": "fade_out",
-      "fileName": "bindings_sample.gd",
+      "documentation": "Fades the screen to black (async - dialogue waits).\nBound as: <<fade_out 0.5>>",
+      "fileName": "screen_effects.gd",
       "language": "gdscript",
-      "parameters": [],
+      "location": {
+        "end": {
+          "character": 22,
+          "line": 16
+        },
+        "start": {
+          "character": 0,
+          "line": 11
+        }
+      },
+      "parameters": [
+        {
+          "defaultValue": "0.5",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "string"
+        }
+      ],
       "yarnName": "fade_out"
     },
     {
-      "async": false,
+      "async": true,
       "definitionName": "fade_in",
-      "fileName": "bindings_sample.gd",
+      "documentation": "Fades the screen from black (async - dialogue waits).\nBound as: <<fade_in 0.5>>",
+      "fileName": "screen_effects.gd",
       "language": "gdscript",
-      "parameters": [],
+      "location": {
+        "end": {
+          "character": 22,
+          "line": 25
+        },
+        "start": {
+          "character": 0,
+          "line": 21
+        }
+      },
+      "parameters": [
+        {
+          "defaultValue": "0.5",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "string"
+        }
+      ],
       "yarnName": "fade_in"
     },
     {
-      "async": false,
+      "async": true,
       "definitionName": "flash",
-      "fileName": "bindings_sample.gd",
+      "documentation": "Flashes the screen a color briefly.\nBound as: <<flash red 0.2>> or <<flash white 0.1>>",
+      "fileName": "screen_effects.gd",
       "language": "gdscript",
-      "parameters": [],
+      "location": {
+        "end": {
+          "character": 22,
+          "line": 38
+        },
+        "start": {
+          "character": 0,
+          "line": 30
+        }
+      },
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "color_name",
+          "type": "string"
+        },
+        {
+          "defaultValue": "0.2",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "string"
+        }
+      ],
       "yarnName": "flash"
     }
   ],
-  "functions": [],
   "version": 2
 }

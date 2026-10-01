@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://don7obupokpwf" path="res://samples/shared/scenes/player_character.tscn" id="2_akcio"]
 [ext_resource type="PackedScene" uid="uid://db6adsx7323jr" path="res://samples/shared/scenes/npc_character.tscn" id="3_im5f5"]
 [ext_resource type="Script" uid="uid://flra500ihbix" path="res://addons/yarn_spinner/dialogue_runner.gd" id="4_runner"]
-[ext_resource type="Script" uid="uid://cged8u182768u" path="res://addons/yarn_spinner/ui/line_presenter.gd" id="5_line"]
 [ext_resource type="Script" uid="uid://dtoptpresntr01" path="res://samples/options_that_timeout/scripts/timeout_options_presenter.gd" id="6_options"]
 [ext_resource type="Script" uid="uid://dtoptbar0001x" path="res://samples/options_that_timeout/scripts/timeout_bar.gd" id="7_bar"]
 [ext_resource type="Resource" uid="uid://gb6aklr3jook" path="res://samples/options_that_timeout/dialogue/Timeouts.yarnproject" id="8_proj"]
@@ -12,8 +11,8 @@
 [ext_resource type="Script" uid="uid://bs5qnekrnovvy" path="res://samples/shared/scripts/dialogue_interactable.gd" id="10_interact"]
 [ext_resource type="Script" uid="uid://bj11vnurtp6tm" path="res://samples/shared/scripts/link_opener.gd" id="11_link"]
 [ext_resource type="Script" uid="uid://cawk3ntfrhqtt" path="res://samples/shared/scripts/character_appearance.gd" id="12_appear"]
-[ext_resource type="Texture2D" uid="uid://c4a4wvi35pucw" path="res://addons/yarn_spinner/ui/textures/continue_arrow.png" id="20_arrow"]
 [ext_resource type="PackedScene" path="res://samples/options_that_timeout/scenes/line_presenter.tscn" id="90_line"]
+[ext_resource type="PackedScene" path="res://samples/shared/ui/option_item.tscn" id="91_option_item"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tobar"]
 content_margin_left = 12.0
@@ -27,31 +26,6 @@ bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(12, 1, 12)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
-content_margin_left = 24.0
-content_margin_top = 14.4
-content_margin_right = 24.0
-content_margin_bottom = 19.2
-bg_color = Color(0, 0, 0, 0.8352941)
-
-[sub_resource type="FontVariation" id="FontVariation_bold_italic"]
-variation_embolden = 0.6
-variation_transform = Transform2D(1, 0, 0.2, 1, 0, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bartrack"]
-bg_color = Color(0.18, 0.2, 0.26, 0.9)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_barfill"]
-bg_color = Color(0.4, 0.58, 0.85, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
 
 [node name="OptionsThatTimeout" type="Node3D" unique_id=134441918]
 
@@ -122,6 +96,7 @@ mouse_filter = 2
 script = ExtResource("6_options")
 auto_select_duration = 5.0
 options_container = NodePath("Panel/VBox/OptionsContainer")
+option_button_scene = ExtResource("91_option_item")
 timeout_bar = NodePath("Panel/VBox/TimeoutBar")
 
 [node name="Panel" type="PanelContainer" parent="UILayer/OptionsPresenter"]
@@ -168,17 +143,17 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tofill")
 
 [node name="Hint" type="Label" parent="UILayer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -360.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
 offset_top = 20.0
-offset_right = 360.0
+offset_right = -16.0
 offset_bottom = 46.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.85, 0.85, 0.9, 1)
 theme_override_font_sizes/font_size = 18
 text = "WASD / arrows to move  ·  E to talk  ·  options auto-select when the bar empties"
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [editable path="BasicArena"]

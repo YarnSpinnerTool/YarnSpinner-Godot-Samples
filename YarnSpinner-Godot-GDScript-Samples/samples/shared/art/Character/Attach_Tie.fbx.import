@@ -41,9 +41,9 @@ _subresources={
 "animations": {},
 "materials": {
 "Material.002": {
-"use_external/enabled": true,
+"use_external/enabled": false,
 "use_external/fallback_path": "",
-"use_external/path": "uid://deeski7xkhhks"
+"use_external/path": ""
 }
 },
 "meshes": {
@@ -52,16 +52,16 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "uid://c7brcfgdx4emh"
+"save_to_file/path": ""
 },
 "Root Scene_Attach_Tie": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "uid://c7brcfgdx4emh"
+"save_to_file/path": ""
 }
 },
 "nodes": {

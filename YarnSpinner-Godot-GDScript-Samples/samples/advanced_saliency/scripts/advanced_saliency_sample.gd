@@ -1,8 +1,8 @@
 extends Node3D
 
 ## Scene setup for the Advanced Saliency sample. 
-## There's a corridor between teh two rooms and we need it to kinda punch
-## out a wall tilet so we have to nuke bits of the arenas to make this work.
+## There's a corridor between the two rooms and we need it to kinda punch
+## out a wall tile so we have to nuke bits of the arenas to make this work.
 
 ## we're picking on these specific tiles
 const _DOORWAY_TILES: Array[String] = [

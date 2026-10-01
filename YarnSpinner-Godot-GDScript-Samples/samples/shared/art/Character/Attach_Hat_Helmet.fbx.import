@@ -40,10 +40,10 @@ materials/extract_path=""
 _subresources={
 "animations": {
 &"Attach_Hat_Helmet|Attach_Hat_HelmetAction": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "uid://6e3f5klout6t",
+"save_to_file/path": "",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -2096,10 +2096,10 @@ _subresources={
 "slices/amount": 0
 },
 &"Attach_Hat_Helmet|Attach_Hat_HelmetAction_001": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "uid://m763lv5o25ra",
+"save_to_file/path": "",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -4152,10 +4152,10 @@ _subresources={
 "slices/amount": 0
 },
 &"PillCharacterMesh_002|Attach_Hat_HelmetAction": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "uid://bc7lpqcxybr1o",
+"save_to_file/path": "",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -6208,10 +6208,10 @@ _subresources={
 "slices/amount": 0
 },
 &"PillCharacterMesh_002|Attach_Hat_HelmetAction_001": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "uid://cnsp0p1ihsdgi",
+"save_to_file/path": "",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -8277,32 +8277,32 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "uid://borh13l6ay6gl"
+"save_to_file/path": ""
 },
 "PillCharacterMesh_001": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "uid://rotocvmgfabg"
+"save_to_file/path": ""
 },
 "Root Scene_Attach_Hat_Helmet": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "uid://borh13l6ay6gl"
+"save_to_file/path": ""
 },
 "Root Scene_PillCharacterMesh_001": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "uid://rotocvmgfabg"
+"save_to_file/path": ""
 }
 },
 "nodes": {

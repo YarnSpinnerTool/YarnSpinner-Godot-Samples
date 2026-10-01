@@ -11,6 +11,6 @@ func _ready() -> void:
 		push_error("custom saliency: no dialogue runner assigned")
 		return
 
-	# Install the custom weighted strategy, overriding the runner's built-in
-	# choice.
+	# Install the custom weighted strategy for the runner's Custom saliency
+	# setting.
 	dialogue_runner.set_content_saliency_strategy(WeightedSaliencyStrategy.new())

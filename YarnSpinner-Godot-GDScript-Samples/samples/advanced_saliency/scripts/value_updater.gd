@@ -13,7 +13,7 @@ enum ValueObserved { PRIMARY, SECONDARY, ROOM, SCENARIO }
 
 func _ready() -> void:
 	# Deferred because the dialogue runner loads the Yarn program (and with it the
-	# variables' initial values) in its own _ready, which rrunsuns after ours.
+	# variables' initial values) in its own _ready, which runs after ours.
 	update_labels.call_deferred()
 
 
@@ -40,17 +40,22 @@ func update_labels() -> void:
 		ValueObserved.SECONDARY:
 			label.text = "The Secondary role is played by %s" % storage.get_secondary_name()
 		ValueObserved.SCENARIO:
-			label.text = "It will be a %s scene" % _case_name(TheRoomVariableStorage.Scenario.keys()[storage.get_scenario()])
+			label.text = "It will be %s scene" % _with_article(_case_name(TheRoomVariableStorage.Scenario.keys()[storage.get_scenario()]))
 		ValueObserved.ROOM:
-			label.text = "It is set inside a %s" % _case_name(TheRoomVariableStorage.Room.keys()[storage.get_room()])
+			label.text = "It is set inside %s" % _with_article(_case_name(TheRoomVariableStorage.Room.keys()[storage.get_room()]))
 
 
 func _next(current: int, count: int) -> int:
 	return (current + 1) % count
 
 
+func _with_article(word: String) -> String:
+	var article := "an" if word.left(1).to_lower() in ["a", "e", "i", "o", "u"] else "a"
+	return "%s %s" % [article, word]
+
+
 ## Godot Enum keys are typically SHOUTING_CASE; the labels use the Yarn case names. 
 ## LESS SHOUTING 
-## EVEN THOUGHT SHOUTING IS FUN
+## EVEN THOUGH SHOUTING IS FUN
 func _case_name(key: String) -> String:
 	return key.capitalize()

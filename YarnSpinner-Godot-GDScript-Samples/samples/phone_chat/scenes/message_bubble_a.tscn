@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://samples/phone_chat/scripts/chat_bubble.gd" id="1_bubble"]
-[ext_resource type="Script" path="res://samples/phone_chat/scripts/typing_dots.gd" id="2_dots"]
 [ext_resource type="Texture2D" uid="uid://b8jytjkopv0xk" path="res://samples/phone_chat/sprites/bubble_green.png" id="3_tex"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a"]
@@ -14,6 +13,52 @@ content_margin_left = 34.0
 content_margin_top = 18.0
 content_margin_right = 34.0
 content_margin_bottom = 20.0
+
+[sub_resource type="Animation" id="Animation_typing"]
+resource_name = "typing"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dot1:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.3, 1.0, 0.3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dot2:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.3, 0.3, 1.0, 0.3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dot3:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.3, 0.3, 1.0, 0.3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_typing"]
+_data = {
+&"typing": SubResource("Animation_typing")
+}
 
 [node name="MessageBubbleA" type="MarginContainer" node_paths=PackedStringArray("label", "typing_indicator")]
 anchors_preset = 10
@@ -49,7 +94,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 5
 alignment = 1
-script = ExtResource("2_dots")
 
 [node name="Dot1" type="Label" parent="Align/Panel/TypingDots"]
 layout_mode = 2
@@ -71,3 +115,9 @@ theme_override_colors/font_color = Color(1, 1, 1, 0.85)
 theme_override_font_sizes/font_size = 13
 vertical_alignment = 1
 text = "●"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Align/Panel/TypingDots"]
+libraries = {
+&"": SubResource("AnimationLibrary_typing")
+}
+autoplay = &"typing"

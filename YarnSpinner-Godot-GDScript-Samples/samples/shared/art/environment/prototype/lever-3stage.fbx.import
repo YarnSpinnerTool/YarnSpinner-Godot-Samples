@@ -8267,8 +8267,8 @@ _subresources={
 "materials": {
 "colormap": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://samples/shared/art2/Environment/Prototype/extracted/lever-3stage.colormap.material",
-"use_external/path": "uid://jdjqcksxo4fp"
+"use_external/fallback_path": "res://samples/shared/art/materials/colormap-base.mat.tres",
+"use_external/path": "uid://dhud8jr6jnudr"
 }
 },
 "meshes": {

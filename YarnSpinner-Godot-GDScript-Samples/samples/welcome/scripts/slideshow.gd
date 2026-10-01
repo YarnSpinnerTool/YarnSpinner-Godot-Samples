@@ -31,31 +31,19 @@ extends YarnDialoguePresenter
 @export_dir var image_folder: String = "res://samples/welcome/images"
 
 var _running_slideshow: bool = false
-var _commands_registered: bool = false
 
 
 func _ready() -> void:
-	_clear_slide()
+	clear_slide()
 	if slide_panel != null:
 		slide_panel.visible = false
-	_register_commands.call_deferred()
-
-
-func _register_commands() -> void:
-	if _commands_registered or dialogue_runner == null:
-		return
-	_commands_registered = true
-	dialogue_runner.add_command("start_slide", _start_slide)
-	dialogue_runner.add_command("end_slide", _end_slide)
-	dialogue_runner.add_command("clear_slide", _clear_slide)
 
 
 func on_dialogue_started() -> void:
-	_register_commands()
-	_clear_slide()
+	clear_slide()
 
 
-func _start_slide() -> void:
+func start_slide() -> void:
 	if _running_slideshow:
 		push_warning("slideshow: start_slide called while a slide was already being built")
 
@@ -73,7 +61,7 @@ func _start_slide() -> void:
 	_running_slideshow = true
 
 
-func _end_slide() -> void:
+func end_slide() -> void:
 	if not _running_slideshow:
 		push_warning("slideshow: end_slide called while a slide was not being built")
 
@@ -159,7 +147,7 @@ func _load_image(image_name: String) -> Texture2D:
 	return null
 
 
-func _clear_slide() -> void:
+func clear_slide() -> void:
 	_set_header("")
 	_set_body("")
 	_set_image("")

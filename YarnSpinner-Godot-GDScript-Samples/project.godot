@@ -17,12 +17,12 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Yarn Spinner for Godot Samples"
 config/description="Sample projects for Yarn Spinner for Godot (GDScript)"
 config/version="1.0.0"
-run/main_scene="uid://dqm7kxw2r5h8c"
+run/main_scene="res://samples/yarn_basics/scenes/yarn_basics_sample.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
-YarnSpinner="*uid://bhiw7fae5n1e8"
+YarnSpinner="*res://addons/yarn_spinner/yarn_spinner.gd"
 
 [editor_plugins]
 

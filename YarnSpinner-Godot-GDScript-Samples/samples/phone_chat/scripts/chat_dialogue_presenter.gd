@@ -5,10 +5,10 @@ class_name ChatDialoguePresenter
 extends YarnDialoguePresenter
 ## presents dialogue as chat bubbles in a scrolling message list, like a
 ## messaging app. Runs both lines and options; use it instead of the
-## standard line and options presenters!
+## standard Line Presenter and Options Presenter.
 
 @export_group("Scenes")
-## character name -> bubble scene. Lines from unlisted characters use teh
+## character name -> bubble scene. Lines from unlisted characters use the
 ## default bubble.
 @export var bubble_scenes: Dictionary[String, PackedScene] = {}
 @export var default_bubble_scene: PackedScene
@@ -31,11 +31,6 @@ extends YarnDialoguePresenter
 ## typing time per character of the incoming message
 @export var typing_delay_per_character: float = 0.1
 @export var show_typing_indicators: bool = true
-
-
-func _ready() -> void:
-	if scroll_container != null:
-		scroll_container.get_v_scroll_bar().self_modulate.a = 0.0
 
 
 func run_line(line: YarnLine, token: YarnCancellationToken = null) -> void:
@@ -107,7 +102,7 @@ func run_options(options: Array[YarnOption], token: YarnCancellationToken = null
 
 
 ## bubbles are inserted just above the options container when it lives at
-## the bottom of the message list...
+## the bottom of the message list.
 func _add_to_list(bubble: Control) -> void:
 	bubble_container.add_child(bubble)
 	if options_container != null and options_container.get_parent() == bubble_container:
@@ -126,7 +121,7 @@ func _scroll_deferred(item: Control) -> void:
 		scroll_container.ensure_control_visible(item)
 
 
-## waits, ending early if the player hurries or skips..
+## waits, ending early if the player hurries or skips.
 func _skippable_wait(seconds: float, token: YarnCancellationToken) -> void:
 	if not is_inside_tree():
 		return

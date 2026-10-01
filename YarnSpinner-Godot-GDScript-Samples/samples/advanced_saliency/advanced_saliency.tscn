@@ -291,7 +291,7 @@ transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -0.109, 0.812, -0.003)
 pixel_size = 0.0011
 double_sided = false
 modulate = Color(0, 0, 0, 1)
-text = "It is set inside a Office"
+text = "It is set inside an Office"
 font_size = 72
 autowrap_mode = 3
 width = 1000.0
@@ -322,7 +322,7 @@ transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -0.109, 0.812, -0.003)
 pixel_size = 0.0011
 double_sided = false
 modulate = Color(0, 0, 0, 1)
-text = "It will be a Interrogation scene"
+text = "It will be an Interrogation scene"
 font_size = 72
 autowrap_mode = 3
 width = 1000.0
@@ -468,7 +468,6 @@ script = ExtResource("11_runner")
 yarn_project = ExtResource("12_proj")
 presenters = [NodePath("../UILayer/LinePresenter"), NodePath("../UILayer/OptionsPresenter")]
 variable_storage = NodePath("../TheRoomVariableStorage")
-ysls_scan_path = "res://samples/advanced_saliency"
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1238751418]
 
@@ -491,5 +490,10 @@ layouts = Dictionary[String, ExtResource("28_a22ux")]({
 room_anchor = NodePath("../ScenarioRoom")
 variable_storage = NodePath("../TheRoomVariableStorage")
 dialogue_runner = NodePath("../YarnDialogueRunner")
+
+[connection signal="body_entered" from="PillarPrimary/ButtonBump" to="PillarPrimary/ButtonBump" method="_on_body_entered"]
+[connection signal="body_entered" from="PillarSecondary/ButtonBump" to="PillarSecondary/ButtonBump" method="_on_body_entered"]
+[connection signal="body_entered" from="PillarRoom/ButtonBump" to="PillarRoom/ButtonBump" method="_on_body_entered"]
+[connection signal="body_entered" from="PillarScenario/ButtonBump" to="PillarScenario/ButtonBump" method="_on_body_entered"]
 
 [editable path="Void"]

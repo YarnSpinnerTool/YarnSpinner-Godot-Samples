@@ -1,4 +1,5 @@
 {
+  "Functions": [],
   "commands": [
     {
       "async": true,
@@ -9,11 +10,11 @@
       "location": {
         "end": {
           "character": 37,
-          "line": 1701
+          "line": 1702
         },
         "start": {
           "character": 0,
-          "line": 1698
+          "line": 1699
         }
       },
       "parameters": [
@@ -27,6 +28,5 @@
       "yarnName": "wait"
     }
   ],
-  "functions": [],
   "version": 2
 }

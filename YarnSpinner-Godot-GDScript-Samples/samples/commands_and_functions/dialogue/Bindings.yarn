@@ -2,10 +2,6 @@ title: Start
 position: 65,12
 ---
 <<declare $gold = 50>>
-<<declare $health = 100>>
-<<declare $has_sword = false>>
-<<declare $has_potion = false>>
-<<declare $has_key = false>>
 <<declare $initialized = false>>
 
 // Only show intro on first visit
@@ -26,8 +22,8 @@ position: 65,237
 // Show player status
 Merchant: You have {$gold} gold coins.
 
-<<if $health < 100>>
-    Merchant: You look a bit worn. Your health is only {$health}.
+<<if player_health() < 100>>
+    Merchant: You look a bit worn. Your health is only {player_health()}.
 <<endif>>
 
 -> Ask about items
@@ -42,25 +38,18 @@ title: Shop
 position: 32,462
 ---
 Merchant: I have many fine items for sale!
-Merchant: I see you already have a sword. Nice choice! <<if $has_sword>>
-Merchant: Hmm, you only have {$gold} gold. Get mroe! <<if $gold < 30>>
+Merchant: I see you already have a sword. Nice choice! <<if has_item("sword")>>
+Merchant: Hmm, you only have {$gold} gold. Get more! <<if $gold < 30>>
 
 
 -> Buy a Health Potion (30 gold) <<if $gold >= 30>>
     <<set $gold = $gold - 30>>
-    <<set $health = $health + 25>>
-    <<if $health > 100>>
-        <<set $health = 100>>
-    <<endif>>
-    <<set $has_potion = true>>
-    <<give_item "health_potion">>
     <<heal 25>>
     Merchant: Here you go! You drink it immediately.
-    Merchant: You now have {$health} health and {$gold} gold remaining.
+    Merchant: You now have {player_health()} health and {$gold} gold remaining.
     <<jump Shop>>
--> Buy a Sword (50 gold) <<if $gold >= 50 and not $has_sword>>
+-> Buy a Sword (50 gold) <<if $gold >= 50 and not has_item("sword")>>
     <<set $gold = $gold - 50>>
-    <<set $has_sword = true>>
     <<give_item "sword">>
     <<shake_and_wait 0.4 0.5>>
     Merchant: A fine blade! The room shakes with power.
@@ -82,6 +71,7 @@ Merchant: I also offer some... special services.
     <<zoom 1.5 0.3>>
     <<fade_in 0.3>>
     <<shake_and_wait 0.8 1.0>>
+    <<heal -20>>
     <<zoom 1.0 0.5>>
     Merchant: How was that?
     <<jump Services>>
@@ -89,8 +79,7 @@ Merchant: I also offer some... special services.
     <<flash white 0.3>>
     Merchant: Dazzling, isn't it?
     <<jump Services>>
--> Receive a mysterious gift <<if not $has_key>>
-    <<set $has_key = true>>
+-> Receive a mysterious gift <<if not has_item("mysterious_key")>>
     <<give_item "mysterious_key">>
     Merchant: Take this key. You may need it later...
     <<jump Services>>
@@ -101,7 +90,7 @@ Merchant: I also offer some... special services.
 title: Farewell
 position: 622,462
 ---
-<<if $has_key>>
+<<if has_item("mysterious_key")>>
     Merchant: Safe travels! And remember... that key opens something important.
 <<else>>
     Merchant: Safe travels, adventurer!

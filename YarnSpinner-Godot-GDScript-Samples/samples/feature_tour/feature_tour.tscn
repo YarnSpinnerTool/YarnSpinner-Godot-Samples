@@ -7,15 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://le6c0y7pc8gt" path="res://samples/shared/scenes/explanation_character.tscn" id="5_ygllq"]
 [ext_resource type="PackedScene" uid="uid://db6adsx7323jr" path="res://samples/shared/scenes/npc_character.tscn" id="6_aayqt"]
 [ext_resource type="Script" uid="uid://flra500ihbix" path="res://addons/yarn_spinner/dialogue_runner.gd" id="7_runner"]
-[ext_resource type="Script" uid="uid://cged8u182768u" path="res://addons/yarn_spinner/ui/line_presenter.gd" id="8_line"]
-[ext_resource type="Script" uid="uid://cogqy630mjgv7" path="res://addons/yarn_spinner/ui/options_presenter.gd" id="9_options"]
-[ext_resource type="Resource" uid="uid://nuhmqa54gs51l" path="res://samples/feature_tour/dialogue/Tour.yarnproject" id="10_proj"]
+[ext_resource type="Resource" uid="uid://b880x4fdq7jrb" path="res://samples/feature_tour/dialogue/Tour.yarnproject" id="10_proj"]
 [ext_resource type="Script" uid="uid://ci0aavprdl4gw" path="res://samples/shared/scripts/simple_follow_camera.gd" id="11_cam"]
 [ext_resource type="Script" uid="uid://bs5qnekrnovvy" path="res://samples/shared/scripts/dialogue_interactable.gd" id="12_interact"]
 [ext_resource type="Script" uid="uid://cawk3ntfrhqtt" path="res://samples/shared/scripts/character_appearance.gd" id="13_appear"]
-[ext_resource type="Texture2D" uid="uid://c4a4wvi35pucw" path="res://addons/yarn_spinner/ui/textures/continue_arrow.png" id="20_arrow"]
-[ext_resource type="PackedScene" uid="uid://dy8bwpmrnwiwb" path="res://addons/yarn_spinner/ui/option_button.tscn" id="21_optbtn"]
-[ext_resource type="Script" path="res://samples/shared/scripts/debug_follow_mouse.gd" id="22_dbgmouse"]
+[ext_resource type="Script" uid="uid://cr1sx12q6f7h7" path="res://samples/shared/scripts/debug_follow_mouse.gd" id="22_dbgmouse"]
 [ext_resource type="PackedScene" path="res://samples/shared/ui/line_presenter.tscn" id="90_coreline"]
 [ext_resource type="PackedScene" path="res://samples/shared/ui/options_presenter.tscn" id="91_coreopts"]
 
@@ -28,17 +24,6 @@ sky = SubResource("Sky_6l1mg")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(5, 1, 49)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
-content_margin_left = 24.0
-content_margin_top = 14.4
-content_margin_right = 24.0
-content_margin_bottom = 19.2
-bg_color = Color(0, 0, 0, 0.8352941)
-
-[sub_resource type="FontVariation" id="FontVariation_bold_italic"]
-variation_embolden = 0.6
-variation_transform = Transform2D(1, 0, 0.2, 1, 0, 0)
 
 [node name="FeatureTour" type="Node3D" unique_id=1249590773]
 
@@ -86,8 +71,6 @@ shape = SubResource("BoxShape3D_ground")
 script = ExtResource("11_cam")
 target = NodePath("../PlayerCharacter")
 camera = NodePath("Camera3D")
-follow_offset = Vector3(0, 1.76, 1.78)
-look_at_offset = Vector3(0, 0.91, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=299780288]
 fov = 60.0
@@ -98,7 +81,6 @@ far = 1000.0
 script = ExtResource("7_runner")
 yarn_project = ExtResource("10_proj")
 presenters = [NodePath("../UILayer/LinePresenter"), NodePath("../UILayer/OptionsPresenter")]
-ysls_scan_path = "res://samples/feature_tour"
 
 [node name="PlayerCharacter" parent="." unique_id=914088189 instance=ExtResource("4_6l1mg")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 1.5)
@@ -379,9 +361,9 @@ mode = 1
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1276127419]
 
-[node name="LinePresenter" parent="UILayer" instance=ExtResource("90_coreline")]
+[node name="LinePresenter" parent="UILayer" unique_id=225873176 instance=ExtResource("90_coreline")]
 
-[node name="OptionsPresenter" parent="UILayer" instance=ExtResource("91_coreopts")]
+[node name="OptionsPresenter" parent="UILayer" unique_id=1965304423 instance=ExtResource("91_coreopts")]
 
 [node name="Hint" type="Label" parent="UILayer" unique_id=1116694513]
 anchors_preset = 5
@@ -397,6 +379,6 @@ theme_override_font_sizes/font_size = 18
 text = "WASD / arrows to move  ·  E to talk  ·  walk through the rooms and chat to everyone"
 horizontal_alignment = 1
 
-[node name="DebugFollowMouse" type="Node" parent="." node_paths=PackedStringArray("character")]
+[node name="DebugFollowMouse" type="Node" parent="." unique_id=1898208435 node_paths=PackedStringArray("character")]
 script = ExtResource("22_dbgmouse")
 character = NodePath("../Capsley")

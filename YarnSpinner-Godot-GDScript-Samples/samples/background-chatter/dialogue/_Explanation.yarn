@@ -10,9 +10,9 @@ color: red
 
 Capsley: This is a background conversation!
 Capsley: These two characters are having a conversation, but it doesn't interrupt gameplay.
-Capsley: To make this work, there's a separate DialogueRunner for their conversation.
-Capsley: Rather than sending lines to the usual line view and option view, the Dialogue Runner has a special dialogue view that shows lines floating above their heads.
-Capsley: Because background conversations don't have any player participation, the dialogue view doesn't need to handle any options.
+Capsley: To make this work, there's a separate Dialogue Runner for their conversation.
+Capsley: Rather than sending lines to the usual Line Presenter and Options Presenter, the Dialogue Runner has a special Dialogue Presenter that shows lines floating above their heads.
+Capsley: Because background conversations don't have any player participation, the Dialogue Presenter doesn't need to handle any options.
 Capsley: The conversations are triggered by a special manager class that periodically starts a background conversation based on how close the player is to the characters
 Capsley: It also stops those conversations if the player walks too far away.
 Capsley: Take a look at [link="chatter_group_manager.gd"]chatter_group_manager.gd[/link] and [link="chatter_group.gd"]chatter_group.gd[/link] to learn more!
@@ -78,11 +78,11 @@ color: red
 <<detour Demo_PreExplanation>>
 
 Capsley: This background conversation can be interrupted by you walking up and talking to either of the characters.
-Capsley: The conversation is set up so that dialogue is cancelled when the primary dialogue runner starts. (That's the runner that we're using right now!)
+Capsley: The conversation is set up so that dialogue is cancelled when the primary Dialogue Runner starts. (That's the runner that we're using right now!)
 Capsley: This means that you won't see background lines pop up in the middle of your conversation with them, which would look strange.
 Capsley: Finally, the characters are set up so that you can walk up to them and talk to them, just like you did when you started talking to me.
 Capsley: This starts a conversation on the primary runner, which stops the background runner.
-Capsley: When the primary dialogue runner finishes, the background conversation resumes running.
+Capsley: When the primary Dialogue Runner finishes, the background conversation resumes running.
 
 <<once>>
     <<set $explanations_heard += 1>>

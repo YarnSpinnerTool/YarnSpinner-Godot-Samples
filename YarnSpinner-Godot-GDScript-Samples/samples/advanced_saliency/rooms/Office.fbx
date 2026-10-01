@@ -96,7 +96,7 @@ References:  {
 
 Definitions:  {
 	Version: 100
-	Count: 62
+	Count: 58
 	ObjectType: "GlobalSettings" {
 		Count: 1
 	}
@@ -212,56 +212,6 @@ Definitions:  {
 				P: "DisplacementFactor", "double", "Number", "",1
 				P: "VectorDisplacementColor", "ColorRGB", "Color", "",0,0,0
 				P: "VectorDisplacementFactor", "double", "Number", "",1
-			}
-		}
-	}
-	ObjectType: "Texture" {
-		Count: 2
-		PropertyTemplate: "FbxFileTexture" {
-			Properties70:  {
-				P: "TextureTypeUse", "enum", "", "",0
-				P: "Texture alpha", "Number", "", "A",1
-				P: "CurrentMappingType", "enum", "", "",0
-				P: "WrapModeU", "enum", "", "",0
-				P: "WrapModeV", "enum", "", "",0
-				P: "UVSwap", "bool", "", "",0
-				P: "PremultiplyAlpha", "bool", "", "",1
-				P: "Translation", "Vector", "", "A",0,0,0
-				P: "Rotation", "Vector", "", "A",0,0,0
-				P: "Scaling", "Vector", "", "A",1,1,1
-				P: "TextureRotationPivot", "Vector3D", "Vector", "",0,0,0
-				P: "TextureScalingPivot", "Vector3D", "Vector", "",0,0,0
-				P: "CurrentTextureBlendMode", "enum", "", "",1
-				P: "UVSet", "KString", "", "", "default"
-				P: "UseMaterial", "bool", "", "",0
-				P: "UseMipMap", "bool", "", "",0
-			}
-		}
-	}
-	ObjectType: "Video" {
-		Count: 2
-		PropertyTemplate: "FbxVideo" {
-			Properties70:  {
-				P: "Path", "KString", "XRefUrl", "", ""
-				P: "RelPath", "KString", "XRefUrl", "", ""
-				P: "Color", "ColorRGB", "Color", "",0.8,0.8,0.8
-				P: "ClipIn", "KTime", "Time", "",0
-				P: "ClipOut", "KTime", "Time", "",0
-				P: "Offset", "KTime", "Time", "",0
-				P: "PlaySpeed", "double", "Number", "",0
-				P: "FreeRunning", "bool", "", "",0
-				P: "Loop", "bool", "", "",0
-				P: "Mute", "bool", "", "",0
-				P: "AccessMode", "enum", "", "",0
-				P: "ImageSequence", "bool", "", "",0
-				P: "ImageSequenceOffset", "int", "Integer", "",0
-				P: "FrameRate", "double", "Number", "",0
-				P: "LastFrame", "int", "Integer", "",0
-				P: "Width", "int", "Integer", "",0
-				P: "Height", "int", "Integer", "",0
-				P: "StartFrame", "int", "Integer", "",0
-				P: "StopFrame", "int", "Integer", "",0
-				P: "InterlaceMode", "enum", "", "",0
 			}
 		}
 	}
@@ -4630,50 +4580,6 @@ Objects:  {
 			P: "Opacity", "double", "Number", "",1
 		}
 	}
-	Video: 14014374848, "Video::DiffuseColor_Texture", "Clip" {
-		Type: "Clip"
-		Properties70:  {
-			P: "Path", "KString", "XRefUrl", "", "/Users/desplesda/Work/YarnSpinner-SampleHell/Projects-Sandbox/6000.5.2f1-unitask-unityloc/Packages/dev.yarnspinner.unity.samples/Shared Assets/Art/Textures/colormap.png"
-			P: "RelPath", "KString", "XRefUrl", "", "../Packages/dev.yarnspinner.unity.samples/Shared Assets/Art/Textures/colormap.png"
-		}
-		UseMipMap: 0
-		Filename: "/Users/desplesda/Work/YarnSpinner-SampleHell/Projects-Sandbox/6000.5.2f1-unitask-unityloc/Packages/dev.yarnspinner.unity.samples/Shared Assets/Art/Textures/colormap.png"
-		RelativeFilename: "../Packages/dev.yarnspinner.unity.samples/Shared Assets/Art/Textures/colormap.png"
-	}
-	Video: 14014587712, "Video::DiffuseColor_Texture_1", "Clip" {
-		Type: "Clip"
-		Properties70:  {
-			P: "Path", "KString", "XRefUrl", "", "/Users/desplesda/Work/YarnSpinner-SampleHell/Projects-Sandbox/6000.5.2f1-unitask-unityloc/Packages/dev.yarnspinner.unity.samples/Shared Assets/Art/Textures/office-poster-1.png"
-			P: "RelPath", "KString", "XRefUrl", "", "../Packages/dev.yarnspinner.unity.samples/Shared Assets/Art/Textures/office-poster-1.png"
-		}
-		UseMipMap: 0
-		Filename: "/Users/desplesda/Work/YarnSpinner-SampleHell/Projects-Sandbox/6000.5.2f1-unitask-unityloc/Packages/dev.yarnspinner.unity.samples/Shared Assets/Art/Textures/office-poster-1.png"
-		RelativeFilename: "../Packages/dev.yarnspinner.unity.samples/Shared Assets/Art/Textures/office-poster-1.png"
-	}
-	Texture: 14006295632, "Texture::DiffuseColor_Texture", "" {
-		Type: "TextureVideoClip"
-		Version: 202
-		TextureName: "Texture::DiffuseColor_Texture"
-		Media: "Video::DiffuseColor_Texture"
-		FileName: "/Users/desplesda/Work/YarnSpinner-SampleHell/Projects-Sandbox/6000.5.2f1-unitask-unityloc/Packages/dev.yarnspinner.unity.samples/Shared Assets/Art/Textures/colormap.png"
-		RelativeFilename: "../Packages/dev.yarnspinner.unity.samples/Shared Assets/Art/Textures/colormap.png"
-		ModelUVTranslation: 0,0
-		ModelUVScaling: 1,1
-		Texture_Alpha_Source: "None"
-		Cropping: 0,0,0,0
-	}
-	Texture: 15029482608, "Texture::DiffuseColor_Texture_1", "" {
-		Type: "TextureVideoClip"
-		Version: 202
-		TextureName: "Texture::DiffuseColor_Texture_1"
-		Media: "Video::DiffuseColor_Texture_1"
-		FileName: "/Users/desplesda/Work/YarnSpinner-SampleHell/Projects-Sandbox/6000.5.2f1-unitask-unityloc/Packages/dev.yarnspinner.unity.samples/Shared Assets/Art/Textures/office-poster-1.png"
-		RelativeFilename: "../Packages/dev.yarnspinner.unity.samples/Shared Assets/Art/Textures/office-poster-1.png"
-		ModelUVTranslation: 0,0
-		ModelUVScaling: 1,1
-		Texture_Alpha_Source: "None"
-		Cropping: 0,0,0,0
-	}
 }
 
 ; Object connections
@@ -4938,48 +4844,6 @@ Connections:  {
 	
 	;Geometry::Scene, Model::book_3
 	C: "OO",14020113360,13926693888
-	
-	;Texture::DiffuseColor_Texture, Material::colormap_base
-	C: "OO",14006295632,14006875552
-	
-	;Texture::DiffuseColor_Texture, Material::colormap_base
-	C: "OP",14006295632,14006875552, "DiffuseColor"
-	
-	;Video::DiffuseColor_Texture, Texture::DiffuseColor_Texture
-	C: "OO",14014374848,14006295632
-	
-	;Texture::DiffuseColor_Texture, Material::colormap
-	C: "OP",14006295632,13895507584, "DiffuseColor"
-	
-	;Texture::DiffuseColor_Texture, Material::colormap_1
-	C: "OP",14006295632,14264305184, "DiffuseColor"
-	
-	;Texture::DiffuseColor_Texture_1, Material::office_poster_1
-	C: "OO",15029482608,14264393472
-	
-	;Texture::DiffuseColor_Texture_1, Material::office_poster_1
-	C: "OP",15029482608,14264393472, "DiffuseColor"
-	
-	;Video::DiffuseColor_Texture_1, Texture::DiffuseColor_Texture_1
-	C: "OO",14014587712,15029482608
-	
-	;Texture::DiffuseColor_Texture, Material::colormap_2
-	C: "OP",14006295632,14015197760, "DiffuseColor"
-	
-	;Texture::DiffuseColor_Texture, Material::colormap_3
-	C: "OP",14006295632,14014404256, "DiffuseColor"
-	
-	;Texture::DiffuseColor_Texture, Material::colormap_4
-	C: "OP",14006295632,14014810816, "DiffuseColor"
-	
-	;Texture::DiffuseColor_Texture, Material::colormap_5
-	C: "OP",14006295632,5041959008, "DiffuseColor"
-	
-	;Texture::DiffuseColor_Texture, Material::colormap_6
-	C: "OP",14006295632,14020135936, "DiffuseColor"
-	
-	;Texture::DiffuseColor_Texture, Material::colormap_7
-	C: "OP",14006295632,13895400736, "DiffuseColor"
 }
 ;Takes section
 ;----------------------------------------------------

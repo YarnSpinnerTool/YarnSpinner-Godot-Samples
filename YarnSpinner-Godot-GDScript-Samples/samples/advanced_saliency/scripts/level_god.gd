@@ -55,9 +55,8 @@ func spawn_level() -> void:
 		_current_environment = layout.environment_scene.instantiate()
 		if room_anchor != null:
 			room_anchor.add_child(_current_environment)
-			# The exported room FBXs are X-mirrored relative to the Unity
-			# prefabs I'm pretty sure, so a l'il half-turn puts every interior 
-			# piece back on the side we want 'em. Sigh. This confused me.
+			# The room models face the other way, so a half-turn lines every
+			# interior piece up with the layouts' spawn points.
 			_current_environment.rotate_y(PI)
 
 

@@ -6,7 +6,7 @@ extends YarnActionMarkupHandlerNode
 ## marker's position. As the typewriter reaches a marker the player walks
 ## there; the same lookup backs the command.
 
-## the player to move; auto-found via the "player" group if left empty
+## the player to move
 @export var player_character: SimpleCharacter
 ## the runner the <<move>> command is registered on
 @export var dialogue_runner: YarnDialogueRunner
@@ -19,11 +19,6 @@ signal _walk_finished
 
 
 func _ready() -> void:
-	if player_character == null:
-		var players := get_tree().get_nodes_in_group(&"player")
-		if not players.is_empty():
-			player_character = players[0] as SimpleCharacter
-
 	# Register a global <<move marker>> command. Done in code (rather than a
 	# _yarn_command_ method) so it stays a plain command with no target
 	# argument. Deferred so the runner has finished building its library first.
@@ -104,7 +99,7 @@ func _command_move(marker_name: String) -> void:
 
 
 func _find_node_named(node_name: String) -> Node:
-	var root := get_tree().current_scene
+	var root := get_tree().current_scene if get_tree().current_scene != null else owner
 	if root == null:
 		return null
 	if root.name == node_name:

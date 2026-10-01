@@ -197,4 +197,6 @@ theme_override_font_sizes/font_size = 18
 text = "WASD / arrows to move  ·  E to talk  ·  walk into the switch to change the time"
 horizontal_alignment = 1
 
+[connection signal="body_entered" from="TimeTrigger" to="TimeTrigger" method="_on_body_entered"]
+
 [editable path="BasicArena"]

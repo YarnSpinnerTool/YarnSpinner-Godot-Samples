@@ -5,7 +5,7 @@ class_name CharacterColorPresenter
 extends YarnDialoguePresenter
 ## presenter that changes text color based on the speaking character.
 
-## character name to color mapping (matches the Unity voice over sample)
+## character name to color mapping
 @export var character_colors: Dictionary[String, Color] = {
 	"Tom": Color(0.9962189, 1.0, 0.3726415),   # yellow
 	"Anne": Color(0.291, 0.90546674, 1.0),     # cyan

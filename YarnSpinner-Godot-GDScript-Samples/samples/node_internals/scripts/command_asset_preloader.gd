@@ -8,8 +8,7 @@ extends Node
 ## set_music and character_avatar command. Nothing is actually loaded here, we
 ## just record the names into sets and simulate a slow load the first time.
 
-## the runner whose compiled program we introspect; falls back to the first
-## runner found in the scene
+## the runner whose compiled program we introspect
 @export var dialogue_runner: YarnDialogueRunner
 ## the node whose commands we preload the assets for
 @export var preload_node_name: String = "commands"
@@ -21,13 +20,6 @@ var _avatars: Dictionary = {}
 
 
 func _ready() -> void:
-	if dialogue_runner == null:
-		for runner in get_tree().get_nodes_in_group(&"yarn_dialogue_runner"):
-			dialogue_runner = runner
-			break
-	if dialogue_runner == null:
-		dialogue_runner = _find_runner(get_tree().current_scene)
-
 	# Register all five as global commands (no target node). They aren't named
 	# _yarn_command_* so the runner's auto-discovery won't also register them
 	# as target-taking instance commands.
@@ -42,15 +34,11 @@ func _register_commands() -> void:
 	if dialogue_runner == null or _commands_registered:
 		return
 	_commands_registered = true
-	var handlers := {
-		"preload_command_assets": _preload_command_assets,
-		"clear_preload": _clear_preload,
-		"set_background": _set_background,
-		"set_music": _set_music,
-		"character_avatar": _character_avatar,
-	}
-	for command_name: String in handlers:
-		dialogue_runner.add_command(command_name, handlers[command_name])
+	dialogue_runner.add_command("preload_command_assets", _preload_command_assets)
+	dialogue_runner.add_command("clear_preload", _clear_preload)
+	dialogue_runner.add_command("set_background", _set_background)
+	dialogue_runner.add_command("set_music", _set_music)
+	dialogue_runner.add_command("character_avatar", _character_avatar)
 
 
 # this command does the actual "preloading". it reaches into the compiled
@@ -100,8 +88,8 @@ func _clear_preload() -> void:
 
 # the next three commands represent the work that actually needs an asset. the
 # first time a given asset is seen we pretend to load it, pausing for a second;
-# after that it's already cached and happens instantly. returning the timer's
-# timeout signal makes the runner await the "load" before continuing.
+# after that it's already cached and happens instantly. awaiting the timer
+# inside the command makes the runner wait for the "load" before continuing.
 func _set_background(background_asset: String) -> Variant:
 	return await _ensure_loaded(_backgrounds, background_asset, "\"setting\" the background to be: %s")
 
@@ -132,15 +120,3 @@ func _get_node_to_preload() -> YarnNode:
 	if program == null:
 		return null
 	return program.get_node(preload_node_name)
-
-
-func _find_runner(node: Node) -> YarnDialogueRunner:
-	if node == null:
-		return null
-	if node is YarnDialogueRunner:
-		return node
-	for child in node.get_children():
-		var found := _find_runner(child)
-		if found != null:
-			return found
-	return null

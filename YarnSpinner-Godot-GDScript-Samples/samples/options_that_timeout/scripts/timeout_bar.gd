@@ -7,7 +7,7 @@ extends Control
 
 signal finished
 
-## the rect whose width is animated; defaults to the first Control child
+## the rect whose width is animated
 @export var bar: Control
 
 var _original_width: float = 0.0
@@ -15,11 +15,6 @@ var _running := false
 
 
 func _ready() -> void:
-	if bar == null:
-		for child in get_children():
-			if child is Control:
-				bar = child
-				break
 	if bar != null:
 		# Prefer the authored minimum width; size.x may be 0 before first layout.
 		_original_width = maxf(bar.size.x, bar.custom_minimum_size.x)
@@ -61,6 +56,6 @@ func reset() -> void:
 
 func _set_width(w: float) -> void:
 	# The bar is horizontally centred, so it shrinks symmetrically inward
-	# toward the middle, matching the Unity sample's centre-pivot bar.
+	# toward the middle.
 	bar.offset_left = -w * 0.5
 	bar.offset_right = w * 0.5

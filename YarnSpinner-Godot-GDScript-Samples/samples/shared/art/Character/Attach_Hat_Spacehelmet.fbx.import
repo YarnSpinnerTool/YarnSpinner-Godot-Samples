@@ -40,10 +40,10 @@ materials/extract_path=""
 _subresources={
 "animations": {
 &"Attach_Hat_Spacehelmet|Attach_Hat_SpacehelmetAction": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "uid://sp5b8c4pdkjr",
+"save_to_file/path": "",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -2114,16 +2114,16 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "uid://bnoesdbrjrbgv"
+"save_to_file/path": ""
 },
 "Root Scene_Attach_Hat_Spacehelmet": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "uid://bnoesdbrjrbgv"
+"save_to_file/path": ""
 }
 },
 "nodes": {

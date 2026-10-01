@@ -10,14 +10,13 @@
 [ext_resource type="Script" uid="uid://ci0aavprdl4gw" path="res://samples/shared/scripts/simple_follow_camera.gd" id="10_cam"]
 [ext_resource type="Script" uid="uid://bs5qnekrnovvy" path="res://samples/shared/scripts/dialogue_interactable.gd" id="11_interact"]
 [ext_resource type="Script" uid="uid://bj11vnurtp6tm" path="res://samples/shared/scripts/link_opener.gd" id="12_link"]
-[ext_resource type="Script" uid="uid://7gsr4704tmnn" path="res://samples/background-chatter/scripts/chatter_npc.gd" id="13_npc"]
-[ext_resource type="Script" uid="uid://bjnjhmpryn37d" path="res://samples/background-chatter/scripts/background_chatter_view.gd" id="14_view"]
-[ext_resource type="Script" uid="uid://bevki15cewm3o" path="res://samples/background-chatter/scripts/chatter_group.gd" id="15_group"]
-[ext_resource type="Script" uid="uid://bohku7vhue33p" path="res://samples/background-chatter/scripts/chatter_group_manager.gd" id="16_manager"]
+[ext_resource type="Script" uid="uid://ujh5qftaxt0gh" path="res://samples/background-chatter/scripts/chatter_npc.gd" id="13_npc"]
+[ext_resource type="PackedScene" path="res://samples/background-chatter/scenes/background_chatter_view.tscn" id="14_view"]
+[ext_resource type="Script" uid="uid://upwwhcqk7w0vi" path="res://samples/background-chatter/scripts/chatter_group.gd" id="15_group"]
+[ext_resource type="Script" uid="uid://fjvghasqflyuh" path="res://samples/background-chatter/scripts/chatter_group_manager.gd" id="16_manager"]
 [ext_resource type="Script" uid="uid://btuq33ov3elga" path="res://samples/shared/scripts/simple_path.gd" id="17_path"]
 [ext_resource type="Script" uid="uid://cawk3ntfrhqtt" path="res://samples/shared/scripts/character_appearance.gd" id="18_appear"]
 [ext_resource type="Shape3D" path="res://samples/background-chatter/env_collision.res" id="21_envcol"]
-[ext_resource type="Script" path="res://samples/background-chatter/scripts/attach_to_nodes.gd" id="31_attach"]
 [ext_resource type="PackedScene" path="res://samples/shared/ui/line_presenter.tscn" id="90_coreline"]
 [ext_resource type="PackedScene" path="res://samples/shared/ui/options_presenter.tscn" id="91_coreopts"]
 
@@ -191,12 +190,6 @@ speaker_name = "OngoingA"
 script = ExtResource("18_appear")
 base_color = Color(0.53900003, 0.34755063, 0.14121799, 1)
 
-[node name="DialogueInteractable" type="Node3D" parent="OngoingA" unique_id=200000072 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
-script = ExtResource("11_interact")
-node_name = "Demo_Interruption_TalkTo"
-dialogue_runner = NodePath("../../PrimaryDialogueRunner")
-speaking_indicator = NodePath("../SpeakingIndicator")
-
 [node name="OngoingB" parent="." unique_id=200000025 instance=ExtResource("4_kopbj")]
 transform = Transform3D(0.887815, 0, -0.4602, 0, 1, 0, 0.4602, 0, 0.887815, 3.4, 0, 9)
 
@@ -209,12 +202,6 @@ script = ExtResource("18_appear")
 base_color = Color(0.8117647, 0.3254902, 0.30980393, 1)
 fade_color = Color(0.99607843, 0.42352942, 0.2509804, 1)
 mode = 1
-
-[node name="DialogueInteractable" type="Node3D" parent="OngoingB" unique_id=200000073 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
-script = ExtResource("11_interact")
-node_name = "Demo_Interruption_TalkTo"
-dialogue_runner = NodePath("../../PrimaryDialogueRunner")
-speaking_indicator = NodePath("../SpeakingIndicator")
 
 [node name="Gossip1" parent="." unique_id=200000028 instance=ExtResource("4_kopbj")]
 transform = Transform3D(0.66497, 0, 0.74687, 0, 1, 0, -0.74687, 0, 0.66497, 8.04, 0, -9.71)
@@ -429,7 +416,6 @@ speaking_indicator = NodePath("../SpeakingIndicator")
 [node name="PrimaryDialogueRunner" type="Node" parent="." unique_id=1744421300 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
 yarn_project = ExtResource("9_proj")
-start_node = "Explanation_BackgroundConversation"
 presenters = [NodePath("../UILayer/LinePresenter"), NodePath("../UILayer/OptionsPresenter")]
 
 [node name="ChatterGroupManager" type="Node" parent="." unique_id=1500000000 node_paths=PackedStringArray("player", "primary_dialogue_runner")]
@@ -439,9 +425,10 @@ primary_dialogue_runner = NodePath("../PrimaryDialogueRunner")
 min_delay = 2.0
 max_delay = 4.0
 
-[node name="Demo_BackgroundConversation" type="Node3D" parent="ChatterGroupManager" unique_id=1500000001 node_paths=PackedStringArray("dialogue_runner")]
+[node name="Demo_BackgroundConversation" type="Node3D" parent="ChatterGroupManager" unique_id=1500000001 node_paths=PackedStringArray("targets", "dialogue_runner")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.45, 0, 24.45)
 script = ExtResource("15_group")
+targets = [NodePath("../../BackgroundChatterA"), NodePath("../../BackgroundChatterB")]
 interrupted_by_primary = false
 start_radius = 2.23
 stop_radius = 3.08
@@ -454,12 +441,12 @@ yarn_project = ExtResource("9_proj")
 presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
-[node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/Demo_BackgroundConversation/Runner" unique_id=1500000003]
-script = ExtResource("14_view")
+[node name="BackgroundChatterView" parent="ChatterGroupManager/Demo_BackgroundConversation/Runner" unique_id=1500000003 instance=ExtResource("14_view")]
 
-[node name="Demo_CallAndResponse" type="Node3D" parent="ChatterGroupManager" unique_id=1500000010 node_paths=PackedStringArray("dialogue_runner")]
+[node name="Demo_CallAndResponse" type="Node3D" parent="ChatterGroupManager" unique_id=1500000010 node_paths=PackedStringArray("targets", "dialogue_runner")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.45, 0, 20.8)
 script = ExtResource("15_group")
+targets = [NodePath("../../CallAndResponseA"), NodePath("../../CallAndResponseB")]
 interrupted_by_primary = false
 start_radius = 2.23
 stop_radius = 3.08
@@ -472,12 +459,12 @@ yarn_project = ExtResource("9_proj")
 presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
-[node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/Demo_CallAndResponse/Runner" unique_id=1500000012]
-script = ExtResource("14_view")
+[node name="BackgroundChatterView" parent="ChatterGroupManager/Demo_CallAndResponse/Runner" unique_id=1500000012 instance=ExtResource("14_view")]
 
-[node name="Demo_Interruption" type="Node3D" parent="ChatterGroupManager" unique_id=1500000020 node_paths=PackedStringArray("dialogue_runner")]
+[node name="Demo_Interruption" type="Node3D" parent="ChatterGroupManager" unique_id=1500000020 node_paths=PackedStringArray("targets", "dialogue_runner")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65, 0, 16.9)
 script = ExtResource("15_group")
+targets = [NodePath("../../InterruptionA"), NodePath("../../InterruptionB")]
 start_radius = 2.23
 stop_radius = 3.08
 dialogue_runner = NodePath("Runner")
@@ -489,12 +476,12 @@ yarn_project = ExtResource("9_proj")
 presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
-[node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/Demo_Interruption/Runner" unique_id=1500000022]
-script = ExtResource("14_view")
+[node name="BackgroundChatterView" parent="ChatterGroupManager/Demo_Interruption/Runner" unique_id=1500000022 instance=ExtResource("14_view")]
 
-[node name="Demo_WalkAway" type="Node3D" parent="ChatterGroupManager" unique_id=1500000030 node_paths=PackedStringArray("dialogue_runner")]
+[node name="Demo_WalkAway" type="Node3D" parent="ChatterGroupManager" unique_id=1500000030 node_paths=PackedStringArray("targets", "dialogue_runner")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.7, 0, 12.9)
 script = ExtResource("15_group")
+targets = [NodePath("../../WalkAway")]
 start_immediately_on_enter = true
 start_radius = 1.06
 stop_radius = 1.44
@@ -509,12 +496,12 @@ yarn_project = ExtResource("9_proj")
 presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
-[node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/Demo_WalkAway/Runner" unique_id=1500000032]
-script = ExtResource("14_view")
+[node name="BackgroundChatterView" parent="ChatterGroupManager/Demo_WalkAway/Runner" unique_id=1500000032 instance=ExtResource("14_view")]
 
-[node name="Demo_Ongoing" type="Node3D" parent="ChatterGroupManager" unique_id=1500000040 node_paths=PackedStringArray("dialogue_runner")]
+[node name="Demo_Ongoing" type="Node3D" parent="ChatterGroupManager" unique_id=1500000040 node_paths=PackedStringArray("targets", "dialogue_runner")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95, 0, 9)
 script = ExtResource("15_group")
+targets = [NodePath("../../OngoingA"), NodePath("../../OngoingB")]
 start_immediately_on_enter = true
 interrupted_by_primary = false
 start_radius = 1.06
@@ -528,21 +515,16 @@ yarn_project = ExtResource("9_proj")
 presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
-[node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/Demo_Ongoing/Runner" unique_id=1500000042]
-script = ExtResource("14_view")
+[node name="BackgroundChatterView" parent="ChatterGroupManager/Demo_Ongoing/Runner" unique_id=1500000042 instance=ExtResource("14_view")]
 
-[node name="CallAndResponse" type="Node3D" parent="ChatterGroupManager" unique_id=1500000050 node_paths=PackedStringArray("dialogue_runner")]
+[node name="CallAndResponse" type="Node3D" parent="ChatterGroupManager" unique_id=1500000050 node_paths=PackedStringArray("targets", "dialogue_runner")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.05, 0, 0.04)
 script = ExtResource("15_group")
+targets = [NodePath("../../BoredGuard1"), NodePath("../../BoredGuard2")]
 start_radius = 4.0
 stop_radius = 6.0
 dialogue_runner = NodePath("Runner")
 chatter_node = "CallAndResponse"
-
-[node name="ChatterPoint" type="Node3D" parent="ChatterGroupManager/CallAndResponse" unique_id=655338389 node_paths=PackedStringArray("targets")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3999996, 0, 20.759998)
-script = ExtResource("31_attach")
-targets = [NodePath("../../../CallAndResponseA"), NodePath("../../../CallAndResponseB")]
 
 [node name="Runner" type="Node" parent="ChatterGroupManager/CallAndResponse" unique_id=1500000051 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
@@ -550,12 +532,12 @@ yarn_project = ExtResource("9_proj")
 presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
-[node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/CallAndResponse/Runner" unique_id=1500000052]
-script = ExtResource("14_view")
+[node name="BackgroundChatterView" parent="ChatterGroupManager/CallAndResponse/Runner" unique_id=1500000052 instance=ExtResource("14_view")]
 
-[node name="RandomBackgroundChat" type="Node3D" parent="ChatterGroupManager" unique_id=1500000060 node_paths=PackedStringArray("dialogue_runner")]
+[node name="RandomBackgroundChat" type="Node3D" parent="ChatterGroupManager" unique_id=1500000060 node_paths=PackedStringArray("targets", "dialogue_runner")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.62, 0, -5.12)
 script = ExtResource("15_group")
+targets = [NodePath("../../Townsperson1"), NodePath("../../Townsperson2")]
 start_radius = 4.0
 stop_radius = 6.0
 dialogue_runner = NodePath("Runner")
@@ -567,12 +549,12 @@ yarn_project = ExtResource("9_proj")
 presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
-[node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/RandomBackgroundChat/Runner" unique_id=1500000062]
-script = ExtResource("14_view")
+[node name="BackgroundChatterView" parent="ChatterGroupManager/RandomBackgroundChat/Runner" unique_id=1500000062 instance=ExtResource("14_view")]
 
-[node name="InterruptableBackgroundChat" type="Node3D" parent="ChatterGroupManager" unique_id=1500000070 node_paths=PackedStringArray("dialogue_runner")]
+[node name="InterruptableBackgroundChat" type="Node3D" parent="ChatterGroupManager" unique_id=1500000070 node_paths=PackedStringArray("targets", "dialogue_runner")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.13, 0, -4.43)
 script = ExtResource("15_group")
+targets = [NodePath("../../Fishmonger")]
 start_immediately_on_enter = true
 start_radius = 0.97
 stop_radius = 1.54
@@ -587,22 +569,17 @@ yarn_project = ExtResource("9_proj")
 presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
-[node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/InterruptableBackgroundChat/Runner" unique_id=1500000072]
-script = ExtResource("14_view")
+[node name="BackgroundChatterView" parent="ChatterGroupManager/InterruptableBackgroundChat/Runner" unique_id=1500000072 instance=ExtResource("14_view")]
 
-[node name="OngoingBackgroundConversation" type="Node3D" parent="ChatterGroupManager" unique_id=1500000080 node_paths=PackedStringArray("dialogue_runner")]
+[node name="OngoingBackgroundConversation" type="Node3D" parent="ChatterGroupManager" unique_id=1500000080 node_paths=PackedStringArray("targets", "dialogue_runner")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.54, 0, -9.84)
 script = ExtResource("15_group")
+targets = [NodePath("../../Gossip1"), NodePath("../../Gossip2")]
 start_immediately_on_enter = true
 start_radius = 1.97
 stop_radius = 5.5
 dialogue_runner = NodePath("Runner")
 chatter_node = "OngoingBackgroundConversation"
-
-[node name="ChatterPoint" type="Node3D" parent="ChatterGroupManager/OngoingBackgroundConversation" unique_id=523914534 node_paths=PackedStringArray("targets")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09, 0, 34.29)
-script = ExtResource("31_attach")
-targets = [NodePath("../../../BackgroundChatterA"), NodePath("../../../BackgroundChatterB")]
 
 [node name="Runner" type="Node" parent="ChatterGroupManager/OngoingBackgroundConversation" unique_id=1500000081 node_paths=PackedStringArray("presenters")]
 script = ExtResource("6_runner")
@@ -610,12 +587,12 @@ yarn_project = ExtResource("9_proj")
 presenters = [NodePath("BackgroundChatterView")]
 auto_discover_commands = false
 
-[node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/OngoingBackgroundConversation/Runner" unique_id=1500000082]
-script = ExtResource("14_view")
+[node name="BackgroundChatterView" parent="ChatterGroupManager/OngoingBackgroundConversation/Runner" unique_id=1500000082 instance=ExtResource("14_view")]
 
-[node name="RoamingCharacter" type="Node3D" parent="ChatterGroupManager" unique_id=1500000090 node_paths=PackedStringArray("dialogue_runner")]
+[node name="RoamingCharacter" type="Node3D" parent="ChatterGroupManager" unique_id=1500000090 node_paths=PackedStringArray("targets", "dialogue_runner")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.708, 0, -3.748)
 script = ExtResource("15_group")
+targets = [NodePath("../../Wanderer")]
 stop_radius = 8.0
 dialogue_runner = NodePath("Runner")
 chatter_node = "RoamingCharacter"
@@ -625,12 +602,12 @@ script = ExtResource("6_runner")
 yarn_project = ExtResource("9_proj")
 presenters = [NodePath("BackgroundChatterView")]
 
-[node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/RoamingCharacter/Runner" unique_id=1500000092]
-script = ExtResource("14_view")
+[node name="BackgroundChatterView" parent="ChatterGroupManager/RoamingCharacter/Runner" unique_id=1500000092 instance=ExtResource("14_view")]
 
-[node name="TownCrier" type="Node3D" parent="ChatterGroupManager" unique_id=1500000100 node_paths=PackedStringArray("dialogue_runner")]
+[node name="TownCrier" type="Node3D" parent="ChatterGroupManager" unique_id=1500000100 node_paths=PackedStringArray("targets", "dialogue_runner")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.93, 0.183, -8.52)
 script = ExtResource("15_group")
+targets = [NodePath("../../TownCrier")]
 start_radius = 4.0
 stop_radius = 6.0
 dialogue_runner = NodePath("Runner")
@@ -641,8 +618,7 @@ script = ExtResource("6_runner")
 yarn_project = ExtResource("9_proj")
 presenters = [NodePath("BackgroundChatterView")]
 
-[node name="BackgroundChatterView" type="Node" parent="ChatterGroupManager/TownCrier/Runner" unique_id=1500000102]
-script = ExtResource("14_view")
+[node name="BackgroundChatterView" parent="ChatterGroupManager/TownCrier/Runner" unique_id=1500000102 instance=ExtResource("14_view")]
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1276127419]
 

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="YarnCommandBinding" format=3 uid="uid://dqo362uq7rbbj"]
+
+[ext_resource type="Script" uid="uid://dir7con1xbeia" path="res://addons/yarn_spinner/core/command_binding.gd" id="1_binding"]
+
+[resource]
+script = ExtResource("1_binding")
+resource_name = "shake"
+yarn_name = "shake"
+target_node = NodePath("..")
+method_name = "shake_camera"
+description = "Shakes the entire UI layer with a flash effect"

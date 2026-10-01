@@ -15,3 +15,7 @@ dest_files=["res://.godot/imported/BasicSaliency.yarnproject-161a6942d11e32638d8
 ysc_path="ysc"
 generate_ysls=true
 ysls_scan_path=""
+line_tagger=0
+generate_variables_source=false
+variables_class_name="YarnVariables"
+variables_class_parent="YarnInMemoryVariableStorage"

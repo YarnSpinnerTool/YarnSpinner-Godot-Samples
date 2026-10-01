@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://samples/phone_chat/scripts/chat_bubble.gd" id="1_bubble"]
 

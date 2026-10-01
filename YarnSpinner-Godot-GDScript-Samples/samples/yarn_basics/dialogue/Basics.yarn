@@ -164,6 +164,7 @@ Guide: Let me demonstrate comparisons:
 // --- LOGICAL OPERATORS ---
 <<declare $sunny = true>>
 <<declare $warm = true>>
+<<declare $raining = false>>
 
 <<if $sunny and $warm>>
     Guide: It's sunny AND warm - perfect weather!
@@ -173,8 +174,8 @@ Guide: Let me demonstrate comparisons:
     Guide: At least one of sunny or warm is true!
 <<endif>>
 
-<<if not $has_sword == false>>
-    Guide: NOT false equals true!
+<<if not $raining>>
+    Guide: It isn't raining, so "not $raining" is true!
 <<endif>>
 
 <<jump Menu>>

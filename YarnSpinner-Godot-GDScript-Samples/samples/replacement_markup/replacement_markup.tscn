@@ -1,35 +1,72 @@
-[gd_scene load_steps=17 format=3 uid="uid://dd73r0hsv6g8n"]
+[gd_scene load_steps=16 format=3 uid="uid://dd73r0hsv6g8n"]
 
 [ext_resource type="PackedScene" uid="uid://ba6k8q62v3aeg" path="res://samples/shared/scenes/Basic Arena.tscn" id="1_arena"]
 [ext_resource type="PackedScene" uid="uid://db6adsx7323jr" path="res://samples/shared/scenes/npc_character.tscn" id="2_npc"]
 [ext_resource type="PackedScene" uid="uid://don7obupokpwf" path="res://samples/shared/scenes/player_character.tscn" id="3_player"]
 [ext_resource type="Script" uid="uid://flra500ihbix" path="res://addons/yarn_spinner/dialogue_runner.gd" id="4_runner"]
-[ext_resource type="Script" uid="uid://cged8u182768u" path="res://addons/yarn_spinner/ui/line_presenter.gd" id="5_line"]
-[ext_resource type="Script" uid="uid://cogqy630mjgv7" path="res://addons/yarn_spinner/ui/options_presenter.gd" id="6_options"]
 [ext_resource type="Resource" uid="uid://7jnepzeqvb2n" path="res://samples/replacement_markup/dialogue/ReplacementMarkup.yarnproject" id="7_proj"]
 [ext_resource type="Script" uid="uid://ci0aavprdl4gw" path="res://samples/shared/scripts/simple_follow_camera.gd" id="8_cam"]
 [ext_resource type="Script" uid="uid://bs5qnekrnovvy" path="res://samples/shared/scripts/dialogue_interactable.gd" id="9_interact"]
 [ext_resource type="Script" uid="uid://cawk3ntfrhqtt" path="res://samples/shared/scripts/character_appearance.gd" id="10_appear"]
 [ext_resource type="Script" uid="uid://bj11vnurtp6tm" path="res://samples/shared/scripts/link_opener.gd" id="11_link"]
 [ext_resource type="Script" uid="uid://g12s4wotljtn" path="res://samples/replacement_markup/scripts/replacement_markup_setup.gd" id="12_setup"]
-[ext_resource type="Texture2D" uid="uid://c4a4wvi35pucw" path="res://addons/yarn_spinner/ui/textures/continue_arrow.png" id="20_arrow"]
-[ext_resource type="PackedScene" uid="uid://dy8bwpmrnwiwb" path="res://addons/yarn_spinner/ui/option_button.tscn" id="21_optbtn"]
 [ext_resource type="PackedScene" path="res://samples/shared/ui/line_presenter.tscn" id="90_coreline"]
 [ext_resource type="PackedScene" path="res://samples/shared/ui/options_presenter.tscn" id="91_coreopts"]
+[ext_resource type="Script" uid="uid://b453jcs032gud" path="res://addons/yarn_spinner/core/markup/markup_palette.gd" id="13_palette"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(12, 1, 12)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
-content_margin_left = 24.0
-content_margin_top = 14.4
-content_margin_right = 24.0
-content_margin_bottom = 19.2
-bg_color = Color(0, 0, 0, 0.8352941)
-
-[sub_resource type="FontVariation" id="FontVariation_bold_italic"]
-variation_embolden = 0.6
-variation_transform = Transform2D(1, 0, 0.2, 1, 0, 0)
+[sub_resource type="Resource" id="Resource_demo_tags"]
+script = ExtResource("13_palette")
+basic_markers = Array[Dictionary]([{
+"boldened": true,
+"color": Color(1, 1, 1, 1),
+"custom_color": false,
+"italicised": false,
+"marker": "b",
+"strikedthrough": false,
+"underlined": false
+}, {
+"boldened": false,
+"color": Color(1, 1, 1, 1),
+"custom_color": false,
+"italicised": true,
+"marker": "i",
+"strikedthrough": false,
+"underlined": false
+}, {
+"boldened": false,
+"color": Color(1, 1, 1, 1),
+"custom_color": false,
+"italicised": false,
+"marker": "u",
+"strikedthrough": false,
+"underlined": true
+}, {
+"boldened": false,
+"color": Color(1, 1, 1, 1),
+"custom_color": false,
+"italicised": false,
+"marker": "s",
+"strikedthrough": true,
+"underlined": false
+}, {
+"boldened": true,
+"color": Color(0.13172704, 0.6886792, 0, 1),
+"custom_color": true,
+"italicised": false,
+"marker": "custom",
+"strikedthrough": false,
+"underlined": true
+}])
+custom_markers = Array[Dictionary]([{
+"end": "[rb][/font_size][/color]",
+"marker": "fancy",
+"marker_offset": 1,
+"start": "[color=#ffff00][font_size=48][lb]",
+"total_visible_character_count": 2
+}])
 
 [node name="ReplacementMarkup" type="Node3D" unique_id=1997084305]
 
@@ -66,6 +103,20 @@ presenters = [NodePath("../UILayer/LinePresenter"), NodePath("../UILayer/Options
 [node name="ReplacementMarkupSetup" type="Node" parent="." unique_id=1744421217 node_paths=PackedStringArray("dialogue_runner")]
 script = ExtResource("12_setup")
 dialogue_runner = NodePath("../YarnDialogueRunner")
+demo_tags_palette = SubResource("Resource_demo_tags")
+styles = Dictionary[String, Dictionary]({
+"h2": {
+"end": "[/color][/b][/font_size]",
+"start": "[font_size=36][b][color=#4080ff]"
+}
+})
+name_colours = Dictionary[String, Color]({
+"alice": Color(0.38431373, 0.5294118, 0.7921569, 1),
+"bob": Color(0.8901961, 0.62352943, 0.25882354, 1),
+"player": Color(0.3647059, 0.78039217, 0.53333336, 1)
+})
+buff_colour = Color(0, 0.7320416, 1, 1)
+debuff_colour = Color(1, 0.64280593, 0, 1)
 
 [node name="Anika" parent="." unique_id=1580153637 instance=ExtResource("2_npc")]
 transform = Transform3D(0.3202854, 0, -0.9473211, 0, 1, 0, 0.9473211, 0, 0.3202854, 1.76, 0, 0.62)

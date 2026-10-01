@@ -2093,7 +2093,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "attack-kick-right": {
 "save_to_file/enabled": false,
@@ -4149,7 +4149,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "attack-melee-left": {
 "save_to_file/enabled": false,
@@ -6205,7 +6205,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "attack-melee-right": {
 "save_to_file/enabled": false,
@@ -8261,7 +8261,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "die": {
 "save_to_file/enabled": false,
@@ -10317,7 +10317,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "drive": {
 "save_to_file/enabled": false,
@@ -12373,7 +12373,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "emote-no": {
 "save_to_file/enabled": false,
@@ -14429,7 +14429,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "emote-yes": {
 "save_to_file/enabled": false,
@@ -16485,7 +16485,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "holding-both": {
 "save_to_file/enabled": false,
@@ -18541,7 +18541,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "holding-both-shoot": {
 "save_to_file/enabled": false,
@@ -20597,7 +20597,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "holding-left": {
 "save_to_file/enabled": false,
@@ -22653,7 +22653,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "holding-left-shoot": {
 "save_to_file/enabled": false,
@@ -24709,7 +24709,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "holding-right": {
 "save_to_file/enabled": false,
@@ -26765,7 +26765,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "holding-right-shoot": {
 "save_to_file/enabled": false,
@@ -28821,7 +28821,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "idle": {
 "save_to_file/enabled": false,
@@ -30877,7 +30877,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "interact-left": {
 "save_to_file/enabled": false,
@@ -32933,7 +32933,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "interact-right": {
 "save_to_file/enabled": false,
@@ -34989,7 +34989,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "pick-up": {
 "save_to_file/enabled": false,
@@ -37045,7 +37045,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "sit": {
 "save_to_file/enabled": false,
@@ -39101,7 +39101,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "sprint": {
 "save_to_file/enabled": false,
@@ -41157,7 +41157,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "static": {
 "save_to_file/enabled": false,
@@ -43213,7 +43213,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "walk": {
 "save_to_file/enabled": false,
@@ -45269,7 +45269,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "wheelchair-move-back": {
 "save_to_file/enabled": false,
@@ -47325,7 +47325,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "wheelchair-move-forward": {
 "save_to_file/enabled": false,
@@ -49381,7 +49381,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "wheelchair-move-left": {
 "save_to_file/enabled": false,
@@ -51437,7 +51437,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "wheelchair-move-right": {
 "save_to_file/enabled": false,
@@ -53493,7 +53493,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 },
 "wheelchair-sit": {
 "save_to_file/enabled": false,
@@ -55549,7 +55549,7 @@ _subresources={
 "slice_99/save_to_file/keep_custom_tracks": false,
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
-"slices/amount": 1
+"slices/amount": 0
 }
 },
 "materials": {

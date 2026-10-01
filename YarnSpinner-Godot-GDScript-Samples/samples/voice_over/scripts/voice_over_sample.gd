@@ -5,58 +5,39 @@ extends Control
 ## main script for the voice over sample using godot's localisation.
 ## demonstrates voice over with TranslationServer integration.
 
-@onready var dialogue_runner: YarnDialogueRunner = $YarnDialogueRunner
-@onready var language_menu: OptionButton = $UI/LanguageMenu
-@onready var start_button: Button = $UI/StartButton
+@export var dialogue_runner: YarnDialogueRunner
+@export var language_menu: OptionButton
+@export var start_button: Button
 
-## available languages with their locale codes (godot format)
-var languages := {
-	"English": "en",
-	"Deutsch": "de",
-	"Español": "es",
-	"中文": "zh",
-	"Portugues (BR)": "pt_BR"
-}
+## locale codes (godot format), in the same order as the language menu
+@export var locales: PackedStringArray = []
 
 
 func _ready() -> void:
 	# Voice-over audio: point the runner at the base-language (en) files.
 	# The other locales come from Godot's translation remaps, and the line
-	# text comes from real .translation resources whicre both registered in
+	# text comes from real .translation resources which are both registered in
 	# Project Settings > Localization.
 	dialogue_runner.set_audio_base_path("res://samples/voice_over/dialogue/audio/en/")
 
-	# populate language menu
-	_setup_language_menu()
-
-	# connect signals
-	start_button.pressed.connect(_on_start_pressed)
-	language_menu.item_selected.connect(_on_language_selected)
-	dialogue_runner.dialogue_completed.connect(_on_dialogue_completed)
-
 	# set initial locale
-	TranslationServer.set_locale("en")
+	_set_language(0)
 
 
-func _setup_language_menu() -> void:
-	language_menu.clear()
-	var idx := 0
-	for lang_name in languages:
-		language_menu.add_item(lang_name, idx)
-		idx += 1
+func _set_language(index: int) -> void:
+	language_menu.select(index)
+	TranslationServer.set_locale(locales[index])
+	print("Language set to: %s (%s)" % [language_menu.get_item_text(index), locales[index]])
 
 
 func _on_start_pressed() -> void:
 	start_button.visible = false
 	language_menu.visible = false
-	dialogue_runner.start_dialogue("Start")
+	dialogue_runner.start_dialogue()
 
 
 func _on_language_selected(index: int) -> void:
-	var lang_name := language_menu.get_item_text(index)
-	var locale: String = languages[lang_name]
-	TranslationServer.set_locale(locale)
-	print("Language set to: %s (%s)" % [lang_name, locale])
+	_set_language(index)
 
 
 func _on_dialogue_completed() -> void:
@@ -68,19 +49,6 @@ func _on_dialogue_completed() -> void:
 func _input(event: InputEvent) -> void:
 	# quick language switch with number keys (for testing)
 	if event is InputEventKey and event.pressed:
-		match event.keycode:
-			KEY_1:
-				TranslationServer.set_locale("en")
-				print("Switched to English")
-			KEY_2:
-				TranslationServer.set_locale("de")
-				print("Switched to German")
-			KEY_3:
-				TranslationServer.set_locale("zh")
-				print("Switched to Chinese")
-			KEY_4:
-				TranslationServer.set_locale("pt_BR")
-				print("Switched to Portuguese (BR)")
-			KEY_5:
-				TranslationServer.set_locale("es")
-				print("Switched to Spanish")
+		var index: int = (event as InputEventKey).keycode - KEY_1
+		if index >= 0 and index < locales.size():
+			_set_language(index)

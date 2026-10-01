@@ -1,19 +1,8 @@
 {
     "projectFileVersion": 4,
     "sourceFiles": [
-        "Basics.yarn"
+        "**/*.yarn"
     ],
-    "excludeFiles": [],
     "baseLanguage": "en",
-    "definitions": "Basics.ysls.json",
-    "editorOptions": {
-        "yarnScriptEditor": {
-            "projectGraphPositions": {
-                "Basics.yarn": {
-                    "x": -3271,
-                    "y": 12
-                }
-            }
-        }
-    }
+    "definitions": "Basics.ysls.json"
 }

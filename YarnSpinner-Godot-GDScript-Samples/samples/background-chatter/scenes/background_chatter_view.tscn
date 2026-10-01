@@ -1,0 +1,19 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://yp3qzx8bdvdqx" path="res://samples/background-chatter/scripts/background_chatter_view.gd" id="1_view"]
+
+[node name="BackgroundChatterView" type="Node" node_paths=PackedStringArray("label")]
+script = ExtResource("1_view")
+label = NodePath("Layer/Label")
+
+[node name="Layer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Layer"]
+visible = false
+offset_right = 353.43
+offset_bottom = 107.77
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

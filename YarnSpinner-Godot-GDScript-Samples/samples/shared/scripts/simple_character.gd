@@ -16,9 +16,9 @@ enum Mode {
 }
 
 @export var is_player_controlled := false
-## Stand where you're placed! This'll skip movement physics (gravity, sliding,
-## etc) while keeping teh facing and animation. For staged characters
-## that are positioned by script, like Unity's SetPositionAndRotation! Basically. Almost.
+## Stay where the character is placed, skipping movement physics (gravity,
+## sliding and so on) while keeping its facing and animation. For staged
+## characters that are positioned by script.
 @export var hold_position := false
 
 @export_group("Movement")
@@ -320,8 +320,7 @@ func _drive_animation() -> void:
 ## Sets the eyebrow expression by requesting its state on the eyebrows
 ## transition node. Names come from [member eyebrow_expressions]
 ## (e.g. "neutral", "surprised", "angry", "sus"). [param crossfade] blends
-## into the new state over that many seconds (0 = instant, like Unity's
-## [code]animator.Play[/code] versus [code]CrossFadeInFixedTime[/code]).
+## into the new state over that many seconds (0 = instant).
 func set_eyebrows(expression: String, crossfade: float = 0.0) -> void:
 	if animation_tree == null:
 		return
@@ -538,13 +537,12 @@ func _run_interaction(target: Node) -> void:
 
 # ---------------------------------------------------------------------------
 # Yarn commands (instance commands: <<turn Tom 0.5 0.5>> calls
-# Tom._yarn_command_turn(0.5, 0.5)teh runner coerces the arguments to the
-# declared types!)
+# Tom._yarn_command_turn(0.5, 0.5), and the runner converts the arguments to
+# the declared types)
 # ---------------------------------------------------------------------------
 
 ## [code]<<set_animator_bool Name Floating true>>[/code]: the pill's Floating
-## blend is a 0/1 scalar, so a bool maps straight onto it (mirrors the Unity
-## sample's animator bool huzzah).
+## blend is a 0/1 scalar, so a bool maps straight onto it.
 func _yarn_command_set_animator_bool(param_name: String, value: bool) -> void:
 	var key := param_name.to_lower()
 	if animation_tree == null or not _ANIMATION_PARAMS.has(key):
@@ -558,8 +556,8 @@ func _yarn_command_turn(amount: float, time: float = 0.0, wait: bool = false) ->
 
 
 ## [code]<<tilt_forward Name amount [time] [wait]>>[/code]: nods the head.
-## Positive tilts forward (down), negative back (up), matching Unity's
-## Forward Tilt parameter; the blend space's y axis points the other way.
+## Positive tilts forward (down), negative back (up). The blend space's y
+## axis points the other way.
 func _yarn_command_tilt_forward(amount: float, time: float = 0.0, wait: bool = false) -> void:
 	await _tween_property("_head_y", -amount, time, wait)
 
@@ -590,8 +588,8 @@ func _yarn_command_expression(expression: String) -> void:
 
 
 ## [code]<<play_animation Name Gesture LookAround [wait]>>[/code]: fires the
-## look-around anim. The pill has a single gesturethe layer/state args are
-## accepted for parity with the Unity sample's command signature
+## look-around animation. The character has a single gesture, so the layer
+## and state arguments are accepted but not used.
 func _yarn_command_play_animation(_layer: String, _state: String, wait: bool = false) -> void:
 	if animation_tree == null:
 		return

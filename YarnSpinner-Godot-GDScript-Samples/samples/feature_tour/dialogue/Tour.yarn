@@ -1,4 +1,4 @@
-﻿title: Capsley_Welcome
+title: Capsley_Welcome
 position: -825,-253
 group: Capsley
 ---
@@ -15,98 +15,98 @@ group: Capsley
 <<declare $player_meal = Meal.None>>
 <<declare $player_can_afford_bribe = $player_gold >= 6>>
 
-Capsley: Hi! Welcome to Yarn Spinner!
-Capsley: This is the Feature Tour!
-Capsley: Walk through these rooms to learn about the major features of Yarn Spinner.
-Capsley: You can find me in each one.
-Capsley: I'll tell you what you're seeing in the room.
-Capsley: Or you can just be confused..
-Capsley: And wander alone.
-Capsley: Just like the real world.
-Capsley: Anyway...
-Capsley: Have a lovely day!
+Capsley: Hi! Welcome to Yarn Spinner! #line:Capsley_Welcome_0100_Capsley 
+Capsley: This is the Feature Tour! #line:Capsley_Welcome_0200_Capsley 
+Capsley: Walk through these rooms to learn about the major features of Yarn Spinner. #line:Capsley_Welcome_0300_Capsley 
+Capsley: You can find me in each one. #line:Capsley_Welcome_0400_Capsley 
+Capsley: I'll tell you what you're seeing in the room. #line:Capsley_Welcome_0500_Capsley 
+Capsley: Or you can just be confused... #line:Capsley_Welcome_0600_Capsley 
+Capsley: And wander alone. #line:Capsley_Welcome_0700_Capsley 
+Capsley: Just like the real world. #line:Capsley_Welcome_0800_Capsley 
+Capsley: Anyway... #line:Capsley_Welcome_0900_Capsley 
+Capsley: Have a lovely day! #line:Capsley_Welcome_1000_Capsley 
 ===
 title: Capsley_Room2
 position: -615,-253
 group: Capsley
 ---
-Capsley: Hello again.
-Capsley: The pillbois in this room shows off the main elements of writing dialogue in Yarn Spinner.
-Capsley: Lines, options, nodes, and jumps.
-Capsley: see you soon.
-Capsley: really soon.
+Capsley: Hello again. #line:Capsley_Room2_0100_Capsley 
+Capsley: The characters in this room show off the main elements of writing dialogue in Yarn Spinner. #line:Capsley_Room2_0200_Capsley 
+Capsley: Lines, options, nodes, and jumps. #line:Capsley_Room2_0300_Capsley 
+Capsley: see you soon. #line:Capsley_Room2_0400_Capsley 
+Capsley: really soon. #line:Capsley_Room2_0500_Capsley 
 ===
 title: Capsley_Room3
 position: -825,-122
 group: Capsley
 ---
-Capsley: Well, well, well, if it isn't you.
-Capsley: This room shows off detours!
-Capsley: Which are similar to jumps...
-Capsley: And are another way to structure your game!
+Capsley: Well, well, well, if it isn't you. #line:Capsley_Room3_0100_Capsley 
+Capsley: This room shows off detours! #line:Capsley_Room3_0200_Capsley 
+Capsley: Which are similar to jumps... #line:Capsley_Room3_0300_Capsley 
+Capsley: And are another way to structure your game! #line:Capsley_Room3_0400_Capsley 
 ===
 title: Capsley_Room4
 position: -615,-122
 group: Capsley
 ---
-Capsley: Fancy seeing you here!
-Capsley: This room shows off using variables in Yarn!
-Capsley: And also shows off enumerations, or enums!
-Capsley: Which are another type of variable!
+Capsley: Fancy seeing you here! #line:Capsley_Room4_0100_Capsley 
+Capsley: This room shows off using variables in Yarn! #line:Capsley_Room4_0200_Capsley 
+Capsley: And also shows off enumerations, or enums! #line:Capsley_Room4_0300_Capsley 
+Capsley: Which are another type of variable! #line:Capsley_Room4_0400_Capsley 
 ===
 title: Capsley_Room5
 position: -825,11
 group: Capsley
 ---
-Capsley: Oh, you're still here?
-Capsley: Well then! I guess you want to see how to do conditionals and branching in Yarn.
-Capsley: Which is what this room is all about, using ifs, onces, and options to do branching!
+Capsley: Oh, you're still here? #line:Capsley_Room5_0100_Capsley 
+Capsley: Well then! I guess you want to see how to do conditionals and branching in Yarn. #line:Capsley_Room5_0200_Capsley 
+Capsley: Which is what this room is all about, using ifs, onces, and options to do branching! #line:Capsley_Room5_0300_Capsley 
 ===
 title: Capsley_Room6
 position: -615,11
 group: Capsley
 ---
-Capsley: You've almost reached the end.
-Capsley: Here, we're showing off commands, functions, and smart variables.
-Capsley: All of these are more advanced elements of Yarn Spinner to give you more control and hooks!
-Capsley: Hooks both into Yarn, and hooks into the other parts of your game!
+Capsley: You've almost reached the end. #line:Capsley_Room6_0100_Capsley 
+Capsley: Here, we're showing off commands, functions, and smart variables. #line:Capsley_Room6_0200_Capsley 
+Capsley: All of these are more advanced elements of Yarn Spinner to give you more control and hooks! #line:Capsley_Room6_0300_Capsley 
+Capsley: Hooks both into Yarn, and hooks into the other parts of your game! #line:Capsley_Room6_0400_Capsley 
 ===
 title: Capsley_Room7
 position: -825,143
 group: Capsley
 ---
-Capsley: The final room, or is it?
-Capsley: Nah, it is.
-Capsley: This room demonstrates storylets, which are a new way of organising story content.
-Capsley: Here, we show off two variants of storylets: line groups, and node groups.
+Capsley: The final room, or is it? #line:Capsley_Room7_0100_Capsley 
+Capsley: Nah, it is. #line:Capsley_Room7_0200_Capsley 
+Capsley: This room demonstrates storylets, which are a new way of organising story content. #line:Capsley_Room7_0300_Capsley 
+Capsley: Here, we show off two variants of storylets: line groups, and node groups. #line:Capsley_Room7_0400_Capsley 
 ===
 
 title: Room2_Nodes_and_Lines
 group: Room2
 position: -305,-245
 ---
-Bob: Hello. I'm Bob.
-Bob: I'm talking to you from my very own node.
-Bob: Each each of these lines...
-Bob: ... is a line!
-Bob: Yarn Spinner scripts are made up of Nodes and Lines.
-Bob: Neat, huh?
+Bob: Hello. I'm Bob. #line:Room2_Nodes_and_Lines_0100_Bob 
+Bob: I'm talking to you from my very own node. #line:Room2_Nodes_and_Lines_0200_Bob 
+Bob: Each of these lines... #line:Room2_Nodes_and_Lines_0300_Bob 
+Bob: ... is a line! #line:Room2_Nodes_and_Lines_0400_Bob 
+Bob: Yarn Spinner scripts are made up of Nodes and Lines. #line:Room2_Nodes_and_Lines_0500_Bob 
+Bob: Neat, huh? #line:Room2_Nodes_and_Lines_0600_Bob 
 ===
 
 title: Room2_Options_and_Jumps_1
 group: Room2
 position: -42,-248
 ---
-Bill: Hello. I'm Bill.
-    -> Hi, I'm The Player.
-    -> Hello, Bill.
-Bill: See those choices you just had? 
-Bill: Those are called Options.
-Bill: They let you create lines in your nodes that offer players, like you, a choice.
-    -> That's pretty neat!
-        Bill: It is neat!
+Bill: Hello. I'm Bill. #line:Room2_Options_and_Jumps_1_0100_Bill 
+    -> Hi, I'm The Player. #line:Room2_Options_and_Jumps_1_0200 
+    -> Hello, Bill. #line:Room2_Options_and_Jumps_1_0300 
+Bill: See those choices you just had?  #line:Room2_Options_and_Jumps_1_0400_Bill 
+Bill: Those are called Options. #line:Room2_Options_and_Jumps_1_0500_Bill 
+Bill: They let you create lines in your nodes that offer players, like you, a choice. #line:Room2_Options_and_Jumps_1_0600_Bill 
+    -> That's pretty neat! #line:Room2_Options_and_Jumps_1_0700 
+        Bill: It is neat! #line:Room2_Options_and_Jumps_1_0800_Bill 
         <<jump Room2_Options_and_Jumps_2>>
-    -> OK...
+    -> OK... #line:Room2_Options_and_Jumps_1_0900 
         <<jump Room2_Options_and_Jumps_3>>
 ===
 
@@ -114,80 +114,80 @@ title: Room2_Options_and_Jumps_2
 group: Room2
 position: -247,-26
 ---
-Bill: It's easy to move between nodes with Jump Commands.
-Bill: So easy, in fact, that we just did it without you even noticing.
-Bill: It's very neat!
+Bill: It's easy to move between nodes with Jump Commands. #line:Room2_Options_and_Jumps_2_0100_Bill 
+Bill: So easy, in fact, that we just did it without you even noticing. #line:Room2_Options_and_Jumps_2_0200_Bill 
+Bill: It's very neat! #line:Room2_Options_and_Jumps_2_0300_Bill 
 ===
 title: Room2_Options_and_Jumps_3
 group: Room2
 position: 273,-142
 ---
-Bill: You could be more enthusiastic.
-Bill: Either way, we're in another node now.
-Bill: We got here with a Jump Command.
-Bill: Jump Commands let you move the dialogue between nodes.
+Bill: You could be more enthusiastic. #line:Room2_Options_and_Jumps_3_0100_Bill 
+Bill: Either way, we're in another node now. #line:Room2_Options_and_Jumps_3_0200_Bill 
+Bill: We got here with a Jump Command. #line:Room2_Options_and_Jumps_3_0300_Bill 
+Bill: Jump Commands let you move the dialogue between nodes. #line:Room2_Options_and_Jumps_3_0400_Bill 
 ===
 
 title: Room3_Detours_1
 group: Room3
 position: -299,292
 ---
-Bruce: I'm Bruce. My single purpose in life...
-Bruce: My raison d'être...
-Bruce: My whole reason to get up in the morning...
-Bruce: .. is to tell you about detours.
+Bruce: I'm Bruce. My single purpose in life... #line:Room3_Detours_1_0100_Bruce 
+Bruce: My raison d'être... #line:Room3_Detours_1_0200_Bruce 
+Bruce: My whole reason to get up in the morning... #line:Room3_Detours_1_0300_Bruce 
+Bruce: .. is to tell you about detours. #line:Room3_Detours_1_0400_Bruce 
 <<detour Room3_Detours_2>>
-Bruce: You'll end up back in the original node.
-Bruce: Like you are right now. SURPRISE!
-Bruce: Detours. Amazing. 
-Bruce: They work like Jump Commands, but bring you back at the end.
-Bruce: I don't actually get up in the morning, by the way.
-Bruce: I'm always here. 
+Bruce: You'll end up back in the original node. #line:Room3_Detours_1_0500_Bruce 
+Bruce: Like you are right now. SURPRISE! #line:Room3_Detours_1_0600_Bruce 
+Bruce: Detours. Amazing.  #line:Room3_Detours_1_0700_Bruce 
+Bruce: They work like Jump Commands, but bring you back at the end. #line:Room3_Detours_1_0800_Bruce 
+Bruce: I don't actually get up in the morning, by the way. #line:Room3_Detours_1_0900_Bruce 
+Bruce: I'm always here.  #line:Room3_Detours_1_1000_Bruce 
 ===
 
 title: Room3_Detours_2
 group: Room3
 position: -244,538
 ---
-Bruce: This is a detour. Right now. We just detoured to a whole different node.
-Bruce: Amazing, right?
-Bruce: And when we're done here...
+Bruce: This is a detour. Right now. We just detoured to a whole different node. #line:Room3_Detours_2_0100_Bruce 
+Bruce: Amazing, right? #line:Room3_Detours_2_0200_Bruce 
+Bruce: And when we're done here... #line:Room3_Detours_2_0300_Bruce 
 ===
 
 title: Room4_Variables_1
 group: Room4
 position: 168,589
 ---
-{$NPC_Variables_Name}: Hi. I'm {$NPC_Variables_Name}. Or I can be someone else if you prefer?
-    -> You're Arnold.
+{$NPC_Variables_Name}: Hi. I'm {$NPC_Variables_Name}. Or I can be someone else if you prefer? #line:Room4_Variables_1_0100_{0} 
+    -> You're Arnold. #line:Room4_Variables_1_0200 
         <<set $NPC_Variables_Name = "Arnold">>
-    -> Hmm.. You're Terrence.
+    -> Hmm... You're Terrence. #line:Room4_Variables_1_0300 
         <<set $NPC_Variables_Name = "Terrence">>
-    -> Studly. 
+    -> Studley.  #line:Room4_Variables_1_0400 
         <<set $NPC_Variables_Name = "Studley">>
-{$NPC_Variables_Name}: Easy done!
-{$NPC_Variables_Name}: That happened because of a Variable.
-{$NPC_Variables_Name}: My whole name is just a Variable. And it's set when you tell me who I am.
-{$NPC_Variables_Name}: You can update them or check them any time.
-{$NPC_Variables_Name}: Or use them in lines, like this...
-{$NPC_Variables_Name}: My name is {$NPC_Variables_Name}, and will always be {$NPC_Variables_Name}, until you change it.
-{$NPC_Variables_Name}: How cool is that?
+{$NPC_Variables_Name}: Easy done! #line:Room4_Variables_1_0500_{0} 
+{$NPC_Variables_Name}: That happened because of a Variable. #line:Room4_Variables_1_0600_{0} 
+{$NPC_Variables_Name}: My whole name is just a Variable. And it's set when you tell me who I am. #line:Room4_Variables_1_0700_{0} 
+{$NPC_Variables_Name}: You can update them or check them any time. #line:Room4_Variables_1_0800_{0} 
+{$NPC_Variables_Name}: Or use them in lines, like this... #line:Room4_Variables_1_0900_{0} 
+{$NPC_Variables_Name}: My name is {$NPC_Variables_Name}, and will always be {$NPC_Variables_Name}, until you change it. #line:Room4_Variables_1_1000_{0} 
+{$NPC_Variables_Name}: How cool is that? #line:Room4_Variables_1_1100_{0} 
 ===
 
 title: Room4_Variables_2
 group: Room4
 position: 153,407
 ---
-Sally: Did you speak to {$NPC_Variables_Name}?
-Sally: They left out the best bit of Variables!
-Sally: They don't have to be strings of text.
-Sally: They can also be numbers.
-Sally: For example, you have {$player_gold} pieces of gold.
-Sally: I know that because there's a Variable that tracks it.
-Sally: I'm also setting a boolean variable that indicates you've spoken to me.
-Sally: Booleans are just a fancy word for something that is true or false.
+Sally: Did you speak to {$NPC_Variables_Name}? #line:Room4_Variables_2_0100_Sally 
+Sally: They left out the best bit of Variables! #line:Room4_Variables_2_0200_Sally 
+Sally: They don't have to be strings of text. #line:Room4_Variables_2_0300_Sally 
+Sally: They can also be numbers. #line:Room4_Variables_2_0400_Sally 
+Sally: For example, you have {$player_gold} pieces of gold. #line:Room4_Variables_2_0500_Sally 
+Sally: I know that because there's a Variable that tracks it. #line:Room4_Variables_2_0600_Sally 
+Sally: I'm also setting a boolean variable that indicates you've spoken to me. #line:Room4_Variables_2_0700_Sally 
+Sally: Booleans are just a fancy word for something that is true or false. #line:Room4_Variables_2_0800_Sally 
 <<set $player_spoke_to_sally = true>>
-Sally: Bye now!
+Sally: Bye now! #line:Room4_Variables_2_0900_Sally 
 ===
 
 title: Room5_IfStatements_1
@@ -195,18 +195,18 @@ group: Room5
 position: 646,107
 ---
 <<if $player_spoke_to_sally>>
-    Mary: I know you spoke to Sally about Variables.
-    Mary: I know because we're inside an if-statement that checks if that variable is true.
-    Mary: AND IT IS TRUE! I KNOW!
-    Mary: Also I was watching you.
+    Mary: I know you spoke to Sally about Variables. #line:Room5_IfStatements_1_0100_Mary 
+    Mary: I know because we're inside an if-statement that checks if that variable is true. #line:Room5_IfStatements_1_0200_Mary 
+    Mary: AND IT IS TRUE! I KNOW! #line:Room5_IfStatements_1_0300_Mary 
+    Mary: Also I was watching you. #line:Room5_IfStatements_1_0400_Mary 
 <<else>>
-    Mary: You should try speaking to Sally in the previous room.
-    Mary: I say this to everyone who hasn't spoken to her...
-    Mary: Because.. well.. these lines are inside the if and else statements.
-    Mary: And you'll only see them if the condition on the if statement is not true.
-    Mary: What's the condition, you ask?
-    Mary: I'm not saying. Just go speak to Sally in the previous room.
-    Mary: Then come back to me. And maybe you'll figure it out.
+    Mary: You should try speaking to Sally in the previous room. #line:Room5_IfStatements_1_0500_Mary 
+    Mary: I say this to everyone who hasn't spoken to her... #line:Room5_IfStatements_1_0600_Mary 
+    Mary: Because.. well.. these lines are inside the if and else statements. #line:Room5_IfStatements_1_0700_Mary 
+    Mary: And you'll only see them if the condition on the if statement is not true. #line:Room5_IfStatements_1_0800_Mary 
+    Mary: What's the condition, you ask? #line:Room5_IfStatements_1_0900_Mary 
+    Mary: I'm not saying. Just go speak to Sally in the previous room. #line:Room5_IfStatements_1_1000_Mary 
+    Mary: Then come back to me. And maybe you'll figure it out. #line:Room5_IfStatements_1_1100_Mary 
 <<endif>>
 ===
 
@@ -214,41 +214,41 @@ title: Room5_ConditionalOptions_1
 group: Room5
 position: 662,262
 ---
-Thor: Hi. 
-    -> Hi, Thor.
-        Thor: Hi.
-    -> Hi, Thor. Do you know Sally? <<if $player_spoke_to_sally>>
-        Thor: Oh, yeah. I do.
-        Thor: And you could only ask me that because that was a Conditional Option.
-        Thor: A Conditional Option is like a regular Option... but it has a little if-statement attached to the end of its line.
-        Thor: And that little if-statement... if it evaluates to true... then you get to see the option, and potentially choose it.
-Thor: Toodles! Have a nice day.
+Thor: Hi.  #line:Room5_ConditionalOptions_1_0100_Thor 
+    -> Hi, Thor. #line:Room5_ConditionalOptions_1_0200 
+        Thor: Hi. #line:Room5_ConditionalOptions_1_0300_Thor 
+    -> Hi, Thor. Do you know Sally? <<if $player_spoke_to_sally>> #line:Room5_ConditionalOptions_1_0400 
+        Thor: Oh, yeah. I do. #line:Room5_ConditionalOptions_1_0500_Thor 
+        Thor: And you could only ask me that because that was a Conditional Option. #line:Room5_ConditionalOptions_1_0600_Thor 
+        Thor: A Conditional Option is like a regular Option... but it has a little if-statement attached to the end of its line. #line:Room5_ConditionalOptions_1_0700_Thor 
+        Thor: And that little if-statement... if it evaluates to true... then you get to see the option, and potentially choose it. #line:Room5_ConditionalOptions_1_0800_Thor 
+Thor: Toodles! Have a nice day. #line:Room5_ConditionalOptions_1_0900_Thor 
 ===
 
 title: Room5_Enums_1
 group: Room5
 position: 668,438
 ---
-Ruby: Would you like a meal? Ramen, Pizza, Nutritional Sludge(tm), or Meat Product?
-    -> Sure, Ramen please.
+Ruby: Would you like a meal? Ramen, Pizza, Nutritional Sludge(tm), or Meat Product? #line:Room5_Enums_1_0100_Ruby 
+    -> Sure, Ramen please. #line:Room5_Enums_1_0200 
         <<set $player_meal = .Ramen>>
-    -> Pizza.
+    -> Pizza. #line:Room5_Enums_1_0300 
         <<set $player_meal = .Pizza>>    
-    -> Nutritional Sludge(tm) is my favourite! That one.
+    -> Nutritional Sludge(tm) is my favourite! That one. #line:Room5_Enums_1_0400 
         <<set $player_meal = .Sludge>>
-    -> ... Meat Product, I guess.
-        <<set $player_meal = .Sludge>>   
-Ruby: Neat! I just set an Enum to the meal you chose.
-Ruby: Enums are a special kind of variables, whose value is constrained to a predefined list of things.
-Ruby: Can you guess what the list of things might be?
-Ruby: That's right! It's the different meals I have for you! Or no meal.
+    -> ... Meat Product, I guess. #line:Room5_Enums_1_0500 
+        <<set $player_meal = .MeatProduct>>   
+Ruby: Neat! I just set an Enum to the meal you chose. #line:Room5_Enums_1_0600_Ruby 
+Ruby: Enums are a special kind of variables, whose value is constrained to a predefined list of things. #line:Room5_Enums_1_0700_Ruby 
+Ruby: Can you guess what the list of things might be? #line:Room5_Enums_1_0800_Ruby 
+Ruby: That's right! It's the different meals I have for you! Or no meal. #line:Room5_Enums_1_0900_Ruby 
 <<if $player_meal == .Ramen>>
-    Ruby: Anyway... You got Ramen.
-    Ruby: That one is my favourite.
-    Ruby: And I'm telling you that because I used an if-statement to check which value of the Meal Enum is stored in the variable I'm using to track the player's meal.
-    Ruby: Works well, right?
+    Ruby: Anyway... You got Ramen. #line:Room5_Enums_1_1000_Ruby 
+    Ruby: That one is my favourite. #line:Room5_Enums_1_1100_Ruby 
+    Ruby: And I'm telling you that because I used an if-statement to check which value of the Meal Enum is stored in the variable I'm using to track the player's meal. #line:Room5_Enums_1_1200_Ruby 
+    Ruby: Works well, right? #line:Room5_Enums_1_1300_Ruby 
 <<endif>>
-Ruby: Bye bye!
+Ruby: Bye bye! #line:Room5_Enums_1_1400_Ruby 
 ===
 
 title: Room5_Once_1
@@ -256,14 +256,14 @@ group: Room5
 position: 647,611
 ---
 <<once>>
-    Norb: Hi, I'm Norb.
-    Norb: I'm only ever going to talk to you ONCE!
-    Norb: Once and no more. 
-    Norb: Next time you speak to me I won't greet you.
-    Norb: That's because my greeting lines are inside a Once Statement.
-    Norb: Which.. well you can guess what it does.
-    Norb: Once statements can also be added to options, which means they can only be chosen once.
-    Norb: You can even put conditions on Once statements.
+    Norb: Hi, I'm Norb. #line:Room5_Once_1_0100_Norb 
+    Norb: I'm only ever going to talk to you ONCE! #line:Room5_Once_1_0200_Norb 
+    Norb: Once and no more.  #line:Room5_Once_1_0300_Norb 
+    Norb: Next time you speak to me I won't greet you. #line:Room5_Once_1_0400_Norb 
+    Norb: That's because my greeting lines are inside a Once Statement. #line:Room5_Once_1_0500_Norb 
+    Norb: Which.. well you can guess what it does. #line:Room5_Once_1_0600_Norb 
+    Norb: Once statements can also be added to options, which means they can only be chosen once. #line:Room5_Once_1_0700_Norb 
+    Norb: You can even put conditions on Once statements. #line:Room5_Once_1_0800_Norb 
 <<endonce>>
 ===
 
@@ -271,73 +271,73 @@ title: Room6_Commands_1
 group: Room6
 position: 99,903
 ---
-Derek: YOU!
-    -> Me?
-Derek: Yes, you!
+Derek: YOU! #line:Room6_Commands_1_0100_Derek 
+    -> Me? #line:Room6_Commands_1_0200 
+Derek: Yes, you! #line:Room6_Commands_1_0300_Derek 
 <<wait 2>>
-Derek: That was a dramatic pause, right?
-Derek: I did that with a Command! The Wait Command!
-Derek: You can make your own Commands to let Yarn Spinner Scripts control Godot Scripts.
-Derek: So you can use them to make things happen in the game world, from Yarn Spinner.
-Derek: The Wait Command comes with Yarn Spinner though.
-Derek: Think of Commands like stage directions.
-Derek: Anyway, bye!
+Derek: That was a dramatic pause, right? #line:Room6_Commands_1_0400_Derek 
+Derek: I did that with a Command! The Wait Command! #line:Room6_Commands_1_0500_Derek 
+Derek: You can make your own Commands to let Yarn Spinner Scripts control Godot Scripts. #line:Room6_Commands_1_0600_Derek 
+Derek: So you can use them to make things happen in the game world, from Yarn Spinner. #line:Room6_Commands_1_0700_Derek 
+Derek: The Wait Command comes with Yarn Spinner though. #line:Room6_Commands_1_0800_Derek 
+Derek: Think of Commands like stage directions. #line:Room6_Commands_1_0900_Derek 
+Derek: Anyway, bye! #line:Room6_Commands_1_1000_Derek 
 ===
 
 title: Room6_Functions_1
 group: Room6
 position: 343,902
 ---
-Beryl: Psst...
-    -> Yes?
-Beryl: Wanna learn about Functions?
-    -> ... sure.
-Beryl: Functions are things that provide a value to your Yarn Spinner Scripts.
-Beryl: For example... I can roll a dice, because Yarn Spinner provides a dice Function.
+Beryl: Psst... #line:Room6_Functions_1_0100_Beryl 
+    -> Yes? #line:Room6_Functions_1_0200 
+Beryl: Wanna learn about Functions? #line:Room6_Functions_1_0300_Beryl 
+    -> ... sure. #line:Room6_Functions_1_0400 
+Beryl: Functions are things that provide a value to your Yarn Spinner Scripts. #line:Room6_Functions_1_0500_Beryl 
+Beryl: For example... I can roll a dice, because Yarn Spinner provides a dice Function. #line:Room6_Functions_1_0600_Beryl 
 <<if dice(6) == 6>>
-    Beryl: I rolled a six!
+    Beryl: I rolled a six! #line:Room6_Functions_1_0700_Beryl 
 <<else>>
-    Beryl: Well, I didn't roll a six. Alas.
+    Beryl: Well, I didn't roll a six. Alas. #line:Room6_Functions_1_0800_Beryl 
 <<endif>>
-Beryl: My favourite number, right at this moment, is {random_range(1,10)}!
-Beryl: But next time you ask me, it might be different. That's because I used the random_range function to get my favourite number.
-Beryl: I'm fickle as heck.
-Beryl: Anyway, Yarn Spinner has lots of built-in Functions.
-Beryl: But you can also make your own, to get information out of Godot Scripts.
-Beryl: Anyway, bye.
+Beryl: My favourite number, right at this moment, is {random_range(1,10)}! #line:Room6_Functions_1_0900_Beryl 
+Beryl: But next time you ask me, it might be different. That's because I used the random_range function to get my favourite number. #line:Room6_Functions_1_1000_Beryl 
+Beryl: I'm fickle as heck. #line:Room6_Functions_1_1100_Beryl 
+Beryl: Anyway, Yarn Spinner has lots of built-in Functions. #line:Room6_Functions_1_1200_Beryl 
+Beryl: But you can also make your own, to get information out of Godot Scripts. #line:Room6_Functions_1_1300_Beryl 
+Beryl: Anyway, bye. #line:Room6_Functions_1_1400_Beryl 
 ===
 
 title: Room6_SmartVariables_1
 group: Room6
 position: -147,906
 ---
-Reginald: Did you know that Variables can also be Smart?
-Reginald: When they're Smart, we call them Smart Variables.
-Reginald: We're proud of our evocative naming choices.
+Reginald: Did you know that Variables can also be Smart? #line:Room6_SmartVariables_1_0100_Reginald 
+Reginald: When they're Smart, we call them Smart Variables. #line:Room6_SmartVariables_1_0200_Reginald 
+Reginald: We're proud of our evocative naming choices. #line:Room6_SmartVariables_1_0300_Reginald 
 <<if $player_can_afford_bribe>>
-    Reginald: Anyway.
-    Reginald: I know you can afford to bribe me because you have enough gold.
+    Reginald: Anyway. #line:Room6_SmartVariables_1_0400_Reginald 
+    Reginald: I know you can afford to bribe me because you have enough gold. #line:Room6_SmartVariables_1_0500_Reginald 
     <<set $player_gold = $player_gold - 6>>
-    Reginald: And I know this because there's a Smart Variable that is set to true if the variable that tracks how much gold you have is greater than or equal to a certain value.
-    Reginald: Smart Variables let you simplify if-statements, and clarify depdendencies between your variables.
+    Reginald: And I know this because there's a Smart Variable that is set to true if the variable that tracks how much gold you have is greater than or equal to a certain value. #line:Room6_SmartVariables_1_0600_Reginald 
+    Reginald: Smart Variables let you simplify if-statements, and clarify dependencies between your variables. #line:Room6_SmartVariables_1_0700_Reginald 
 <<else>>
-    Reginald: Thanks to a Smart Variable, I know you cannot afford to bribe me. Alas.
+    Reginald: Thanks to a Smart Variable, I know you cannot afford to bribe me. Alas. #line:Room6_SmartVariables_1_0800_Reginald 
 <<endif>>
-Reginald: Farewell!
+Reginald: Farewell! #line:Room6_SmartVariables_1_0900_Reginald 
 ===
 
 title: Room7_LineGroups_1
 group: Room7
 position: 947,-227
 ---
-=> Sven: HI FRIEND!
-=> Sven: Hi there! I'm Sven.
-=> Sven: Welcome! I'm so excited!
-Sven: You'll get a different greeting from me depending on which one of my Line Group lines is selected.
-Sven: Yarn Spinner will choose one of the lines in a Line Group for you.
-Sven: It lets you add some variety.
-Sven: You can even add conditions to lines in a line group.
-Sven: It's pretty great!
+=> Sven: HI FRIEND! #line:Room7_LineGroups_1_0100_Sven 
+=> Sven: Hi there! I'm Sven. #line:Room7_LineGroups_1_0200_Sven 
+=> Sven: Welcome! I'm so excited! #line:Room7_LineGroups_1_0300_Sven 
+Sven: You'll get a different greeting from me depending on which one of my Line Group lines is selected. #line:Room7_LineGroups_1_0400_Sven 
+Sven: Yarn Spinner will choose one of the lines in a Line Group for you. #line:Room7_LineGroups_1_0500_Sven 
+Sven: It lets you add some variety. #line:Room7_LineGroups_1_0600_Sven 
+Sven: You can even add conditions to lines in a line group. #line:Room7_LineGroups_1_0700_Sven 
+Sven: It's pretty great! #line:Room7_LineGroups_1_0800_Sven 
 ===
 
 title: Room7_NodeGroups_1
@@ -345,45 +345,45 @@ group: Room7
 when: once 
 when: !visited("Room7_NodeGroups_1")
 ---
-Dr Node: Hi, I'm Doctor Node.
-Dr Node: I'm here to show you how Node Groups work.
-Dr Node: Node Groups let you create a collection of Nodes that share the same name.
-Dr Node: Each Node that's part of the group has a "when" condition in its header... and that when condition dictates when it's shown.
-Dr Node: You're seeing these lines because this node in the Node Group has its when condition set to once.
-Dr Node: Which means you'll see it once.
-Dr Node: Try speaking to me again.
+Dr Node: Hi, I'm Doctor Node. #line:Room7_NodeGroups_1.209d21f6_0100_DrNode 
+Dr Node: I'm here to show you how Node Groups work. #line:Room7_NodeGroups_1.209d21f6_0200_DrNode 
+Dr Node: Node Groups let you create a collection of Nodes that share the same name. #line:Room7_NodeGroups_1.209d21f6_0300_DrNode 
+Dr Node: Each Node that's part of the group has a "when" condition in its header... and that when condition dictates when it's shown. #line:Room7_NodeGroups_1.209d21f6_0400_DrNode 
+Dr Node: You're seeing these lines because this node in the Node Group has its when condition set to once. #line:Room7_NodeGroups_1.209d21f6_0500_DrNode 
+Dr Node: Which means you'll see it once. #line:Room7_NodeGroups_1.209d21f6_0600_DrNode 
+Dr Node: Try speaking to me again. #line:Room7_NodeGroups_1.209d21f6_0700_DrNode 
 ===
 
 title: Room7_NodeGroups_1
 group: Room7
 when: !$player_can_afford_bribe
 ---
-Dr Node: Hi. You're seeing this because this node has a when condition that evaluates to true if you cannot afford a bribe.
-Dr Node: Neat, right?
+Dr Node: Hi. You're seeing this because this node has a when condition that evaluates to true if you cannot afford a bribe. #line:Room7_NodeGroups_1.786857e8_0100_DrNode 
+Dr Node: Neat, right? #line:Room7_NodeGroups_1.786857e8_0200_DrNode 
 ===
 
 title: Room7_NodeGroups_1
 group: Room7
 when: $player_meal == .None
 ---
-Dr Node: Hi. 
-Dr Node: You havne't got a meal. Alas.
-Dr Node: I know this because of my when clause, thanks Node Groups!
+Dr Node: Hi.  #line:Room7_NodeGroups_1.975a742d_0100_DrNode 
+Dr Node: You haven't got a meal. Alas. #line:Room7_NodeGroups_1.975a742d_0200_DrNode 
+Dr Node: I know this because of my when clause, thanks Node Groups! #line:Room7_NodeGroups_1.975a742d_0300_DrNode 
 ===
 
 title: Room7_NodeGroups_1
 group: Room7
 when: $player_meal == .Ramen
 ---
-Dr Node: Hi. 
-Dr Node: You have RAMEN! How exciting.
-Dr Node: I know this because of my when clause, thanks Node Groups!
+Dr Node: Hi.  #line:Room7_NodeGroups_1.405b6843_0100_DrNode 
+Dr Node: You have RAMEN! How exciting. #line:Room7_NodeGroups_1.405b6843_0200_DrNode 
+Dr Node: I know this because of my when clause, thanks Node Groups! #line:Room7_NodeGroups_1.405b6843_0300_DrNode 
 ===
 
 title: Room7_NodeGroups_1
 group: Room7
 when: always
 ---
-Dr Node: Hi. This node in the node group has its when clause set to always.
-Dr Node: So it's kind of like a fallback.
+Dr Node: Hi. This node in the node group has its when clause set to always. #line:Room7_NodeGroups_1.2cd2945a_0100_DrNode 
+Dr Node: So it's kind of like a fallback. #line:Room7_NodeGroups_1.2cd2945a_0200_DrNode 
 ===

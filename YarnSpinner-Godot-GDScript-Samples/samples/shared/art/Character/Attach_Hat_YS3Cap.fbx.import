@@ -40,10 +40,10 @@ materials/extract_path=""
 _subresources={
 "animations": {
 &"Attach_Hat_YS3Cap|Die_017": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "uid://dc6sxeq5b8jt7",
+"save_to_file/path": "",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -2096,10 +2096,10 @@ _subresources={
 "slices/amount": 0
 },
 &"Attach_Hat_YS3Cap|Render Camera_002Action": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "uid://dlly2xbe0nmx7",
+"save_to_file/path": "",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -4154,9 +4154,9 @@ _subresources={
 },
 "materials": {
 "Colormap": {
-"use_external/enabled": true,
+"use_external/enabled": false,
 "use_external/fallback_path": "",
-"use_external/path": "uid://ckgk34oob0eu5"
+"use_external/path": ""
 }
 },
 "meshes": {
@@ -4165,16 +4165,16 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "uid://blgwvvuf3hkef"
+"save_to_file/path": ""
 },
 "Root Scene_Attach_Hat_YS3Cap": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "uid://blgwvvuf3hkef"
+"save_to_file/path": ""
 }
 },
 "nodes": {

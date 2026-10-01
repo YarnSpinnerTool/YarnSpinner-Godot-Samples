@@ -1,8 +1,8 @@
-﻿// the Interogation scenario nodes
+﻿// the Interrogation scenario nodes
 // this tells the story of primary and the player working together to interrogate secondary
 
 title: Primary
-when: $scenario == .Interogation
+when: $scenario == .Interrogation
 when: $scenario_state == .NotStarted
 ---
 {$primary}: ok you be good cop, I'll be bad
@@ -14,7 +14,7 @@ Player: yep
 // in the specific situation where alice is the primary we have her give a little speach before the rest of the normal flow takes over
 title: Alice
 when: $primary == .Alice
-when: $scenario == .Interogation
+when: $scenario == .Interrogation
 when: $scenario_state == .NotStarted
 when: once
 ---
@@ -27,7 +27,7 @@ Alice: agreed, anyways, talk to me again please and we'll discuss strategy.
 
 // secondary has little to play in this scenario so we have a very generic fallback node here
 title: Secondary
-when: $scenario == .Interogation
+when: $scenario == .Interrogation
 ---
 {$secondary}: Why are you talking to me?
 ===
@@ -40,7 +40,7 @@ when: $scenario == .Interogation
 // once the scenario has started it plays out the same
 // the players brilliant interrogation technique the scenario ends
 title: Primary
-when: $scenario == .Interogation
+when: $scenario == .Interrogation
 when: $scenario_state == .Started
 ---
 {$primary}: you are in real trouble now
@@ -71,15 +71,15 @@ Player: anyone fancy an icecream?, I could go pick us some up.
 
 // post scenario chatter
 title: Primary
-when: $scenario == .Interogation
+when: $scenario == .Interrogation
 when: $scenario_state == .Complete
 ---
 {$primary}: look I am not sure what you were doing but wow did it ever work.
-Players: thanks
+Player: thanks
 ===
 
 title: Secondary
-when: $scenario == .Interogation
+when: $scenario == .Interrogation
 when: $scenario_state == .Complete
 ---
 // again line groups to inject more variance into the story

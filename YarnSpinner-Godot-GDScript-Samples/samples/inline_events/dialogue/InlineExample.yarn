@@ -5,7 +5,7 @@ Alice: Hey what's up?
 Player: Just wondering what this demo is about.
 Alice: It's showing off how you can do events with markup now.
 Player: Oh? How does it work?
-Alice: Easy, you just do it now with [link="docs.yarnspinner.dev" external=true]inline event markup[/link].
+Alice: Easy, you just do it now with [link="https://yarnspinner.dev/docs/godot/gdscript/07-samples/06-inline-events/" external=true]inline event markup[/link].
 Player: So what, just part way through I stop talking... [move name="far" /] ...and move on over?
 Alice: Yeah you did
 
@@ -19,6 +19,6 @@ Player: like changing emotions?!
 Alice: Yes... which I would have shown had [b]you[emotion="angry" /] [/b] not interrupted me.
 Player: oh sorry
 Alice: [i]sigh[/i] [emotion="neutral" /]it's ok.
-Alice: Checkout out the [b]Event Handlers[/b] in this scene to see how they work.
-Alice: There are two, Move Event and Emotion Event.
+Alice: Check out the [b]Event Handlers[/b] in this scene to see how they work.
+Alice: There are two, [link="move_event.gd"]Move Event[/link] and [link="emotion_event.gd"]Emotion Event[/link].
 ===

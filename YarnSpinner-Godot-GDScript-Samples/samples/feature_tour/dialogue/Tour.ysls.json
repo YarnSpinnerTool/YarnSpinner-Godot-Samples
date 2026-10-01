@@ -1,4 +1,5 @@
 {
+  "Functions": [],
   "commands": [
     {
       "async": true,
@@ -9,11 +10,11 @@
       "location": {
         "end": {
           "character": 37,
-          "line": 1701
+          "line": 1702
         },
         "start": {
           "character": 0,
-          "line": 1698
+          "line": 1699
         }
       },
       "parameters": [
@@ -28,159 +29,6 @@
     },
     {
       "async": false,
-      "definitionName": "give_item",
-      "fileName": "bindings_sample.gd",
-      "language": "gdscript",
-      "parameters": [],
-      "yarnName": "give_item"
-    },
-    {
-      "async": false,
-      "definitionName": "heal",
-      "fileName": "bindings_sample.gd",
-      "language": "gdscript",
-      "parameters": [],
-      "yarnName": "heal"
-    },
-    {
-      "async": false,
-      "definitionName": "shake",
-      "fileName": "bindings_sample.gd",
-      "language": "gdscript",
-      "parameters": [],
-      "yarnName": "shake"
-    },
-    {
-      "async": false,
-      "definitionName": "shake_and_wait",
-      "fileName": "bindings_sample.gd",
-      "language": "gdscript",
-      "parameters": [],
-      "yarnName": "shake_and_wait"
-    },
-    {
-      "async": false,
-      "definitionName": "zoom",
-      "fileName": "bindings_sample.gd",
-      "language": "gdscript",
-      "parameters": [],
-      "yarnName": "zoom"
-    },
-    {
-      "async": false,
-      "definitionName": "fade_out",
-      "fileName": "bindings_sample.gd",
-      "language": "gdscript",
-      "parameters": [],
-      "yarnName": "fade_out"
-    },
-    {
-      "async": false,
-      "definitionName": "fade_in",
-      "fileName": "bindings_sample.gd",
-      "language": "gdscript",
-      "parameters": [],
-      "yarnName": "fade_in"
-    },
-    {
-      "async": false,
-      "definitionName": "flash",
-      "fileName": "bindings_sample.gd",
-      "language": "gdscript",
-      "parameters": [],
-      "yarnName": "flash"
-    },
-    {
-      "async": false,
-      "definitionName": "_cmd_set_fade_color",
-      "documentation": "command: set fade opacity immediately",
-      "fileName": "fade_effect.gd",
-      "language": "gdscript",
-      "location": {
-        "end": {
-          "character": 32,
-          "line": 62
-        },
-        "start": {
-          "character": 0,
-          "line": 61
-        }
-      },
-      "parameters": [
-        {
-          "isParamsArray": false,
-          "name": "opacity",
-          "type": "number"
-        }
-      ],
-      "yarnName": "set_fade_color"
-    },
-    {
-      "async": false,
-      "definitionName": "_cmd_fade_up",
-      "documentation": "command: fade from black to clear (fade up = reveal scene)",
-      "fileName": "fade_effect.gd",
-      "language": "gdscript",
-      "location": {
-        "end": {
-          "character": 12,
-          "line": 71
-        },
-        "start": {
-          "character": 0,
-          "line": 66
-        }
-      },
-      "parameters": [
-        {
-          "defaultValue": "1.0",
-          "isParamsArray": false,
-          "name": "duration",
-          "type": "number"
-        },
-        {
-          "defaultValue": "false",
-          "isParamsArray": false,
-          "name": "wait",
-          "type": "bool"
-        }
-      ],
-      "yarnName": "fade_up"
-    },
-    {
-      "async": false,
-      "definitionName": "_cmd_fade_down",
-      "documentation": "command: fade from clear to black (fade down = hide scene)",
-      "fileName": "fade_effect.gd",
-      "language": "gdscript",
-      "location": {
-        "end": {
-          "character": 12,
-          "line": 80
-        },
-        "start": {
-          "character": 0,
-          "line": 75
-        }
-      },
-      "parameters": [
-        {
-          "defaultValue": "1.0",
-          "isParamsArray": false,
-          "name": "duration",
-          "type": "number"
-        },
-        {
-          "defaultValue": "false",
-          "isParamsArray": false,
-          "name": "wait",
-          "type": "bool"
-        }
-      ],
-      "yarnName": "fade_down"
-    },
-    {
-      "async": false,
       "definitionName": "_yarn_command_pause_path_movement",
       "documentation": "Yarn command `<<pause_path_movement Name>>` (the roaming chatter pauses on\nevery line).",
       "fileName": "simple_character.gd",
@@ -188,11 +36,11 @@
       "location": {
         "end": {
           "character": 22,
-          "line": 463
+          "line": 467
         },
         "start": {
           "character": 0,
-          "line": 459
+          "line": 463
         }
       },
       "parameters": [
@@ -215,11 +63,11 @@
       "location": {
         "end": {
           "character": 23,
-          "line": 471
+          "line": 475
         },
         "start": {
           "character": 0,
-          "line": 467
+          "line": 471
         }
       },
       "parameters": [
@@ -236,17 +84,17 @@
     {
       "async": false,
       "definitionName": "_yarn_command_set_animator_bool",
-      "documentation": "[code]<<set_animator_bool Name Floating true>>[/code]: the pill's Floating\nblend is a 0/1 scalar, so a bool maps straight onto it (mirrors the Unity\nsample's animator bool huzzah).",
+      "documentation": "[code]<<set_animator_bool Name Floating true>>[/code]: the pill's Floating\nblend is a 0/1 scalar, so a bool maps straight onto it.",
       "fileName": "simple_character.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 66,
-          "line": 546
+          "line": 549
         },
         "start": {
           "character": 0,
-          "line": 542
+          "line": 545
         }
       },
       "parameters": [
@@ -279,11 +127,11 @@
       "location": {
         "end": {
           "character": 53,
-          "line": 551
+          "line": 554
         },
         "start": {
           "character": 0,
-          "line": 550
+          "line": 553
         }
       },
       "parameters": [
@@ -317,17 +165,17 @@
     {
       "async": true,
       "definitionName": "_yarn_command_tilt_forward",
-      "documentation": "[code]<<tilt_forward Name amount [time] [wait]>>[/code]: nods the head.\nPositive tilts forward (down), negative back (up), matching Unity's\nForward Tilt parameter; the blend space's y axis points the other way.",
+      "documentation": "[code]<<tilt_forward Name amount [time] [wait]>>[/code]: nods the head.\nPositive tilts forward (down), negative back (up). The blend space's y\naxis points the other way.",
       "fileName": "simple_character.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 54,
-          "line": 558
+          "line": 561
         },
         "start": {
           "character": 0,
-          "line": 557
+          "line": 560
         }
       },
       "parameters": [
@@ -367,11 +215,11 @@
       "location": {
         "end": {
           "character": 22,
-          "line": 572
+          "line": 575
         },
         "start": {
           "character": 0,
-          "line": 562
+          "line": 565
         }
       },
       "parameters": [
@@ -411,11 +259,11 @@
       "location": {
         "end": {
           "character": 36,
-          "line": 578
+          "line": 581
         },
         "start": {
           "character": 0,
-          "line": 577
+          "line": 580
         }
       },
       "parameters": [
@@ -449,11 +297,11 @@
       "location": {
         "end": {
           "character": 22,
-          "line": 583
+          "line": 586
         },
         "start": {
           "character": 0,
-          "line": 582
+          "line": 585
         }
       },
       "parameters": [
@@ -475,17 +323,17 @@
     {
       "async": true,
       "definitionName": "_yarn_command_play_animation",
-      "documentation": "[code]<<play_animation Name Gesture LookAround [wait]>>[/code]: fires the\nlook-around anim. The pill has a single gesturethe layer/state args are\naccepted for parity with the Unity sample's command signature",
+      "documentation": "[code]<<play_animation Name Gesture LookAround [wait]>>[/code]: fires the\nlook-around animation. The character has a single gesture, so the layer\nand state arguments are accepted but not used.",
       "fileName": "simple_character.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 33,
-          "line": 596
+          "line": 599
         },
         "start": {
           "character": 0,
-          "line": 589
+          "line": 592
         }
       },
       "parameters": [
@@ -514,223 +362,7 @@
         }
       ],
       "yarnName": "play_animation"
-    },
-    {
-      "async": true,
-      "definitionName": "_yarn_command_move",
-      "documentation": "Moves this character to a destination node.\nUsage in Yarn: <<move mae waypoint_center>>\nReturns a Signal so dialogue waits for movement to complete.",
-      "fileName": "character.gd",
-      "language": "gdscript",
-      "location": {
-        "end": {
-          "character": 22,
-          "line": 61
-        },
-        "start": {
-          "character": 0,
-          "line": 46
-        }
-      },
-      "parameters": [
-        {
-          "documentation": "The name of the Character node the runner will search for to run this command upon.",
-          "isParamsArray": false,
-          "name": "target",
-          "subtype": "Character",
-          "type": "instance"
-        },
-        {
-          "isParamsArray": false,
-          "name": "destination",
-          "type": "string"
-        }
-      ],
-      "yarnName": "move"
-    },
-    {
-      "async": true,
-      "definitionName": "_yarn_command_bounce",
-      "documentation": "Makes this character bounce (jump up and down).\nUsage in Yarn: <<bounce bob>>\nNote: We use \"bounce\" not \"jump\" because <<jump>> is a built-in Yarn command.\nReturns a Signal so dialogue waits for the bounce to complete.",
-      "fileName": "character.gd",
-      "language": "gdscript",
-      "location": {
-        "end": {
-          "character": 22,
-          "line": 75
-        },
-        "start": {
-          "character": 0,
-          "line": 68
-        }
-      },
-      "parameters": [
-        {
-          "documentation": "The name of the Character node the runner will search for to run this command upon.",
-          "isParamsArray": false,
-          "name": "target",
-          "subtype": "Character",
-          "type": "instance"
-        }
-      ],
-      "yarnName": "bounce"
-    },
-    {
-      "async": false,
-      "definitionName": "_yarn_command_set_color",
-      "documentation": "Changes this character's color.\nUsage in Yarn: <<set_color mae red>>\nHappens instantly, no wait.",
-      "fileName": "character.gd",
-      "language": "gdscript",
-      "location": {
-        "end": {
-          "character": 65,
-          "line": 84
-        },
-        "start": {
-          "character": 0,
-          "line": 81
-        }
-      },
-      "parameters": [
-        {
-          "documentation": "The name of the Character node the runner will search for to run this command upon.",
-          "isParamsArray": false,
-          "name": "target",
-          "subtype": "Character",
-          "type": "instance"
-        },
-        {
-          "isParamsArray": false,
-          "name": "color_name",
-          "type": "string"
-        }
-      ],
-      "yarnName": "set_color"
-    },
-    {
-      "async": false,
-      "definitionName": "_yarn_command_look_at",
-      "documentation": "Makes this character face another character or waypoint.\nUsage in Yarn: <<look_at mae bob>>",
-      "fileName": "character.gd",
-      "language": "gdscript",
-      "location": {
-        "end": {
-          "character": 62,
-          "line": 102
-        },
-        "start": {
-          "character": 0,
-          "line": 89
-        }
-      },
-      "parameters": [
-        {
-          "documentation": "The name of the Character node the runner will search for to run this command upon.",
-          "isParamsArray": false,
-          "name": "target",
-          "subtype": "Character",
-          "type": "instance"
-        },
-        {
-          "isParamsArray": false,
-          "name": "target_name",
-          "type": "string"
-        }
-      ],
-      "yarnName": "look_at"
-    },
-    {
-      "async": false,
-      "definitionName": "_start_slide",
-      "fileName": "slideshow.gd",
-      "language": "gdscript",
-      "location": {
-        "end": {
-          "character": 26,
-          "line": 72
-        },
-        "start": {
-          "character": 0,
-          "line": 57
-        }
-      },
-      "parameters": [],
-      "yarnName": "start_slide"
-    },
-    {
-      "async": true,
-      "definitionName": "_end_slide",
-      "fileName": "slideshow.gd",
-      "language": "gdscript",
-      "location": {
-        "end": {
-          "character": 27,
-          "line": 89
-        },
-        "start": {
-          "character": 0,
-          "line": 75
-        }
-      },
-      "parameters": [],
-      "yarnName": "end_slide"
-    },
-    {
-      "async": false,
-      "definitionName": "_clear_slide",
-      "fileName": "slideshow.gd",
-      "language": "gdscript",
-      "location": {
-        "end": {
-          "character": 15,
-          "line": 164
-        },
-        "start": {
-          "character": 0,
-          "line": 161
-        }
-      },
-      "parameters": [],
-      "yarnName": "clear_slide"
-    },
-    {
-      "async": false,
-      "definitionName": "_arm_last_highlighted",
-      "documentation": "Yarn command [code]<<auto_opt>>[/code]: arm last-highlighted mode for the\nnext option group. Registered on the runner in [method on_dialogue_started].",
-      "fileName": "timeout_options_presenter.gd",
-      "language": "gdscript",
-      "location": {
-        "end": {
-          "character": 23,
-          "line": 75
-        },
-        "start": {
-          "character": 0,
-          "line": 74
-        }
-      },
-      "parameters": [],
-      "yarnName": "auto_opt"
-    },
-    {
-      "async": false,
-      "definitionName": "spawn_level",
-      "documentation": "Tears down the old room and builds the configured one.",
-      "fileName": "level_god.gd",
-      "language": "gdscript",
-      "location": {
-        "end": {
-          "character": 36,
-          "line": 60
-        },
-        "start": {
-          "character": 0,
-          "line": 35
-        }
-      },
-      "parameters": [],
-      "yarnName": "start_level"
     }
   ],
-  "functions": [],
   "version": 2
 }

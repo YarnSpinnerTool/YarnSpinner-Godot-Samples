@@ -20,33 +20,23 @@ extends YarnDialoguePresenter
 
 ## Text metrics are authored for a 1920x1080 canvas and scaled to the viewport.
 @export_group("Appearance")
-@export var font_size: float = 36.0
-@export var box_width: float = 353.43
-@export var box_height: float = 107.77
-@export var text_color := Color(1, 1, 1)
+@export var label: Label
 
 const REFERENCE_WIDTH := 1920.0
 
-var _layer: CanvasLayer
-var _label: Label
+var _font_size: int
+var _box_size: Vector2
 var _target: ChatterNPC
 var _line_generation := 0
 
 
 func _ready() -> void:
-	_layer = CanvasLayer.new()
-	add_child(_layer)
-	_label = Label.new()
-	_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_label.add_theme_color_override(&"font_color", text_color)
-	_label.visible = false
-	_layer.add_child(_label)
+	_font_size = label.get_theme_font_size(&"font_size")
+	_box_size = label.size
 
 
 func _process(_delta: float) -> void:
-	if _label == null or not _label.visible:
+	if label == null or not label.visible:
 		return
 	if _target == null or not is_instance_valid(_target):
 		return
@@ -55,18 +45,18 @@ func _process(_delta: float) -> void:
 		return
 	var point := _target.chatter_point()
 	if camera.is_position_behind(point):
-		_label.hide()
+		label.hide()
 		return
 	# Centre the fixed text box on the projected point.
-	_label.position = camera.unproject_position(point) - _label.size * 0.5
+	label.position = camera.unproject_position(point) - label.size * 0.5
 
 
 ## Sizes the label to the authored box (scaled to the viewport width) so the
 ## box stays stable while it tracks the speaker.
 func _fit_label() -> void:
 	var scale := get_viewport().get_visible_rect().size.x / REFERENCE_WIDTH
-	_label.add_theme_font_size_override(&"font_size", int(font_size * scale))
-	_label.size = Vector2(box_width, box_height) * scale
+	label.add_theme_font_size_override(&"font_size", int(_font_size * scale))
+	label.size = _box_size * scale
 
 
 func run_line(line: YarnLine, token: YarnCancellationToken = null) -> void:
@@ -81,9 +71,9 @@ func run_line(line: YarnLine, token: YarnCancellationToken = null) -> void:
 		return
 
 	var body := line.text_without_character_name
-	_label.text = body
+	label.text = body
 	_fit_label()
-	_label.visible = true
+	label.visible = true
 
 	_line_generation += 1
 	_show_line(body, token, _line_generation)
@@ -107,7 +97,7 @@ func _show_line(body: String, token: YarnCancellationToken, generation: int) -> 
 		return
 
 	if generation == _line_generation:
-		_label.visible = false
+		label.visible = false
 
 	await _wait(delay_after_lines, token)
 	_dismiss(generation)
@@ -129,8 +119,8 @@ func _wait(seconds: float, token: YarnCancellationToken) -> bool:
 func _dismiss(generation: int) -> void:
 	if generation != _line_generation:
 		return
-	if _label != null:
-		_label.visible = false
+	if label != null:
+		label.visible = false
 	_target = null
 	_line_done.emit()
 
@@ -138,7 +128,7 @@ func _dismiss(generation: int) -> void:
 func on_dialogue_completed() -> void:
 	# The chatter stopped (finished or was interrupted); hide any visible line
 	# and release a run_line still parked on its completion.
-	if _label != null:
-		_label.visible = false
+	if label != null:
+		label.visible = false
 	_target = null
 	_line_done.emit()

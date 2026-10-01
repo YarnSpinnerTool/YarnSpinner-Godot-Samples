@@ -1,4 +1,5 @@
 {
+  "Functions": [],
   "commands": [
     {
       "async": true,
@@ -9,11 +10,11 @@
       "location": {
         "end": {
           "character": 37,
-          "line": 1701
+          "line": 1702
         },
         "start": {
           "character": 0,
-          "line": 1698
+          "line": 1699
         }
       },
       "parameters": [
@@ -29,17 +30,17 @@
     {
       "async": true,
       "definitionName": "_yarn_command_move",
-      "documentation": "Moves this character to a destination node.\nUsage in Yarn: <<move mae waypoint_center>>\nReturns a Signal so dialogue waits for movement to complete.",
+      "documentation": "Moves this character to a destination node.\nUsage in Yarn: <<move mae center>>\nReturns a Signal so dialogue waits for movement to complete.",
       "fileName": "character.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 22,
-          "line": 61
+          "line": 75
         },
         "start": {
           "character": 0,
-          "line": 46
+          "line": 60
         }
       },
       "parameters": [
@@ -67,11 +68,11 @@
       "location": {
         "end": {
           "character": 22,
-          "line": 75
+          "line": 89
         },
         "start": {
           "character": 0,
-          "line": 68
+          "line": 82
         }
       },
       "parameters": [
@@ -94,11 +95,11 @@
       "location": {
         "end": {
           "character": 65,
-          "line": 84
+          "line": 98
         },
         "start": {
           "character": 0,
-          "line": 81
+          "line": 95
         }
       },
       "parameters": [
@@ -126,11 +127,11 @@
       "location": {
         "end": {
           "character": 62,
-          "line": 102
+          "line": 112
         },
         "start": {
           "character": 0,
-          "line": 89
+          "line": 103
         }
       },
       "parameters": [
@@ -150,6 +151,5 @@
       "yarnName": "look_at"
     }
   ],
-  "functions": [],
   "version": 2
 }

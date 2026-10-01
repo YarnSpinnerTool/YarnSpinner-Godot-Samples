@@ -9,6 +9,17 @@
 [ext_resource type="Script" uid="uid://bpoteyrq3cprs" path="res://samples/commands_and_functions/scripts/camera_effects.gd" id="7_camera"]
 [ext_resource type="Script" uid="uid://qvfowjr7y6a1" path="res://samples/commands_and_functions/scripts/screen_effects.gd" id="8_screen"]
 [ext_resource type="Resource" uid="uid://dbrkeqma6pwys" path="res://samples/commands_and_functions/dialogue/Bindings.yarnproject" id="9_project"]
+[ext_resource type="Script" uid="uid://dir7con1xbeia" path="res://addons/yarn_spinner/core/command_binding.gd" id="10_binding"]
+[ext_resource type="Resource" uid="uid://cicjiig4deykp" path="res://samples/commands_and_functions/bindings/give_item.tres" id="11_give_item"]
+[ext_resource type="Resource" uid="uid://xduodt6s2mir" path="res://samples/commands_and_functions/bindings/heal.tres" id="12_heal"]
+[ext_resource type="Resource" uid="uid://bdylvbalw12ro" path="res://samples/commands_and_functions/bindings/shake.tres" id="13_shake"]
+[ext_resource type="Resource" uid="uid://belljjccmehj6" path="res://samples/commands_and_functions/bindings/shake_and_wait.tres" id="14_shake_and_wait"]
+[ext_resource type="Resource" uid="uid://bjqh26x3y8l54" path="res://samples/commands_and_functions/bindings/zoom.tres" id="15_zoom"]
+[ext_resource type="Resource" uid="uid://jhsqwaxkmq6i" path="res://samples/commands_and_functions/bindings/fade_out.tres" id="16_fade_out"]
+[ext_resource type="Resource" uid="uid://cj613gv42iiks" path="res://samples/commands_and_functions/bindings/fade_in.tres" id="17_fade_in"]
+[ext_resource type="Resource" uid="uid://lh6hd5clxsw8" path="res://samples/commands_and_functions/bindings/flash.tres" id="18_flash"]
+[ext_resource type="Resource" uid="uid://bpx6w758bjimu" path="res://samples/commands_and_functions/bindings/player_health.tres" id="19_player_health"]
+[ext_resource type="Resource" uid="uid://cnp86msaiq5ag" path="res://samples/commands_and_functions/bindings/has_item.tres" id="20_has_item"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 content_margin_left = 40.0
@@ -41,15 +52,16 @@ script = ExtResource("7_camera")
 [node name="Player" type="Node" parent="." unique_id=414383665]
 script = ExtResource("6_player")
 
-[node name="YarnDialogueRunner" type="Node" parent="." unique_id=176966988]
+[node name="YarnDialogueRunner" type="Node" parent="." unique_id=176966988 node_paths=PackedStringArray("presenters")]
 script = ExtResource("2_runner")
 yarn_project = ExtResource("9_project")
 start_node = "Start"
 show_selected_option_as_line = true
-ysls_scan_path = "res://samples/commands_and_functions"
+presenters = [NodePath("../UILayer/LinePresenter"), NodePath("../UILayer/OptionsPresenter")]
 
 [node name="YarnBindingLoader" type="Node" parent="." unique_id=688884024]
 script = ExtResource("3_loader")
+bindings = Array[ExtResource("10_binding")]([ExtResource("11_give_item"), ExtResource("12_heal"), ExtResource("13_shake"), ExtResource("14_shake_and_wait"), ExtResource("15_zoom"), ExtResource("16_fade_out"), ExtResource("17_fade_in"), ExtResource("18_flash"), ExtResource("19_player_health"), ExtResource("20_has_item")])
 verbose = true
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1922230738]
@@ -241,3 +253,9 @@ theme_override_font_sizes/font_size = 14
 text = "This sample uses YarnBindingLoader to connect Yarn commands/functions to game nodes.
 Check the YarnBindingLoader node in the inspector to see how bindings are configured."
 horizontal_alignment = 1
+
+[connection signal="dialogue_completed" from="YarnDialogueRunner" to="." method="_on_dialogue_completed"]
+[connection signal="binding_failed" from="YarnBindingLoader" to="." method="_on_binding_failed"]
+[connection signal="bindings_registered" from="YarnBindingLoader" to="." method="_on_bindings_registered"]
+[connection signal="pressed" from="UILayer/UI/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="UILayer/UI/RestartButton" to="." method="_on_restart_pressed"]

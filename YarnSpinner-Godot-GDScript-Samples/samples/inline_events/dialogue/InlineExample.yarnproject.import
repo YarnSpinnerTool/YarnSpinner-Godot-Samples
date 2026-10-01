@@ -15,3 +15,7 @@ dest_files=["res://.godot/imported/InlineExample.yarnproject-c6d665404d2c2f8c853
 ysc_path="ysc"
 generate_ysls=true
 ysls_scan_path=""
+line_tagger=0
+generate_variables_source=false
+variables_class_name="YarnVariables"
+variables_class_parent="YarnInMemoryVariableStorage"

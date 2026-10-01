@@ -11,7 +11,7 @@ title: RoomSetup
 <<endenum>>
 
 <<enum Scenario>>
-    <<case Interogation = "Interrogation">>
+    <<case Interrogation = "Interrogation">>
     <<case Explore = "Explore">>
     <<case Rescue = "Rescue">>
     <<case Date = "Date">>
@@ -32,7 +32,7 @@ title: RoomSetup
 
 <<declare $primary = Character.Alice>>
 <<declare $secondary = Character.Barry>>
-<<declare $scenario = Scenario.Interogation>>
+<<declare $scenario = Scenario.Interrogation>>
 <<declare $Room = Room.Office>>
 
 // the transient state variables we need to reset each run
@@ -45,7 +45,7 @@ title: RoomSetup
     Explainer: This shows off how you can use storylets and saliency to create vignettes that are configured based on world state.
     Explainer: You can configure what changes inside the next room by interacting with the various buttons around the space.
     Explainer: This sample works by using a [link="the_room_variable_storage.gd"]generated custom variable storage system[/link] to build up the world.
-    Explainer: And then makes heavy use storylets and interpolated variables in the [link="Room.yarn"]Yarn[/link] to change the room conversations based on your decisions out here.
+    Explainer: And then makes heavy use of storylets and interpolated variables in the [link="Room.yarn"]Yarn[/link] to change the room conversations based on your decisions out here.
 <<endonce>>
 
 Explainer: Do you want to see your current configuration?

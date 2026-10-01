@@ -6,12 +6,5 @@ extends Button
 @onready var _indicator: TextureRect = $SelectionIndicator
 
 
-func _ready() -> void:
-	_sync_indicator()
-	focus_entered.connect(_sync_indicator)
-	focus_exited.connect(_sync_indicator)
-	tree_entered.connect(_sync_indicator)
-
-
 func _sync_indicator() -> void:
 	_indicator.visible = has_focus()

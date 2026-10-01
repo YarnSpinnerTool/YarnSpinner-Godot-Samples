@@ -1,31 +1,8 @@
 {
     "projectFileVersion": 4,
     "sourceFiles": [
-        "VoiceOver.yarn"
+        "**/*.yarn"
     ],
-    "excludeFiles": [],
     "baseLanguage": "en",
-    "localisation": {
-        "en": {
-            "assets": "audio/en"
-        },
-        "de": {
-            "assets": "audio/de"
-        },
-        "zh": {
-            "assets": "audio/zh"
-        },
-        "pt_BR": {
-            "assets": "audio/pt_BR"
-        }
-    },
-    "definitions": "VoiceOver.ysls.json",
-    "compilerOptions": {},
-    "editorOptions": {
-        "yarnScriptEditor": {
-            "characters": [],
-            "characterColourMode": "defined",
-            "defaultCharacterColour": "#187728"
-        }
-    }
+    "definitions": "VoiceOver.ysls.json"
 }

@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cojfhhk2cii0u" path="res://samples/shared/art/environment/FantasyTown/tree-small.fbx" id="6_qertc"]
 [ext_resource type="PackedScene" uid="uid://cwyx0udsah02p" path="res://samples/shared/scenes/dialogue.tscn" id="9_8xcq0"]
 [ext_resource type="PackedScene" uid="uid://le6c0y7pc8gt" path="res://samples/shared/scenes/explanation_character.tscn" id="11_mhnjb"]
+[ext_resource type="Resource" uid="uid://bdm0vgwo2yfgf" path="res://samples/simple_3d/dialogue/Simple3D.yarnproject" id="12_project"]
 
-[node name="VoiceOver3d" type="Node3D" unique_id=46424985]
+[node name="Simple3D" type="Node3D" unique_id=46424985]
 script = ExtResource("1_5aq8e")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=24530079]
@@ -22,6 +23,9 @@ transform = Transform3D(0.98228073, 0, 0.1874156, 0, 1, 0, -0.1874156, 0, 0.9822
 
 [node name="Dialogue" parent="." unique_id=1497124993 instance=ExtResource("9_8xcq0")]
 
+[node name="YarnDialogueRunner" parent="Dialogue" index="0" unique_id=394517124]
+yarn_project = ExtResource("12_project")
+
 [node name="BasicArena" parent="." unique_id=1653386484 instance=ExtResource("6_e6oko")]
 
 [node name="tree-large2" parent="." unique_id=883153789 instance=ExtResource("5_e6oko")]
@@ -29,3 +33,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72875404, 0, -1.1)
 
 [node name="tree-small2" parent="." unique_id=509060200 instance=ExtResource("6_qertc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1087731, 0, -0.4)
+
+[editable path="Dialogue"]

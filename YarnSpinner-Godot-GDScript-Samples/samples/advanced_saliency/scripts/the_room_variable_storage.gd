@@ -3,7 +3,6 @@ extends YarnInMemoryVariableStorage
 
 ## Typed accessors over the Yarn variables that describe the scene about to be
 ## played: who is in it, where it happens, and what kind of scene it is.
-## All straight from the the Yarn Spinner for Unity version, basically.
 ## The Character, Scenario and Room enums are declared in Room.yarn and stored
 ## as their backing strings; ScenarioState is stored as its backing integer.
 ## Game code (the pillars and the level god) reads and writes the world through

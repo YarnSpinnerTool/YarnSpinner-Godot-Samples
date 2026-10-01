@@ -3,11 +3,8 @@ extends YarnActionMarkupHandlerNode
 ## Recolours a character mid-line as [emotion="..."] markers are revealed.
 ## On prepare it reads the line's [character name="X"] to find the speaker, then
 ## collects every [emotion="..."] marker by character position. As the
-## typewriter reaches each marker the speaker's appearance is swapped, and an
-## angry change holds for a brief beat to let it land.
-
-## used to restore the speaker's look if the dialogue is stopped mid-emotion
-@export var dialogue_runner: YarnDialogueRunner
+## typewriter reaches each marker the speaker's appearance is swapped, and a
+## change away from the default emotion holds for a brief beat to let it land.
 
 const _PAUSE_SECONDS := 0.3
 
@@ -22,11 +19,6 @@ var _emotions: Dictionary[int, String] = {}
 ## current line's speaker by the time the dialogue is stopped)
 var _dirty_character: SimpleCharacter
 var _dirty_appearance: CharacterAppearance
-
-
-func _ready() -> void:
-	if dialogue_runner != null:
-		dialogue_runner.dialogue_cancelled.connect(_on_dialogue_cancelled)
 
 
 ## A stopped dialogue can land mid-emotion; don't leave the speaker stuck angry.
@@ -48,6 +40,7 @@ func _on_dialogue_cancelled() -> void:
 
 func on_prepare_for_line(line: Variant, _text_control: Control = null) -> void:
 	_appearance = null
+	_character = null
 	_emotions = {}
 
 	var markup := line as YarnMarkupParseResult
@@ -104,13 +97,13 @@ func on_character_will_appear(
 		_appearance.set_appearance(preset.base, preset.fade)
 		var token := cancellation_token as YarnCancellationToken
 		if emotion != default_emotion and (token == null or not token.is_hurry_up_requested):
-			# Hold a brief moment after becoming angry to make the change clear.
+			# Hold a brief moment after leaving the default emotion to make the change clear.
 			return get_tree().create_timer(_PAUSE_SECONDS).timeout
 	return Signal()
 
 
 func _find_node_named(node_name: String) -> Node:
-	var root := get_tree().current_scene
+	var root := get_tree().current_scene if get_tree().current_scene != null else owner
 	if root == null:
 		return null
 	if root.name == node_name:

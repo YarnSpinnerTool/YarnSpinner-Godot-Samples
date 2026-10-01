@@ -9,6 +9,6 @@ Bob: Why are [name=alice]you[/name] wondering what [name=bob]I[/name] am up to?
 Player: I think [name=alice]she's[/name] just being nice [name]Bob[/name]!
 Bob: oh, ok.
 
-=> Alice: If you are curious to see how this works, checkout out the markup processor that enables it. <<if !visited("Anika")>>
-=> Alice: If you are curious to see how this differs from markup palettes, checkout out the markup processor that enables it. <<if visited("Anika")>>
+=> Alice: If you are curious to see how this works, check out the [link="name_markup_processor.gd"]markup processor[/link] that enables it. <<if !visited("Anika")>>
+=> Alice: If you are curious to see how this differs from markup palettes, check out the [link="name_markup_processor.gd"]markup processor[/link] that enables it. <<if visited("Anika")>>
 ===

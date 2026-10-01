@@ -83,6 +83,7 @@ theme_override_constants/separation = 6
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 
 [node name="Messages" type="VBoxContainer" parent="Phone/Layout/Scroll" unique_id=209447498]
 layout_mode = 2

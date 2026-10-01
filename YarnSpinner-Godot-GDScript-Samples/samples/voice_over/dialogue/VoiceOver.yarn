@@ -17,8 +17,7 @@ title: Start
 /// Does Tom know the name of the person he's talking to?
 <<declare $knows_anne_name = false as bool>>
 
-// Before we start, wait two seconds to let the player see the environment
-// before starting the dialogue.
+// Before we start, hold on a black screen for two seconds, then fade in.
 
 <<set_fade_color 1>>
 
@@ -71,7 +70,7 @@ Anne: That's ok! This will all go away in a moment. #line:tutorial-anne-06 // re
 
 Tom: What?! #line:tutorial-tom-11 // surprised, confused
 
-// Fade out and end
-<<fade_down 1>>
+// Cut to black and end
+<<fade_down 0>>
 
 ===

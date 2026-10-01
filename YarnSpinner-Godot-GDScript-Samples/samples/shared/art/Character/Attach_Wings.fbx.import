@@ -40,10 +40,10 @@ materials/extract_path=""
 _subresources={
 "animations": {
 &"Attach_Wings|Attach_WingsAction": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "uid://nyic287jimfb",
+"save_to_file/path": "",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -2096,10 +2096,10 @@ _subresources={
 "slices/amount": 0
 },
 &"Attach_Wings|Camera_001Action_L_Environment_blend": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "uid://cngg3sby0mp5m",
+"save_to_file/path": "",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -4152,10 +4152,10 @@ _subresources={
 "slices/amount": 0
 },
 &"Attach_Wings|MirrorAction": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "uid://ccckryxvrp6uy",
+"save_to_file/path": "",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -6210,9 +6210,9 @@ _subresources={
 },
 "materials": {
 "Material.002": {
-"use_external/enabled": true,
+"use_external/enabled": false,
 "use_external/fallback_path": "",
-"use_external/path": "uid://btcqpcge2dibp"
+"use_external/path": ""
 }
 },
 "meshes": {
@@ -6221,16 +6221,16 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "uid://drg4q2klm2x5n"
+"save_to_file/path": ""
 },
 "Root Scene_Attach_Wings": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "uid://drg4q2klm2x5n"
+"save_to_file/path": ""
 }
 },
 "nodes": {

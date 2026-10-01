@@ -17,7 +17,6 @@ const _DAY_NAMES := {
 
 
 func _ready() -> void:
-	body_entered.connect(_on_body_entered)
 	_update_label()
 
 

@@ -18,8 +18,9 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="Game" type="Node2D" unique_id=2069148112]
+[node name="Game" type="Node2D" unique_id=2069148112 node_paths=PackedStringArray("characters")]
 script = ExtResource("1_game")
+characters = [NodePath("Characters/mae"), NodePath("Characters/bob")]
 
 [node name="Background" type="ColorRect" parent="." unique_id=1611571117]
 anchors_preset = 15
@@ -29,10 +30,10 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.15, 0.15, 0.2, 1)
 
-[node name="YarnDialogueRunner" type="Node" parent="." unique_id=1558679203]
+[node name="YarnDialogueRunner" type="Node" parent="." unique_id=1558679203 node_paths=PackedStringArray("presenters")]
 script = ExtResource("3_runner")
 yarn_project = ExtResource("3_b5v5y")
-ysls_scan_path = "res://samples/instance_commands"
+presenters = [NodePath("../UI/LinePresenter"), NodePath("../UI/OptionsPresenter")]
 
 [node name="Characters" type="Node2D" parent="." unique_id=1362428502]
 
@@ -167,3 +168,6 @@ theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
 theme_override_font_sizes/font_size = 12
 text = "SPACE = Continue"
 horizontal_alignment = 2
+
+[connection signal="dialogue_completed" from="YarnDialogueRunner" to="." method="_on_dialogue_completed"]
+[connection signal="pressed" from="UI/StartButton" to="." method="_on_start_pressed"]

@@ -3,8 +3,8 @@ extends YarnDialoguePresenter
 ## Drives a character's mouth shapes from `.lipsync` timeline data, running in
 ## parallel with the voice-over presenter for the same line.
 ##
-## This mirrors Unity's TextureLipSyncView! It is a presenter (not a node on the
-## character)so the runner calls [method run_line] on it at the same time as
+## It's a Presenter, not a node on the character, so the runner calls
+## [method run_line] on it at the same time as
 ## the voice-over presenter. It loads the line's `.lipsync` file, waits the same
 ## pre-roll as the voice presenter so mouth and audio start together, then steps
 ## the mouth shape off elapsed time until the timeline ends.

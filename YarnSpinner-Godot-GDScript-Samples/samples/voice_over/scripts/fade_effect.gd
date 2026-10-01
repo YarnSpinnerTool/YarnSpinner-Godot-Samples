@@ -22,34 +22,9 @@ func _ready() -> void:
 	# start fully transparent
 	color = Color(0, 0, 0, 0)
 
-	# auto-find dialogue runner if not set
-	if dialogue_runner == null:
-		dialogue_runner = _find_dialogue_runner()
-
 	# register commands if dialogue runner is found
 	if dialogue_runner != null:
 		_register_commands()
-
-
-## find the dialogue runner in the scene tree
-func _find_dialogue_runner() -> YarnDialogueRunner:
-	# look for sibling first
-	if get_parent() != null:
-		for sibling in get_parent().get_children():
-			if sibling is YarnDialogueRunner:
-				return sibling
-	# search recursively from root
-	return _find_node_of_type(get_tree().root, "YarnDialogueRunner") as YarnDialogueRunner
-
-
-func _find_node_of_type(node: Node, type_name: String) -> Node:
-	if node.get_class() == type_name or (node.get_script() != null and node.get_script().get_global_name() == type_name):
-		return node
-	for child in node.get_children():
-		var found := _find_node_of_type(child, type_name)
-		if found != null:
-			return found
-	return null
 
 
 func _register_commands() -> void:

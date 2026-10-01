@@ -20,7 +20,7 @@ title: Start
 
 <<set_fade_color 1>>
 
-// Wait two seconds to let the player see the environment, then fade in.
+// Hold on a black screen for two seconds, then fade in.
 <<wait 2>>
 <<fade_up 2>>
 <<wait 1>>

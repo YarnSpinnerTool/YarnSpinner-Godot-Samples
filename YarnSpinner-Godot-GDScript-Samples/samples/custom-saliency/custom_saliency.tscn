@@ -58,6 +58,7 @@ script = ExtResource("5_runner")
 yarn_project = ExtResource("8_proj")
 presenters = [NodePath("../UILayer/LinePresenter"), NodePath("../UILayer/OptionsPresenter")]
 variable_storage = NodePath("../VariableStorage")
+saliency_strategy = 5
 
 [node name="CameraRig" type="Node3D" parent="." node_paths=PackedStringArray("target", "camera")]
 script = ExtResource("9_cam")

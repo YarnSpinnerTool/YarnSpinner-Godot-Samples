@@ -15,3 +15,7 @@ dest_files=["res://.godot/imported/Bindings.yarnproject-2981e9a6ae67fa19441accb2
 ysc_path="ysc"
 generate_ysls=true
 ysls_scan_path=""
+line_tagger=0
+generate_variables_source=false
+variables_class_name="YarnVariables"
+variables_class_parent="YarnInMemoryVariableStorage"
