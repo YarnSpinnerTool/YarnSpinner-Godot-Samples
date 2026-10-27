@@ -118,6 +118,30 @@ var _head_y := 0.0
 
 
 func _ready() -> void:
+	# Setup actions required by the character if they aren't already present in
+	# the project
+	var controls = {
+		"move_right": [KEY_D, KEY_RIGHT],
+		"move_left": [KEY_A, KEY_LEFT],
+		"move_forward": [KEY_W, KEY_UP],
+		"move_back": [KEY_S, KEY_DOWN],
+		"interact": [KEY_SPACE]
+	}
+	
+	for action in controls:
+		if InputMap.has_action(action):
+			# Action already exists, nothing to do
+			continue
+
+		# Otherwise, create a new runtime action for this and link it to all of
+		# the keys
+		InputMap.add_action(action)
+		
+		for key in controls[action]:
+			var ev = InputEventKey.new()
+			ev.keycode = key
+			InputMap.action_add_event(action, ev)
+
 	if animation_tree == null:
 		animation_tree = get_node_or_null(^"AnimationTree")
 	_setup_mouth()
