@@ -86,6 +86,7 @@ const _DEFAULT_EXPRESSIONS: Dictionary[String, String] = {
 }
 
 const _MOUTH_DIR := "res://samples/shared/art/Character/mouth/"
+const _ALL_DEVICES := -1
 
 ## the thing this character should turn to look at (e.g. the player they're
 ## speaking to). when null, the character faces its last movement direction.
@@ -118,30 +119,7 @@ var _head_y := 0.0
 
 
 func _ready() -> void:
-	# Setup actions required by the character if they aren't already present in
-	# the project
-	var controls = {
-		"move_right": [KEY_D, KEY_RIGHT],
-		"move_left": [KEY_A, KEY_LEFT],
-		"move_forward": [KEY_W, KEY_UP],
-		"move_back": [KEY_S, KEY_DOWN],
-		"interact": [KEY_SPACE]
-	}
-	
-	for action in controls:
-		if InputMap.has_action(action):
-			# Action already exists, nothing to do
-			continue
-
-		# Otherwise, create a new runtime action for this and link it to all of
-		# the keys
-		InputMap.add_action(action)
-		
-		for key in controls[action]:
-			var ev = InputEventKey.new()
-			ev.keycode = key
-			InputMap.action_add_event(action, ev)
-
+	_ensure_input_actions()
 	if animation_tree == null:
 		animation_tree = get_node_or_null(^"AnimationTree")
 	_setup_mouth()
@@ -160,6 +138,51 @@ func _ready() -> void:
 		add_to_group(&"player")
 	elif follow_path != null and follow_path.count() >= 2:
 		_begin_path()
+
+
+static func _ensure_input_actions() -> void:
+	var controls := {
+		&"move_right": [_physical_key(KEY_D), _key(KEY_RIGHT), _stick(JOY_AXIS_LEFT_X, 1.0), _pad(JOY_BUTTON_DPAD_RIGHT)],
+		&"move_left": [_physical_key(KEY_A), _key(KEY_LEFT), _stick(JOY_AXIS_LEFT_X, -1.0), _pad(JOY_BUTTON_DPAD_LEFT)],
+		&"move_forward": [_physical_key(KEY_W), _key(KEY_UP), _stick(JOY_AXIS_LEFT_Y, -1.0), _pad(JOY_BUTTON_DPAD_UP)],
+		&"move_back": [_physical_key(KEY_S), _key(KEY_DOWN), _stick(JOY_AXIS_LEFT_Y, 1.0), _pad(JOY_BUTTON_DPAD_DOWN)],
+		&"interact": [_physical_key(KEY_E), _pad(JOY_BUTTON_X)],
+	}
+	for action: StringName in controls:
+		if InputMap.has_action(action):
+			continue
+		InputMap.add_action(action, 0.2)
+		for event: InputEvent in controls[action]:
+			InputMap.action_add_event(action, event)
+
+
+static func _physical_key(key: Key) -> InputEventKey:
+	var event := InputEventKey.new()
+	event.device = _ALL_DEVICES
+	event.physical_keycode = key
+	return event
+
+
+static func _key(key: Key) -> InputEventKey:
+	var event := InputEventKey.new()
+	event.device = _ALL_DEVICES
+	event.keycode = key
+	return event
+
+
+static func _stick(axis: JoyAxis, direction: float) -> InputEventJoypadMotion:
+	var event := InputEventJoypadMotion.new()
+	event.device = _ALL_DEVICES
+	event.axis = axis
+	event.axis_value = direction
+	return event
+
+
+static func _pad(button: JoyButton) -> InputEventJoypadButton:
+	var event := InputEventJoypadButton.new()
+	event.device = _ALL_DEVICES
+	event.button_index = button
+	return event
 
 
 ## Snaps the character to the start of its path, facing the next waypoint, and
