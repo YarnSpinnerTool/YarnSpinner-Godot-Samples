@@ -51,7 +51,7 @@ Player: Neat
 title: alternate
 ---
 Capsley: arguably a better way to do this is to define the necessary assets in the header of the node
-Capsley: then it's more accessible and easier to access without all the steps we take here
+Capsley: then it's easier to access without all the steps we take here
 Capsley: or you could do this entirely outside of Yarn
 Capsley: if you know what assets are needed for the level just make it part of the level load system
 Capsley: that way it also works for assets beyond those that are necessary for your dialogue!
@@ -69,7 +69,7 @@ title: details
 Capsley: this works by grabbing the compiled program out of the Yarn Project
 Capsley: this is essentially just a list of instructions
 Capsley: each instruction means something different but in our case what we want is any RunCommand instruction
-Capsley: from here we then get the text of command and use that to work out what asset to "load"
+Capsley: from here we then get the text of the command and use that to work out what asset to "load"
 Player: why did you say "load" like that?
 Capsley: because we aren't actually going to load anything, just list what we would load
 

@@ -51,8 +51,8 @@ group: Capsley
 ---
 Capsley: Fancy seeing you here! #line:Capsley_Room4_0100_Capsley 
 Capsley: This room shows off using variables in Yarn! #line:Capsley_Room4_0200_Capsley 
-Capsley: And also shows off enumerations, or enums! #line:Capsley_Room4_0300_Capsley 
-Capsley: Which are another type of variable! #line:Capsley_Room4_0400_Capsley 
+Capsley: Variables can hold text, numbers, or true and false! #line:Capsley_Room4_0300_Capsley 
+Capsley: And they can change as the story goes! #line:Capsley_Room4_0400_Capsley 
 ===
 title: Capsley_Room5
 position: -825,11
@@ -60,7 +60,7 @@ group: Capsley
 ---
 Capsley: Oh, you're still here? #line:Capsley_Room5_0100_Capsley 
 Capsley: Well then! I guess you want to see how to do conditionals and branching in Yarn. #line:Capsley_Room5_0200_Capsley 
-Capsley: Which is what this room is all about, using ifs, onces, and options to do branching! #line:Capsley_Room5_0300_Capsley 
+Capsley: Which is what this room is all about, using ifs, onces, options, and enums to do branching! #line:Capsley_Room5_0300_Capsley 
 ===
 title: Capsley_Room6
 position: -615,11
@@ -239,7 +239,7 @@ Ruby: Would you like a meal? Ramen, Pizza, Nutritional Sludge(tm), or Meat Produ
     -> ... Meat Product, I guess. #line:Room5_Enums_1_0500 
         <<set $player_meal = .MeatProduct>>   
 Ruby: Neat! I just set an Enum to the meal you chose. #line:Room5_Enums_1_0600_Ruby 
-Ruby: Enums are a special kind of variables, whose value is constrained to a predefined list of things. #line:Room5_Enums_1_0700_Ruby 
+Ruby: Enums are a special kind of variable, whose value is constrained to a predefined list of things. #line:Room5_Enums_1_0700_Ruby 
 Ruby: Can you guess what the list of things might be? #line:Room5_Enums_1_0800_Ruby 
 Ruby: That's right! It's the different meals I have for you! Or no meal. #line:Room5_Enums_1_0900_Ruby 
 <<if $player_meal == .Ramen>>

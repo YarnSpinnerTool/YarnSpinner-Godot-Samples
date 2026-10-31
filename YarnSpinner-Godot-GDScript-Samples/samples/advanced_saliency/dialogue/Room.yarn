@@ -53,7 +53,7 @@ Explainer: Do you want to see your current configuration?
 -> Yes
     Explainer: The primary role is played by "{$primary}".
     Explainer: The secondary role is played by "{$secondary}".
-    Explainer: It is set inside a "{$Room}".
+    Explainer: It is set in the "{$Room}".
     Explainer: And will play out a "{$scenario}" scene.
 -> No
 -> Play the scenario <<if $primary != $secondary>>

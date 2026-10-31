@@ -57,7 +57,7 @@ when: $scenario_state == .Started
 Player: want to go see Les Mis?
 {$secondary}: huh?
 {$primary}: Yeah, what?
-Player: anyone fancy an icecream?, I could go pick us some up.
+Player: Anyone fancy an ice cream? I could go pick us some up.
 {$secondary}: I confess, just stop being so weird.
 
 <<set $scenario_state = .Complete>>
@@ -84,9 +84,9 @@ when: $scenario_state == .Complete
 ---
 // again line groups to inject more variance into the story
 => {$secondary}: I promise I'll be good, please don't Henry the Train me.
-=> {$secondary}: I'm done hiding the corpses of my masters victims. <<if $Room == .Mansion>>
+=> {$secondary}: I'm done hiding the corpses of my master's victims. <<if $Room == .Mansion>>
 => {$secondary}: I'm all Jesused up now, I swear. <<if $Room == .Church>>
 => {$secondary}: I promise I'll never eat {$primary}'s lunch again. <<if $Room == .Office>>
-=> {$secondary}: I promise I'll no more cheating at darts. <<if $Room == .Pub>>
+=> {$secondary}: I promise, no more cheating at darts. <<if $Room == .Pub>>
 ===
 

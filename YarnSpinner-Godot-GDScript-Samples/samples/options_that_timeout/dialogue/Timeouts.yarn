@@ -14,11 +14,11 @@ Alice: This differs from the default example as the fallback option is hidden fr
 title: DefaultExample
 ---
 Alice: In this example if no option is chosen before time runs out we choose the option with the default metadata.
-Alice: this differs from the fallback example as the default is visible to the user.
+Alice: This differs from the fallback example, as the default is visible to the user.
 
 -> Option 1? #default
     Alice: option 1 was selected
-    Alice: this is the default.
+    Alice: This is the default.
 -> Option 2?
     Alice: option 2 was selected
 ===

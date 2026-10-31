@@ -66,7 +66,7 @@ Player: I know you are having a great time
 {$secondary}: just the best
 Player: But {$primary} and I think it's weird you are here
 {$secondary}: I disagree
-Player: So i'm gonna talk it over with {$primary} and I think we will go
+Player: So I'm gonna talk it over with {$primary} and I think we will go
 {$secondary}: nooooo
 
 <<set $speak_to_secondary = true>>

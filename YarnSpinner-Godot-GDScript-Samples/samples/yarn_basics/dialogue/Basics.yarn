@@ -338,7 +338,7 @@ Guide: What would you like to know?
 -> What's your name? <<once>>
     Guide: I'm your Guide! But you already asked that...
 -> Tell me a secret <<once>>
-    Guide: The cake is a lie. Don't ask again!
+    Guide: There's no cake. Don't ask again!
 -> How's the weather? <<once if $sunny>>
     Guide: It's sunny! But I only comment on weather once.
 -> Regular question (always available)
@@ -428,7 +428,7 @@ Guide: You explored {$sections_visited} out of 6 sections!
 <<endif>>
 
 Guide: Thanks for learning Yarn with me!
-Guide: Now go make something awesome!
+Guide: Now go and write some dialogue!
 
 // Dialogue ends here naturally when there's no more content
 ===

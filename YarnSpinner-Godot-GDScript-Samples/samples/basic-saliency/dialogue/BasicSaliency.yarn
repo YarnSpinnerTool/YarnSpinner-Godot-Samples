@@ -6,7 +6,7 @@ Capsley: Here we show off the basics of creating and using salient content in [b
 Capsley: In the room is a big switch that when walked into updates the time of day, and the day itself.
 Capsley: There are also four different people who change what they say based on the current day and time of day.
 Capsley: They do this through both node groups and line groups in the [link="BasicSaliency.yarn"]Yarn[/link].
-Capsley: If you are after more information on Salient content check out the [link="docs.yarnspinner.dev/write-yarn-scripts/advanced-scripting/storylets-and-saliency-a-primer" external=true]docs[/link].
+Capsley: If you are after more information on salient content, check out the [link="yarnspinner.dev/docs/yarn/03-advanced/02-storylets-and-saliency-a-primer/" external=true]docs[/link].
 ===
 title: Setup
 ---
