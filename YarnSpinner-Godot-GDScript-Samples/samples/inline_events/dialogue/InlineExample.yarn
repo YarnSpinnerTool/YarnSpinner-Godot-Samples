@@ -5,7 +5,7 @@ Alice: Hey what's up?
 Player: Just wondering what this demo is about.
 Alice: It's showing off how you can do events with markup now.
 Player: Oh? How does it work?
-Alice: Easy, you just do it now with [link="https://yarnspinner.dev/docs/godot/gdscript/07-samples/06-inline-events/" external=true]inline event markup[/link].
+Alice: Easy, you just do it now with [link="https:\/\/yarnspinner.dev/docs/godot/gdscript/07-samples/06-inline-events/" external=true]inline event markup[/link].
 Player: So what, just part way through I stop talking... [move name="far" /] ...and move on over?
 Alice: Yeah you did
 
