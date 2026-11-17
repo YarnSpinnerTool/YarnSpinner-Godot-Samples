@@ -11,7 +11,7 @@ content_margin_left = 20.0
 atlas = ExtResource("3_sprites")
 region = Rect2(95, 3, 5, 8)
 
-[node name="OptionItem" type="Button"]
+[node name="OptionItem" type="Button" node_paths=PackedStringArray("text_label")]
 offset_bottom = 41.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -28,6 +28,23 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_row")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_row")
 alignment = 0
 script = ExtResource("1_script")
+text_label = NodePath("Text")
+
+[node name="Text" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
 
 [node name="SelectionIndicator" type="TextureRect" parent="."]
 visible = false

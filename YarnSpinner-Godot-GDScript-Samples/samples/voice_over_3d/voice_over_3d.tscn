@@ -30,9 +30,9 @@ parameters/Floating/blend_amount = 1.0
 parameters/HeadTurnTilt/blend_position = Vector2(0, 0)
 parameters/BlendSpace1D/blend_position = 0.0
 
-[node name="Skeleton3D" parent="Tom/PillCharacter2/PillCharacter" parent_id_path=PackedInt32Array(914088189, 2028345057, 814969920) index="0" unique_id=1513559045]
-bones/0/position = Vector3(0, 0.021194499, 0)
-bones/0/rotation = Quaternion(-0.025690962, 0.70663995, 0.70663995, -0.025690962)
+[node name="Skeleton3D" parent="Tom/PillCharacter2/PillCharacter" parent_id_path=PackedInt32Array(914088189, 2028345057, 1237019108) index="0" unique_id=1863823800]
+bones/0/position = Vector3(0, 0.04384838, 0)
+bones/0/rotation = Quaternion(-0.02323304, 0.70672494, 0.70672506, -0.02323304)
 bones/1/position = Vector3(7.8197036e-07, -1.1280634e-17, 7.183587e-10)
 bones/1/rotation = Quaternion(-5.33851e-08, 0.7071068, 0.7071068, -5.33851e-08)
 bones/2/rotation = Quaternion(8.3578215e-08, -1.7344794e-08, 6.2270686e-16, 1)
@@ -45,7 +45,7 @@ bones/11/position = Vector3(0.05476435, 0.006787408, 0.1997307)
 bones/12/position = Vector3(-0.054763872, 0.0067874193, 0.19973084)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Tom/PillCharacter2/PillCharacter/Skeleton3D" index="1" unique_id=807486273]
-transform = Transform3D(0.99736, -0.072617054, 1.459565e-07, 0.072617054, 0.99735993, 2.9558367e-07, -1.6703557e-07, -2.8420436e-07, 1, -0.023238234, 0.3403496, 2.6745031e-08)
+transform = Transform3D(0.9978409, -0.065677494, 1.5545967e-07, 0.065677494, 0.9978409, 1.7535191e-07, -1.5958497e-07, -1.0539043e-07, 1, -0.021017576, 0.36315745, 8.396549e-08)
 bone_name = "Spine_2"
 bone_idx = 3
 
@@ -80,7 +80,6 @@ script = ExtResource("9_34unk")
 audio_player = NodePath("AudioPlayer")
 wait_time_before_start = 0.25
 wait_time_after_complete = 0.5
-fade_out_time_on_interrupt = 0.05
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="YarnDialogueRunner/VoicePresenter" unique_id=495179195]
 

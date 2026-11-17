@@ -8,9 +8,9 @@ position: 65,12
 <<if not $initialized>>
     <<set $initialized = true>>
     <<shake 0.3>>
-    Merchant: Welcome, traveler! The ground shakes as you enter.
+    Merchant: Hello. That shake was the shake command.
 <<else>>
-    Merchant: Welcome back!
+    Merchant: Hello again.
 <<endif>>
 
 <<jump MainMenu>>
@@ -37,22 +37,22 @@ Merchant: You have {$gold} gold coins.
 title: Shop
 position: 32,462
 ---
-Merchant: I have many fine items for sale!
-Merchant: I see you already have a sword. Nice choice! <<if has_item("sword")>>
-Merchant: Hmm, you only have {$gold} gold. Get more! <<if $gold < 30>>
+Merchant: I sell potions and swords.
+Merchant: You already have a sword. <<if has_item("sword")>>
+Merchant: You only have {$gold} gold, which isn't enough for anything. <<if $gold < 30>>
 
 
 -> Buy a Health Potion (30 gold) <<if $gold >= 30>>
     <<set $gold = $gold - 30>>
     <<heal 25>>
-    Merchant: Here you go! You drink it immediately.
+    Merchant: You drink the potion.
     Merchant: You now have {player_health()} health and {$gold} gold remaining.
     <<jump Shop>>
 -> Buy a Sword (50 gold) <<if $gold >= 50 and not has_item("sword")>>
     <<set $gold = $gold - 50>>
     <<give_item "sword">>
     <<shake_and_wait 0.4 0.5>>
-    Merchant: A fine blade! The room shakes with power.
+    Merchant: Here's your sword. The dialogue waited for that shake to finish.
     Merchant: You have {$gold} gold remaining.
     <<jump Shop>>
 -> Back to main menu
@@ -62,10 +62,10 @@ Merchant: Hmm, you only have {$gold} gold. Get more! <<if $gold < 30>>
 title: Services
 position: 342,462
 ---
-Merchant: I also offer some... special services.
+Merchant: I can also show off some screen effects.
 
 -> Get a dramatic entrance (free)
-    Merchant: Very well, prepare yourself!
+    Merchant: Here it comes. It costs you 20 health.
     <<fade_out 0.3>>
     <<wait 0.5>>
     <<zoom 1.5 0.3>>
@@ -77,11 +77,11 @@ Merchant: I also offer some... special services.
     <<jump Services>>
 -> Flash the screen (free)
     <<flash white 0.3>>
-    Merchant: Dazzling, isn't it?
+    Merchant: That was the flash command.
     <<jump Services>>
--> Receive a mysterious gift <<if not has_item("mysterious_key")>>
-    <<give_item "mysterious_key">>
-    Merchant: Take this key. You may need it later...
+-> Ask for a free map <<if not has_item("map")>>
+    <<give_item "map">>
+    Merchant: Here's a map. It's now in your inventory.
     <<jump Services>>
 -> Back to main menu
     <<jump MainMenu>>
@@ -90,14 +90,14 @@ Merchant: I also offer some... special services.
 title: Farewell
 position: 622,462
 ---
-<<if has_item("mysterious_key")>>
-    Merchant: Safe travels! And remember... that key opens something important.
+<<if has_item("map")>>
+    Merchant: Goodbye. Keep the map.
 <<else>>
-    Merchant: Safe travels, adventurer!
+    Merchant: Goodbye.
 <<endif>>
 
 <<fade_out 0.5>>
-Merchant: Until we meet again...
+Merchant: Come back when you have more gold.
 <<wait 1.0>>
 <<fade_in 0.5>>
 ===

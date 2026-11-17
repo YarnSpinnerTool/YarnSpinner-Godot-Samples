@@ -1,13 +1,9 @@
 class_name TimeoutBar
 extends Control
 
-## A countdown bar that shrinks a child rect's width to zero over a duration.
-## Emits [signal finished] when the bar empties, unless it is cancelled
-## first.
 
 signal finished
 
-## the rect whose width is animated
 @export var bar: Control
 
 var _original_width: float = 0.0
@@ -16,12 +12,9 @@ var _running := false
 
 func _ready() -> void:
 	if bar != null:
-		# Prefer the authored minimum width; size.x may be 0 before first layout.
 		_original_width = maxf(bar.size.x, bar.custom_minimum_size.x)
 
 
-## Animates the bar to empty over [param duration] seconds, awaiting completion.
-## Call [method cancel] to stop early without emitting [signal finished].
 func shrink(duration: float) -> void:
 	if bar == null:
 		return
@@ -42,12 +35,10 @@ func shrink(duration: float) -> void:
 	finished.emit()
 
 
-## Stops an in-progress shrink without emitting [signal finished].
 func cancel() -> void:
 	_running = false
 
 
-## Restores the bar to its full width.
 func reset() -> void:
 	_running = false
 	if bar != null:
@@ -55,7 +46,5 @@ func reset() -> void:
 
 
 func _set_width(w: float) -> void:
-	# The bar is horizontally centred, so it shrinks symmetrically inward
-	# toward the middle.
 	bar.offset_left = -w * 0.5
 	bar.offset_right = w * 0.5

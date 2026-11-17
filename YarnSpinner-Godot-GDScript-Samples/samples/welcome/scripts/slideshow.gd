@@ -1,33 +1,18 @@
 class_name Slideshow
 extends YarnDialoguePresenter
 
-## Drives the projector slideshow for the Welcome intro. Doubles as a dialogue
-## presenter and a command host: the <<start_slide>>, <<end_slide>> and
-## <<clear_slide>> commands toggle slide mode, and while in slide mode lines
-## spoken by SlideHeader / SlideBullet / SlideImage build up the slide instead
-## of being shown as normal dialogue.
 
-## title shown at the top of the slide
 @export var header_label: Label
-## body text; bullets are appended line by line
 @export var body_label: Label
-## slide image, shown in place of the body
 @export var image: TextureRect
-## the slide panel, hidden until a slide is being shown
 @export var slide_panel: CanvasItem
 
-## normal dialogue views to suppress while a slide is building, so slide-content
-## lines aren't also shown as ordinary dialogue. These are removed from the
-## runner during slide mode.
 @export var override_presenters: Array[YarnDialoguePresenter] = []
 
-## seconds to wait before restoring the normal views at the end of a slide
 @export var delay_before_showing_new_slide: float = 0.5
 
-## played when a slide begins building
 @export var advance_sound: AudioStreamPlayer
 
-## folder that slide images are loaded from, keyed by the name in the script
 @export_dir var image_folder: String = "res://samples/welcome/images"
 
 var _running_slideshow: bool = false
@@ -79,9 +64,6 @@ func end_slide() -> void:
 
 
 func run_line(line: YarnLine, _token: YarnCancellationToken = null) -> void:
-	# Slide-content lines only matter while a slide is being built; everything
-	# else is left to the normal line presenter. Returns immediately, so this
-	# presenter never holds the line open.
 	if line.character_name.is_empty() or not _running_slideshow:
 		return
 
@@ -134,9 +116,6 @@ func _set_image(image_name: String) -> void:
 
 
 func _load_image(image_name: String) -> Texture2D:
-	# Images are loaded by name from image_folder. A miss is reported and
-	# skipped rather than treated as an error, so a slide referencing a
-	# missing image still advances.
 	for ext in [".png", ".jpg", ".jpeg", ".webp"]:
 		var path := "%s/%s%s" % [image_folder, image_name, ext]
 		if ResourceLoader.exists(path):

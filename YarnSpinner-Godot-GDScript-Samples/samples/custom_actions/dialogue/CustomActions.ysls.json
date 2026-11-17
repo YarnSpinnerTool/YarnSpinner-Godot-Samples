@@ -1,0 +1,908 @@
+{
+  "Functions": [
+    {
+      "DefinitionName": "_has_inventory_item",
+      "Documentation": "",
+      "FileName": "custom_actions.gd",
+      "Language": "gdscript",
+      "Location": {
+        "end": {
+          "character": 35,
+          "line": 63
+        },
+        "start": {
+          "character": 0,
+          "line": 62
+        }
+      },
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "food",
+          "Subtype": "FoodType",
+          "Type": "any"
+        }
+      ],
+      "ReturnType": "bool",
+      "YarnName": "has_inventory_item",
+      "containsErrors": false
+    },
+    {
+      "DefinitionName": "_has_any_inventory_items",
+      "Documentation": "",
+      "FileName": "custom_actions.gd",
+      "Language": "gdscript",
+      "Location": {
+        "end": {
+          "character": 13,
+          "line": 70
+        },
+        "start": {
+          "character": 0,
+          "line": 66
+        }
+      },
+      "Parameters": [],
+      "ReturnType": "bool",
+      "YarnName": "has_any_inventory_items",
+      "containsErrors": false
+    },
+    {
+      "DefinitionName": "_inventory_count",
+      "Documentation": "",
+      "FileName": "custom_actions.gd",
+      "Language": "gdscript",
+      "Location": {
+        "end": {
+          "character": 31,
+          "line": 74
+        },
+        "start": {
+          "character": 0,
+          "line": 73
+        }
+      },
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "food",
+          "Subtype": "FoodType",
+          "Type": "any"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "inventory_count",
+      "containsErrors": false
+    },
+    {
+      "DefinitionName": "_pick_inventory_item",
+      "Documentation": "",
+      "FileName": "custom_actions.gd",
+      "Language": "gdscript",
+      "Location": {
+        "end": {
+          "character": 58,
+          "line": 98
+        },
+        "start": {
+          "character": 0,
+          "line": 77
+        }
+      },
+      "Parameters": [],
+      "ReturnType": "string",
+      "YarnName": "pick_inventory_item",
+      "containsErrors": false
+    },
+    {
+      "DefinitionName": "visited",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "bool",
+      "YarnName": "visited"
+    },
+    {
+      "DefinitionName": "visited_count",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "visited_count"
+    },
+    {
+      "DefinitionName": "has_any_content",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "bool",
+      "YarnName": "has_any_content"
+    },
+    {
+      "DefinitionName": "abs",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "abs"
+    },
+    {
+      "DefinitionName": "sign",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "sign"
+    },
+    {
+      "DefinitionName": "clamp",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p2",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "clamp"
+    },
+    {
+      "DefinitionName": "lerp",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p2",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "lerp"
+    },
+    {
+      "DefinitionName": "inverse_lerp",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p2",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "inverse_lerp"
+    },
+    {
+      "DefinitionName": "smoothstep",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p2",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "smoothstep"
+    },
+    {
+      "DefinitionName": "pow",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "pow"
+    },
+    {
+      "DefinitionName": "sqrt",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "sqrt"
+    },
+    {
+      "DefinitionName": "wrap",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p2",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "wrap"
+    },
+    {
+      "DefinitionName": "mod",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "mod"
+    },
+    {
+      "DefinitionName": "plural",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": true,
+          "Name": "p1",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "string",
+      "YarnName": "plural"
+    },
+    {
+      "DefinitionName": "ordinal",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": true,
+          "Name": "p1",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "string",
+      "YarnName": "ordinal"
+    },
+    {
+      "DefinitionName": "length",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "length"
+    },
+    {
+      "DefinitionName": "uppercase",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "string",
+      "YarnName": "uppercase"
+    },
+    {
+      "DefinitionName": "lowercase",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "string",
+      "YarnName": "lowercase"
+    }
+  ],
+  "commands": [
+    {
+      "async": true,
+      "definitionName": "_cmd_wait",
+      "documentation": "Pauses the dialogue for the given number of seconds.",
+      "fileName": "dialogue_runner.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 39,
+          "line": 1911
+        },
+        "start": {
+          "character": 0,
+          "line": 1895
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "How long to wait, in seconds.",
+          "isParamsArray": false,
+          "name": "duration",
+          "type": "number"
+        }
+      ],
+      "yarnName": "wait"
+    },
+    {
+      "async": false,
+      "containsErrors": false,
+      "definitionName": "_yarn_command_pause_path_movement",
+      "documentation": "Yarn command `<<pause_path_movement Name>>` (the roaming chatter pauses on\nevery line).",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 22,
+          "line": 517
+        },
+        "start": {
+          "character": 0,
+          "line": 513
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node to call this on.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        }
+      ],
+      "yarnName": "pause_path_movement"
+    },
+    {
+      "async": false,
+      "containsErrors": false,
+      "definitionName": "_yarn_command_resume_path_movement",
+      "documentation": "Yarn command `<<resume_path_movement Name>>`: resumes roaming after a line.",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 23,
+          "line": 525
+        },
+        "start": {
+          "character": 0,
+          "line": 521
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node to call this on.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        }
+      ],
+      "yarnName": "resume_path_movement"
+    },
+    {
+      "async": false,
+      "containsErrors": false,
+      "definitionName": "_yarn_command_set_animator_bool",
+      "documentation": "[code]<<set_animator_bool Name Floating true>>[/code]: the pill's Floating\nblend is a 0/1 scalar, so a bool maps straight onto it.",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 66,
+          "line": 599
+        },
+        "start": {
+          "character": 0,
+          "line": 595
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node to call this on.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "isParamsArray": false,
+          "name": "param_name",
+          "type": "string"
+        },
+        {
+          "isParamsArray": false,
+          "name": "value",
+          "type": "bool"
+        }
+      ],
+      "yarnName": "set_animator_bool"
+    },
+    {
+      "async": true,
+      "containsErrors": false,
+      "definitionName": "_yarn_command_turn",
+      "documentation": "[code]<<turn Name amount [time] [wait]>>[/code]: swings the head left/right.",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 53,
+          "line": 604
+        },
+        "start": {
+          "character": 0,
+          "line": 603
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node to call this on.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "isParamsArray": false,
+          "name": "amount",
+          "type": "number"
+        },
+        {
+          "defaultValue": "0.0",
+          "isParamsArray": false,
+          "name": "time",
+          "type": "number"
+        },
+        {
+          "defaultValue": "false",
+          "isParamsArray": false,
+          "name": "wait",
+          "type": "bool"
+        }
+      ],
+      "yarnName": "turn"
+    },
+    {
+      "async": true,
+      "containsErrors": false,
+      "definitionName": "_yarn_command_tilt_forward",
+      "documentation": "[code]<<tilt_forward Name amount [time] [wait]>>[/code]: nods the head.\nPositive tilts forward (down), negative back (up). The blend space's y\naxis points the other way.",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 54,
+          "line": 611
+        },
+        "start": {
+          "character": 0,
+          "line": 610
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node to call this on.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "isParamsArray": false,
+          "name": "amount",
+          "type": "number"
+        },
+        {
+          "defaultValue": "0.0",
+          "isParamsArray": false,
+          "name": "time",
+          "type": "number"
+        },
+        {
+          "defaultValue": "false",
+          "isParamsArray": false,
+          "name": "wait",
+          "type": "bool"
+        }
+      ],
+      "yarnName": "tilt_forward"
+    },
+    {
+      "async": true,
+      "containsErrors": false,
+      "definitionName": "_yarn_command_tilt_side",
+      "documentation": "[code]<<tilt_side Name amount [time] [wait]>>[/code]: tilts the head sideways.",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 22,
+          "line": 625
+        },
+        "start": {
+          "character": 0,
+          "line": 615
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node to call this on.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "isParamsArray": false,
+          "name": "amount",
+          "type": "number"
+        },
+        {
+          "defaultValue": "0.0",
+          "isParamsArray": false,
+          "name": "time",
+          "type": "number"
+        },
+        {
+          "defaultValue": "false",
+          "isParamsArray": false,
+          "name": "wait",
+          "type": "bool"
+        }
+      ],
+      "yarnName": "tilt_side"
+    },
+    {
+      "async": false,
+      "containsErrors": false,
+      "definitionName": "_yarn_command_face",
+      "documentation": "[code]<<face Name expression [crossfade]>>[/code]: sets the eyebrow\nexpression, blending over the optional crossfade time.",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 36,
+          "line": 631
+        },
+        "start": {
+          "character": 0,
+          "line": 630
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node to call this on.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "isParamsArray": false,
+          "name": "expression",
+          "type": "string"
+        },
+        {
+          "defaultValue": "0.0",
+          "isParamsArray": false,
+          "name": "crossfade",
+          "type": "number"
+        }
+      ],
+      "yarnName": "face"
+    },
+    {
+      "async": false,
+      "containsErrors": false,
+      "definitionName": "_yarn_command_expression",
+      "documentation": "[code]<<expression Name group>>[/code]: selects the active mouth group.",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 22,
+          "line": 636
+        },
+        "start": {
+          "character": 0,
+          "line": 635
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node to call this on.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "isParamsArray": false,
+          "name": "expression",
+          "type": "string"
+        }
+      ],
+      "yarnName": "expression"
+    },
+    {
+      "async": true,
+      "containsErrors": false,
+      "definitionName": "_yarn_command_play_animation",
+      "documentation": "[code]<<play_animation Name Gesture LookAround [wait]>>[/code]: fires the\nlook-around animation. The character has a single gesture, so the layer\nand state arguments are accepted but not used.",
+      "fileName": "simple_character.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 33,
+          "line": 649
+        },
+        "start": {
+          "character": 0,
+          "line": 642
+        }
+      },
+      "parameters": [
+        {
+          "documentation": "The name of the SimpleCharacter node to call this on.",
+          "isParamsArray": false,
+          "name": "target",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "isParamsArray": false,
+          "name": "_layer",
+          "type": "string"
+        },
+        {
+          "isParamsArray": false,
+          "name": "_state",
+          "type": "string"
+        },
+        {
+          "defaultValue": "false",
+          "isParamsArray": false,
+          "name": "wait",
+          "type": "bool"
+        }
+      ],
+      "yarnName": "play_animation"
+    },
+    {
+      "async": false,
+      "containsErrors": false,
+      "definitionName": "_add_inventory_item",
+      "fileName": "custom_actions.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 27,
+          "line": 54
+        },
+        "start": {
+          "character": 0,
+          "line": 52
+        }
+      },
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "food",
+          "subtype": "FoodType",
+          "type": "enum"
+        },
+        {
+          "defaultValue": "1",
+          "isParamsArray": false,
+          "name": "count",
+          "type": "number"
+        }
+      ],
+      "yarnName": "add_inventory_item"
+    },
+    {
+      "async": false,
+      "containsErrors": false,
+      "definitionName": "_remove_inventory_item",
+      "fileName": "custom_actions.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 27,
+          "line": 59
+        },
+        "start": {
+          "character": 0,
+          "line": 57
+        }
+      },
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "food",
+          "subtype": "FoodType",
+          "type": "enum"
+        },
+        {
+          "defaultValue": "1",
+          "isParamsArray": false,
+          "name": "count",
+          "type": "number"
+        }
+      ],
+      "yarnName": "remove_inventory_item"
+    },
+    {
+      "async": true,
+      "containsErrors": false,
+      "definitionName": "_walk_to_point_eat_and_return",
+      "fileName": "custom_actions.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 17,
+          "line": 117
+        },
+        "start": {
+          "character": 0,
+          "line": 101
+        }
+      },
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "character",
+          "subtype": "SimpleCharacter",
+          "type": "instance"
+        },
+        {
+          "isParamsArray": false,
+          "name": "destination",
+          "subtype": "Node3D",
+          "type": "instance"
+        }
+      ],
+      "yarnName": "walk_to_point_eat_and_return"
+    }
+  ],
+  "version": 2
+}

@@ -5,10 +5,9 @@ extends AnimationTree
 
 var time_until_next_blink: float
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	blink()
-	pass # Replace with function body.
+	pass
 
 func get_next_blink_time() -> float:
 	return mean_blink_time + lerp(-blink_variance, blink_variance, randf())

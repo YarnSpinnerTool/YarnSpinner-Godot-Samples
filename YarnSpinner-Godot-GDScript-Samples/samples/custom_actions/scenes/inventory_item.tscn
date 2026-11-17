@@ -1,0 +1,74 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://samples/custom_actions/scripts/inventory_item.gd" id="1_item"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_none"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_badge"]
+bg_color = Color(1, 0.17376195, 0.1490196, 0.7019608)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 16
+
+[sub_resource type="FontVariation" id="FontVariation_bold"]
+variation_embolden = 0.8
+
+[node name="InventoryItem" type="Button" node_paths=PackedStringArray("hover", "count_badge", "count_label")]
+custom_minimum_size = Vector2(200, 200)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_none")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_none")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_none")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_none")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_none")
+script = ExtResource("1_item")
+hover = NodePath("SelectionHover")
+count_badge = NodePath("Count")
+count_label = NodePath("Count/Text")
+normal_colour = Color(0, 0, 0, 0)
+hover_colour = Color(1, 1, 1, 0.5019608)
+click_colour = Color(1, 1, 1, 0.7490196)
+
+[node name="SelectionHover" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Sprite" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Count" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -99.3458
+offset_top = -92.6005
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge")
+
+[node name="Text" type="Label" parent="Count"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_bold")
+theme_override_font_sizes/font_size = 63
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,10 +1,8 @@
 class_name DebugFollowMouse
 extends Node
-## the character to drive; found by name if left unset
 @export var character: SimpleCharacter
 @export var character_name := "Capsley"
 @export var toggle_key: Key = KEY_F10
-## how far the mouse point must move before the walk is retargeted
 @export var retarget_distance := 0.25
 
 var _enabled := false
@@ -35,7 +33,7 @@ func _set_enabled(on: bool) -> void:
 		_saved_look = character.look_target
 		print("DebugFollowMouse: ON (%s follows the mouse; %s to stop)" % [character.name, OS.get_keycode_string(toggle_key)])
 	else:
-		character._move_id += 1  # abandon any walk in flight
+		character._move_id += 1
 		character.current_speed_factor = 0.0
 		character.mode = _saved_mode
 		character.look_target = _saved_look
@@ -52,7 +50,6 @@ func _process(_delta: float) -> void:
 	var mouse := get_viewport().get_mouse_position()
 	var origin := camera.project_ray_origin(mouse)
 	var direction := camera.project_ray_normal(mouse)
-	# intersect the ray with the character's ground plane
 	var plane := Plane(Vector3.UP, character.global_position.y)
 	var hit: Variant = plane.intersects_ray(origin, direction)
 	if hit == null:

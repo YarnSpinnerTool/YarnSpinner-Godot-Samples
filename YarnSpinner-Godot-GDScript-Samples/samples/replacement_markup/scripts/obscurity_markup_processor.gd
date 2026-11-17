@@ -1,13 +1,7 @@
 class_name ObscurityMarkupProcessor
 extends YarnAttributeMarkerProcessor
 
-## Obscures a fraction of a line's non-whitespace characters at parse time,
-## based on an [code]obscurity[/code] integer property. Used by the
-## [code][obscurity=N]...[/obscurity][/code] marker to make a character's speech
-## progressively easier to understand as the player learns their dialect.
 
-## When true, a given source character always maps to the same replacement
-## symbol, so repeated words stay recognisable.
 var matched_replacement := true
 
 var _replacement_chars := ["?", "^", ";", "*", "&", "#", "!", "@", "<", "_"]
@@ -26,8 +20,6 @@ func process_replacement_marker(
 
 	var level := marker.try_get_int_property("obscurity")
 
-	# 0 hides everything, 1 hides roughly two thirds, 2 hides about a quarter,
-	# anything else leaves the text untouched.
 	match level:
 		0:
 			_obscure(child_builder, 1.0)
@@ -47,7 +39,6 @@ func _obscure(child_builder: Array, obscurity_fraction: float) -> void:
 		if not _is_whitespace(text[i]):
 			indices.append(i)
 
-	# Fisher-Yates shuffle so the obscured characters are spread randomly.
 	for i in range(indices.size() - 1):
 		var swap := randi_range(i, indices.size() - 1)
 		var temp := indices[i]

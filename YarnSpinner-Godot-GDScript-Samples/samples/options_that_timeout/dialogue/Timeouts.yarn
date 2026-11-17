@@ -1,4 +1,5 @@
 ﻿title: FallbackExample
+position: 292,237
 ---
 Alice: In this example if no option is chosen before time runs out we choose the option with the fallback metadata.
 Alice: This differs from the default example as the fallback option is hidden from the user.
@@ -12,6 +13,7 @@ Alice: This differs from the default example as the fallback option is hidden fr
 ===
 
 title: DefaultExample
+position: 572,237
 ---
 Alice: In this example if no option is chosen before time runs out we choose the option with the default metadata.
 Alice: This differs from the fallback example, as the default is visible to the user.
@@ -24,6 +26,7 @@ Alice: This differs from the fallback example, as the default is visible to the 
 ===
 
 title: LastHighlightExample
+position: 12,237
 ---
 Alice: In this example if no option is selected the last option that is highlighted will be selected.
 Alice: Unlike the default or fallback approaches this one requires a command to toggle the mode, but needs no metadata.
@@ -36,6 +39,7 @@ Alice: Unlike the default or fallback approaches this one requires a command to 
 ===
 
 title: Alice
+position: 62,12
 ---
 Alice: This sample shows off three different ways of having an option be selected automatically after a fixed amount of time.
 Alice: To see how this was done check out [link="timeout_options_presenter.gd"]the custom presenter[/link].

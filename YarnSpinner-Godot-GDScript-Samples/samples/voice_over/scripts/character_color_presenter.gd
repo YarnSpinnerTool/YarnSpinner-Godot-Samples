@@ -1,20 +1,13 @@
-# This Source Code is subject to the terms of the LICENSE.md file
-# located in the root of this project.
-
 class_name CharacterColorPresenter
 extends YarnDialoguePresenter
-## presenter that changes text color based on the speaking character.
 
-## character name to color mapping
 @export var character_colors: Dictionary[String, Color] = {
-	"Tom": Color(0.9962189, 1.0, 0.3726415),   # yellow
-	"Anne": Color(0.291, 0.90546674, 1.0),     # cyan
+	"Tom": Color(0.9962189, 1.0, 0.3726415),
+	"Anne": Color(0.291, 0.90546674, 1.0),
 }
 
-## default color when character not found
 @export var default_color: Color = Color.WHITE
 
-## labels to apply the color to
 @export var text_labels: Array[Control] = []
 
 
@@ -33,7 +26,6 @@ func run_line(line: YarnLine, _token: YarnCancellationToken = null) -> void:
 		if character_colors.has(line.character_name):
 			color = character_colors[line.character_name]
 
-	# apply color to all configured labels
 	for label in text_labels:
 		if label != null and is_instance_valid(label):
 			if label is Label:
@@ -43,5 +35,4 @@ func run_line(line: YarnLine, _token: YarnCancellationToken = null) -> void:
 
 
 func run_options(_options: Array[YarnOption], _token: YarnCancellationToken = null) -> int:
-	# don't handle options
 	return -1

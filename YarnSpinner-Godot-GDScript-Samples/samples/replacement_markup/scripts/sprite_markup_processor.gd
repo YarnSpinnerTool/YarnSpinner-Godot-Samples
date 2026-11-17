@@ -1,22 +1,14 @@
 class_name SpriteMarkupProcessor
 extends YarnAttributeMarkerProcessor
 
-## Replaces the lightning/ice/heart/fire markers with an icon from the effects
-## sprite sheet and a coloured, bracketed label, e.g.
-## [code][lightning]zap damage[/lightning][/code] becomes "[⚡zap damage]" with
-## the icon and text tinted by effect type.
 
 const SPRITE_SHEET := "res://samples/replacement_markup/sprites/effects.png"
 const SPRITE_CELL := 46
 
-## Colour for beneficial effects.
 var buff := Color(0.0, 0.7320416, 1.0)
-## Colour for harmful effects.
 var debuff := Color(1.0, 0.64280593, 0.0)
-## Rendered icon size in pixels.
 var icon_size := 32
 
-# Sheet column and tint for each handled marker.
 var _sprites := {
 	"lightning": {"column": 1, "buff": false},
 	"ice": {"column": 0, "buff": true},
@@ -42,15 +34,11 @@ func process_replacement_marker(
 		icon_size, icon_size, sprite["column"] * SPRITE_CELL, SPRITE_CELL, SPRITE_CELL, SPRITE_SHEET
 	]
 
-	# Bold brackets around everything, the effect colour on the icon and the
-	# wrapped text.
 	var prefix := YarnMarkupParser.brackets_to_tags("[b][lb][color=#%s]%s" % [colour.to_html(false), image])
 	var suffix := YarnMarkupParser.brackets_to_tags("[/color][rb][/b]")
 
 	child_builder[0] = "%s%s%s" % [prefix, child_builder[0], suffix]
 
-	# The bracket and the icon are the only visible characters added at the
-	# front, and the closing bracket at the end; the rest is bbcode.
 	var visible_prefix := 2
 	var visible_suffix := 1
 	var invisible := (prefix.length() - visible_prefix) + (suffix.length() - visible_suffix)

@@ -1,0 +1,10 @@
+{
+    "projectFileVersion": 5,
+    "sourceFiles": [
+        "**/*.yarn"
+    ],
+    "baseLanguage": "en",
+    "definitions": [
+        "${workspaceRoot}/samples/custom_actions/dialogue/CustomActions.ysls.json"
+    ]
+}

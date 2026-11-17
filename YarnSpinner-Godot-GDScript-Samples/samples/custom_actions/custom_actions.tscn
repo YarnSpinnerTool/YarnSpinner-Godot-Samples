@@ -1,0 +1,354 @@
+[gd_scene format=3 uid="uid://bxf777ads6vli"]
+
+[ext_resource type="Script" uid="uid://bqyxi23k1800u" path="res://samples/custom_actions/scripts/custom_actions.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://ba6k8q62v3aeg" path="res://samples/shared/scenes/Basic Arena.tscn" id="2_arena"]
+[ext_resource type="PackedScene" uid="uid://db6adsx7323jr" path="res://samples/shared/scenes/npc_character.tscn" id="3_npc"]
+[ext_resource type="PackedScene" uid="uid://don7obupokpwf" path="res://samples/shared/scenes/player_character.tscn" id="4_player"]
+[ext_resource type="PackedScene" uid="uid://le6c0y7pc8gt" path="res://samples/shared/scenes/explanation_character.tscn" id="5_capsley"]
+[ext_resource type="Script" uid="uid://flra500ihbix" path="res://addons/yarn_spinner/dialogue_runner.gd" id="6_runner"]
+[ext_resource type="Resource" uid="uid://drssykcate3yh" path="res://samples/custom_actions/dialogue/CustomActions.yarnproject" id="7_proj"]
+[ext_resource type="Script" uid="uid://ci0aavprdl4gw" path="res://samples/shared/scripts/simple_follow_camera.gd" id="8_cam"]
+[ext_resource type="Script" uid="uid://bs5qnekrnovvy" path="res://samples/shared/scripts/dialogue_interactable.gd" id="9_interact"]
+[ext_resource type="Script" uid="uid://cawk3ntfrhqtt" path="res://samples/shared/scripts/character_appearance.gd" id="10_appear"]
+[ext_resource type="PackedScene" path="res://samples/shared/ui/line_presenter.tscn" id="11_line"]
+[ext_resource type="PackedScene" path="res://samples/shared/ui/options_presenter.tscn" id="12_opts"]
+[ext_resource type="Script" uid="uid://dqm2nti42vpla" path="res://addons/yarn_spinner/core/in_memory_variable_storage.gd" id="13_store"]
+[ext_resource type="Script" uid="uid://dgk6dnmo1io6b" path="res://samples/custom_actions/scripts/inventory_panel.gd" id="14_panel"]
+[ext_resource type="PackedScene" path="res://samples/custom_actions/scenes/inventory_item.tscn" id="15_item"]
+[ext_resource type="AudioStream" uid="uid://bdpgqlnjb0mfi" path="res://samples/custom_actions/art/718593__jomungus__crispy-bite.mp3" id="16_bite"]
+[ext_resource type="Texture2D" uid="uid://dimuomd7lnsti" path="res://samples/custom_actions/art/CustomFunctions-Apple.png" id="20_icon0"]
+[ext_resource type="Texture2D" uid="uid://ct1hr3hda8mfh" path="res://samples/custom_actions/art/CustomFunctions-Orange.png" id="20_icon1"]
+[ext_resource type="Texture2D" uid="uid://d0v4jof30qlp8" path="res://samples/custom_actions/art/CustomFunctions-Blueberry.png" id="20_icon2"]
+[ext_resource type="PackedScene" uid="uid://eyh6rjmj2p0x" path="res://samples/custom_actions/art/Food_Crate_Large_Apples.fbx" id="30_model0"]
+[ext_resource type="PackedScene" uid="uid://com8di7b5s1h3" path="res://samples/custom_actions/art/Food_Crate_Small_Berries.fbx" id="30_model1"]
+[ext_resource type="PackedScene" uid="uid://cifa7ujrk20u3" path="res://samples/custom_actions/art/Food_Basket_A_Berries.fbx" id="30_model2"]
+[ext_resource type="PackedScene" uid="uid://wejgijm7pbq1" path="res://samples/shared/art/Effects/Alert.fbx" id="31_alert"]
+[ext_resource type="AnimationLibrary" uid="uid://ogbtclctr0iq" path="res://samples/shared/art/Effects/speaking_indicator.tres" id="32_indicator"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
+size = Vector3(12, 1, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vendor"]
+size = Vector3(0.75, 0.5, 0.57)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inventory"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(1, 1, 1, 0.392)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="FontVariation" id="FontVariation_label"]
+variation_embolden = 0.8
+
+[node name="CustomActions" type="Node3D" unique_id=208209492 node_paths=PackedStringArray("dialogue_runner", "display_panel", "selection_panel", "eat_sound", "inventory_layer")]
+script = ExtResource("1_main")
+dialogue_runner = NodePath("YarnDialogueRunner")
+display_panel = NodePath("InventoryLayer/Root/InventoryDisplay")
+selection_panel = NodePath("InventoryLayer/Root/InventorySelect")
+eat_sound = NodePath("EatSound")
+inventory_layer = NodePath("InventoryLayer")
+
+[node name="BasicArena" parent="." unique_id=165204111 instance=ExtResource("2_arena")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=130334042]
+transform = Transform3D(0.866025, -0.383022, 0.321394, 0, 0.642788, 0.766044, -0.5, -0.663414, 0.55667, 0, 3, 0)
+light_color = Color(1, 0.956863, 0.839216, 1)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1564862918]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1661018089]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_ground")
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=1103646014 node_paths=PackedStringArray("target", "camera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.76, 1.78)
+script = ExtResource("8_cam")
+target = NodePath("../PlayerCharacter")
+camera = NodePath("Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=1583562401]
+fov = 60.0
+
+[node name="VariableStorage" type="Node" parent="." unique_id=1506415101]
+script = ExtResource("13_store")
+
+[node name="YarnDialogueRunner" type="Node" parent="." unique_id=863789860 node_paths=PackedStringArray("presenters", "variable_storage")]
+script = ExtResource("6_runner")
+yarn_project = ExtResource("7_proj")
+presenters = [NodePath("../UILayer/LinePresenter"), NodePath("../UILayer/OptionsPresenter")]
+variable_storage = NodePath("../VariableStorage")
+
+[node name="Hungry Henry" parent="." unique_id=2026578061 instance=ExtResource("3_npc")]
+transform = Transform3D(0.372133, 0, 0.928179, 0, 1, 0, -0.928179, 0, 0.372133, 2.59, 0, -1.69)
+
+[node name="DialogueInteractable" type="Node3D" parent="Hungry Henry" unique_id=905947243 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("9_interact")
+node_name = "HungryHenry"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="CharacterAppearance" type="Node" parent="Hungry Henry" unique_id=1633374682]
+script = ExtResource("10_appear")
+base_color = Color(1, 0.58431375, 0.18431373, 1)
+fade_color = Color(1, 0.8352941, 0.39607844, 1)
+mode = 1
+
+[node name="Marker" type="Node3D" parent="." unique_id=1510560105]
+transform = Transform3D(-0.736817, 0, 0.676092, 0, 1, 0, -0.676092, 0, -0.736817, 3.76, 0, 3.51)
+
+[node name="EatSound" type="AudioStreamPlayer" parent="." unique_id=1248729191]
+stream = ExtResource("16_bite")
+
+[node name="Capsley" parent="." unique_id=898818054 instance=ExtResource("5_capsley")]
+transform = Transform3D(0.248636, 0, 0.968597, 0, 1, 0, -0.968597, 0, 0.248636, 2.010741, 0, -0.272147)
+
+[node name="DialogueInteractable" type="Node3D" parent="Capsley" unique_id=162416130 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("9_interact")
+node_name = "ExplanationCharacter"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+
+[node name="AppleVendor" type="Node3D" parent="." unique_id=2055851297]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -1.92, 0, -2.75892)
+
+[node name="Model" parent="AppleVendor" unique_id=451850163 instance=ExtResource("30_model0")]
+transform = Transform3D(0.72336, 0, 0, 0, 0.72336, 0, 0, 0, 0.72336, 0, 0, 0)
+
+[node name="DialogueInteractable" type="Node3D" parent="AppleVendor" unique_id=1660251714 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("9_interact")
+node_name = "ItemVendorApple"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+turns_to_interactor = false
+
+[node name="Collision" type="StaticBody3D" parent="AppleVendor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AppleVendor/Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_vendor")
+
+[node name="SpeakingIndicator" type="Node3D" parent="AppleVendor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+
+[node name="Alert" parent="AppleVendor/SpeakingIndicator" instance=ExtResource("31_alert")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AppleVendor/SpeakingIndicator"]
+libraries/speaking_indicator = ExtResource("32_indicator")
+autoplay = &"speaking_indicator/hidden"
+
+[node name="OrangeVendor" type="Node3D" parent="." unique_id=361908595]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.357, 0, -2.805003)
+
+[node name="Model" parent="OrangeVendor" unique_id=2126062372 instance=ExtResource("30_model1")]
+transform = Transform3D(1.08504, 0, 0, 0, 1.08504, 0, 0, 0, 1.08504, 0, 0, 0)
+
+[node name="DialogueInteractable" type="Node3D" parent="OrangeVendor" unique_id=1353972298 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("9_interact")
+node_name = "ItemVendorOrange"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+turns_to_interactor = false
+
+[node name="Collision" type="StaticBody3D" parent="OrangeVendor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OrangeVendor/Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_vendor")
+
+[node name="SpeakingIndicator" type="Node3D" parent="OrangeVendor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+
+[node name="Alert" parent="OrangeVendor/SpeakingIndicator" instance=ExtResource("31_alert")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OrangeVendor/SpeakingIndicator"]
+libraries/speaking_indicator = ExtResource("32_indicator")
+autoplay = &"speaking_indicator/hidden"
+
+[node name="BlueberryVendor" type="Node3D" parent="." unique_id=991270105]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.8, 0, -2.650737)
+
+[node name="Model" parent="BlueberryVendor" unique_id=1777753259 instance=ExtResource("30_model2")]
+transform = Transform3D(0.578688, 0, 0, 0, 0.578688, 0, 0, 0, 0.578688, 0, 0, 0)
+
+[node name="DialogueInteractable" type="Node3D" parent="BlueberryVendor" unique_id=95908179 node_paths=PackedStringArray("dialogue_runner", "speaking_indicator")]
+script = ExtResource("9_interact")
+node_name = "ItemVendorBlueberry"
+dialogue_runner = NodePath("../../YarnDialogueRunner")
+speaking_indicator = NodePath("../SpeakingIndicator")
+turns_to_interactor = false
+
+[node name="Collision" type="StaticBody3D" parent="BlueberryVendor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BlueberryVendor/Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_vendor")
+
+[node name="SpeakingIndicator" type="Node3D" parent="BlueberryVendor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+
+[node name="Alert" parent="BlueberryVendor/SpeakingIndicator" instance=ExtResource("31_alert")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlueberryVendor/SpeakingIndicator"]
+libraries/speaking_indicator = ExtResource("32_indicator")
+autoplay = &"speaking_indicator/hidden"
+
+[node name="PlayerCharacter" parent="." unique_id=298263613 instance=ExtResource("4_player")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
+is_player_controlled = true
+
+[node name="CharacterAppearance" type="Node" parent="PlayerCharacter" unique_id=296256694]
+script = ExtResource("10_appear")
+base_color = Color(0.105882354, 0.5176471, 0.4117647, 1)
+fade_color = Color(0.36862746, 0.78431374, 0.5372549, 1)
+mode = 1
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=70353034]
+
+[node name="LinePresenter" parent="UILayer" unique_id=1697205064 instance=ExtResource("11_line")]
+
+[node name="OptionsPresenter" parent="UILayer" unique_id=403923483 instance=ExtResource("12_opts")]
+
+[node name="InventoryLayer" type="CanvasLayer" parent="."]
+
+[node name="Root" type="Control" parent="InventoryLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="InventoryDisplay" type="PanelContainer" parent="InventoryLayer/Root" node_paths=PackedStringArray("slots")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 35.0
+offset_bottom = 285.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_inventory")
+script = ExtResource("14_panel")
+slots = [NodePath("Items/Apple"), NodePath("Items/Orange"), NodePath("Items/Blueberry")]
+
+[node name="Items" type="HBoxContainer" parent="InventoryLayer/Root/InventoryDisplay"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Apple" parent="InventoryLayer/Root/InventoryDisplay/Items" instance=ExtResource("15_item")]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+mouse_filter = 2
+food = -1456549808
+
+[node name="Sprite" parent="InventoryLayer/Root/InventoryDisplay/Items/Apple" index="1"]
+texture = ExtResource("20_icon0")
+
+[node name="Orange" parent="InventoryLayer/Root/InventoryDisplay/Items" instance=ExtResource("15_item")]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+mouse_filter = 2
+food = 499495288
+
+[node name="Sprite" parent="InventoryLayer/Root/InventoryDisplay/Items/Orange" index="1"]
+texture = ExtResource("20_icon1")
+
+[node name="Blueberry" parent="InventoryLayer/Root/InventoryDisplay/Items" instance=ExtResource("15_item")]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+mouse_filter = 2
+food = 2032018643
+
+[node name="Sprite" parent="InventoryLayer/Root/InventoryDisplay/Items/Blueberry" index="1"]
+texture = ExtResource("20_icon2")
+
+[node name="InventorySelect" type="Control" parent="InventoryLayer/Root" node_paths=PackedStringArray("slots")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -125.0
+offset_right = 340.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("14_panel")
+slots = [NodePath("Background/Items/Apple"), NodePath("Background/Items/Orange"), NodePath("Background/Items/Blueberry")]
+
+[node name="Label" type="Label" parent="InventoryLayer/Root/InventorySelect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -340.0
+offset_top = -60.22
+offset_right = 340.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_label")
+theme_override_font_sizes/font_size = 58
+text = "Choose an item!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Background" type="PanelContainer" parent="InventoryLayer/Root/InventorySelect"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_inventory")
+
+[node name="Items" type="HBoxContainer" parent="InventoryLayer/Root/InventorySelect/Background"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Apple" parent="InventoryLayer/Root/InventorySelect/Background/Items" instance=ExtResource("15_item")]
+layout_mode = 2
+size_flags_vertical = 4
+selectable = true
+food = -1456549808
+
+[node name="Sprite" parent="InventoryLayer/Root/InventorySelect/Background/Items/Apple" index="1"]
+texture = ExtResource("20_icon0")
+
+[node name="Orange" parent="InventoryLayer/Root/InventorySelect/Background/Items" instance=ExtResource("15_item")]
+layout_mode = 2
+size_flags_vertical = 4
+selectable = true
+food = 499495288
+
+[node name="Sprite" parent="InventoryLayer/Root/InventorySelect/Background/Items/Orange" index="1"]
+texture = ExtResource("20_icon1")
+
+[node name="Blueberry" parent="InventoryLayer/Root/InventorySelect/Background/Items" instance=ExtResource("15_item")]
+layout_mode = 2
+size_flags_vertical = 4
+selectable = true
+food = 2032018643
+
+[node name="Sprite" parent="InventoryLayer/Root/InventorySelect/Background/Items/Blueberry" index="1"]
+texture = ExtResource("20_icon2")
+
+[editable path="BasicArena"]

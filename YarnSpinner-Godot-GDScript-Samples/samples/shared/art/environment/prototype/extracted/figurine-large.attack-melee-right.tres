@@ -2,7 +2,7 @@
 
 [resource]
 resource_name = "attack-melee-right"
-length = 0.41666666
+length = 0.4166666524849285
 step = 0.016666668
 tracks/0/type = "position_3d"
 tracks/0/imported = true

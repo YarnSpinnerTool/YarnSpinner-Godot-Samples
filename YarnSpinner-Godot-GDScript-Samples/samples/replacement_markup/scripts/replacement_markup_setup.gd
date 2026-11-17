@@ -1,9 +1,5 @@
 extends Node
 
-## Registers the sample's replacement-marker processors so the line presenter
-## renders every marker in the yarn files: the demo tags palette ([b], [i],
-## [u], [s], [custom], [fancy]), [style], [obscurity], [name] and the sprite
-## markers ([lightning], [ice], [heart], [fire]).
 
 @export var dialogue_runner: YarnDialogueRunner
 @export var demo_tags_palette: YarnMarkupPalette

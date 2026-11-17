@@ -1,7 +1,5 @@
 extends Area3D
 
-## The floor button that advances the day/time when the player walks into it,
-## and keeps the world-space label in sync.
 
 const Day := BasicSaliencyVariableStorage.Day
 const TimeOfDay := BasicSaliencyVariableStorage.TimeOfDay
@@ -31,8 +29,6 @@ func _advance_time() -> void:
 		push_warning("TimeAdvancer: variable_store is not set")
 		return
 
-	# Morning steps to evening; evening wraps to the next day's morning,
-	# with Wednesday looping back to Monday.
 	if variable_store.get_time() == TimeOfDay.MORNING:
 		variable_store.set_time(TimeOfDay.EVENING)
 		return

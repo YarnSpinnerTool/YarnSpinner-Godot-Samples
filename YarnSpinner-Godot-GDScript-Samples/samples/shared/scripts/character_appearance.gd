@@ -1,20 +1,13 @@
 class_name CharacterAppearance
 extends Node
 
-## Recolours a character's gradient material per instance. In Simple mode the
-## top (fade) colour is derived from the base colour with an HSV shift; in
-## Complex mode both colours are set explicitly. The material is duplicated so
-## each character can have its own colours without affecting the shared
-## resource.
 
 enum Mode { SIMPLE, COMPLEX }
 
 @export var base_color := Color(0.886, 0.503, 0.489)
 @export var fade_color := Color(0.943, 0.232, 0.0)
 @export var mode := Mode.SIMPLE
-## surface index on the character mesh that carries the gradient material
 @export var surface_index := 1
-## the character mesh; auto-found among the parent's descendants if left empty
 @export var mesh: MeshInstance3D
 
 const _SATURATION_OFFSET := -0.3
@@ -27,7 +20,6 @@ func _ready() -> void:
 	apply()
 
 
-## Sets explicit base and fade colours (Complex mode).
 func set_appearance(base: Color, fade: Color) -> void:
 	base_color = base
 	fade_color = fade
@@ -61,7 +53,6 @@ func _current_material() -> ShaderMaterial:
 	return material as ShaderMaterial
 
 
-## Brightens and desaturates the base colour for the Simple-mode fade.
 func _simple_tint(base: Color) -> Color:
 	return Color.from_hsv(
 		base.h,

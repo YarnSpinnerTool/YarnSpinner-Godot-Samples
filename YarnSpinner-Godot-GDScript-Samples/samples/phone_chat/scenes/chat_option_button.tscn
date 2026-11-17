@@ -32,7 +32,7 @@ texture = ExtResource("3_selected")
 texture_margin_left = 28.0
 texture_margin_right = 23.0
 
-[node name="ChatOptionButton" type="Button" unique_id=930992274]
+[node name="ChatOptionButton" type="Button" unique_id=930992274 node_paths=PackedStringArray("text_label")]
 custom_minimum_size = Vector2(0, 36)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -45,3 +45,23 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_selected")
 theme_override_styles/focus = SubResource("StyleBoxTexture_selected")
 text_overrun_behavior = 3
 script = ExtResource("1_btn")
+text_label = NodePath("Text")
+
+[node name="Text" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 9.0
+offset_right = -24.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

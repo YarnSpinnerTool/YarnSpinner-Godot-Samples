@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarn_spinner.yarn_file"
+type="Resource"
+uid="uid://bino540qwjdbs"
+path="res://.godot/imported/CustomActions.yarn-fd1d2b4f5354b493d0ae91566c2706a4.res"
+
+[deps]
+
+source_file="res://samples/custom_actions/dialogue/CustomActions.yarn"
+dest_files=["res://.godot/imported/CustomActions.yarn-fd1d2b4f5354b493d0ae91566c2706a4.res"]
+
+[params]
+

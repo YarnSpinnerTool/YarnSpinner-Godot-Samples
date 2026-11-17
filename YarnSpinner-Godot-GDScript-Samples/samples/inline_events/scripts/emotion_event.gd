@@ -1,10 +1,5 @@
 extends YarnActionMarkupHandlerNode
 
-## Recolours a character mid-line as [emotion="..."] markers are revealed.
-## On prepare it reads the line's [character name="X"] to find the speaker, then
-## collects every [emotion="..."] marker by character position. As the
-## typewriter reaches each marker the speaker's appearance is swapped, and a
-## change away from the default emotion holds for a brief beat to let it land.
 
 const _PAUSE_SECONDS := 0.3
 
@@ -13,15 +8,11 @@ const _PAUSE_SECONDS := 0.3
 
 var _appearance: CharacterAppearance
 var _character: SimpleCharacter
-## character position -> emotion key
 var _emotions: Dictionary[int, String] = {}
-## whoever was last left in a non-neutral emotion (they may no longer be the
-## current line's speaker by the time the dialogue is stopped)
 var _dirty_character: SimpleCharacter
 var _dirty_appearance: CharacterAppearance
 
 
-## A stopped dialogue can land mid-emotion; don't leave the speaker stuck angry.
 func _on_dialogue_cancelled() -> void:
 	var preset = emotion_presets.get(default_emotion) as EmotionPreset
 	if preset == null:
@@ -97,7 +88,6 @@ func on_character_will_appear(
 		_appearance.set_appearance(preset.base, preset.fade)
 		var token := cancellation_token as YarnCancellationToken
 		if emotion != default_emotion and (token == null or not token.is_hurry_up_requested):
-			# Hold a brief moment after leaving the default emotion to make the change clear.
 			return get_tree().create_timer(_PAUSE_SECONDS).timeout
 	return Signal()
 

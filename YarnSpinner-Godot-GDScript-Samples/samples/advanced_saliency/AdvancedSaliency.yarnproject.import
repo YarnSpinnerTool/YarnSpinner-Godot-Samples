@@ -1,6 +1,7 @@
 [remap]
 
 importer="yarn_spinner.project"
+importer_version=1
 type="Resource"
 uid="uid://dkbeqnbkvwh0w"
 path="res://.godot/imported/AdvancedSaliency.yarnproject-731ffd75efa0da2a969f4710bec79b1d.res"

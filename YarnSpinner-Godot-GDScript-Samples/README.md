@@ -31,6 +31,7 @@ The samples will change during Early Access. They don't work with Yarn Spinner f
 - [`feature_tour`](https://yarnspinner.dev/docs/godot/gdscript/07-samples/03-feature-tour/): a 3D building where each room shows a different Yarn Spinner feature
 - [`commands_and_functions`](https://yarnspinner.dev/docs/godot/gdscript/07-samples/04-commands-and-functions/): custom Commands and Functions that let Yarn control the game and read its state
 - [`instance_commands`](https://yarnspinner.dev/docs/godot/gdscript/07-samples/05-instance-commands/): Commands that target a specific node in the scene
+- `custom_actions`: a Function that waits for the player to pick an item, and a Command the player can skip, used to bring Hungry Henry the fruit he asks for
 - [`inline_events`](https://yarnspinner.dev/docs/godot/gdscript/07-samples/06-inline-events/): movement and emotions triggered from inside a line
 - [`node_internals`](https://yarnspinner.dev/docs/godot/gdscript/07-samples/15-node-internals/): looking through a node's Commands before it runs, to load the assets they need ahead of time
 - [`replacement_markup`](https://yarnspinner.dev/docs/godot/gdscript/07-samples/13-replacement-markup/): markup that replaces text with icons and styled text

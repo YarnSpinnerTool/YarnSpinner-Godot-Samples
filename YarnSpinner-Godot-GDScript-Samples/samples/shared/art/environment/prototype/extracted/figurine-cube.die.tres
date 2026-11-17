@@ -2,7 +2,7 @@
 
 [resource]
 resource_name = "die"
-length = 0.33333334
+length = 0.33333334041337664
 step = 0.016666668
 tracks/0/type = "position_3d"
 tracks/0/imported = true

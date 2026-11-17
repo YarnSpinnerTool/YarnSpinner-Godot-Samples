@@ -1,6 +1,7 @@
 [remap]
 
 importer="yarn_spinner.project"
+importer_version=1
 type="Resource"
 uid="uid://cql1cjrcl4nvg"
 path="res://.godot/imported/ThemedLinePresenter.yarnproject-382c4025ef3fb4cd0393a07890f55642.res"

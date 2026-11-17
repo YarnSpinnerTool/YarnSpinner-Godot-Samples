@@ -2,7 +2,7 @@
 
 [resource]
 resource_name = "idle"
-length = 1.3333334
+length = 1.3333333687552016
 step = 0.016666668
 tracks/0/type = "position_3d"
 tracks/0/imported = true

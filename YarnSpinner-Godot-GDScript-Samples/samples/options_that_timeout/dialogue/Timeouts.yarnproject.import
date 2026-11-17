@@ -1,6 +1,7 @@
 [remap]
 
 importer="yarn_spinner.project"
+importer_version=1
 type="Resource"
 uid="uid://gb6aklr3jook"
 path="res://.godot/imported/Timeouts.yarnproject-73f4b63c6c69cbf617a9d85619678c48.res"

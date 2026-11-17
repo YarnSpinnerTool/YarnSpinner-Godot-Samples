@@ -1,5 +1,346 @@
 {
-  "Functions": [],
+  "Functions": [
+    {
+      "DefinitionName": "visited",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "bool",
+      "YarnName": "visited"
+    },
+    {
+      "DefinitionName": "visited_count",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "visited_count"
+    },
+    {
+      "DefinitionName": "has_any_content",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "bool",
+      "YarnName": "has_any_content"
+    },
+    {
+      "DefinitionName": "abs",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "abs"
+    },
+    {
+      "DefinitionName": "sign",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "sign"
+    },
+    {
+      "DefinitionName": "clamp",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p2",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "clamp"
+    },
+    {
+      "DefinitionName": "lerp",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p2",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "lerp"
+    },
+    {
+      "DefinitionName": "inverse_lerp",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p2",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "inverse_lerp"
+    },
+    {
+      "DefinitionName": "smoothstep",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p2",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "smoothstep"
+    },
+    {
+      "DefinitionName": "pow",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "pow"
+    },
+    {
+      "DefinitionName": "sqrt",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "sqrt"
+    },
+    {
+      "DefinitionName": "wrap",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p2",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "wrap"
+    },
+    {
+      "DefinitionName": "mod",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "mod"
+    },
+    {
+      "DefinitionName": "plural",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": true,
+          "Name": "p1",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "string",
+      "YarnName": "plural"
+    },
+    {
+      "DefinitionName": "ordinal",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": true,
+          "Name": "p1",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "string",
+      "YarnName": "ordinal"
+    },
+    {
+      "DefinitionName": "length",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "length"
+    },
+    {
+      "DefinitionName": "uppercase",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "string",
+      "YarnName": "uppercase"
+    },
+    {
+      "DefinitionName": "lowercase",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "string",
+      "YarnName": "lowercase"
+    }
+  ],
   "commands": [
     {
       "async": true,
@@ -9,12 +350,12 @@
       "language": "gdscript",
       "location": {
         "end": {
-          "character": 37,
-          "line": 1702
+          "character": 39,
+          "line": 1911
         },
         "start": {
           "character": 0,
-          "line": 1699
+          "line": 1895
         }
       },
       "parameters": [
@@ -29,13 +370,14 @@
     },
     {
       "async": true,
+      "containsErrors": false,
       "definitionName": "_yarn_command_move",
-      "documentation": "Moves this character to a destination node.\nUsage in Yarn: <<move mae center>>\nReturns a Signal so dialogue waits for movement to complete.",
+      "documentation": "Moves this character to a destination node.\nUsage in Yarn: <<move mae center>>\nAwaits the tween so dialogue waits for movement to complete.",
       "fileName": "character.gd",
       "language": "gdscript",
       "location": {
         "end": {
-          "character": 22,
+          "character": 21,
           "line": 75
         },
         "start": {
@@ -45,7 +387,7 @@
       },
       "parameters": [
         {
-          "documentation": "The name of the Character node the runner will search for to run this command upon.",
+          "documentation": "The name of the Character node to call this on.",
           "isParamsArray": false,
           "name": "target",
           "subtype": "Character",
@@ -61,13 +403,14 @@
     },
     {
       "async": true,
+      "containsErrors": false,
       "definitionName": "_yarn_command_bounce",
-      "documentation": "Makes this character bounce (jump up and down).\nUsage in Yarn: <<bounce bob>>\nNote: We use \"bounce\" not \"jump\" because <<jump>> is a built-in Yarn command.\nReturns a Signal so dialogue waits for the bounce to complete.",
+      "documentation": "Makes this character bounce (jump up and down).\nUsage in Yarn: <<bounce bob>>\nNote: We use \"bounce\" not \"jump\" because <<jump>> is a built-in Yarn command.\nAwaits the tween so dialogue waits for the bounce to complete.",
       "fileName": "character.gd",
       "language": "gdscript",
       "location": {
         "end": {
-          "character": 22,
+          "character": 21,
           "line": 89
         },
         "start": {
@@ -77,7 +420,7 @@
       },
       "parameters": [
         {
-          "documentation": "The name of the Character node the runner will search for to run this command upon.",
+          "documentation": "The name of the Character node to call this on.",
           "isParamsArray": false,
           "name": "target",
           "subtype": "Character",
@@ -88,6 +431,7 @@
     },
     {
       "async": false,
+      "containsErrors": false,
       "definitionName": "_yarn_command_set_color",
       "documentation": "Changes this character's color.\nUsage in Yarn: <<set_color mae red>>\nHappens instantly, no wait.",
       "fileName": "character.gd",
@@ -104,7 +448,7 @@
       },
       "parameters": [
         {
-          "documentation": "The name of the Character node the runner will search for to run this command upon.",
+          "documentation": "The name of the Character node to call this on.",
           "isParamsArray": false,
           "name": "target",
           "subtype": "Character",
@@ -120,6 +464,7 @@
     },
     {
       "async": false,
+      "containsErrors": false,
       "definitionName": "_yarn_command_look_at",
       "documentation": "Makes this character face another character or waypoint.\nUsage in Yarn: <<look_at mae bob>>",
       "fileName": "character.gd",
@@ -136,7 +481,7 @@
       },
       "parameters": [
         {
-          "documentation": "The name of the Character node the runner will search for to run this command upon.",
+          "documentation": "The name of the Character node to call this on.",
           "isParamsArray": false,
           "name": "target",
           "subtype": "Character",

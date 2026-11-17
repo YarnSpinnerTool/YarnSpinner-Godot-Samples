@@ -2,7 +2,7 @@
 
 [resource]
 resource_name = "interact-left"
-length = 0.6666667
+length = 0.6666666808267533
 step = 0.016666668
 tracks/0/type = "position_3d"
 tracks/0/imported = true

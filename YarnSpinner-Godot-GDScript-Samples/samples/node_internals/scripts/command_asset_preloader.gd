@@ -1,30 +1,17 @@
 class_name CommandAssetPreloader
 extends Node
 
-## Demonstrates inspecting a compiled Yarn program to preload the assets a
-## node's commands will need. The interesting work happens in
-## preload_command_assets: it walks a node's instructions, picks out the
-## RunCommand ones, and collects the asset named by each set_background,
-## set_music and character_avatar command. Nothing is actually loaded here, we
-## just record the names into sets and simulate a slow load the first time.
 
-## the runner whose compiled program we introspect
 @export var dialogue_runner: YarnDialogueRunner
-## the node whose commands we preload the assets for
 @export var preload_node_name: String = "commands"
 
-## our "preloaded" assets: a name maps to true once it has been "loaded"
 var _backgrounds: Dictionary = {}
 var _music: Dictionary = {}
 var _avatars: Dictionary = {}
 
 
 func _ready() -> void:
-	# Register all five as global commands (no target node). They aren't named
-	# _yarn_command_* so the runner's auto-discovery won't also register them
-	# as target-taking instance commands.
-	# Deferred so the runner has built its library first.
-	call_deferred("_register_commands")
+	_register_commands()
 
 
 var _commands_registered := false
@@ -41,28 +28,17 @@ func _register_commands() -> void:
 	dialogue_runner.add_command("character_avatar", _character_avatar)
 
 
-# this command does the actual "preloading". it reaches into the compiled
-# program, walks every instruction in the target node, and for each RunCommand
-# instruction works out whether it's one of the asset commands we care about. if
-# it is, the command's argument tells us which asset to "load". we don't load
-# anything for real, we just store the name, but the principle is the same. doing
-# this through a command means the writer controls when the load happens, though
-# you could just as easily do it at scene load or any other convenient time.
 func _preload_command_assets() -> void:
 	var node := _get_node_to_preload()
 	if node == null:
 		return
 
 	for instruction in node.instructions:
-		# the vast majority of instructions are RunLine; we only want commands
 		if instruction.opcode != YarnInstruction.OpCode.RUN_COMMAND:
 			continue
 
-		# split the command text the same way the runner does at dispatch
 		var elements := YarnCommandParser.parse(instruction.command_text)
 
-		# every command we care about takes exactly one argument, so anything
-		# else can be skipped (a real game might handle these cases per command)
 		if elements.size() != 2:
 			continue
 
@@ -79,30 +55,25 @@ func _preload_command_assets() -> void:
 	print("preloaded avatars: %s" % str(_avatars.keys()))
 
 
-# clears the cached "assets" so the next run "loads" everything afresh
 func _clear_preload() -> void:
 	_backgrounds.clear()
 	_music.clear()
 	_avatars.clear()
 
 
-# the next three commands represent the work that actually needs an asset. the
-# first time a given asset is seen we pretend to load it, pausing for a second;
-# after that it's already cached and happens instantly. awaiting the timer
-# inside the command makes the runner wait for the "load" before continuing.
-func _set_background(background_asset: String) -> Variant:
-	return await _ensure_loaded(_backgrounds, background_asset, "\"setting\" the background to be: %s")
+func _set_background(background_asset: String) -> void:
+	await _ensure_loaded(_backgrounds, background_asset, "\"setting\" the background to be: %s")
 
 
-func _set_music(music_asset: String) -> Variant:
-	return await _ensure_loaded(_music, music_asset, "\"setting\" the music to be: %s")
+func _set_music(music_asset: String) -> void:
+	await _ensure_loaded(_music, music_asset, "\"setting\" the music to be: %s")
 
 
-func _character_avatar(character_name: String) -> Variant:
-	return await _ensure_loaded(_avatars, character_name, "\"showing\" the avatar for: %s")
+func _character_avatar(character_name: String) -> void:
+	await _ensure_loaded(_avatars, character_name, "\"showing\" the avatar for: %s")
 
 
-func _ensure_loaded(cache: Dictionary, asset: String, done_message: String) -> Variant:
+func _ensure_loaded(cache: Dictionary, asset: String, done_message: String) -> void:
 	if not cache.has(asset):
 		cache[asset] = true
 		push_warning("%s is not already \"loaded\", pretending to do that now" % asset)
@@ -110,7 +81,6 @@ func _ensure_loaded(cache: Dictionary, asset: String, done_message: String) -> V
 	else:
 		print("%s has already been \"loaded\"" % asset)
 	print(done_message % asset)
-	return null
 
 
 func _get_node_to_preload() -> YarnNode:

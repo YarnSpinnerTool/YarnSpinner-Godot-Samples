@@ -2,41 +2,37 @@ title: Start
 position: 54,12
 tags: tutorial beginning
 ---
-// ============================================
-// YARN BASICS - A Tour of Yarn Language Features
-// ============================================
+// This is a comment. Yarn ignores it.
 
-// This is a single-line comment - ignored by Yarn
-
-// --- BASIC DIALOGUE ---
+// Basic dialogue
 This is a simple line of dialogue.
 This is another line. Each line is shown one at a time.
 
-// --- CHARACTER NAMES ---
-Guide: Hello! I'm your guide to Yarn Spinner.
-Guide: I'll show you all the features of the Yarn language.
+// Character names
+Guide: Hello. I'm the Guide.
+Guide: I'll show you the main parts of the Yarn language.
 
-// --- VARIABLES ---
+// Variables
 // Declare and set variables with <<declare>> and <<set>>
 <<declare $player_name = "Adventurer">>
 <<declare $coins = 100>>
 <<declare $has_sword = false>>
 <<declare $reputation = 0.5>>
 
-Guide: Welcome, {$player_name}! You have {$coins} coins.
+Guide: Welcome, {$player_name}. You have {$coins} coins.
 
-// --- STRING INTERPOLATION ---
+// String interpolation
 // Use {$variable} to insert variable values into text
 Guide: Your reputation is currently {$reputation}.
 
-// --- SETTING VARIABLES ---
+// Setting variables
 <<set $coins = $coins + 50>>
-Guide: I just gave you 50 coins. Now you have {$coins}!
+Guide: I just gave you 50 coins. Now you have {$coins}.
 
 <<set $has_sword = true>>
-Guide: And here's a sword for your journey.
+Guide: I've also given you a sword. $has_sword is now true.
 
-// --- OPTIONS (CHOICES) ---
+// Options (choices)
 Guide: What would you like to learn about first?
 
 -> Variables and Math
@@ -51,7 +47,7 @@ Guide: What would you like to learn about first?
     <<jump Advanced>>
 -> Once Statements
     <<jump OnceFeatures>>
--> I've seen enough!
+-> That's enough for now
     <<jump Goodbye>>
 ===
 
@@ -59,9 +55,9 @@ title: Variables
 position: 852,377
 tags: tutorial math
 ---
-Guide: Let's explore variables and math!
+Guide: Variables can store numbers, and you can do math with them.
 
-// --- MATH OPERATIONS ---
+// Math operations
 <<set $coins = 100>>
 Guide: Starting with {$coins} coins.
 
@@ -72,17 +68,17 @@ Guide: Added 25: now {$coins} coins.
 Guide: Subtracted 10: now {$coins} coins.
 
 <<set $coins = $coins * 2>>
-Guide: Doubled: now {$coins} coins!
+Guide: Doubled: now {$coins} coins.
 
 <<set $coins = $coins / 2>>
 Guide: Halved: back to {$coins} coins.
 
-// --- MODULO ---
+// Modulo
 <<declare $remainder = 0>>
 <<set $remainder = 17 % 5>>
 Guide: 17 modulo 5 equals {$remainder}.
 
-// --- BOOLEAN OPERATIONS ---
+// Boolean operations
 <<declare $is_rich = false>>
 <<declare $is_armed = false>>
 
@@ -91,10 +87,10 @@ Guide: 17 modulo 5 equals {$remainder}.
 
 Guide: Are you rich? {$is_rich}. Are you armed? {$is_armed}.
 
-// --- COMPOUND EXPRESSIONS ---
+// Compound expressions
 <<declare $is_ready = false>>
 <<set $is_ready = $is_rich and $is_armed>>
-Guide: Are you ready for adventure? {$is_ready}!
+Guide: Are you rich and armed? {$is_ready}.
 
 <<jump Menu>>
 ===
@@ -103,23 +99,23 @@ title: Conditionals
 position: 1692,377
 tags: tutorial logic
 ---
-Guide: Now let's look at conditionals!
+Guide: Conditionals choose which lines run.
 
-// --- BASIC IF ---
+// Basic if
 <<if $coins >= 100>>
-    Guide: You're wealthy! Over 100 coins!
+    Guide: You have at least 100 coins.
 <<endif>>
 
-// --- IF/ELSE ---
+// If/else
 <<if $has_sword>>
-    Guide: I see you have a sword. Good!
+    Guide: You have a sword.
 <<else>>
     Guide: You should get a sword.
 <<endif>>
 
-// --- IF/ELSEIF/ELSE ---
+// If/elseif/else
 <<if $coins >= 200>>
-    Guide: You're very rich!
+    Guide: You have at least 200 coins.
 <<elseif $coins >= 100>>
     Guide: You have a decent amount of coins.
 <<elseif $coins >= 50>>
@@ -128,54 +124,54 @@ Guide: Now let's look at conditionals!
     Guide: You're quite poor.
 <<endif>>
 
-// --- NESTED CONDITIONALS ---
+// Nested conditionals
 <<if $has_sword>>
     <<if $coins >= 100>>
-        Guide: Armed AND wealthy - perfect!
+        Guide: You have a sword and at least 100 coins.
     <<else>>
-        Guide: Armed but poor. Sell the sword?
+        Guide: You have a sword but fewer than 100 coins.
     <<endif>>
 <<endif>>
 
-// --- COMPARISON OPERATORS ---
-Guide: Let me demonstrate comparisons:
+// Comparison operators
+Guide: Here are the comparison operators.
 <<declare $a = 10>>
 <<declare $b = 5>>
 
 <<if $a == $b>>
-    Guide: a equals b
+    Guide: a equals b.
 <<endif>>
 <<if $a != $b>>
-    Guide: a ({$a}) does not equal b ({$b}) - true!
+    Guide: a ({$a}) does not equal b ({$b}).
 <<endif>>
 <<if $a > $b>>
-    Guide: a ({$a}) is greater than b ({$b}) - true!
+    Guide: a ({$a}) is greater than b ({$b}).
 <<endif>>
 <<if $a >= $b>>
-    Guide: a is greater than or equal to b - true!
+    Guide: a is greater than or equal to b.
 <<endif>>
 <<if $b < $a>>
-    Guide: b ({$b}) is less than a ({$a}) - true!
+    Guide: b ({$b}) is less than a ({$a}).
 <<endif>>
 <<if $b <= $a>>
-    Guide: b is less than or equal to a - true!
+    Guide: b is less than or equal to a.
 <<endif>>
 
-// --- LOGICAL OPERATORS ---
+// Logical operators
 <<declare $sunny = true>>
 <<declare $warm = true>>
 <<declare $raining = false>>
 
 <<if $sunny and $warm>>
-    Guide: It's sunny AND warm - perfect weather!
+    Guide: $sunny and $warm are both true.
 <<endif>>
 
 <<if $sunny or $warm>>
-    Guide: At least one of sunny or warm is true!
+    Guide: At least one of $sunny or $warm is true.
 <<endif>>
 
 <<if not $raining>>
-    Guide: It isn't raining, so "not $raining" is true!
+    Guide: $raining is false, so "not $raining" is true.
 <<endif>>
 
 <<jump Menu>>
@@ -185,28 +181,28 @@ title: Commands
 position: 292,377
 tags: tutorial commands
 ---
-Guide: Commands let you trigger game actions!
+Guide: Commands tell the game to do something.
 
-// --- BUILT-IN COMMANDS ---
+// Built-in commands
 Guide: The wait command pauses dialogue.
 <<wait 1>>
-Guide: One second has passed!
+Guide: That was a one second wait.
 
-// --- CUSTOM COMMANDS ---
+// Custom commands
 // Commands are defined in GDScript and called from Yarn
-Guide: Custom commands can do anything in your game.
-Guide: Watch this - I'll shake the screen!
+Guide: Custom commands run code in your game.
+Guide: This one shakes the screen.
 <<shake 0.8>>
-Guide: See? Commands connect Yarn to your game code.
+Guide: The shake command is a GDScript method.
 
-// --- STOP COMMAND ---
+// Stop command
 Guide: The stop command ends dialogue immediately.
 Guide: Want me to demonstrate?
 
--> Yes, stop now!
+-> Yes, stop now
     <<stop>>
 -> No, keep going
-    Guide: Okay, let's continue!
+    Guide: Okay, carrying on.
 
 <<jump Menu>>
 ===
@@ -215,31 +211,31 @@ title: Functions
 position: 1412,377
 tags: tutorial functions
 ---
-Guide: Functions return values you can use in dialogue!
+Guide: Functions return values you can use in lines and expressions.
 
-// --- BUILT-IN FUNCTIONS ---
+// Built-in functions
 
-// visited() - check if a node has been visited
+// visited() checks whether a node has been visited
 <<if visited("Variables")>>
-    Guide: You've already visited the Variables section!
+    Guide: You've already visited the Variables section.
 <<else>>
     Guide: You haven't seen the Variables section yet.
 <<endif>>
 
-// visited_count() - count how many times visited
+// visited_count() counts how many times a node has been visited
 <<declare $visit_count = 0>>
 <<set $visit_count = visited_count("Functions")>>
 Guide: You've visited this node {$visit_count} time(s).
 
-// --- FUNCTIONS IN CONDITIONS ---
+// Functions in conditions
 <<if visited("Conditionals") and visited("Variables")>>
-    Guide: You've seen both Conditionals AND Variables!
+    Guide: You've seen both Conditionals and Variables.
 <<endif>>
 
-// --- FUNCTIONS IN EXPRESSIONS ---
+// Functions in expressions
 // You can use functions anywhere you'd use a value
-Guide: Functions work in math too:
-Guide: Your score is {floor(10.7) * 5}!
+Guide: Functions work in math too.
+Guide: floor(10.7) times 5 is {floor(10.7) * 5}.
 
 <<jump Menu>>
 ===
@@ -248,41 +244,41 @@ title: Advanced
 position: 1132,377
 tags: tutorial advanced
 ---
-Guide: Time for advanced features!
+Guide: These are a few more features.
 
-// --- CONDITIONAL LINES ---
-// Lines can have conditions - they only show if the condition is true
-Guide: Here are some conditional lines:
+// Conditional lines
+// A line with a condition only shows when the condition is true
+Guide: Lines can have conditions too.
 
 You always see this line.
 
 
-You have a sword! <<if $has_sword>>
-You're rich! <<if $coins >= 100>>
+You have a sword. <<if $has_sword>>
+You have at least 100 coins. <<if $coins >= 100>>
 
-// --- LINE TAGS ---
+// Line tags
 Guide: Line tags add metadata to lines. #speaker:guide #emotion:happy
 Guide: Tags like this help with localization. #line:unique_id
 
-// --- MARKUP ---
-Guide: Markup lets you style text:
-Guide: This is [b]bold[/b] text!
-Guide: This is [i]italic[/i] text!
-Guide: This is [color=red]colored[/color] text!
+// Markup
+Guide: Markup lets you style text.
+Guide: This is [b]bold[/b] text.
+Guide: This is [i]italic[/i] text.
+Guide: This is [color=red]colored[/color] text.
 
-// --- ESCAPE CHARACTERS ---
-Guide: Use backslash to escape special characters:
+// Escape characters
+Guide: Use backslash to escape special characters.
 Guide: Curly braces: \{ and \}
 Guide: Square brackets: \[ and \]
 Guide: Backslash itself: \\
 
-// --- JUMP VS DETOUR ---
+// Jump vs detour
 Guide: Jump goes to a node and doesn't return.
-Guide: Detour visits a node then comes back here!
+Guide: Detour visits a node, then comes back here.
 
 -> Show me a detour
     <<detour DetourExample>>
-    Guide: See? We're back from the detour!
+    Guide: We're back from the detour.
 -> Skip the detour demo
     Guide: Okay, moving on.
 
@@ -293,62 +289,58 @@ title: DetourExample
 position: 1132,602
 tags: example
 ---
-Guide: This is the detour node!
+Guide: This is the DetourExample node.
 Guide: When this ends, we'll return to where we came from.
-Guide: Detours are great for side conversations or tutorials.
+Guide: Use a detour when you want to come back afterwards.
 ===
 
 title: OnceFeatures
 position: 572,377
 tags: tutorial once
 ---
-Guide: Let me show you the "once" statement!
+Guide: The "once" statement runs content only one time.
 
-// --- BASIC ONCE BLOCK ---
+// Basic once block
 // Content inside <<once>> only shows the first time
 <<once>>
-    Guide: This is my first-time-only greeting!
-    Guide: You'll never see these lines again.
+    Guide: This line only shows the first time.
+    Guide: So does this one.
 <<endonce>>
 
-// --- ONCE WITH ELSE ---
+// Once with else
 // Show different content on repeat visits
 <<once>>
-    Guide: Welcome, new visitor!
+    Guide: This is your first visit to this node.
 <<else>>
-    Guide: Welcome back, returning visitor!
+    Guide: You've been to this node before.
 <<endonce>>
 
-// --- ONCE IF (conditional once) ---
-// Only runs once AND only when condition is true
+// Once if (conditional once)
+// Runs once, and only when the condition is true
 <<declare $is_vip = true>>
-Guide: As a VIP, you get this special one-time message! <<once if $is_vip>>
+Guide: $is_vip is true, so you see this line once. <<once if $is_vip>>
 
-// --- INLINE ONCE ON DIALOGUE ---
+// Inline once on dialogue
 // Put <<once>> at end of line to show it only once
-Guide: Have you been here before? <<once>>
+Guide: This line only shows once. <<once>>
 Guide: This line always shows.
 
-// --- INLINE ONCE IF ON DIALOGUE ---
-Guide: Thanks for having a sword! <<once if $has_sword>>
+// Inline once if on dialogue
+Guide: You have a sword, so you see this line once. <<once if $has_sword>>
 
-// --- ONCE ON OPTIONS ---
+// Once on options
 Guide: What would you like to know?
 
 -> What's your name? <<once>>
-    Guide: I'm your Guide! But you already asked that...
--> Tell me a secret <<once>>
-    Guide: There's no cake. Don't ask again!
+    Guide: I'm the Guide. This option won't appear again.
+-> What does once do on an option? <<once>>
+    Guide: It hides the option after you pick it.
 -> How's the weather? <<once if $sunny>>
-    Guide: It's sunny! But I only comment on weather once.
+    Guide: It's sunny. This option only appears once, and only while $sunny is true.
 -> Regular question (always available)
-    Guide: You can ask this anytime!
+    Guide: This option is always available.
 
-Guide: The "once" statement is great for:
-Guide: - First-time greetings
-Guide: - Tutorial messages that shouldn't repeat
-Guide: - One-time secrets or rewards
-Guide: - Options that disappear after being chosen
+Guide: Use once for greetings, tutorial lines, and options that should only be picked one time.
 
 <<jump Menu>>
 ===
@@ -357,7 +349,7 @@ title: Menu
 position: 352,12
 tags: navigation
 ---
-// --- CONDITIONAL OPTIONS ---
+// Conditional options
 // Options can have conditions that show/hide them
 
 Guide: What would you like to do?
@@ -386,7 +378,7 @@ Guide: What would you like to do?
     <<jump Advanced>>
 -> Review Once Statements <<if visited("OnceFeatures")>>
     <<jump OnceFeatures>>
--> I'm done - goodbye!
+-> I'm done
     <<jump Goodbye>>
 ===
 
@@ -394,7 +386,7 @@ title: Goodbye
 position: 12,377
 tags: ending
 ---
-// --- VISITED TRACKING ---
+// Visited tracking
 <<declare $sections_visited = 0>>
 <<set $sections_visited = 0>>
 
@@ -417,18 +409,17 @@ tags: ending
     <<set $sections_visited = $sections_visited + 1>>
 <<endif>>
 
-Guide: You explored {$sections_visited} out of 6 sections!
+Guide: You visited {$sections_visited} of the 6 sections.
 
 <<if $sections_visited == 6>>
-    Guide: Amazing! You saw everything!
+    Guide: You visited all of them.
 <<elseif $sections_visited >= 3>>
-    Guide: Good job! You covered most of it.
+    Guide: You visited at least half of them.
 <<else>>
-    Guide: Come back to learn more anytime!
+    Guide: The others are still in the menu if you start again.
 <<endif>>
 
-Guide: Thanks for learning Yarn with me!
-Guide: Now go and write some dialogue!
+Guide: Basics.yarn has the source for every section.
 
 // Dialogue ends here naturally when there's no more content
 ===

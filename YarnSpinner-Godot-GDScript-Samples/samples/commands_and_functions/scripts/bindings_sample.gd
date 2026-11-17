@@ -1,33 +1,4 @@
-# This Source Code is subject to the terms of the LICENSE.md file
-# located in the root of this project.
-
 extends Node2D
-## Main controller for the Bindings Sample.
-##
-## This sample demonstrates the YarnBindingLoader system which allows
-## visual configuration of Yarn commands and functions in the inspector.
-##
-## === HOW TO USE THE INSPECTOR (Recommended) ===
-##
-## 1. Select the YarnBindingLoader node in the Scene tree
-## 2. In the Inspector, find the "Bindings" array property
-## 3. Click "Add Element" to add a new binding
-## 4. Configure each binding:
-##
-##    Example Command Binding:
-##      Yarn Name: shake
-##      Type: COMMAND
-##      Target Node: ../Camera2D
-##      Method Name: shake
-##      Description: Shakes the camera
-##
-##    Example Function Binding:
-##      Yarn Name: player_health
-##      Type: FUNCTION
-##      Target Node: ../Player
-##      Method Name: get_health
-##      Parameter Count: 0
-##      Description: Returns player's current health
 
 
 @onready var dialogue_runner: YarnDialogueRunner = $YarnDialogueRunner
@@ -49,9 +20,6 @@ func _on_start_pressed() -> void:
 
 
 func _on_restart_pressed() -> void:
-	# Reset all game state, including the Yarn variables, otherwise the
-	# dialogue keeps the old $gold while the Player node starts
-	# fresh, and the two disagree.
 	player.reset()
 	camera.reset()
 	dialogue_runner.variable_storage.clear()
@@ -81,7 +49,6 @@ func _process(_delta: float) -> void:
 
 
 func _update_status() -> void:
-	# Read gold from Yarn variables (which the dialogue updates via <<set>>)
 	var yarn_gold: int = 50
 	var storage := dialogue_runner.variable_storage
 	if storage:

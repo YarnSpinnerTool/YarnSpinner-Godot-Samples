@@ -1,5 +1,346 @@
 {
-  "Functions": [],
+  "Functions": [
+    {
+      "DefinitionName": "visited",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "bool",
+      "YarnName": "visited"
+    },
+    {
+      "DefinitionName": "visited_count",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "visited_count"
+    },
+    {
+      "DefinitionName": "has_any_content",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "bool",
+      "YarnName": "has_any_content"
+    },
+    {
+      "DefinitionName": "abs",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "abs"
+    },
+    {
+      "DefinitionName": "sign",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "sign"
+    },
+    {
+      "DefinitionName": "clamp",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p2",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "clamp"
+    },
+    {
+      "DefinitionName": "lerp",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p2",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "lerp"
+    },
+    {
+      "DefinitionName": "inverse_lerp",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p2",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "inverse_lerp"
+    },
+    {
+      "DefinitionName": "smoothstep",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p2",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "smoothstep"
+    },
+    {
+      "DefinitionName": "pow",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "pow"
+    },
+    {
+      "DefinitionName": "sqrt",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "sqrt"
+    },
+    {
+      "DefinitionName": "wrap",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p2",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "wrap"
+    },
+    {
+      "DefinitionName": "mod",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": false,
+          "Name": "p1",
+          "Type": "number"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "mod"
+    },
+    {
+      "DefinitionName": "plural",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": true,
+          "Name": "p1",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "string",
+      "YarnName": "plural"
+    },
+    {
+      "DefinitionName": "ordinal",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "number"
+        },
+        {
+          "IsParamsArray": true,
+          "Name": "p1",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "string",
+      "YarnName": "ordinal"
+    },
+    {
+      "DefinitionName": "length",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "number",
+      "YarnName": "length"
+    },
+    {
+      "DefinitionName": "uppercase",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "string",
+      "YarnName": "uppercase"
+    },
+    {
+      "DefinitionName": "lowercase",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "string",
+      "YarnName": "lowercase"
+    }
+  ],
   "commands": [
     {
       "async": true,
@@ -9,12 +350,12 @@
       "language": "gdscript",
       "location": {
         "end": {
-          "character": 37,
-          "line": 1702
+          "character": 39,
+          "line": 1911
         },
         "start": {
           "character": 0,
-          "line": 1699
+          "line": 1895
         }
       },
       "parameters": [
@@ -29,6 +370,7 @@
     },
     {
       "async": false,
+      "containsErrors": false,
       "definitionName": "_yarn_command_pause_path_movement",
       "documentation": "Yarn command `<<pause_path_movement Name>>` (the roaming chatter pauses on\nevery line).",
       "fileName": "simple_character.gd",
@@ -36,16 +378,16 @@
       "location": {
         "end": {
           "character": 22,
-          "line": 467
+          "line": 517
         },
         "start": {
           "character": 0,
-          "line": 463
+          "line": 513
         }
       },
       "parameters": [
         {
-          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "documentation": "The name of the SimpleCharacter node to call this on.",
           "isParamsArray": false,
           "name": "target",
           "subtype": "SimpleCharacter",
@@ -56,6 +398,7 @@
     },
     {
       "async": false,
+      "containsErrors": false,
       "definitionName": "_yarn_command_resume_path_movement",
       "documentation": "Yarn command `<<resume_path_movement Name>>`: resumes roaming after a line.",
       "fileName": "simple_character.gd",
@@ -63,16 +406,16 @@
       "location": {
         "end": {
           "character": 23,
-          "line": 475
+          "line": 525
         },
         "start": {
           "character": 0,
-          "line": 471
+          "line": 521
         }
       },
       "parameters": [
         {
-          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "documentation": "The name of the SimpleCharacter node to call this on.",
           "isParamsArray": false,
           "name": "target",
           "subtype": "SimpleCharacter",
@@ -83,6 +426,7 @@
     },
     {
       "async": false,
+      "containsErrors": false,
       "definitionName": "_yarn_command_set_animator_bool",
       "documentation": "[code]<<set_animator_bool Name Floating true>>[/code]: the pill's Floating\nblend is a 0/1 scalar, so a bool maps straight onto it.",
       "fileName": "simple_character.gd",
@@ -90,16 +434,16 @@
       "location": {
         "end": {
           "character": 66,
-          "line": 549
+          "line": 599
         },
         "start": {
           "character": 0,
-          "line": 545
+          "line": 595
         }
       },
       "parameters": [
         {
-          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "documentation": "The name of the SimpleCharacter node to call this on.",
           "isParamsArray": false,
           "name": "target",
           "subtype": "SimpleCharacter",
@@ -120,6 +464,7 @@
     },
     {
       "async": true,
+      "containsErrors": false,
       "definitionName": "_yarn_command_turn",
       "documentation": "[code]<<turn Name amount [time] [wait]>>[/code]: swings the head left/right.",
       "fileName": "simple_character.gd",
@@ -127,16 +472,16 @@
       "location": {
         "end": {
           "character": 53,
-          "line": 554
+          "line": 604
         },
         "start": {
           "character": 0,
-          "line": 553
+          "line": 603
         }
       },
       "parameters": [
         {
-          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "documentation": "The name of the SimpleCharacter node to call this on.",
           "isParamsArray": false,
           "name": "target",
           "subtype": "SimpleCharacter",
@@ -164,6 +509,7 @@
     },
     {
       "async": true,
+      "containsErrors": false,
       "definitionName": "_yarn_command_tilt_forward",
       "documentation": "[code]<<tilt_forward Name amount [time] [wait]>>[/code]: nods the head.\nPositive tilts forward (down), negative back (up). The blend space's y\naxis points the other way.",
       "fileName": "simple_character.gd",
@@ -171,16 +517,16 @@
       "location": {
         "end": {
           "character": 54,
-          "line": 561
+          "line": 611
         },
         "start": {
           "character": 0,
-          "line": 560
+          "line": 610
         }
       },
       "parameters": [
         {
-          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "documentation": "The name of the SimpleCharacter node to call this on.",
           "isParamsArray": false,
           "name": "target",
           "subtype": "SimpleCharacter",
@@ -208,6 +554,7 @@
     },
     {
       "async": true,
+      "containsErrors": false,
       "definitionName": "_yarn_command_tilt_side",
       "documentation": "[code]<<tilt_side Name amount [time] [wait]>>[/code]: tilts the head sideways.",
       "fileName": "simple_character.gd",
@@ -215,16 +562,16 @@
       "location": {
         "end": {
           "character": 22,
-          "line": 575
+          "line": 625
         },
         "start": {
           "character": 0,
-          "line": 565
+          "line": 615
         }
       },
       "parameters": [
         {
-          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "documentation": "The name of the SimpleCharacter node to call this on.",
           "isParamsArray": false,
           "name": "target",
           "subtype": "SimpleCharacter",
@@ -252,6 +599,7 @@
     },
     {
       "async": false,
+      "containsErrors": false,
       "definitionName": "_yarn_command_face",
       "documentation": "[code]<<face Name expression [crossfade]>>[/code]: sets the eyebrow\nexpression, blending over the optional crossfade time.",
       "fileName": "simple_character.gd",
@@ -259,16 +607,16 @@
       "location": {
         "end": {
           "character": 36,
-          "line": 581
+          "line": 631
         },
         "start": {
           "character": 0,
-          "line": 580
+          "line": 630
         }
       },
       "parameters": [
         {
-          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "documentation": "The name of the SimpleCharacter node to call this on.",
           "isParamsArray": false,
           "name": "target",
           "subtype": "SimpleCharacter",
@@ -290,6 +638,7 @@
     },
     {
       "async": false,
+      "containsErrors": false,
       "definitionName": "_yarn_command_expression",
       "documentation": "[code]<<expression Name group>>[/code]: selects the active mouth group.",
       "fileName": "simple_character.gd",
@@ -297,16 +646,16 @@
       "location": {
         "end": {
           "character": 22,
-          "line": 586
+          "line": 636
         },
         "start": {
           "character": 0,
-          "line": 585
+          "line": 635
         }
       },
       "parameters": [
         {
-          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "documentation": "The name of the SimpleCharacter node to call this on.",
           "isParamsArray": false,
           "name": "target",
           "subtype": "SimpleCharacter",
@@ -322,6 +671,7 @@
     },
     {
       "async": true,
+      "containsErrors": false,
       "definitionName": "_yarn_command_play_animation",
       "documentation": "[code]<<play_animation Name Gesture LookAround [wait]>>[/code]: fires the\nlook-around animation. The character has a single gesture, so the layer\nand state arguments are accepted but not used.",
       "fileName": "simple_character.gd",
@@ -329,16 +679,16 @@
       "location": {
         "end": {
           "character": 33,
-          "line": 599
+          "line": 649
         },
         "start": {
           "character": 0,
-          "line": 592
+          "line": 642
         }
       },
       "parameters": [
         {
-          "documentation": "The name of the SimpleCharacter node the runner will search for to run this command upon.",
+          "documentation": "The name of the SimpleCharacter node to call this on.",
           "isParamsArray": false,
           "name": "target",
           "subtype": "SimpleCharacter",

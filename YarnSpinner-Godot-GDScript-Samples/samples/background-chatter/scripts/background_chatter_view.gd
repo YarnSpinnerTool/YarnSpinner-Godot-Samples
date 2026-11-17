@@ -1,24 +1,12 @@
 class_name BackgroundChatterView
 extends YarnDialoguePresenter
 
-## A presenter for ambient conversations: each line is shown as screen-space
-## text projected from a point above the speaking character, for a duration
-## derived from its length, then auto-completes with no player input.
-##
-## The label lives on a screen-space overlay and follows the
-## speaker's chatter point via the camera projection each frame, so the text
-## keeps a constant on-screen size. The speaker is located by name via
-## [ChatterNPC]; lines have no options, so [method run_options] stays a no-op.
 
 @export_group("Timing")
-## Display time per character of line text.
 @export var milliseconds_per_character: int = 75
-## Minimum display time regardless of length.
 @export var min_duration: float = 1.5
-## Pause after a line before the next one shows.
 @export var delay_after_lines: float = 0.5
 
-## Text metrics are authored for a 1920x1080 canvas and scaled to the viewport.
 @export_group("Appearance")
 @export var label: Label
 
@@ -47,12 +35,9 @@ func _process(_delta: float) -> void:
 	if camera.is_position_behind(point):
 		label.hide()
 		return
-	# Centre the fixed text box on the projected point.
 	label.position = camera.unproject_position(point) - label.size * 0.5
 
 
-## Sizes the label to the authored box (scaled to the viewport width) so the
-## box stays stable while it tracks the speaker.
 func _fit_label() -> void:
 	var scale := get_viewport().get_visible_rect().size.x / REFERENCE_WIDTH
 	label.add_theme_font_size_override(&"font_size", int(_font_size * scale))
@@ -83,12 +68,6 @@ func run_line(line: YarnLine, token: YarnCancellationToken = null) -> void:
 signal _line_done
 
 
-## Holds the line on screen for a length-based duration, then dismisses it and
-## signals completion. Bails early if the line is cancelled (e.g. the chatter is
-## interrupted by the primary conversation). The generation guard stops a
-## cancelled line's timer from dismissing the line that replaced it - the
-## walk-away interrupt line starts while the interrupted line's timer is still
-## unwinding.
 func _show_line(body: String, token: YarnCancellationToken, generation: int) -> void:
 	var duration := maxf(body.length() * milliseconds_per_character / 1000.0, min_duration)
 
@@ -103,7 +82,6 @@ func _show_line(body: String, token: YarnCancellationToken, generation: int) -> 
 	_dismiss(generation)
 
 
-## Waits [param seconds], returning false if cancelled before the time elapses.
 func _wait(seconds: float, token: YarnCancellationToken) -> bool:
 	var elapsed := 0.0
 	while elapsed < seconds:
@@ -126,8 +104,6 @@ func _dismiss(generation: int) -> void:
 
 
 func on_dialogue_completed() -> void:
-	# The chatter stopped (finished or was interrupted); hide any visible line
-	# and release a run_line still parked on its completion.
 	if label != null:
 		label.visible = false
 	_target = null

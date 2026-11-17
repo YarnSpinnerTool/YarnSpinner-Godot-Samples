@@ -1,8 +1,6 @@
 class_name ValueUpdater
 extends Node
 
-## One button pillar thingy's worth of state: shows which value it controls and steps that
-## value to the next case each time the player bumps into it. A big fancy button, basically.
 
 enum ValueObserved { PRIMARY, SECONDARY, ROOM, SCENARIO }
 
@@ -12,12 +10,9 @@ enum ValueObserved { PRIMARY, SECONDARY, ROOM, SCENARIO }
 
 
 func _ready() -> void:
-	# Deferred because the dialogue runner loads the Yarn program (and with it the
-	# variables' initial values) in its own _ready, which runs after ours.
 	update_labels.call_deferred()
 
 
-## Steps this pillar's value to the next case and refreshes the label...
 func update_value() -> void:
 	match observation:
 		ValueObserved.PRIMARY:
@@ -54,8 +49,5 @@ func _with_article(word: String) -> String:
 	return "%s %s" % [article, word]
 
 
-## Godot Enum keys are typically SHOUTING_CASE; the labels use the Yarn case names. 
-## LESS SHOUTING 
-## EVEN THOUGH SHOUTING IS FUN
 func _case_name(key: String) -> String:
 	return key.capitalize()

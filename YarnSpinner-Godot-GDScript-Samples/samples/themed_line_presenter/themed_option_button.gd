@@ -1,7 +1,5 @@
 class_name ThemedOptionButton
-extends Button
-## Option row for the Themed Line Presenter sample: plain text with the
-## atlas triangle (the Option-Selected sprite) marking the focused option.
+extends YarnOptionButton
 
 @onready var _indicator: TextureRect = $SelectionIndicator
 

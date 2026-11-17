@@ -1,34 +1,20 @@
-# This Source Code is subject to the terms of the LICENSE.md file
-# located in the root of this project.
-
 class_name ChatDialoguePresenter
 extends YarnDialoguePresenter
-## presents dialogue as chat bubbles in a scrolling message list, like a
-## messaging app. Runs both lines and options; use it instead of the
-## standard Line Presenter and Options Presenter.
 
 @export_group("Scenes")
-## character name -> bubble scene. Lines from unlisted characters use the
-## default bubble.
 @export var bubble_scenes: Dictionary[String, PackedScene] = {}
 @export var default_bubble_scene: PackedScene
 @export var options_button_scene: PackedScene
 
 @export_group("Containers")
-## the message list. The options container should be its last child, so
-## new bubbles are inserted above the choices.
 @export var bubble_container: Container
 @export var options_container: Container
-## scrolls to keep the newest message visible
 @export var scroll_container: ScrollContainer
 
 @export_group("Timing")
-## seconds to linger on a bubble before the next line
 @export var delay_after_line: float = 1.0
-## clamp range for the fake "typing" time
 @export var minimum_typing_delay: float = 1.0
 @export var maximum_typing_delay: float = 3.0
-## typing time per character of the incoming message
 @export var typing_delay_per_character: float = 0.1
 @export var show_typing_indicators: bool = true
 
@@ -78,7 +64,9 @@ func run_options(options: Array[YarnOption], token: YarnCancellationToken = null
 		if not options[i].is_available:
 			continue
 		var button: ChatOptionButton = options_button_scene.instantiate()
-		button.set_option_text(options[i].text_without_character_name)
+		var markup := options[i].get_markup_result_without_character_name()
+		var bbcode := dialogue_runner.get_line_provider().get_markup_parser().convert_to_bbcode(markup)
+		button.set_option_text(bbcode, options[i].text_without_character_name)
 		var index := i
 		button.pressed.connect(func(): selection.settle(index))
 		options_container.add_child(button)
@@ -101,8 +89,6 @@ func run_options(options: Array[YarnOption], token: YarnCancellationToken = null
 	return int(result)
 
 
-## bubbles are inserted just above the options container when it lives at
-## the bottom of the message list.
 func _add_to_list(bubble: Control) -> void:
 	bubble_container.add_child(bubble)
 	if options_container != null and options_container.get_parent() == bubble_container:
@@ -121,7 +107,6 @@ func _scroll_deferred(item: Control) -> void:
 		scroll_container.ensure_control_visible(item)
 
 
-## waits, ending early if the player hurries or skips.
 func _skippable_wait(seconds: float, token: YarnCancellationToken) -> void:
 	if not is_inside_tree():
 		return

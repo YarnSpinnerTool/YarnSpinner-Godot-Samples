@@ -1,11 +1,7 @@
 class_name LinkOpener
 extends Node
 
-## Opens links clicked in a dialogue line. The markup parser turns Yarn
-## [code][link][/code] markup into RichTextLabel [code][url][/code] tags; this
-## connects the label's meta_clicked so a link opens its sample file or browser.
 
-## the label that renders dialogue text; auto-found among siblings if unset
 @export var rich_text_label: RichTextLabel
 
 

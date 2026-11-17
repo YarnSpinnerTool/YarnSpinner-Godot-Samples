@@ -1,28 +1,18 @@
-# This Source Code is subject to the terms of the LICENSE.md file
-# located in the root of this project.
-
 class_name FadeEffect
 extends ColorRect
-## handles screen fade effects for yarn dialogue commands.
-## provides set_fade_color, fade_up, and fade_down commands.
 
-## duration for default fades
 @export var default_duration: float = 1.0
 
-## the dialogue runner to register commands with
 @export var dialogue_runner: YarnDialogueRunner
 
-## singleton instance for static command access
 static var _instance: FadeEffect
 
 
 func _ready() -> void:
 	_instance = self
 
-	# start fully transparent
 	color = Color(0, 0, 0, 0)
 
-	# register commands if dialogue runner is found
 	if dialogue_runner != null:
 		_register_commands()
 
@@ -33,30 +23,22 @@ func _register_commands() -> void:
 	dialogue_runner.add_command("fade_down", _cmd_fade_down)
 
 
-## command: set fade opacity immediately
 func _cmd_set_fade_color(opacity: float) -> void:
 	color = Color(0, 0, 0, opacity)
 
 
-## command: fade from black to clear (fade up = reveal scene)
-func _cmd_fade_up(duration: float = 1.0, wait: bool = false) -> Variant:
+func _cmd_fade_up(duration: float = 1.0, wait: bool = false) -> void:
 	var finished := _fade(1.0, 0.0, duration)
 	if wait:
-		# returning the Signal makes dialogue hold until the fade ends
-		return finished
-	return null
+		await finished
 
 
-## command: fade from clear to black (fade down = hide scene)
-func _cmd_fade_down(duration: float = 1.0, wait: bool = false) -> Variant:
+func _cmd_fade_down(duration: float = 1.0, wait: bool = false) -> void:
 	var finished := _fade(0.0, 1.0, duration)
 	if wait:
-		# returning the Signal makes dialogue hold until the fade ends
-		return finished
-	return null
+		await finished
 
 
-## perform a fade animation
 func _fade(from: float, to: float, duration: float) -> Signal:
 	var tween := create_tween()
 	color.a = from
@@ -64,12 +46,10 @@ func _fade(from: float, to: float, duration: float) -> Signal:
 	return tween.finished
 
 
-## static method to get the instance
 static func get_instance() -> FadeEffect:
 	return _instance
 
 
-## static fade methods for external use
 static func fade_up_static(duration: float = 1.0) -> Signal:
 	if _instance != null:
 		return _instance._fade(_instance.color.a, 0.0, duration)

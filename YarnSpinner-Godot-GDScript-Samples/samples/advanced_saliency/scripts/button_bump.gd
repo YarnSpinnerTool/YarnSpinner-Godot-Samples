@@ -1,7 +1,6 @@
 class_name ButtonBump
 extends Area3D
 
-## The pillar's value; found on the parent if left unset.
 @export var updater: ValueUpdater
 
 
