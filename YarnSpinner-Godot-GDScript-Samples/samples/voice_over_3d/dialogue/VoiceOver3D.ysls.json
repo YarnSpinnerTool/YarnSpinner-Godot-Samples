@@ -339,6 +339,21 @@
       ],
       "ReturnType": "string",
       "YarnName": "lowercase"
+    },
+    {
+      "DefinitionName": "first_letter_caps",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "string",
+      "YarnName": "first_letter_caps"
     }
   ],
   "commands": [
@@ -372,17 +387,16 @@
       "async": false,
       "containsErrors": false,
       "definitionName": "_yarn_command_pause_path_movement",
-      "documentation": "Yarn command `<<pause_path_movement Name>>` (the roaming chatter pauses on\nevery line).",
       "fileName": "simple_character.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 22,
-          "line": 517
+          "line": 432
         },
         "start": {
           "character": 0,
-          "line": 513
+          "line": 428
         }
       },
       "parameters": [
@@ -400,17 +414,16 @@
       "async": false,
       "containsErrors": false,
       "definitionName": "_yarn_command_resume_path_movement",
-      "documentation": "Yarn command `<<resume_path_movement Name>>`: resumes roaming after a line.",
       "fileName": "simple_character.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 23,
-          "line": 525
+          "line": 439
         },
         "start": {
           "character": 0,
-          "line": 521
+          "line": 435
         }
       },
       "parameters": [
@@ -428,17 +441,16 @@
       "async": false,
       "containsErrors": false,
       "definitionName": "_yarn_command_set_animator_bool",
-      "documentation": "[code]<<set_animator_bool Name Floating true>>[/code]: the pill's Floating\nblend is a 0/1 scalar, so a bool maps straight onto it.",
       "fileName": "simple_character.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 66,
-          "line": 599
+          "line": 498
         },
         "start": {
           "character": 0,
-          "line": 595
+          "line": 494
         }
       },
       "parameters": [
@@ -466,17 +478,16 @@
       "async": true,
       "containsErrors": false,
       "definitionName": "_yarn_command_turn",
-      "documentation": "[code]<<turn Name amount [time] [wait]>>[/code]: swings the head left/right.",
       "fileName": "simple_character.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 53,
-          "line": 604
+          "line": 502
         },
         "start": {
           "character": 0,
-          "line": 603
+          "line": 501
         }
       },
       "parameters": [
@@ -511,17 +522,16 @@
       "async": true,
       "containsErrors": false,
       "definitionName": "_yarn_command_tilt_forward",
-      "documentation": "[code]<<tilt_forward Name amount [time] [wait]>>[/code]: nods the head.\nPositive tilts forward (down), negative back (up). The blend space's y\naxis points the other way.",
       "fileName": "simple_character.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 54,
-          "line": 611
+          "line": 506
         },
         "start": {
           "character": 0,
-          "line": 610
+          "line": 505
         }
       },
       "parameters": [
@@ -556,17 +566,16 @@
       "async": true,
       "containsErrors": false,
       "definitionName": "_yarn_command_tilt_side",
-      "documentation": "[code]<<tilt_side Name amount [time] [wait]>>[/code]: tilts the head sideways.",
       "fileName": "simple_character.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 22,
-          "line": 625
+          "line": 519
         },
         "start": {
           "character": 0,
-          "line": 615
+          "line": 509
         }
       },
       "parameters": [
@@ -601,17 +610,16 @@
       "async": false,
       "containsErrors": false,
       "definitionName": "_yarn_command_face",
-      "documentation": "[code]<<face Name expression [crossfade]>>[/code]: sets the eyebrow\nexpression, blending over the optional crossfade time.",
       "fileName": "simple_character.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 36,
-          "line": 631
+          "line": 523
         },
         "start": {
           "character": 0,
-          "line": 630
+          "line": 522
         }
       },
       "parameters": [
@@ -640,17 +648,16 @@
       "async": false,
       "containsErrors": false,
       "definitionName": "_yarn_command_expression",
-      "documentation": "[code]<<expression Name group>>[/code]: selects the active mouth group.",
       "fileName": "simple_character.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 22,
-          "line": 636
+          "line": 527
         },
         "start": {
           "character": 0,
-          "line": 635
+          "line": 526
         }
       },
       "parameters": [
@@ -673,17 +680,16 @@
       "async": true,
       "containsErrors": false,
       "definitionName": "_yarn_command_play_animation",
-      "documentation": "[code]<<play_animation Name Gesture LookAround [wait]>>[/code]: fires the\nlook-around animation. The character has a single gesture, so the layer\nand state arguments are accepted but not used.",
       "fileName": "simple_character.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 33,
-          "line": 649
+          "line": 537
         },
         "start": {
           "character": 0,
-          "line": 642
+          "line": 530
         }
       },
       "parameters": [
@@ -717,17 +723,16 @@
       "async": false,
       "containsErrors": false,
       "definitionName": "_cmd_set_fade_color",
-      "documentation": "command: set fade opacity immediately",
       "fileName": "fade_effect.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 32,
-          "line": 37
+          "line": 26
         },
         "start": {
           "character": 0,
-          "line": 36
+          "line": 25
         }
       },
       "parameters": [
@@ -743,17 +748,16 @@
       "async": true,
       "containsErrors": false,
       "definitionName": "_cmd_fade_up",
-      "documentation": "command: fade from black to clear (fade up = reveal scene)",
       "fileName": "fade_effect.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 16,
-          "line": 45
+          "line": 32
         },
         "start": {
           "character": 0,
-          "line": 41
+          "line": 29
         }
       },
       "parameters": [
@@ -776,17 +780,16 @@
       "async": true,
       "containsErrors": false,
       "definitionName": "_cmd_fade_down",
-      "documentation": "command: fade from clear to black (fade down = hide scene)",
       "fileName": "fade_effect.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 16,
-          "line": 53
+          "line": 38
         },
         "start": {
           "character": 0,
-          "line": 49
+          "line": 35
         }
       },
       "parameters": [

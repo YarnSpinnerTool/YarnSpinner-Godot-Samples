@@ -339,6 +339,21 @@
       ],
       "ReturnType": "string",
       "YarnName": "lowercase"
+    },
+    {
+      "DefinitionName": "first_letter_caps",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "string",
+      "YarnName": "first_letter_caps"
     }
   ],
   "commands": [

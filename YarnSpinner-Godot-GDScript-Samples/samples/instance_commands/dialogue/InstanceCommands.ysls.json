@@ -339,6 +339,21 @@
       ],
       "ReturnType": "string",
       "YarnName": "lowercase"
+    },
+    {
+      "DefinitionName": "first_letter_caps",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "string",
+      "YarnName": "first_letter_caps"
     }
   ],
   "commands": [
@@ -372,17 +387,16 @@
       "async": true,
       "containsErrors": false,
       "definitionName": "_yarn_command_move",
-      "documentation": "Moves this character to a destination node.\nUsage in Yarn: <<move mae center>>\nAwaits the tween so dialogue waits for movement to complete.",
       "fileName": "character.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 21,
-          "line": 75
+          "line": 53
         },
         "start": {
           "character": 0,
-          "line": 60
+          "line": 40
         }
       },
       "parameters": [
@@ -405,17 +419,16 @@
       "async": true,
       "containsErrors": false,
       "definitionName": "_yarn_command_bounce",
-      "documentation": "Makes this character bounce (jump up and down).\nUsage in Yarn: <<bounce bob>>\nNote: We use \"bounce\" not \"jump\" because <<jump>> is a built-in Yarn command.\nAwaits the tween so dialogue waits for the bounce to complete.",
       "fileName": "character.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 21,
-          "line": 89
+          "line": 63
         },
         "start": {
           "character": 0,
-          "line": 82
+          "line": 56
         }
       },
       "parameters": [
@@ -433,17 +446,16 @@
       "async": false,
       "containsErrors": false,
       "definitionName": "_yarn_command_set_color",
-      "documentation": "Changes this character's color.\nUsage in Yarn: <<set_color mae red>>\nHappens instantly, no wait.",
       "fileName": "character.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 65,
-          "line": 98
+          "line": 69
         },
         "start": {
           "character": 0,
-          "line": 95
+          "line": 66
         }
       },
       "parameters": [
@@ -466,17 +478,16 @@
       "async": false,
       "containsErrors": false,
       "definitionName": "_yarn_command_look_at",
-      "documentation": "Makes this character face another character or waypoint.\nUsage in Yarn: <<look_at mae bob>>",
       "fileName": "character.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 62,
-          "line": 112
+          "line": 81
         },
         "start": {
           "character": 0,
-          "line": 103
+          "line": 72
         }
       },
       "parameters": [

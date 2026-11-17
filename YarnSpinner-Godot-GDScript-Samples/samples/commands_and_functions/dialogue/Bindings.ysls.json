@@ -2,17 +2,17 @@
   "Functions": [
     {
       "DefinitionName": "get_health",
-      "Documentation": "Returns the player's current health.\nBound as: {player_health()} or <<if player_health() < 50>>",
+      "Documentation": "",
       "FileName": "player.gd",
       "Language": "gdscript",
       "Location": {
         "end": {
           "character": 14,
-          "line": 22
+          "line": 9
         },
         "start": {
           "character": 0,
-          "line": 21
+          "line": 8
         }
       },
       "Parameters": [],
@@ -22,17 +22,17 @@
     },
     {
       "DefinitionName": "has_item",
-      "Documentation": "Checks if the player has a specific item.\nBound as: {has_item(\"key\")} or <<if has_item(\"sword\")>>",
+      "Documentation": "",
       "FileName": "player.gd",
       "Language": "gdscript",
       "Location": {
         "end": {
           "character": 30,
-          "line": 28
+          "line": 13
         },
         "start": {
           "character": 0,
-          "line": 27
+          "line": 12
         }
       },
       "Parameters": [
@@ -385,6 +385,21 @@
       ],
       "ReturnType": "string",
       "YarnName": "lowercase"
+    },
+    {
+      "DefinitionName": "first_letter_caps",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "string",
+      "YarnName": "first_letter_caps"
     }
   ],
   "commands": [
@@ -418,17 +433,16 @@
       "async": false,
       "containsErrors": false,
       "definitionName": "add_item",
-      "documentation": "Adds an item to the player's inventory.\nBound as: <<give_item \"sword\">>",
       "fileName": "player.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 41,
-          "line": 37
+          "line": 18
         },
         "start": {
           "character": 0,
-          "line": 35
+          "line": 16
         }
       },
       "parameters": [
@@ -444,17 +458,16 @@
       "async": false,
       "containsErrors": false,
       "definitionName": "modify_health",
-      "documentation": "Heals or damages the player.\nBound as: <<heal 25>> or <<heal -10>> for damage",
       "fileName": "player.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 36,
-          "line": 45
+          "line": 24
         },
         "start": {
           "character": 0,
-          "line": 42
+          "line": 21
         }
       },
       "parameters": [
@@ -470,17 +483,16 @@
       "async": false,
       "containsErrors": false,
       "definitionName": "shake",
-      "documentation": "Shakes the camera (dialogue does NOT wait).\nBound as: <<shake 0.5>>",
       "fileName": "camera_effects.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 56,
-          "line": 18
+          "line": 9
         },
         "start": {
           "character": 0,
-          "line": 12
+          "line": 3
         }
       },
       "parameters": [
@@ -496,17 +508,16 @@
       "async": true,
       "containsErrors": false,
       "definitionName": "shake_and_wait",
-      "documentation": "Shakes the camera and WAITS for completion.\nBound as: <<shake_and_wait 0.5 1.0>>\nAwaits the tween so dialogue pauses until shake finishes.",
       "fileName": "camera_effects.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 21,
-          "line": 41
+          "line": 28
         },
         "start": {
           "character": 0,
-          "line": 24
+          "line": 12
         }
       },
       "parameters": [
@@ -528,17 +539,16 @@
       "async": true,
       "containsErrors": false,
       "definitionName": "zoom_to",
-      "documentation": "Zooms the camera in or out (async - dialogue waits).\nBound as: <<zoom 1.5 0.5>>",
       "fileName": "camera_effects.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 21,
-          "line": 50
+          "line": 35
         },
         "start": {
           "character": 0,
-          "line": 46
+          "line": 31
         }
       },
       "parameters": [
@@ -560,17 +570,16 @@
       "async": true,
       "containsErrors": false,
       "definitionName": "fade_out",
-      "documentation": "Fades the screen to black (async - dialogue waits).\nBound as: <<fade_out 0.5>>",
       "fileName": "screen_effects.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 21,
-          "line": 15
+          "line": 7
         },
         "start": {
           "character": 0,
-          "line": 11
+          "line": 3
         }
       },
       "parameters": [
@@ -587,17 +596,16 @@
       "async": true,
       "containsErrors": false,
       "definitionName": "fade_in",
-      "documentation": "Fades the screen from black (async - dialogue waits).\nBound as: <<fade_in 0.5>>",
       "fileName": "screen_effects.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 21,
-          "line": 23
+          "line": 13
         },
         "start": {
           "character": 0,
-          "line": 20
+          "line": 10
         }
       },
       "parameters": [
@@ -614,17 +622,16 @@
       "async": true,
       "containsErrors": false,
       "definitionName": "flash",
-      "documentation": "Flashes the screen a color briefly.\nBound as: <<flash red 0.2>> or <<flash white 0.1>>",
       "fileName": "screen_effects.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 21,
-          "line": 35
+          "line": 23
         },
         "start": {
           "character": 0,
-          "line": 28
+          "line": 16
         }
       },
       "parameters": [

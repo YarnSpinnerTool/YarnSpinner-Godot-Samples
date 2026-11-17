@@ -339,6 +339,21 @@
       ],
       "ReturnType": "string",
       "YarnName": "lowercase"
+    },
+    {
+      "DefinitionName": "first_letter_caps",
+      "Documentation": "",
+      "FileName": "",
+      "Language": "gdscript",
+      "Parameters": [
+        {
+          "IsParamsArray": false,
+          "Name": "p0",
+          "Type": "string"
+        }
+      ],
+      "ReturnType": "string",
+      "YarnName": "first_letter_caps"
     }
   ],
   "commands": [
@@ -372,17 +387,16 @@
       "async": false,
       "containsErrors": false,
       "definitionName": "_cmd_set_fade_color",
-      "documentation": "command: set fade opacity immediately",
       "fileName": "fade_effect.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 32,
-          "line": 37
+          "line": 26
         },
         "start": {
           "character": 0,
-          "line": 36
+          "line": 25
         }
       },
       "parameters": [
@@ -398,17 +412,16 @@
       "async": true,
       "containsErrors": false,
       "definitionName": "_cmd_fade_up",
-      "documentation": "command: fade from black to clear (fade up = reveal scene)",
       "fileName": "fade_effect.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 16,
-          "line": 45
+          "line": 32
         },
         "start": {
           "character": 0,
-          "line": 41
+          "line": 29
         }
       },
       "parameters": [
@@ -431,17 +444,16 @@
       "async": true,
       "containsErrors": false,
       "definitionName": "_cmd_fade_down",
-      "documentation": "command: fade from clear to black (fade down = hide scene)",
       "fileName": "fade_effect.gd",
       "language": "gdscript",
       "location": {
         "end": {
           "character": 16,
-          "line": 53
+          "line": 38
         },
         "start": {
           "character": 0,
-          "line": 49
+          "line": 35
         }
       },
       "parameters": [
