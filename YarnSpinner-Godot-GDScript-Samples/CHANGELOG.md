@@ -1,6 +1,22 @@
-# Changelog
+# Yarn Spinner Samples for Godot (GDScript) — Changelog
 
-## Early Access 3.3.1
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+
+## [Unreleased]
+
+### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+## [3.3.1] - 2026-11-17
+
+### Early Access 3.3.1
 
 - New **Custom Actions** sample!Its Yarn Project generates a variables class, and the inventory Commands and Functions take the generated `FoodType` enum. Bring Hungry Henry the fruit he asks for: a Function that waits for the player to pick an item from their inventory, and a Command the player can skip.
 - `SimpleCharacter.move_to()` takes an optional `YarnCancellationToken`. When the token is cancelled, the character jumps to the end of the walk.
