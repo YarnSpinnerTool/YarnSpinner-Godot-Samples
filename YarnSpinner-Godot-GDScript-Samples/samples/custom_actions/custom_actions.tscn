@@ -248,9 +248,7 @@ size_flags_vertical = 4
 focus_mode = 0
 mouse_filter = 2
 food = -1456549808
-
-[node name="Sprite" parent="InventoryLayer/Root/InventoryDisplay/Items/Apple" index="1"]
-texture = ExtResource("20_icon0")
+icon_texture = ExtResource("20_icon0")
 
 [node name="Orange" parent="InventoryLayer/Root/InventoryDisplay/Items" instance=ExtResource("15_item")]
 layout_mode = 2
@@ -258,9 +256,7 @@ size_flags_vertical = 4
 focus_mode = 0
 mouse_filter = 2
 food = 499495288
-
-[node name="Sprite" parent="InventoryLayer/Root/InventoryDisplay/Items/Orange" index="1"]
-texture = ExtResource("20_icon1")
+icon_texture = ExtResource("20_icon1")
 
 [node name="Blueberry" parent="InventoryLayer/Root/InventoryDisplay/Items" instance=ExtResource("15_item")]
 layout_mode = 2
@@ -268,9 +264,7 @@ size_flags_vertical = 4
 focus_mode = 0
 mouse_filter = 2
 food = 2032018643
-
-[node name="Sprite" parent="InventoryLayer/Root/InventoryDisplay/Items/Blueberry" index="1"]
-texture = ExtResource("20_icon2")
+icon_texture = ExtResource("20_icon2")
 
 [node name="InventorySelect" type="Control" parent="InventoryLayer/Root" node_paths=PackedStringArray("slots")]
 visible = false
@@ -329,26 +323,20 @@ layout_mode = 2
 size_flags_vertical = 4
 selectable = true
 food = -1456549808
-
-[node name="Sprite" parent="InventoryLayer/Root/InventorySelect/Background/Items/Apple" index="1"]
-texture = ExtResource("20_icon0")
+icon_texture = ExtResource("20_icon0")
 
 [node name="Orange" parent="InventoryLayer/Root/InventorySelect/Background/Items" instance=ExtResource("15_item")]
 layout_mode = 2
 size_flags_vertical = 4
 selectable = true
 food = 499495288
-
-[node name="Sprite" parent="InventoryLayer/Root/InventorySelect/Background/Items/Orange" index="1"]
-texture = ExtResource("20_icon1")
+icon_texture = ExtResource("20_icon1")
 
 [node name="Blueberry" parent="InventoryLayer/Root/InventorySelect/Background/Items" instance=ExtResource("15_item")]
 layout_mode = 2
 size_flags_vertical = 4
 selectable = true
 food = 2032018643
-
-[node name="Sprite" parent="InventoryLayer/Root/InventorySelect/Background/Items/Blueberry" index="1"]
-texture = ExtResource("20_icon2")
+icon_texture = ExtResource("20_icon2")
 
 [editable path="BasicArena"]

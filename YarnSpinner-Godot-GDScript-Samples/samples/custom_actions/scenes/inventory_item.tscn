@@ -15,7 +15,7 @@ corner_detail = 16
 [sub_resource type="FontVariation" id="FontVariation_bold"]
 variation_embolden = 0.8
 
-[node name="InventoryItem" type="Button" node_paths=PackedStringArray("hover", "count_badge", "count_label")]
+[node name="InventoryItem" type="Button" node_paths=PackedStringArray("sprite", "hover", "count_badge", "count_label")]
 custom_minimum_size = Vector2(200, 200)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_none")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_none")
@@ -23,6 +23,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_none")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_none")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_none")
 script = ExtResource("1_item")
+sprite = NodePath("Sprite")
 hover = NodePath("SelectionHover")
 count_badge = NodePath("Count")
 count_label = NodePath("Count/Text")

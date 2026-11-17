@@ -1,8 +1,15 @@
+@tool
 extends Button
 
 signal item_picked(food: int)
 
 @export var food: CustomFunctionsVariables.FoodType
+@export var icon_texture: Texture2D:
+	set(value):
+		icon_texture = value
+		if is_node_ready():
+			sprite.texture = value
+@export var sprite: TextureRect
 @export var selectable := false
 @export var hover: ColorRect
 @export var count_badge: Control
@@ -13,6 +20,9 @@ signal item_picked(food: int)
 
 
 func _ready() -> void:
+	sprite.texture = icon_texture
+	if Engine.is_editor_hint():
+		return
 	hover.color = normal_colour
 	pressed.connect(func() -> void: item_picked.emit(food))
 	mouse_entered.connect(_set_hover.bind(hover_colour))
