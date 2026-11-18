@@ -6,14 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://cwyx0udsah02p" path="res://samples/shared/scenes/dialogue.tscn" id="5_7g3mq"]
 [ext_resource type="PackedScene" uid="uid://d1fluul8ky1qb" path="res://samples/shared/art/materials/samples_environment.tscn" id="6_7g3mq"]
 [ext_resource type="Resource" uid="uid://cqiqscscbijsx" path="res://samples/welcome/dialogue/Intro.yarnproject" id="6_n60vi"]
-[ext_resource type="Script" path="res://samples/welcome/scripts/slideshow.gd" id="7_slide"]
-[ext_resource type="AudioStream" path="res://samples/welcome/audio/slideshow-advance.wav" id="30_advance"]
+[ext_resource type="Script" uid="uid://cb7l87bkw1a4c" path="res://samples/welcome/scripts/slideshow.gd" id="7_slide"]
+[ext_resource type="AudioStream" uid="uid://d3lhvhn051oqd" path="res://samples/welcome/audio/slideshow-advance.wav" id="30_advance"]
 [ext_resource type="Script" uid="uid://bj11vnurtp6tm" path="res://samples/shared/scripts/link_opener.gd" id="31_link"]
 [ext_resource type="Script" uid="uid://c5e6x50a6q1p" path="res://addons/yarn_spinner/binding_loader.gd" id="32_loader"]
 [ext_resource type="Script" uid="uid://dir7con1xbeia" path="res://addons/yarn_spinner/core/command_binding.gd" id="33_binding"]
 [ext_resource type="Resource" uid="uid://cohwafq0wkrbb" path="res://samples/welcome/bindings/start_slide.tres" id="34_start"]
 [ext_resource type="Resource" uid="uid://ds3cmdg8qalhk" path="res://samples/welcome/bindings/end_slide.tres" id="35_end"]
 [ext_resource type="Resource" uid="uid://uwphtwbxdkkg" path="res://samples/welcome/bindings/clear_slide.tres" id="36_clear"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_welcome_ground"]
+size = Vector3(20, 1, 20)
 
 [sub_resource type="QuadMesh" id="QuadMesh_7g3mq"]
 size = Vector2(1.08, 0.9)
@@ -25,19 +28,16 @@ viewport_path = NodePath("SubViewport")
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_7g3mq")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_welcome_ground"]
-size = Vector3(20, 1, 20)
-
 [node name="Welcome" type="Node3D" unique_id=942194094]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1765512604]
-transform = Transform3D(0.86602545, -0.38302214, 0.32139377, 0, 0.64278765, 0.76604441, -0.49999992, -0.66341396, 0.55667046, 0, 0, 0)
+transform = Transform3D(0.86602545, -0.38302213, 0.32139376, 0, 0.64278764, 0.76604444, -0.4999999, -0.66341394, 0.5566705, 0, 0, 0)
 light_energy = 0.71
 shadow_enabled = true
 
-[node name="Ground" type="StaticBody3D" parent="."]
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1033924968]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1812994898]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_welcome_ground")
 
@@ -59,7 +59,7 @@ fov = 35.0
 yarn_project = ExtResource("6_n60vi")
 presenters = [NodePath("../UILayer/LinePresenter"), NodePath("../UILayer/OptionsPresenter"), NodePath("Slideshow")]
 
-[node name="Slideshow" type="Node" parent="Dialogue/YarnDialogueRunner" index="0" node_paths=PackedStringArray("header_label", "body_label", "image", "slide_panel", "override_presenters", "advance_sound") unique_id=611224488]
+[node name="Slideshow" type="Node" parent="Dialogue/YarnDialogueRunner" index="0" unique_id=611224488 node_paths=PackedStringArray("header_label", "body_label", "image", "slide_panel", "override_presenters", "advance_sound")]
 script = ExtResource("7_slide")
 header_label = NodePath("../../../SubViewport/Slide/VBox/Header")
 body_label = NodePath("../../../SubViewport/Slide/VBox/Body")
@@ -67,6 +67,12 @@ image = NodePath("../../../SubViewport/Slide/VBox/Image")
 slide_panel = NodePath("../../../SubViewport/Slide")
 override_presenters = [NodePath("../../UILayer/LinePresenter")]
 advance_sound = NodePath("AdvanceSound")
+
+[node name="AdvanceSound" type="AudioStreamPlayer" parent="Dialogue/YarnDialogueRunner/Slideshow" unique_id=310685362]
+stream = ExtResource("30_advance")
+
+[node name="LinkOpener" type="Node" parent="Dialogue/UILayer/LinePresenter" index="2" unique_id=1395666852]
+script = ExtResource("31_link")
 
 [node name="YarnBindingLoader" type="Node" parent="." unique_id=1730562214 node_paths=PackedStringArray("dialogue_runner")]
 script = ExtResource("32_loader")
@@ -126,11 +132,5 @@ mesh = SubResource("QuadMesh_7g3mq")
 surface_material_override/0 = SubResource("StandardMaterial3D_n60vi")
 
 [node name="SamplesEnvironment" parent="." unique_id=789525707 instance=ExtResource("6_7g3mq")]
-
-[node name="AdvanceSound" type="AudioStreamPlayer" parent="Dialogue/YarnDialogueRunner/Slideshow"]
-stream = ExtResource("30_advance")
-
-[node name="LinkOpener" type="Node" parent="Dialogue/UILayer/LinePresenter"]
-script = ExtResource("31_link")
 
 [editable path="Dialogue"]
