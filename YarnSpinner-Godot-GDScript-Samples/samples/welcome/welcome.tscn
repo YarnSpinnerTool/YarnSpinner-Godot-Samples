@@ -92,11 +92,8 @@ grow_vertical = 2
 color = Color(0.972549, 0.972549, 0.94902, 1)
 
 [node name="Slide" type="MarginContainer" parent="SubViewport" unique_id=479271702]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 1200.0
+offset_bottom = 1000.0
 theme_override_constants/margin_left = 48
 theme_override_constants/margin_top = 48
 theme_override_constants/margin_right = 48
@@ -104,17 +101,23 @@ theme_override_constants/margin_bottom = 48
 
 [node name="VBox" type="VBoxContainer" parent="SubViewport/Slide" unique_id=222448931]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 32
 
 [node name="Header" type="Label" parent="SubViewport/Slide/VBox" unique_id=2112408890]
+custom_minimum_size = Vector2(1104, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.117647, 0.121569, 0.196078, 1)
 theme_override_font_sizes/font_size = 96
 text = "Header"
 autowrap_mode = 3
 
 [node name="Body" type="Label" parent="SubViewport/Slide/VBox" unique_id=964120553]
+custom_minimum_size = Vector2(1104, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.196078, 0.203922, 0.301961, 1)
 theme_override_font_sizes/font_size = 64
@@ -122,6 +125,7 @@ autowrap_mode = 3
 
 [node name="Image" type="TextureRect" parent="SubViewport/Slide/VBox" unique_id=1167312880]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 expand_mode = 1
 stretch_mode = 5

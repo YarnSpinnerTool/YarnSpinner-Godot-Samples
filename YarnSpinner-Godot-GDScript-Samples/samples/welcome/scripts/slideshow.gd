@@ -16,6 +16,7 @@ extends YarnDialoguePresenter
 @export_dir var image_folder: String = "res://samples/welcome/images"
 
 var _running_slideshow: bool = false
+var _slide_generation: int = 0
 
 
 func _ready() -> void:
@@ -43,6 +44,7 @@ func start_slide() -> void:
 	if advance_sound != null:
 		advance_sound.play()
 
+	_slide_generation += 1
 	_running_slideshow = true
 
 
@@ -50,8 +52,11 @@ func end_slide() -> void:
 	if not _running_slideshow:
 		push_warning("slideshow: end_slide called while a slide was not being built")
 
+	var generation := _slide_generation
 	if delay_before_showing_new_slide > 0.0:
 		await get_tree().create_timer(delay_before_showing_new_slide).timeout
+	if generation != _slide_generation:
+		return
 
 	for presenter in override_presenters:
 		if presenter != null and dialogue_runner != null:
@@ -89,7 +94,7 @@ func _set_body(text: String) -> void:
 		_set_image("")
 	if body_label != null:
 		body_label.text = text
-		body_label.visible = true
+		body_label.visible = not text.is_empty()
 
 
 func _add_bullet(text: String) -> void:
