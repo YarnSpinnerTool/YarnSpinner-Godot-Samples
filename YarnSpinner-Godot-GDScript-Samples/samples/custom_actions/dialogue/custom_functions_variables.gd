@@ -17,18 +17,21 @@ const _FOOD_TYPE_VALUES := {
 	FoodType.BLUEBERRY: "blueberry",
 }
 
+## The current type of food that Henry wants
 var desired_food: FoodType:
 	get:
 		return get_enum_value_or_default("$desired_food", FoodType, FoodType.NONE) as FoodType
 	set(value):
 		set_value("$desired_food", _FOOD_TYPE_VALUES[value])
 
+## The type of food that the player has just selected
 var selected_food: String:
 	get:
 		return str(get_value_or_default("$selected_food", ""))
 	set(value):
 		set_value("$selected_food", value)
 
+## A temporary variable to store dice rolls in
 var dice: float:
 	get:
 		return float(get_value_or_default("$dice", 0.0))

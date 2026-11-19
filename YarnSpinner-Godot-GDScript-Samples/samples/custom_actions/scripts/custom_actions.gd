@@ -16,6 +16,7 @@ func _ready() -> void:
 	dialogue_runner.add_command("walk_to_point_eat_and_return", _walk_to_point_eat_and_return)
 	dialogue_runner.add_function("has_inventory_item", _has_inventory_item)
 	dialogue_runner.add_function("has_any_inventory_items", _has_any_inventory_items)
+	dialogue_runner.add_function("has_all_inventory_items", _has_all_inventory_items)
 	dialogue_runner.add_function("inventory_count", _inventory_count)
 	dialogue_runner.add_function("pick_inventory_item", _pick_inventory_item)
 	_update_inventory_panels()
@@ -69,6 +70,15 @@ func _has_any_inventory_items() -> bool:
 		if count > 0:
 			return true
 	return false
+
+
+## @yarn_variadic enum FoodType
+func _has_all_inventory_items(...foods: Array) -> bool:
+	for value: Variant in foods:
+		var food: Variant = CustomFunctionsVariables._FOOD_TYPE_VALUES.find_key(value)
+		if food == null or _inventory.get(food, 0) <= 0:
+			return false
+	return true
 
 
 func _inventory_count(food: CustomFunctionsVariables.FoodType) -> int:

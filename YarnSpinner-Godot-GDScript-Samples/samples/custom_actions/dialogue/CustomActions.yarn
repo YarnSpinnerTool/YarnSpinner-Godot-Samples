@@ -53,6 +53,10 @@ title: HungryHenry
     <<stop>>
 <<endif>>
 
+<<if has_all_inventory_items(.Apple, .Orange, .Blueberry)>>
+    HungryHenry: You've got one of everything!
+<<endif>>
+
 <<if has_inventory_item($desired_food)>>
     // The player has the right kind of item in their inventory - run a line to tell them
     => HungryHenry: Give me one of those apples! <<if $desired_food is FoodType.Apple>>

@@ -1,361 +1,4 @@
 {
-  "Functions": [
-    {
-      "DefinitionName": "visited",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "bool",
-      "YarnName": "visited"
-    },
-    {
-      "DefinitionName": "visited_count",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "visited_count"
-    },
-    {
-      "DefinitionName": "has_any_content",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "bool",
-      "YarnName": "has_any_content"
-    },
-    {
-      "DefinitionName": "abs",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "abs"
-    },
-    {
-      "DefinitionName": "sign",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "sign"
-    },
-    {
-      "DefinitionName": "clamp",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p1",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p2",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "clamp"
-    },
-    {
-      "DefinitionName": "lerp",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p1",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p2",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "lerp"
-    },
-    {
-      "DefinitionName": "inverse_lerp",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p1",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p2",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "inverse_lerp"
-    },
-    {
-      "DefinitionName": "smoothstep",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p1",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p2",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "smoothstep"
-    },
-    {
-      "DefinitionName": "pow",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p1",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "pow"
-    },
-    {
-      "DefinitionName": "sqrt",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "sqrt"
-    },
-    {
-      "DefinitionName": "wrap",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p1",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p2",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "wrap"
-    },
-    {
-      "DefinitionName": "mod",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p1",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "mod"
-    },
-    {
-      "DefinitionName": "plural",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": true,
-          "Name": "p1",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "string",
-      "YarnName": "plural"
-    },
-    {
-      "DefinitionName": "ordinal",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": true,
-          "Name": "p1",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "string",
-      "YarnName": "ordinal"
-    },
-    {
-      "DefinitionName": "length",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "length"
-    },
-    {
-      "DefinitionName": "uppercase",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "string",
-      "YarnName": "uppercase"
-    },
-    {
-      "DefinitionName": "lowercase",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "string",
-      "YarnName": "lowercase"
-    },
-    {
-      "DefinitionName": "first_letter_caps",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "string",
-      "YarnName": "first_letter_caps"
-    }
-  ],
   "commands": [
     {
       "async": true,
@@ -775,6 +418,350 @@
       },
       "parameters": [],
       "yarnName": "clear_slide"
+    }
+  ],
+  "functions": [
+    {
+      "async": false,
+      "definitionName": "abs",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "abs"
+    },
+    {
+      "async": false,
+      "definitionName": "sign",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "sign"
+    },
+    {
+      "async": false,
+      "definitionName": "clamp",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p1",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p2",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "clamp"
+    },
+    {
+      "async": false,
+      "definitionName": "lerp",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p1",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p2",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "lerp"
+    },
+    {
+      "async": false,
+      "definitionName": "inverse_lerp",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p1",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p2",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "inverse_lerp"
+    },
+    {
+      "async": false,
+      "definitionName": "smoothstep",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p1",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p2",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "smoothstep"
+    },
+    {
+      "async": false,
+      "definitionName": "pow",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p1",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "pow"
+    },
+    {
+      "async": false,
+      "definitionName": "sqrt",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "sqrt"
+    },
+    {
+      "async": false,
+      "definitionName": "wrap",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p1",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p2",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "wrap"
+    },
+    {
+      "async": false,
+      "definitionName": "mod",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p1",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "mod"
+    },
+    {
+      "async": false,
+      "definitionName": "plural",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": true,
+          "name": "p1",
+          "type": "string"
+        }
+      ],
+      "return": {
+        "type": "string"
+      },
+      "yarnName": "plural"
+    },
+    {
+      "async": false,
+      "definitionName": "ordinal",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": true,
+          "name": "p1",
+          "type": "string"
+        }
+      ],
+      "return": {
+        "type": "string"
+      },
+      "yarnName": "ordinal"
+    },
+    {
+      "async": false,
+      "definitionName": "length",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "string"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "length"
+    },
+    {
+      "async": false,
+      "definitionName": "uppercase",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "string"
+        }
+      ],
+      "return": {
+        "type": "string"
+      },
+      "yarnName": "uppercase"
+    },
+    {
+      "async": false,
+      "definitionName": "lowercase",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "string"
+        }
+      ],
+      "return": {
+        "type": "string"
+      },
+      "yarnName": "lowercase"
+    },
+    {
+      "async": false,
+      "definitionName": "first_letter_caps",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "string"
+        }
+      ],
+      "return": {
+        "type": "string"
+      },
+      "yarnName": "first_letter_caps"
     }
   ],
   "version": 2

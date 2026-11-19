@@ -1,455 +1,4 @@
 {
-  "Functions": [
-    {
-      "DefinitionName": "_has_inventory_item",
-      "Documentation": "",
-      "FileName": "custom_actions.gd",
-      "Language": "gdscript",
-      "Location": {
-        "end": {
-          "character": 35,
-          "line": 63
-        },
-        "start": {
-          "character": 0,
-          "line": 62
-        }
-      },
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "food",
-          "Subtype": "FoodType",
-          "Type": "any"
-        }
-      ],
-      "ReturnType": "bool",
-      "YarnName": "has_inventory_item",
-      "containsErrors": false
-    },
-    {
-      "DefinitionName": "_has_any_inventory_items",
-      "Documentation": "",
-      "FileName": "custom_actions.gd",
-      "Language": "gdscript",
-      "Location": {
-        "end": {
-          "character": 13,
-          "line": 70
-        },
-        "start": {
-          "character": 0,
-          "line": 66
-        }
-      },
-      "Parameters": [],
-      "ReturnType": "bool",
-      "YarnName": "has_any_inventory_items",
-      "containsErrors": false
-    },
-    {
-      "DefinitionName": "_inventory_count",
-      "Documentation": "",
-      "FileName": "custom_actions.gd",
-      "Language": "gdscript",
-      "Location": {
-        "end": {
-          "character": 31,
-          "line": 74
-        },
-        "start": {
-          "character": 0,
-          "line": 73
-        }
-      },
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "food",
-          "Subtype": "FoodType",
-          "Type": "any"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "inventory_count",
-      "containsErrors": false
-    },
-    {
-      "DefinitionName": "_pick_inventory_item",
-      "Documentation": "",
-      "FileName": "custom_actions.gd",
-      "Language": "gdscript",
-      "Location": {
-        "end": {
-          "character": 58,
-          "line": 98
-        },
-        "start": {
-          "character": 0,
-          "line": 77
-        }
-      },
-      "Parameters": [],
-      "ReturnType": "string",
-      "YarnName": "pick_inventory_item",
-      "containsErrors": false
-    },
-    {
-      "DefinitionName": "visited",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "bool",
-      "YarnName": "visited"
-    },
-    {
-      "DefinitionName": "visited_count",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "visited_count"
-    },
-    {
-      "DefinitionName": "has_any_content",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "bool",
-      "YarnName": "has_any_content"
-    },
-    {
-      "DefinitionName": "abs",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "abs"
-    },
-    {
-      "DefinitionName": "sign",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "sign"
-    },
-    {
-      "DefinitionName": "clamp",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p1",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p2",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "clamp"
-    },
-    {
-      "DefinitionName": "lerp",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p1",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p2",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "lerp"
-    },
-    {
-      "DefinitionName": "inverse_lerp",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p1",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p2",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "inverse_lerp"
-    },
-    {
-      "DefinitionName": "smoothstep",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p1",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p2",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "smoothstep"
-    },
-    {
-      "DefinitionName": "pow",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p1",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "pow"
-    },
-    {
-      "DefinitionName": "sqrt",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "sqrt"
-    },
-    {
-      "DefinitionName": "wrap",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p1",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p2",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "wrap"
-    },
-    {
-      "DefinitionName": "mod",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": false,
-          "Name": "p1",
-          "Type": "number"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "mod"
-    },
-    {
-      "DefinitionName": "plural",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": true,
-          "Name": "p1",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "string",
-      "YarnName": "plural"
-    },
-    {
-      "DefinitionName": "ordinal",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "number"
-        },
-        {
-          "IsParamsArray": true,
-          "Name": "p1",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "string",
-      "YarnName": "ordinal"
-    },
-    {
-      "DefinitionName": "length",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "number",
-      "YarnName": "length"
-    },
-    {
-      "DefinitionName": "uppercase",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "string",
-      "YarnName": "uppercase"
-    },
-    {
-      "DefinitionName": "lowercase",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "string",
-      "YarnName": "lowercase"
-    },
-    {
-      "DefinitionName": "first_letter_caps",
-      "Documentation": "",
-      "FileName": "",
-      "Language": "gdscript",
-      "Parameters": [
-        {
-          "IsParamsArray": false,
-          "Name": "p0",
-          "Type": "string"
-        }
-      ],
-      "ReturnType": "string",
-      "YarnName": "first_letter_caps"
-    }
-  ],
   "commands": [
     {
       "async": true,
@@ -822,11 +371,11 @@
       "location": {
         "end": {
           "character": 27,
-          "line": 54
+          "line": 55
         },
         "start": {
           "character": 0,
-          "line": 52
+          "line": 53
         }
       },
       "parameters": [
@@ -854,11 +403,11 @@
       "location": {
         "end": {
           "character": 27,
-          "line": 59
+          "line": 60
         },
         "start": {
           "character": 0,
-          "line": 57
+          "line": 58
         }
       },
       "parameters": [
@@ -886,11 +435,11 @@
       "location": {
         "end": {
           "character": 17,
-          "line": 117
+          "line": 127
         },
         "start": {
           "character": 0,
-          "line": 101
+          "line": 111
         }
       },
       "parameters": [
@@ -908,6 +457,481 @@
         }
       ],
       "yarnName": "walk_to_point_eat_and_return"
+    }
+  ],
+  "functions": [
+    {
+      "async": false,
+      "containsErrors": false,
+      "definitionName": "_has_inventory_item",
+      "fileName": "custom_actions.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 35,
+          "line": 64
+        },
+        "start": {
+          "character": 0,
+          "line": 63
+        }
+      },
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "food",
+          "subtype": "FoodType",
+          "type": "enum"
+        }
+      ],
+      "return": {
+        "type": "bool"
+      },
+      "yarnName": "has_inventory_item"
+    },
+    {
+      "async": false,
+      "containsErrors": false,
+      "definitionName": "_has_any_inventory_items",
+      "fileName": "custom_actions.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 13,
+          "line": 71
+        },
+        "start": {
+          "character": 0,
+          "line": 67
+        }
+      },
+      "parameters": [],
+      "return": {
+        "type": "bool"
+      },
+      "yarnName": "has_any_inventory_items"
+    },
+    {
+      "async": false,
+      "containsErrors": false,
+      "definitionName": "_has_all_inventory_items",
+      "fileName": "custom_actions.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 12,
+          "line": 80
+        },
+        "start": {
+          "character": 0,
+          "line": 75
+        }
+      },
+      "parameters": [
+        {
+          "isParamsArray": true,
+          "name": "foods",
+          "subtype": "FoodType",
+          "type": "enum"
+        }
+      ],
+      "return": {
+        "type": "bool"
+      },
+      "yarnName": "has_all_inventory_items"
+    },
+    {
+      "async": false,
+      "containsErrors": false,
+      "definitionName": "_inventory_count",
+      "fileName": "custom_actions.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 31,
+          "line": 84
+        },
+        "start": {
+          "character": 0,
+          "line": 83
+        }
+      },
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "food",
+          "subtype": "FoodType",
+          "type": "enum"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "inventory_count"
+    },
+    {
+      "async": true,
+      "containsErrors": false,
+      "definitionName": "_pick_inventory_item",
+      "fileName": "custom_actions.gd",
+      "language": "gdscript",
+      "location": {
+        "end": {
+          "character": 58,
+          "line": 108
+        },
+        "start": {
+          "character": 0,
+          "line": 87
+        }
+      },
+      "parameters": [],
+      "return": {
+        "type": "string"
+      },
+      "yarnName": "pick_inventory_item"
+    },
+    {
+      "async": false,
+      "definitionName": "abs",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "abs"
+    },
+    {
+      "async": false,
+      "definitionName": "sign",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "sign"
+    },
+    {
+      "async": false,
+      "definitionName": "clamp",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p1",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p2",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "clamp"
+    },
+    {
+      "async": false,
+      "definitionName": "lerp",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p1",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p2",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "lerp"
+    },
+    {
+      "async": false,
+      "definitionName": "inverse_lerp",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p1",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p2",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "inverse_lerp"
+    },
+    {
+      "async": false,
+      "definitionName": "smoothstep",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p1",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p2",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "smoothstep"
+    },
+    {
+      "async": false,
+      "definitionName": "pow",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p1",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "pow"
+    },
+    {
+      "async": false,
+      "definitionName": "sqrt",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "sqrt"
+    },
+    {
+      "async": false,
+      "definitionName": "wrap",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p1",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p2",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "wrap"
+    },
+    {
+      "async": false,
+      "definitionName": "mod",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": false,
+          "name": "p1",
+          "type": "number"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "mod"
+    },
+    {
+      "async": false,
+      "definitionName": "plural",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": true,
+          "name": "p1",
+          "type": "string"
+        }
+      ],
+      "return": {
+        "type": "string"
+      },
+      "yarnName": "plural"
+    },
+    {
+      "async": false,
+      "definitionName": "ordinal",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "number"
+        },
+        {
+          "isParamsArray": true,
+          "name": "p1",
+          "type": "string"
+        }
+      ],
+      "return": {
+        "type": "string"
+      },
+      "yarnName": "ordinal"
+    },
+    {
+      "async": false,
+      "definitionName": "length",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "string"
+        }
+      ],
+      "return": {
+        "type": "number"
+      },
+      "yarnName": "length"
+    },
+    {
+      "async": false,
+      "definitionName": "uppercase",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "string"
+        }
+      ],
+      "return": {
+        "type": "string"
+      },
+      "yarnName": "uppercase"
+    },
+    {
+      "async": false,
+      "definitionName": "lowercase",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "string"
+        }
+      ],
+      "return": {
+        "type": "string"
+      },
+      "yarnName": "lowercase"
+    },
+    {
+      "async": false,
+      "definitionName": "first_letter_caps",
+      "fileName": "",
+      "language": "gdscript",
+      "parameters": [
+        {
+          "isParamsArray": false,
+          "name": "p0",
+          "type": "string"
+        }
+      ],
+      "return": {
+        "type": "string"
+      },
+      "yarnName": "first_letter_caps"
     }
   ],
   "version": 2
